@@ -7,6 +7,18 @@ class MainScreenViewController: UIViewController {
     // MARK: Properties
     var output: MainScreenViewOutput!
 
+    var collectionView: UICollectionView?
+    var layout: UICollectionViewLayout?
+    var dataSource: UICollectionViewDiffableDataSource<String, AnyHashable>?
+
+    
+    lazy var rightSettingsButton: UIBarButtonItem = {
+        let item = UIBarButtonItem(barButtonSystemItem: .action,
+                                   target: self,
+                                   action: #selector(settingsButtonTapped(sender:)))
+        return item
+    }()
+    
     // MARK: Life cycle
     override func loadView() {
         super.loadView()
@@ -14,7 +26,11 @@ class MainScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.backgroundColor = Colors.myWhiteColor()
+        navigationItem.title = MainTabBarTabs.main.title
+        navigationItem.rightBarButtonItem = rightSettingsButton
+        navigationController?.navigationBar.prefersLargeTitles = true
         output.viewIsReady()
     }
 
@@ -46,17 +62,33 @@ class MainScreenViewController: UIViewController {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
     }
+    
+    @objc private func settingsButtonTapped(sender: UIBarButtonItem) {
+        output.settingsButtonTapped()
+    }
 }
 
 extension MainScreenViewController {
     // MARK: Methods
     func setupViews() {
-
+        
+        
+        
+        setupCollectionView()
         setupConstraints()
     }
 
     func setupConstraints() {
-
+        guard let collectionView = collectionView else { return }
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
 }
 
@@ -67,5 +99,30 @@ extension MainScreenViewController: MainScreenViewInput {
                     text: "\(type(of: self)) - \(#function)")
 
         setupViews()
+    }
+    
+    func setupData(newData: [SectionViewModel]) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) \(newData)")
+        
+        var snapshot = NSDiffableDataSourceSnapshot<String, AnyHashable>()
+        
+        newData.forEach { sectionVM in
+            var vms: [AnyHashable] = []
+            sectionVM.items.forEach { cellViewModel in
+                
+                switch cellViewModel {
+                case let vm as MainScreenInfoViewModel:
+                    vms.append(vm)
+                default:
+                    break
+                }
+            }
+            
+            snapshot.appendSections([sectionVM.section])
+            snapshot.appendItems(vms, toSection: sectionVM.section)
+        }
+        
+        dataSource?.apply(snapshot)
     }
 }

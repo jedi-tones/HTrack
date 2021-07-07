@@ -9,19 +9,23 @@ import UIKit
 
 protocol MainTabBarCoordinatorFlow {
     func showTab(index: Int)
-    func showWelcomeScreen(animated: Bool)
     
     func startMainScreenCoordinator(modulePresenter: Presentable)
     func startFriendsCoordinator(modulePresenter: Presentable)
+    func startAuthCoordinator(animated: Bool)
 }
 
 class MainTabBarCoordinator: CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
-    var modulePresenter: Presentable
+    var modulePresenter: Presentable?
     var parentCoordinator: CoordinatorProtocol?
+    var parentAppCoordinator: AppCoordinatorFlow? {
+        return parentCoordinator as? AppCoordinatorFlow
+    }
+    let window: UIWindow
     
-    init(modulePresenter: Presentable) {
-        self.modulePresenter = modulePresenter
+    init(window: UIWindow) {
+        self.window = window
     }
     
     deinit {
@@ -34,15 +38,20 @@ class MainTabBarCoordinator: CoordinatorProtocol {
                     text: "\(type(of: self)) - \(#function)")
         
         let mainTabBar = MainTabBarModule(coordinator: self)
-        modulePresenter.presentModule(with: mainTabBar.controller,
-                                      presentationStyle: .fullScreen,
-                                      animated: animated)
+        modulePresenter = mainTabBar.controller
+        window.rootViewController = mainTabBar.controller
+        window.makeKeyAndVisible()
     }
     
     func childDidFinish(_ child: CoordinatorProtocol?) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function) - child: \(type(of: child))")
         
+        if child is AuthCoordinator {
+            modulePresenter?.dismissPresentedModule(animated: true, completion: nil)
+        }
+        
+        removeCoordinator(child)
     }
 }
 
@@ -52,24 +61,38 @@ extension MainTabBarCoordinator: MainTabBarCoordinatorFlow {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
+        let coordinator = MainScreenCoordinator(modulePresenter: modulePresenter)
+        coordinator.parentCoordinator = self
+        coordinator.start()
+        
+        childCoordinators.append(coordinator)
     }
     
     func startFriendsCoordinator(modulePresenter: Presentable) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
+        let coordinator = FriendsCoordinator(modulePresenter: modulePresenter)
+        coordinator.parentCoordinator = self
+        coordinator.start()
+        
+        childCoordinators.append(coordinator)
     }
     
     func showTab(index: Int) {
         
     }
     
-    func showWelcomeScreen(animated: Bool) {
-        guard let parentCoordinator = self.parentCoordinator else { return }
-        parentCoordinator.childDidFinish(self)
+    func startAuthCoordinator(animated: Bool) {
+        Logger.show(title: "Coordinator",
+                    text: "\(type(of: self)) - \(#function)")
         
-        if let appCoordinatorFlow = parentCoordinator as? AppCoordinatorFlow {
-            appCoordinatorFlow.startAuthCoordinator(animated: animated)
-        }
+        guard let modulePresenter = modulePresenter else { return }
+        
+        let authCoordinator = AuthCoordinator(modulePresenter: modulePresenter)
+        authCoordinator.parentCoordinator = self
+        authCoordinator.start(animated: animated)
+        
+        addCoordinator(authCoordinator)
     }
 }

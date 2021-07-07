@@ -6,7 +6,9 @@ class MainScreenPresenter {
     weak var view: MainScreenViewInput!
     var router: MainScreenRouterInput!
     var interactor: MainScreenInteractorInput!
-
+    
+    var viewModel: [SectionViewModel] = []
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -20,12 +22,55 @@ extension MainScreenPresenter: MainScreenViewOutput {
                     text: "\(type(of: self)) - \(#function)")
 
         view.setupInitialState()
+        interactor.getSections()
+    }
+    
+    func settingsButtonTapped() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
     }
 }
 
 // MARK: - MainScreenInteractorOutput
 extension MainScreenPresenter: MainScreenInteractorOutput {
+    func setupSections(sections: [MainScreenSection]) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        var newViewModel: [SectionViewModel] = []
+        
+        sections.forEach { section in
+            switch section {
+            
+            case .info:
+                var sectionVM = SectionViewModel(section: section.rawValue,
+                                                 header: nil,
+                                                 footer: nil,
+                                                 items: [])
+                
+                let infoVM = MainScreenInfoViewModel()
+                infoVM.title = "Не бухаю"
+                infoVM.description = "10 Дней"
+                infoVM.delegate = self
+                
+                sectionVM.items.append(infoVM)
+                
+                newViewModel.append(sectionVM)
+            }
+        }
+        
+        self.viewModel = newViewModel
+        view.setupData(newData: viewModel)
+    }
+}
 
+// MARK: - InfoViewModelDelegate
+extension MainScreenPresenter: InfoViewModelDelegate {
+    func didTapInfo() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+    }
 }
 
 // MARK: - MainScreenModuleInput

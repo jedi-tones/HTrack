@@ -7,21 +7,25 @@ import Foundation
 protocol MainScreenViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
+    func setupData(newData: [SectionViewModel])
 }
 
 protocol MainScreenViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
+    func settingsButtonTapped()
 }
 
 
 // MARK: - Interactor
 protocol MainScreenInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
+    func getSections()
 }
 
 protocol MainScreenInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
+    func setupSections(sections: [MainScreenSection])
 }
 
 

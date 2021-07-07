@@ -14,7 +14,7 @@ class FriendsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         output.viewIsReady()
     }
 
@@ -51,6 +51,9 @@ class FriendsViewController: UIViewController {
 extension FriendsViewController {
     // MARK: Methods
     func setupViews() {
+        view.backgroundColor = Colors.myWhiteColor()
+        navigationItem.title = MainTabBarTabs.friends.title
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         setupConstraints()
     }

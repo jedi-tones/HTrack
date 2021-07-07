@@ -18,8 +18,11 @@ class AuthCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController?
     
     var childCoordinators: [CoordinatorProtocol] = []
-    var modulePresenter: Presentable
+    var modulePresenter: Presentable?
     var parentCoordinator: CoordinatorProtocol?
+    var parentAppCoordinator: AppCoordinatorFlow? {
+        return parentCoordinator as? AppCoordinatorFlow
+    }
     
     init(modulePresenter: Presentable) {
         self.modulePresenter = modulePresenter
@@ -60,7 +63,7 @@ extension AuthCoordinator: AuthCoordinatorFlow {
             }
         } else {
             let module = WelcomeModule(coordinator: self)
-            modulePresenter.presentModule(with: module.controller, presentationStyle: .fullScreen, animated: animated)
+            modulePresenter?.presentModule(with: module.controller, presentationStyle: .fullScreen, animated: animated)
         }
     }
     
@@ -69,7 +72,7 @@ extension AuthCoordinator: AuthCoordinatorFlow {
                     text: "\(type(of: self)) - \(#function)")
         
         let module = AuthModule(coordinator: self)
-        modulePresenter.pushModule(with: module.controller, animated: true)
+        modulePresenter?.pushModule(with: module.controller, animated: true)
     }
     
     func showRegisterScreen() {
@@ -77,7 +80,7 @@ extension AuthCoordinator: AuthCoordinatorFlow {
                     text: "\(type(of: self)) - \(#function)")
         
         let module = RegisterModule(coordinator: self)
-        modulePresenter.pushModule(with: module.controller, animated: true)
+        modulePresenter?.pushModule(with: module.controller, animated: true)
     }
     
     func showMainTabBarScreen(animated: Bool) {
@@ -86,9 +89,5 @@ extension AuthCoordinator: AuthCoordinatorFlow {
          
         guard let parentCoordinator = self.parentCoordinator else { return }
         parentCoordinator.childDidFinish(self)
-        
-        if let appCoordinatorFlow = parentCoordinator as? AppCoordinatorFlow {
-            appCoordinatorFlow.startMainCoordinator(animated: animated)
-        }
     }
 }

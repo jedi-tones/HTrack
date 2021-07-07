@@ -9,7 +9,7 @@ import UIKit
 
 protocol CoordinatorProtocol: AnyObject {
     var childCoordinators: [CoordinatorProtocol] { get set }
-    var modulePresenter: Presentable { get set }
+    var modulePresenter: Presentable? { get set }
     var parentCoordinator: CoordinatorProtocol? { get set }
     
     func start(animated: Bool)

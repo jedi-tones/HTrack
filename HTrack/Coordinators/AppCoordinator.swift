@@ -8,22 +8,18 @@
 import UIKit
 
 protocol AppCoordinatorFlow {
-    func startMainCoordinator(animated: Bool)
-    func startAuthCoordinator(animated: Bool)
+    func startMainCoordinator()
 }
 
 class AppCoordinator: CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
-    var modulePresenter: Presentable
+    var modulePresenter: Presentable?
     var parentCoordinator: CoordinatorProtocol?
     
     let window: UIWindow
     
     init(window: UIWindow){
-        let navController = UINavigationController()
         self.window = window
-        window.rootViewController = navController
-        self.modulePresenter = navController
     }
     
     deinit {
@@ -36,67 +32,39 @@ class AppCoordinator: CoordinatorProtocol {
                     text: "\(type(of: self)) - \(#function)")
         
         configureNavigator()
-        
-        window.makeKeyAndVisible()
-        
-        if needShowAuth() {
-            startAuthCoordinator(animated: false)
-        } else {
-            startMainCoordinator(animated: false)
-        }
+        startMainCoordinator()
     }
     
     func childDidFinish(_ child: CoordinatorProtocol?) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function) - child: \(type(of: child))")
         
-        if child is AuthCoordinator {
-            modulePresenter.setModules(viewControllers: [], animated: false)
-            modulePresenter.dismissPresentedModule(animated: false, completion: nil)
-        }
-        
         if child is MainTabBarCoordinator {
-            modulePresenter.setModules(viewControllers: [], animated: false)
-            modulePresenter.dismissPresentedModule(animated: false, completion: nil)
+            modulePresenter?.dismissPresentedModule(animated: false, completion: nil)
+            window.rootViewController = nil
         }
-        
         removeCoordinator(child)
     }
 }
 
 //MARK: AppCoordinatorFlow
 extension AppCoordinator: AppCoordinatorFlow {
-    func startMainCoordinator(animated: Bool) {
+    func startMainCoordinator() {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
-        let mainTabBarCoordinator = MainTabBarCoordinator(modulePresenter: modulePresenter)
+        let mainTabBarCoordinator = MainTabBarCoordinator(window: window)
         mainTabBarCoordinator.parentCoordinator = self
-        mainTabBarCoordinator.start(animated: animated)
+        mainTabBarCoordinator.start(animated: false)
         
-        childCoordinators.append(mainTabBarCoordinator)
-    }
-    
-    func startAuthCoordinator(animated: Bool) {
-        Logger.show(title: "Coordinator",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        let authCoordinator = AuthCoordinator(modulePresenter: modulePresenter)
-        authCoordinator.parentCoordinator = self
-        authCoordinator.start(animated: animated)
-        
-        childCoordinators.append(authCoordinator)
+        addCoordinator(mainTabBarCoordinator)
     }
 }
 
 
 //MARK: Private methods
 extension AppCoordinator {
-    private func needShowAuth() -> Bool {
-        false
-    }
-    
     private func configureNavigator() {
-        
+
     }
 }

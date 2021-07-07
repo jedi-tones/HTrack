@@ -14,7 +14,7 @@ extension UINavigationController {
                                    isHidden: Bool = false,
                                    withoutBackImage: Bool = false) {
         
-        self.tabBarItem.imageInsets = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+        self.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tabBarItem.image = image
         self.tabBarItem.tag = tag
         self.navigationItem.title = title

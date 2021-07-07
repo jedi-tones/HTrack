@@ -9,8 +9,11 @@ import UIKit
 
 class FriendsCoordinator: CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
-    var modulePresenter: Presentable
+    var modulePresenter: Presentable?
     var parentCoordinator: CoordinatorProtocol?
+    var parentMainTabBar: MainTabBarCoordinatorFlow? {
+        return parentCoordinator as? MainTabBarCoordinatorFlow
+    }
     
     
     init(modulePresenter: Presentable) {
@@ -26,6 +29,8 @@ class FriendsCoordinator: CoordinatorProtocol {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
+        let module = FriendsModule(coordinator: self)
+        modulePresenter?.setModules(viewControllers: [module.controller], animated: false)
     }
     
     func childDidFinish(_ child: CoordinatorProtocol?) {

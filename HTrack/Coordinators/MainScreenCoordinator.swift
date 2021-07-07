@@ -9,8 +9,11 @@ import UIKit
 
 class MainScreenCoordinator: CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
-    var modulePresenter: Presentable
+    var modulePresenter: Presentable?
     var parentCoordinator: CoordinatorProtocol?
+    var parentMainTabBar: MainTabBarCoordinatorFlow? {
+        return parentCoordinator as? MainTabBarCoordinatorFlow
+    }
     
     init(modulePresenter: Presentable) {
         self.modulePresenter = modulePresenter
@@ -24,6 +27,8 @@ class MainScreenCoordinator: CoordinatorProtocol {
     func start(animated: Bool = false) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
+        let module = MainScreenModule(coordinator: self)
+        modulePresenter?.setModules(viewControllers: [module.controller], animated: false)
         
     }
     
