@@ -9,8 +9,8 @@ import UIKit
 
 protocol AuthCoordinatorFlow {
     func showWelcomeScreen(animated: Bool)
-    func showRegisterScreen()
-    func showAuthScreen()
+    func showCompliteRegisterScreen()
+    func showEmailAuthScreen()
     func showMainTabBarScreen(animated: Bool)
 }
 
@@ -20,14 +20,6 @@ class AuthCoordinator: CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
     var modulePresenter: Presentable?
     var parentCoordinator: CoordinatorProtocol?
-    var parentAppCoordinator: AppCoordinatorFlow? {
-        return parentCoordinator as? AppCoordinatorFlow
-    }
-    
-    init(modulePresenter: Presentable) {
-        self.modulePresenter = modulePresenter
-        
-    }
     
     deinit {
         Logger.show(title: "Coordinator",
@@ -54,20 +46,31 @@ extension AuthCoordinator: AuthCoordinatorFlow {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
+        ///pop to first Welcome module
         if let navController = modulePresenter as? UINavigationController {
             if navController.viewControllers.first is WelcomeViewController {
                 navController.popToRootViewController(animated: animated)
-            } else {
+            } else { /// if don't have WelcomeModule in stack, add them
                 let module = WelcomeModule(coordinator: self)
                 navController.setViewControllers([module.controller], animated: animated)
             }
-        } else {
+        } else { /// if don't have modulePresenter, create theme with navController
             let module = WelcomeModule(coordinator: self)
-            modulePresenter?.presentModule(with: module.controller, presentationStyle: .fullScreen, animated: animated)
+            let navController = UINavigationController(rootViewController: module.controller)
+            navController.setupNavigationController()
+            modulePresenter = navController
+            
+            if let tabBarModulePresenter =  parentCoordinator?.modulePresenter {
+                Logger.show(title: "Coordinator presentModule",
+                            text: "\(type(of: self)) - \(#function)")
+                tabBarModulePresenter.presentModule(with: navController, presentationStyle: .automatic, animated: animated)
+            } else if let presentedVC = UIApplication.getCurrentViewController() {
+                presentedVC.present(navController, animated: true, completion: nil)
+            }
         }
     }
     
-    func showAuthScreen() {
+    func showEmailAuthScreen() {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
@@ -75,7 +78,7 @@ extension AuthCoordinator: AuthCoordinatorFlow {
         modulePresenter?.pushModule(with: module.controller, animated: true)
     }
     
-    func showRegisterScreen() {
+    func showCompliteRegisterScreen() {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         

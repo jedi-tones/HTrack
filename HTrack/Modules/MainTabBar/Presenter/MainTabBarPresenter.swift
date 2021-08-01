@@ -36,6 +36,13 @@ extension MainTabBarPresenter: MainTabBarViewOutput {
         
         router.startCoordinatorsFor(navigators: navigators)
     }
+    
+    func checkAuth() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        interactor.checkAuth()
+    }
 }
 
 // MARK: - MainTabBarInteractorOutput
@@ -48,7 +55,13 @@ extension MainTabBarPresenter: MainTabBarInteractorOutput {
         view.setupTabs(tabs: tabs)
     }
     
-
+    
+    func showAuth() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.showAuthModule()
+    }
 }
 
 //MARK: private methods

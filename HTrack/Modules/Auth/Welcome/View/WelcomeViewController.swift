@@ -6,7 +6,8 @@ import UIKit
 class WelcomeViewController: UIViewController {
     // MARK: Properties
     var output: WelcomeViewOutput!
-
+    private let welcomView = WelcomeView()
+    
     // MARK: Life cycle
     override func loadView() {
         super.loadView()
@@ -51,12 +52,29 @@ class WelcomeViewController: UIViewController {
 extension WelcomeViewController {
     // MARK: Methods
     func setupViews() {
-
+        navigationController?.navigationBar.isHidden = true
+        
+        welcomView.signInWithApple.action = { [weak self] in
+            self?.output.signInWithApple()
+        }
+        welcomView.signInWithEmail.action = { [weak self] in
+            self?.output.signInWithEmail()
+        }
+        
         setupConstraints()
     }
 
     func setupConstraints() {
-
+        view.addSubview(welcomView)
+        
+        welcomView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            welcomView.topAnchor.constraint(equalTo: view.topAnchor),
+            welcomView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            welcomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            welcomView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
 }
 

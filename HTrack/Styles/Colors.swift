@@ -7,17 +7,83 @@
 
 import UIKit
 
-struct Colors {
+extension Styles.Colors  {
     static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
         guard #available(iOS 13.0, *) else { return light }
         return UIColor  { $0.userInterfaceStyle == .dark ? dark : light  }
     }
     
+    //MARK: base colors
+    static let black1 = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    static let black2 = black1.withAlphaComponent(0.5)
     
+    static let white1 = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    static let white2 = white1.withAlphaComponent(0.5)
+    static let white3 = #colorLiteral(red: 0.9198400378, green: 0.9143720269, blue: 0.9240432382, alpha: 1)
+    
+    //MARK: label
     static func myBackgroundColor() -> UIColor {
-        dynamicColor(light: #colorLiteral(red: 0.8748111129, green: 0.8696112037, blue: 0.8788084388, alpha: 1), dark: #colorLiteral(red: 0.1263937652, green: 0.1256497502, blue: 0.1269704401, alpha: 1))
+        dynamicColor(light: white1, dark: black1)
     }
     
+    static func myLabelColor() -> UIColor {
+        dynamicColor(light: black1, dark: white1)
+    }
+    
+    static func myInvertedLabelColor() -> UIColor {
+        dynamicColor(light: white1, dark: black1 )
+    }
+    
+    static func mySecondaryLabelColor() -> UIColor {
+        dynamicColor(light: black2, dark: white2)
+    }
+    
+    static func myLabelLinkColor() -> UIColor {
+        dynamicColor(light: black1, dark: white1)
+    }
+    
+    static func myActivityIndicatorColor() -> UIColor {
+        dynamicColor(light: black1, dark: white1)
+    }
+    
+    //MARK: first button type
+    static func myFilledButtonColor() -> UIColor {
+        dynamicColor(light: black1, dark: white1)
+    }
+    
+    static func myFilledDisableButtonColor() -> UIColor {
+        myFilledButtonColor().withAlphaComponent(0.5)
+    }
+    
+    static func myFilledButtonLabelColor() -> UIColor {
+        myInvertedLabelColor()
+    }
+    
+    //MARK: second button type
+    static func mySecondButtonColor() -> UIColor {
+        dynamicColor(light: white2, dark: black2)
+    }
+    
+    static func mySecondButtonLabelColor() -> UIColor {
+        myInvertedLabelColor()
+    }
+    
+    //MARK: only text button
+    static func onlyTextButtonColor() -> UIColor {
+        dynamicColor(light: .clear, dark: .clear)
+    }
+    
+    static func onlyTextButtonLabelColor() -> UIColor {
+        myLabelColor()
+    }
+    
+    //MARK: tabBar badge
+    static func badgeColor() -> UIColor {
+        dynamicColor(light: black2, dark: white2)
+    }
+    
+
+    ///not in use
     static func myGrayColor() -> UIColor {
         
         dynamicColor(light: #colorLiteral(red: 0.3098039216, green: 0.337254902, blue: 0.3725490196, alpha: 1), dark: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
@@ -38,37 +104,4 @@ struct Colors {
         dynamicColor(light: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), dark: #colorLiteral(red: 0.1518749893, green: 0.1509793401, blue: 0.1525681615, alpha: 1))
     }
     
-    static func myLabelColor() -> UIColor {
-        
-        dynamicColor(light: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), dark: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-    }
-    
-    static func myMessageColor() -> UIColor {
-        
-        dynamicColor(light: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), dark: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-    }
-    
-    static func adminMessageColor() -> UIColor {
-        dynamicColor(light: #colorLiteral(red: 0.431372549, green: 0.7764705882, blue: 0.7921568627, alpha: 1), dark: #colorLiteral(red: 0.431372549, green: 0.7764705882, blue: 0.7921568627, alpha: 1))
-    }
-    
-    static func myFirstButtonColor() -> UIColor {
-        dynamicColor(light: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), dark: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-    }
-    
-    static func mySecondButtonColor() -> UIColor {
-        dynamicColor(light: #colorLiteral(red: 0.9379875064, green: 0.9324114919, blue: 0.942273736, alpha: 1), dark: #colorLiteral(red: 0.2514118254, green: 0.2546254992, blue: 0.254514575, alpha: 1))
-    }
-    
-    static func myFirstButtonLabelColor() -> UIColor {
-        dynamicColor(light: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), dark: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-    }
-    
-    static func mySecondButtonLabelColor() -> UIColor {
-        dynamicColor(light: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), dark: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-    }
-    
-    static func mySecondSatColor() -> UIColor {
-        dynamicColor(light: #colorLiteral(red: 0.03137254902, green: 0.5921568627, blue: 0.6156862745, alpha: 1), dark: #colorLiteral(red: 0.03137254902, green: 0.5921568627, blue: 0.6156862745, alpha: 1))
-    }
 }

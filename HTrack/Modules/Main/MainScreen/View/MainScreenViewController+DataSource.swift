@@ -15,23 +15,44 @@ extension MainScreenViewController {
             collectionView: collectionView,
             cellProvider: {[weak self] collectionView, indexpath, item -> UICollectionViewCell? in
                 
-                guard let sectionID = self?.dataSource?.snapshot().sectionIdentifiers[indexpath.section] else { fatalError("Unknown section")}
+                guard let sectionModel = self?.dataSource?.snapshot().sectionIdentifiers[indexpath.section]
+                else { fatalError("Unknown section")}
+                guard let section = MainScreenSection(rawValue: sectionModel.section)
+                else { fatalError("Unknown section")}
         
-                switch sectionID {
+                switch section {
                 
-                case _ where sectionID == MainScreenSection.info.rawValue:
+                case .info:
                     guard let vm = item as? CellViewModel else { fatalError("Unknown cell VM") }
                     
                     let cell = self?.setupReuseCell(collectionView: collectionView,
-                                   indexPath: indexpath,
-                                   vm: vm)
+                                                    indexPath: indexpath,
+                                                    vm: vm)
                     return cell
-                    
-                default:
-                    return UICollectionViewCell()
                 }
             })
+        
+        dataSource?.supplementaryViewProvider = {
+            [weak self] collectionView, kind, indexPath in
+            
+            guard let sectionModel = self?.dataSource?.snapshot().sectionIdentifiers[indexPath.section]
+            else { fatalError("Unknown section")}
+            if let headerVM = sectionModel.header {
+                let headerReuseView = self?.setupSectionHeader(collectionView: collectionView,
+                                                               indexPath: indexPath,
+                                                               headerVM: headerVM,
+                                                               kind: kind)
+                
+                return headerReuseView
+            } else {
+                return  self?.setupEmptySectionHeader(collectionView: collectionView,
+                                                      indexPath: indexPath,
+                                                      kind: kind)
+            }
+        }
     }
+
+
     
     private func setupReuseCell(collectionView: UICollectionView,
                                 indexPath: IndexPath,
@@ -39,9 +60,43 @@ extension MainScreenViewController {
         collectionView.register(vm.cell, forCellWithReuseIdentifier: vm.cell.reuseID)
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: vm.cell.reuseID,
-                                                            for: indexPath) as? BaseCell else { fatalError("can't get cell")}
+                                                            for: indexPath) as? BaseCell
+        else { return UICollectionViewCell() }
+        
         cell.configure(viewModel: vm)
         return cell as? UICollectionViewCell ?? UICollectionViewCell()
+    }
+    
+    private func setupSectionHeader(collectionView: UICollectionView,
+                                     indexPath: IndexPath,
+                                     headerVM: CellViewModel,
+                                     kind: String)  -> UICollectionReusableView? {
+        collectionView.register(headerVM.cell,
+                                forSupplementaryViewOfKind: kind,
+                                withReuseIdentifier: headerVM.cell.reuseID)
+        
+        if let reuseSectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                                 withReuseIdentifier: headerVM.cell.reuseID,
+                                                                                 for: indexPath) as? BaseCell {
+           
+            reuseSectionHeader.configure(viewModel: headerVM)
+            return reuseSectionHeader as? UICollectionReusableView
+        } else {
+            return nil
+        }
+    }
+    
+    private func setupEmptySectionHeader(collectionView: UICollectionView,
+                                         indexPath: IndexPath,
+                                         kind: String)  -> UICollectionReusableView? {
+        collectionView.register(EmptyHeaderCell.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: EmptyHeaderCell.reuseID)
+        
+        guard let reuseSectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                                       withReuseIdentifier: EmptyHeaderCell.reuseID,
+                                                                                 for: indexPath) as? EmptyHeaderCell else { fatalError("can't get cell")}
+        return reuseSectionHeader
     }
 }
 

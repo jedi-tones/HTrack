@@ -41,6 +41,10 @@ class MainTabBarCoordinator: CoordinatorProtocol {
         modulePresenter = mainTabBar.controller
         window.rootViewController = mainTabBar.controller
         window.makeKeyAndVisible()
+        
+        if let tabBarController = modulePresenter as? MainTabBarViewController {
+            tabBarController.startCheckAuth()
+        }
     }
     
     func childDidFinish(_ child: CoordinatorProtocol?) {
@@ -48,7 +52,7 @@ class MainTabBarCoordinator: CoordinatorProtocol {
                     text: "\(type(of: self)) - \(#function) - child: \(type(of: child))")
         
         if child is AuthCoordinator {
-            modulePresenter?.dismissPresentedModule(animated: true, completion: nil)
+            child?.modulePresenter?.dismiss(true, completion: nil)
         }
         
         removeCoordinator(child)
@@ -87,9 +91,7 @@ extension MainTabBarCoordinator: MainTabBarCoordinatorFlow {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
-        guard let modulePresenter = modulePresenter else { return }
-        
-        let authCoordinator = AuthCoordinator(modulePresenter: modulePresenter)
+        let authCoordinator = AuthCoordinator()
         authCoordinator.parentCoordinator = self
         authCoordinator.start(animated: animated)
         

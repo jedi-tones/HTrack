@@ -36,4 +36,18 @@ class MainTabBarRouter: MainTabBarRouterInput {
             }
         }
     }
+    
+    func showAuthModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let coordinator = coordinator as? MainTabBarCoordinatorFlow
+        else {
+            Logger.show(title: "Module ERROR",
+                        text: "\(type(of: self)) - \(#function) - coordinator is nil")
+            return
+        }
+        
+        coordinator.startAuthCoordinator(animated: true)
+    }
 }

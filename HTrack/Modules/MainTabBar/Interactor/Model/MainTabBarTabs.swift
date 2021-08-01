@@ -25,9 +25,9 @@ enum MainTabBarTabs: CaseIterable {
         switch self {
         
         case .main:
-            return Images.tabBarUser
+            return Styles.Images.tabBarUser
         case .friends:
-            return Images.tabBarFriends
+            return Styles.Images.tabBarFriends
         }
     }
     

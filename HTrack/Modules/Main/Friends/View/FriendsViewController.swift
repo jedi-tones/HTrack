@@ -6,7 +6,7 @@ import UIKit
 class FriendsViewController: UIViewController {
     // MARK: Properties
     var output: FriendsViewOutput!
-
+    
     // MARK: Life cycle
     override func loadView() {
         super.loadView()
@@ -51,10 +51,10 @@ class FriendsViewController: UIViewController {
 extension FriendsViewController {
     // MARK: Methods
     func setupViews() {
-        view.backgroundColor = Colors.myWhiteColor()
+        view.backgroundColor = Styles.Colors.myWhiteColor()
         navigationItem.title = MainTabBarTabs.friends.title
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         setupConstraints()
     }
 
@@ -71,4 +71,5 @@ extension FriendsViewController: FriendsViewInput {
 
         setupViews()
     }
+    
 }

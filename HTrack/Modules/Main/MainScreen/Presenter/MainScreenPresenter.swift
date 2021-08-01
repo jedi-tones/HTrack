@@ -51,11 +51,13 @@ extension MainScreenPresenter: MainScreenInteractorOutput {
                 
                 let infoVM = MainScreenInfoViewModel()
                 infoVM.title = "Не бухаю"
-                infoVM.description = "10 Дней"
+                infoVM.description = "\(10) Дней"
                 infoVM.delegate = self
-                
                 sectionVM.items.append(infoVM)
                 
+                let header = EmptyHeaderViewModel()
+                header.height = 0
+                sectionVM.header = header
                 newViewModel.append(sectionVM)
             }
         }

@@ -51,6 +51,8 @@ class MainTabBarViewController: UITabBarController {
 extension MainTabBarViewController {
     // MARK: Methods
     func setupViews() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
         
         setupTabBar()
         setupConstraints()
@@ -60,6 +62,13 @@ extension MainTabBarViewController {
 
     }
     
+    func startCheckAuth() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        output.checkAuth()
+    }
+    
     private func setupTabBar() {
     //    view.backgroundColor = Colors.myWhiteColor()
         
@@ -67,19 +76,19 @@ extension MainTabBarViewController {
         appearance.backgroundImage = UIImage()
         appearance.shadowImage = UIImage()
         appearance.shadowColor = .clear
-        appearance.backgroundColor = Colors.myWhiteColor()
+        appearance.backgroundColor = Styles.Colors.myWhiteColor()
         tabBar.standardAppearance = appearance
         
         let appearanceTabBarItem = UITabBarItemAppearance(style: .stacked)
-        appearanceTabBarItem.normal.badgeBackgroundColor = Colors.mySecondSatColor()
-        appearanceTabBarItem.normal.badgeTextAttributes = [NSAttributedString.Key.font : Fonts.AvenirFonts.avenirNextBold(size: 11)]
-        appearanceTabBarItem.selected.badgeBackgroundColor = Colors.mySecondSatColor()
-        appearanceTabBarItem.selected.badgeTextAttributes = [NSAttributedString.Key.font : Fonts.AvenirFonts.avenirNextBold(size: 11)]
+        appearanceTabBarItem.normal.badgeBackgroundColor = Styles.Colors.badgeColor()
+        appearanceTabBarItem.normal.badgeTextAttributes = [NSAttributedString.Key.font : Styles.Fonts.AvenirFonts.avenirNextBold(size: 11)]
+        appearanceTabBarItem.selected.badgeBackgroundColor = Styles.Colors.badgeColor()
+        appearanceTabBarItem.selected.badgeTextAttributes = [NSAttributedString.Key.font : Styles.Fonts.AvenirFonts.avenirNextBold(size: 11)]
         
         tabBar.standardAppearance.stackedLayoutAppearance = appearanceTabBarItem
         
-        tabBar.unselectedItemTintColor = Colors.myLightGrayColor()
-        tabBar.tintColor = Colors.myLabelColor()
+        tabBar.unselectedItemTintColor = Styles.Colors.myLightGrayColor()
+        tabBar.tintColor = Styles.Colors.myLabelColor()
     }
 }
 

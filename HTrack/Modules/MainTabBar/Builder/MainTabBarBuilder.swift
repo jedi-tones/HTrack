@@ -35,7 +35,11 @@ class MainTabBarBuilder {
 		Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
 
-		let maintabbarBuild = MainTabBarBuild(view: MainTabBarViewController(), presenter: MainTabBarPresenter(), interactor: MainTabBarInteractor(), router: MainTabBarRouter(), coordinator: coordinator)
+		let maintabbarBuild = MainTabBarBuild(view: MainTabBarViewController(),
+                                              presenter: MainTabBarPresenter(),
+                                              interactor: MainTabBarInteractor(),
+                                              router: MainTabBarRouter(),
+                                              coordinator: coordinator)
 
 		return maintabbarBuild
 	}

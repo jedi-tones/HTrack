@@ -9,9 +9,8 @@ class MainScreenViewController: UIViewController {
 
     var collectionView: UICollectionView?
     var layout: UICollectionViewLayout?
-    var dataSource: UICollectionViewDiffableDataSource<String, AnyHashable>?
+    var dataSource: UICollectionViewDiffableDataSource<SectionViewModel, AnyHashable>?
 
-    
     lazy var rightSettingsButton: UIBarButtonItem = {
         let item = UIBarButtonItem(barButtonSystemItem: .action,
                                    target: self,
@@ -27,7 +26,7 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Colors.myWhiteColor()
+        view.backgroundColor = Styles.Colors.myWhiteColor()
         navigationItem.title = MainTabBarTabs.main.title
         navigationItem.rightBarButtonItem = rightSettingsButton
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -72,8 +71,6 @@ extension MainScreenViewController {
     // MARK: Methods
     func setupViews() {
         
-        
-        
         setupCollectionView()
         setupConstraints()
     }
@@ -105,7 +102,7 @@ extension MainScreenViewController: MainScreenViewInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function) \(newData)")
         
-        var snapshot = NSDiffableDataSourceSnapshot<String, AnyHashable>()
+        var snapshot = NSDiffableDataSourceSnapshot<SectionViewModel, AnyHashable>()
         
         newData.forEach { sectionVM in
             var vms: [AnyHashable] = []
@@ -119,10 +116,9 @@ extension MainScreenViewController: MainScreenViewInput {
                 }
             }
             
-            snapshot.appendSections([sectionVM.section])
-            snapshot.appendItems(vms, toSection: sectionVM.section)
+            snapshot.appendSections([sectionVM])
+            snapshot.appendItems(vms, toSection: sectionVM)
         }
-        
         dataSource?.apply(snapshot)
     }
 }

@@ -12,5 +12,5 @@ class FriendsInteractor {
 
 // MARK: - FriendsInteractorInput
 extension FriendsInteractor: FriendsInteractorInput {
-
+    
 }

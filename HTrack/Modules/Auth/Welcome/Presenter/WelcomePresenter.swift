@@ -21,11 +21,37 @@ extension WelcomePresenter: WelcomeViewOutput {
 
         view.setupInitialState()
     }
+    
+    func signInWithApple() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        interactor.signInWithApple()
+    }
+    
+    func signInWithEmail() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.opensSignInWithEmail()
+    }
 }
 
 // MARK: - WelcomeInteractorOutput
 extension WelcomePresenter: WelcomeInteractorOutput {
-
+    func openRegistrationCompliteModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.openRegistrationCompliteModule()
+    }
+    
+    func closeAuthModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.closeAuthModule()
+    }
 }
 
 // MARK: - WelcomeModuleInput

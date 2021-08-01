@@ -12,22 +12,30 @@ protocol WelcomeViewInput: AnyObject {
 protocol WelcomeViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
+    func signInWithApple()
+    func signInWithEmail()
 }
 
 
 // MARK: - Interactor
 protocol WelcomeInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
+    func signInWithApple()
 }
 
 protocol WelcomeInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
+    func openRegistrationCompliteModule()
+    func closeAuthModule()
 }
 
 
 // MARK: - Router
 protocol WelcomeRouterInput {
     // MARK: PRESENTER -> ROUTER
+    func openRegistrationCompliteModule()
+    func opensSignInWithEmail()
+    func closeAuthModule()
 }
 
 

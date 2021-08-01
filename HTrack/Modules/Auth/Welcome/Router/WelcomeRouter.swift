@@ -9,4 +9,31 @@ class WelcomeRouter: WelcomeRouterInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
     }
+    
+    func openRegistrationCompliteModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
+        
+        authCoordinator.showCompliteRegisterScreen()
+    }
+    
+    func opensSignInWithEmail() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
+        
+        authCoordinator.showEmailAuthScreen()
+    }
+    
+    func closeAuthModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
+        
+        authCoordinator.showMainTabBarScreen(animated: true)
+    }
 }

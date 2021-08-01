@@ -12,18 +12,18 @@ class MainScreenInfoCell: UICollectionViewCell, BaseCell {
         return "mainScreenInfoCell"
     }
     
-    var titleLabel: UILabel = {
+    var descLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Colors.myLabelColor()
-        lb.font = Fonts.AvenirFonts.avenirNextRegular(size: 15).font
+        lb.textColor = Styles.Colors.myLabelColor()
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.baseFontSize).font
         lb.text = "Трезв"
         return lb
     }()
     
-    lazy var descriptionLabel: UILabel = {
+    lazy var countLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Colors.myLabelColor()
-        lb.font = Fonts.AvenirFonts.avenirNextBold(size: 24).font
+        lb.textColor = Styles.Colors.myLabelColor()
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.bigFontSize).font
         lb.text = "0 Дней"
         return lb
     }()
@@ -49,24 +49,25 @@ class MainScreenInfoCell: UICollectionViewCell, BaseCell {
     
     func setup() {
         guard let viewModel = viewModel else { return }
-        titleLabel.text = viewModel.title
-        descriptionLabel.text = viewModel.description
+        
+        descLabel.text = viewModel.title
+        countLabel.text = viewModel.description
     }
     
     func setupConstraints() {
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(descLabel)
+        contentView.addSubview(countLabel)
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descLabel.translatesAutoresizingMaskIntoConstraints = false
+        countLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Sizes.baseVInset),
+            countLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            countLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Styles.Sizes.stadartVInset),
             
-            descriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Sizes.baseVInset),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Sizes.baseVInset)
+            descLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            descLabel.topAnchor.constraint(equalTo: countLabel.bottomAnchor, constant: Styles.Sizes.stadartVInset),
+            descLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.stadartVInset),
         ])
     }
 }

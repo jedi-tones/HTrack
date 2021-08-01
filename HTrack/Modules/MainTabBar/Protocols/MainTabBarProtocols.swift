@@ -14,6 +14,7 @@ protocol MainTabBarViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
     func startCoordinatorsFor(navigators: [UINavigationController])
+    func checkAuth()
 }
 
 
@@ -21,11 +22,13 @@ protocol MainTabBarViewOutput {
 protocol MainTabBarInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getTabs()
+    func checkAuth()
 }
 
 protocol MainTabBarInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupTabs(tabs: [MainTabBarTabs])
+    func showAuth()
 }
 
 
@@ -33,6 +36,7 @@ protocol MainTabBarInteractorOutput: AnyObject {
 protocol MainTabBarRouterInput {
     // MARK: PRESENTER -> ROUTER
     func startCoordinatorsFor(navigators: [UINavigationController])
+    func showAuthModule()
 }
 
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Fonts {
+extension Styles.Fonts  {
     enum AvenirFonts {
         case avenirNextBold(size: CGFloat)
         case avenirNextRegular(size: CGFloat)
@@ -41,7 +41,7 @@ struct Fonts {
             }
         }
         
-        private func getFont(font: Fonts.AvenirFonts, size: CGFloat) -> UIFont {
+        private func getFont(font: Styles.Fonts.AvenirFonts, size: CGFloat) -> UIFont {
             guard let font = UIFont.init(name: font.name, size: size)
             else {
                 Logger.show(title: "Fonts ERROR", text: "Unknown Font \(font.name)")
