@@ -76,7 +76,7 @@ extension MainTabBarViewController {
         appearance.backgroundImage = UIImage()
         appearance.shadowImage = UIImage()
         appearance.shadowColor = .clear
-        appearance.backgroundColor = Styles.Colors.myWhiteColor()
+        appearance.backgroundColor = Styles.Colors.myBackgroundColor()
         tabBar.standardAppearance = appearance
         
         let appearanceTabBarItem = UITabBarItemAppearance(style: .stacked)

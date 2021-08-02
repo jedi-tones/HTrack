@@ -51,7 +51,7 @@ class FriendsViewController: UIViewController {
 extension FriendsViewController {
     // MARK: Methods
     func setupViews() {
-        view.backgroundColor = Styles.Colors.myWhiteColor()
+        view.backgroundColor = backColor
         navigationItem.title = MainTabBarTabs.friends.title
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -72,4 +72,10 @@ extension FriendsViewController: FriendsViewInput {
         setupViews()
     }
     
+}
+
+extension FriendsViewController {
+    var backColor: UIColor {
+        Styles.Colors.myBackgroundColor()
+    }
 }

@@ -25,6 +25,7 @@ class MainScreenBuilder {
 			self.interactor.output = self.presenter
 
 			self.router.controller = self.view
+            self.router.coordinator = coordinator
 		}
 	}
 

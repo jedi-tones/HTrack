@@ -15,7 +15,7 @@ extension MainScreenViewController {
         
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: collectionLayout)
         collectionView?.isScrollEnabled = false
-        collectionView?.backgroundColor = Styles.Colors.myWhiteColor()
+        collectionView?.backgroundColor = backColor
         collectionView?.delegate = self
         setupDataSource()
     }

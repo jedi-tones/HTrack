@@ -17,6 +17,9 @@ extension Styles.Sizes  {
     static let standartHInset: CGFloat = 16
     static let stadartVInset: CGFloat = 8
     
+    static let bigVInset: CGFloat = 44
+    static let bigHInset: CGFloat = 22
+    
     static let baseInterItemInset: CGFloat = 16
     
     static let baseButtonInsets: UIEdgeInsets = UIEdgeInsets(top: 10,
@@ -27,9 +30,13 @@ extension Styles.Sizes  {
     static let baseButtonHeight: CGFloat = 44
     
     static let baseCornerRadius: CGFloat = 16
+    static let baseBorderWidth: CGFloat = 2
     
-    static let baseFontSize: CGFloat = 16
-    static let mediumFontSize: CGFloat = 13
-    static let smallFontSize: CGFloat = 11
-    static let bigFontSize: CGFloat = 55
+    static let baseTextFieldLeftInset: CGFloat = 10
+    static let baseTextFieldRightInset: CGFloat = 10
+    
+    static let fontSizeBase: CGFloat = 16
+    static let fontSizeMedium: CGFloat = 13
+    static let fontSizeSmall: CGFloat = 11
+    static let fontSizeBig: CGFloat = 55
 }

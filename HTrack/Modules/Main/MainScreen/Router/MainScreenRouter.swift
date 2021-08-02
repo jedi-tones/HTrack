@@ -9,4 +9,13 @@ class MainScreenRouter: MainScreenRouterInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
     }
+    
+    func showSettinsScreen() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let mainScreenCoordinator = coordinator as? MainScreenCoordinatorFlow else { return }
+        
+        mainScreenCoordinator.showRegisterScreen()
+    }
 }

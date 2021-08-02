@@ -26,7 +26,7 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Styles.Colors.myWhiteColor()
+        view.backgroundColor = backColor
         navigationItem.title = MainTabBarTabs.main.title
         navigationItem.rightBarButtonItem = rightSettingsButton
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -120,5 +120,11 @@ extension MainScreenViewController: MainScreenViewInput {
             snapshot.appendItems(vms, toSection: sectionVM)
         }
         dataSource?.apply(snapshot)
+    }
+}
+
+extension MainScreenViewController {
+    var backColor: UIColor {
+        Styles.Colors.myBackgroundColor()
     }
 }

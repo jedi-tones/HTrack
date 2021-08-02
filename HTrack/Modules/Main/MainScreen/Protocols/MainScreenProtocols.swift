@@ -32,6 +32,7 @@ protocol MainScreenInteractorOutput: AnyObject {
 // MARK: - Router
 protocol MainScreenRouterInput {
     // MARK: PRESENTER -> ROUTER
+    func showSettinsScreen()
 }
 
 

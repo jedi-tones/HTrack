@@ -18,7 +18,7 @@ class LinkTextFormatter {
     private let paragraphStyle: NSParagraphStyle
 
     init(textColor: UIColor) {
-        self.font = Styles.Fonts.AvenirFonts.AvenirNextUltraLight(size: Styles.Sizes.smallFontSize).font
+        self.font = Styles.Fonts.AvenirFonts.AvenirNextUltraLight(size: Styles.Sizes.fontSizeSmall).font
         self.textColor = textColor
         self.paragraphStyle = {
             let style = NSMutableParagraphStyle()

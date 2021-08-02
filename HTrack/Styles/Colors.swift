@@ -21,6 +21,8 @@ extension Styles.Colors  {
     static let white2 = white1.withAlphaComponent(0.5)
     static let white3 = #colorLiteral(red: 0.9198400378, green: 0.9143720269, blue: 0.9240432382, alpha: 1)
     
+    static let red1 = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+    
     //MARK: label
     static func myBackgroundColor() -> UIColor {
         dynamicColor(light: white1, dark: black1)
@@ -40,6 +42,14 @@ extension Styles.Colors  {
     
     static func myLabelLinkColor() -> UIColor {
         dynamicColor(light: black1, dark: white1)
+    }
+    
+    static func myPlaceholderColor() -> UIColor {
+        dynamicColor(light: black2, dark: white2 )
+    }
+    
+    static func myErrorLabelColor() -> UIColor {
+        return red1
     }
     
     static func myActivityIndicatorColor() -> UIColor {

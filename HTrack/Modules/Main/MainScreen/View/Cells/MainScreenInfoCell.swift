@@ -15,7 +15,7 @@ class MainScreenInfoCell: UICollectionViewCell, BaseCell {
     var descLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Styles.Colors.myLabelColor()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.baseFontSize).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
         lb.text = "Трезв"
         return lb
     }()
@@ -23,7 +23,7 @@ class MainScreenInfoCell: UICollectionViewCell, BaseCell {
     lazy var countLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Styles.Colors.myLabelColor()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.bigFontSize).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBig).font
         lb.text = "0 Дней"
         return lb
     }()

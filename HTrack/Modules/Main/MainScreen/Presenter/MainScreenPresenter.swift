@@ -29,6 +29,7 @@ extension MainScreenPresenter: MainScreenViewOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        router.showSettinsScreen()
     }
 }
 

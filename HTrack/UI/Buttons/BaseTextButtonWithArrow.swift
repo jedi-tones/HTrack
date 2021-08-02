@@ -15,13 +15,15 @@ class BaseTextButtonWithArrow: BaseCustomButton {
     
     private var titleLabel: UILabel = {
         let lb = UILabel()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.baseFontSize).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
         lb.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        lb.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return lb
     }()
     private lazy var arrowIcon: UIImageView = {
         let icon = UIImageView()
         icon.image = Styles.Images.tabBarFriends
+        icon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return icon
     }()
     private var activityIndicator: UIActivityIndicatorView = {

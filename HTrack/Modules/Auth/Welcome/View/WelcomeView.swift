@@ -19,7 +19,7 @@ class WelcomeView: UIView {
     lazy var signInWithApple: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setTitle(title: "Войти с AppleID")
-            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.baseFontSize).font)
+            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font)
             .setButtonColor(color: self.appleButtonColor)
             .setTextColor(color: self.appleButtonLabelColor)
             .setWithArrow(withArrow: false, arrowDirection: .right)
@@ -36,7 +36,7 @@ class WelcomeView: UIView {
     lazy var signInWithEmail: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setTitle(title: "Войти с Email")
-            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.baseFontSize).font)
+            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font)
             .setButtonColor(color: self.emailButtonColor)
             .setTextColor(color: self.emailButtonLabelColor)
         return bt
@@ -45,7 +45,7 @@ class WelcomeView: UIView {
     lazy var orLabel: UILabel = {
         let lb = UILabel()
         lb.text = "ИЛИ"
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.mediumFontSize).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeMedium).font
         lb.textColor = Styles.Colors.mySecondaryLabelColor()
         return lb
     }()
@@ -84,7 +84,7 @@ class WelcomeView: UIView {
         let fullString = "Выполняя вход, ты соглашаешься с нашими \n \(termsAndConditionsText) \n и \n \(privacyPolicyText)"
         let attributes: [NSAttributedString.Key : Any] = [
             .foregroundColor: privacyLabelColor,
-            .font: Styles.Fonts.AvenirFonts.AvenirNextUltraLight(size: Styles.Sizes.smallFontSize).font,
+            .font: Styles.Fonts.AvenirFonts.AvenirNextUltraLight(size: Styles.Sizes.fontSizeSmall).font,
             .paragraphStyle: paragraphStyle,
         ]
         let attributedString = NSMutableAttributedString(string: fullString, attributes: attributes)
