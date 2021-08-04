@@ -21,6 +21,12 @@ extension RegisterPresenter: RegisterViewOutput {
 
         view.setupInitialState()
     }
+    
+    func saveNickname() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+    }
 }
 
 // MARK: - RegisterInteractorOutput

@@ -20,6 +20,8 @@ class RegisterViewController: UIViewController {
     
     lazy var nicknameInput: TextFieldWithError = {
         let tv = TextFieldWithError()
+            .setPlacehodler("Имя")
+            .setRules([.isNotEmpty, .isNickname])
         return tv
     }()
     
@@ -30,8 +32,14 @@ class RegisterViewController: UIViewController {
             .setCornerRadius(radius: Styles.Sizes.baseCornerRadius)
             .setWithArrow(withArrow: true, arrowDirection: .right)
             .setTextColor(color: nextButtonTitleCollor)
+        
+        bt.action = { [weak self] in
+            self?.output.saveNickname()
+        }
         return bt
     }()
+    
+     var validator: Validator?
 
     // MARK: Life cycle
     override func loadView() {
@@ -77,6 +85,7 @@ class RegisterViewController: UIViewController {
 extension RegisterViewController {
     // MARK: Methods
     func setupViews() {
+        validator = Validator(inputs: [nicknameInput], buttons: [nextButton])
         
         view.backgroundColor = backColor
         setupConstraints()

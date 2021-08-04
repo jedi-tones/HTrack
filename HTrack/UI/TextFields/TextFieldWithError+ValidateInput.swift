@@ -5,4 +5,38 @@
 //  Created by Денис Щиголев on 8/4/21.
 //
 
-import Foundation
+import UIKit
+
+extension TextFieldWithError: ValidateInput {
+    var validatorInputDelegate: ValidatorInputDelegate? {
+        get {
+            _validatorInputDelegate
+        }
+        set {
+            _validatorInputDelegate = newValue
+        }
+    }
+    
+    var rulesToValidate: [ValidatorRule] {
+        _rulesToValidate
+    }
+    
+    var errors: [String] {
+        get {
+            _errors
+        }
+        set {
+            _errors = newValue
+        }
+    }
+    
+    func setValidationError(_ error: String?) {
+        setError(error)
+    }
+    
+    func removeValidationError() {
+        removeError()
+    }
+    
+    
+}

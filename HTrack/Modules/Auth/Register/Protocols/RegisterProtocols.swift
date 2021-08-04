@@ -12,6 +12,7 @@ protocol RegisterViewInput: AnyObject {
 protocol RegisterViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
+    func saveNickname()
 }
 
 

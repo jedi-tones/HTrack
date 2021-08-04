@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension Bool {
+    func isNot() -> Bool {
+        !self
+    }
+}

@@ -16,12 +16,24 @@ class BaseCustomButton: ViewWithCustomTouchArea, BaseCustomButtonActionProtocol 
     
     var action: (() -> Void)?
     var needAnimationTap: Bool = true
+    var buttonStatus: ButtonStatus = .normal
     
-    private var _startFrame: CGRect = .zero
+    var _startFrame: CGRect = .zero
     
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+    }
+    
+    func startAction() {
+        action?()
+    }
+    
+    @discardableResult
+    func setButtonStatus(_ status: ButtonStatus) -> Self {
+        self.buttonStatus = status
+        
+        return self
     }
 }
 

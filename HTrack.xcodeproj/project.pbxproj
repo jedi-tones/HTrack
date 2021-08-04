@@ -94,7 +94,6 @@
 		DD5F63FC267FBDC5002131FD /* MainScreenViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63FB267FBDC5002131FD /* MainScreenViewController+CollectionView.swift */; };
 		DD5F63FE267FBE05002131FD /* MainScreenViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63FD267FBE05002131FD /* MainScreenViewController+Delegate.swift */; };
 		DD5F6400267FC79C002131FD /* MainScreenViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63FF267FC79C002131FD /* MainScreenViewController+DataSource.swift */; };
-		DD65E09326B87F9D002BBF80 /* RegisterViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65E09226B87F9D002BBF80 /* RegisterViewController+UITextFieldDelegate.swift */; };
 		DD65E09526B89511002BBF80 /* TextFieldWithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65E09426B89511002BBF80 /* TextFieldWithError.swift */; };
 		DD65E09726B89C94002BBF80 /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */; };
 		DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214EC26763DFB00A3623E /* AppDelegate.swift */; };
@@ -135,6 +134,15 @@
 		F5D22FF44227FD89348873D9 /* AuthBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399D9E40E81AAE5B947BE8B /* AuthBuilder.swift */; };
 		F8A85E87CAD173B8A3870BC2 /* LoginEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CB23FCAE5ED86C6980F0FA /* LoginEmailInteractor.swift */; };
 		F9355AEF5E29281EAE777E3F /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C708CC776B30491E4DAD2 /* MainScreenBuilder.swift */; };
+		FB6B9D3F26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */; };
+		FB6B9D4126B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4026B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift */; };
+		FB6B9D4326B96E6A0050690F /* TextFiledWithError+Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4226B96E6A0050690F /* TextFiledWithError+Set.swift */; };
+		FB6B9D4726B99EE10050690F /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4626B99EE10050690F /* Validator.swift */; };
+		FB6B9D4926BAC81C0050690F /* ValidatorRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4826BAC81C0050690F /* ValidatorRule.swift */; };
+		FB6B9D4B26BAC8370050690F /* ValidatorRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4A26BAC8370050690F /* ValidatorRegex.swift */; };
+		FB6B9D4D26BAD1D60050690F /* Bool+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4C26BAD1D60050690F /* Bool+Extension.swift */; };
+		FB6B9D5226BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D5126BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift */; };
+		FB6B9D5726BB0E210050690F /* TextFieldWithError+ValidateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D5626BB0E210050690F /* TextFieldWithError+ValidateInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -230,7 +238,6 @@
 		DD5F63FB267FBDC5002131FD /* MainScreenViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		DD5F63FD267FBE05002131FD /* MainScreenViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewController+Delegate.swift"; sourceTree = "<group>"; };
 		DD5F63FF267FC79C002131FD /* MainScreenViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewController+DataSource.swift"; sourceTree = "<group>"; };
-		DD65E09226B87F9D002BBF80 /* RegisterViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		DD65E09426B89511002BBF80 /* TextFieldWithError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithError.swift; sourceTree = "<group>"; };
 		DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
 		DD9214E926763DFB00A3623E /* HTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +277,15 @@
 		ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		EFF3284BA7263179D23C6C44 /* FriendsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsProtocols.swift; sourceTree = "<group>"; };
 		F43EA5EAE71EDBCF6A6E1B91 /* RegisterRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
+		FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+BaseTextFieldProtocol.swift"; sourceTree = "<group>"; };
+		FB6B9D4026B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+TextFieldDelegate.swift"; sourceTree = "<group>"; };
+		FB6B9D4226B96E6A0050690F /* TextFiledWithError+Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFiledWithError+Set.swift"; sourceTree = "<group>"; };
+		FB6B9D4626B99EE10050690F /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		FB6B9D4826BAC81C0050690F /* ValidatorRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorRule.swift; sourceTree = "<group>"; };
+		FB6B9D4A26BAC8370050690F /* ValidatorRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorRegex.swift; sourceTree = "<group>"; };
+		FB6B9D4C26BAD1D60050690F /* Bool+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extension.swift"; sourceTree = "<group>"; };
+		FB6B9D5126BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseTextButtonWithArrow+ValidatorButton.swift"; sourceTree = "<group>"; };
+		FB6B9D5626BB0E210050690F /* TextFieldWithError+ValidateInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+ValidateInput.swift"; sourceTree = "<group>"; };
 		FCDD549B3802995AC95FA5D5 /* RegisterEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				DA805F767B093B4A99C63449 /* RegisterViewController.swift */,
-				DD65E09226B87F9D002BBF80 /* RegisterViewController+UITextFieldDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -790,8 +805,8 @@
 		DD59F73A26B5AA5500CA8179 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				FB6B9D5526BB057E0050690F /* BaseTextButtonWithArrow.swift */,
 				DD59F73B26B5AA6600CA8179 /* BaseCustomButton.swift */,
-				DD59F74C26B5B8AB00CA8179 /* BaseTextButtonWithArrow.swift */,
 				DD59F74226B5ABE200CA8179 /* BaseCustomButtonActionProtocol.swift */,
 			);
 			path = Buttons;
@@ -883,6 +898,10 @@
 			isa = PBXGroup;
 			children = (
 				DD65E09426B89511002BBF80 /* TextFieldWithError.swift */,
+				FB6B9D4226B96E6A0050690F /* TextFiledWithError+Set.swift */,
+				FB6B9D5626BB0E210050690F /* TextFieldWithError+ValidateInput.swift */,
+				FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */,
+				FB6B9D4026B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift */,
 				DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */,
 			);
 			path = TextFields;
@@ -937,6 +956,7 @@
 				DD92150F26777DB500A3623E /* Module.swift */,
 				DD92150326763EC300A3623E /* Logger.swift */,
 				DD59F75426B5FD6000CA8179 /* LinkTextFormatter.swift */,
+				FB6B9D5026BAF7080050690F /* Validator */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -946,6 +966,7 @@
 			children = (
 				DD92150526763ED800A3623E /* Date+Extension.swift */,
 				DD92152B2677DFBA00A3623E /* Array+Extension.swift */,
+				FB6B9D4C26BAD1D60050690F /* Bool+Extension.swift */,
 				DD9215202677D6EE00A3623E /* UIKit */,
 			);
 			path = Extensions;
@@ -1127,6 +1148,25 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		FB6B9D5026BAF7080050690F /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				FB6B9D4626B99EE10050690F /* Validator.swift */,
+				FB6B9D4826BAC81C0050690F /* ValidatorRule.swift */,
+				FB6B9D4A26BAC8370050690F /* ValidatorRegex.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+		FB6B9D5526BB057E0050690F /* BaseTextButtonWithArrow.swift */ = {
+			isa = PBXGroup;
+			children = (
+				DD59F74C26B5B8AB00CA8179 /* BaseTextButtonWithArrow.swift */,
+				FB6B9D5126BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift */,
+			);
+			path = BaseTextButtonWithArrow.swift;
+			sourceTree = "<group>";
+		};
 		FB8292850B692418DD2B9841 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1275,15 +1315,18 @@
 				DD9EAD192699BE8B0032B3D7 /* NetworkService.swift in Sources */,
 				DD59F76626B6FD3400CA8179 /* AuthError.swift in Sources */,
 				DD9214F126763DFB00A3623E /* ViewController.swift in Sources */,
+				FB6B9D3F26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift in Sources */,
 				DD92151026777DB500A3623E /* Module.swift in Sources */,
 				DD59F76326B6F2BC00CA8179 /* FirebaseAuthentificationService.swift in Sources */,
 				DD92150D2676577800A3623E /* UIApplication+Extension.swift in Sources */,
 				DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */,
 				DD59F74526B5AC8F00CA8179 /* UIView+Extension.swift in Sources */,
 				DD92150126763E8F00A3623E /* CoordinatorProtocol.swift in Sources */,
+				FB6B9D4726B99EE10050690F /* Validator.swift in Sources */,
 				DD59F73C26B5AA6600CA8179 /* BaseCustomButton.swift in Sources */,
 				DD59F73F26B5AAF200CA8179 /* ViewWithCustomTouchArea.swift in Sources */,
 				DD9215122677809E00A3623E /* AppCoordinator.swift in Sources */,
+				FB6B9D4126B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift in Sources */,
 				DD92150926764C6900A3623E /* UIViewController+Extension.swift in Sources */,
 				DD9214EF26763DFB00A3623E /* SceneDelegate.swift in Sources */,
 				DD5F63FC267FBDC5002131FD /* MainScreenViewController+CollectionView.swift in Sources */,
@@ -1296,6 +1339,7 @@
 				93CD55BB6E8F90E075C4F98C /* MainTabBarPresenter.swift in Sources */,
 				7905043EDAE76365ABC4D5B6 /* MainTabBarInteractor.swift in Sources */,
 				DD59F74F26B5D3AF00CA8179 /* UIView+Gradient.swift in Sources */,
+				FB6B9D4D26BAD1D60050690F /* Bool+Extension.swift in Sources */,
 				DD9EAD112698D01D0032B3D7 /* EmptyHeaderViewModel.swift in Sources */,
 				DD59F74726B5AEEA00CA8179 /* CGRect+Extension.swift in Sources */,
 				01E06D4D6DEF75B5EA509DE2 /* MainTabBarRouter.swift in Sources */,
@@ -1309,7 +1353,6 @@
 				17ACBEE20335308B1DA12F93 /* AuthViewController.swift in Sources */,
 				6DE3BF25DAA64151D2059581 /* AuthPresenter.swift in Sources */,
 				69B458BC169C4D34045BDC59 /* AuthInteractor.swift in Sources */,
-				DD65E09326B87F9D002BBF80 /* RegisterViewController+UITextFieldDelegate.swift in Sources */,
 				DD5F63FE267FBE05002131FD /* MainScreenViewController+Delegate.swift in Sources */,
 				DD9EAD152699BE4D0032B3D7 /* NetworkError.swift in Sources */,
 				2089B038C856887E459DA17C /* AuthRouter.swift in Sources */,
@@ -1321,8 +1364,10 @@
 				DD921515267790FC00A3623E /* MainTabBarCoordinator.swift in Sources */,
 				AF127BC8E928D8FE8A2492AB /* AuthProtocols.swift in Sources */,
 				DD9215272677D99D00A3623E /* Fonts.swift in Sources */,
+				FB6B9D4326B96E6A0050690F /* TextFiledWithError+Set.swift in Sources */,
 				DD59F75126B5DD2600CA8179 /* UIStackView+Extension.swift in Sources */,
 				49E2B842581A1C3D0F65DC11 /* AuthModule.swift in Sources */,
+				FB6B9D4926BAC81C0050690F /* ValidatorRule.swift in Sources */,
 				509A7B54583ABC5E21750DA0 /* WelcomeViewController.swift in Sources */,
 				DD59F74B26B5B04700CA8179 /* Styles.swift in Sources */,
 				9DA4C5F02320430EEBB2A568 /* WelcomePresenter.swift in Sources */,
@@ -1354,6 +1399,7 @@
 				38866CBA5AD78DA7754FD72A /* MainScreenRouter.swift in Sources */,
 				F9355AEF5E29281EAE777E3F /* MainScreenBuilder.swift in Sources */,
 				9CDF368FF81A13B82F0A35AB /* MainScreenProtocols.swift in Sources */,
+				FB6B9D5726BB0E210050690F /* TextFieldWithError+ValidateInput.swift in Sources */,
 				531722F56884B0B21760A9CE /* MainScreenModule.swift in Sources */,
 				EFB394C10363780861596021 /* FriendsViewController.swift in Sources */,
 				7AFDB051828D8FD0834617E8 /* FriendsPresenter.swift in Sources */,
@@ -1374,6 +1420,7 @@
 				494A6882885C4BC28A5147F2 /* RegisterUserInfoProtocols.swift in Sources */,
 				A7112ACA29A6FE2534EE9780 /* RegisterUserInfoModule.swift in Sources */,
 				8B5D0FE75FE4E01E80BEEE26 /* RegisterEmailViewController.swift in Sources */,
+				FB6B9D5226BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift in Sources */,
 				DD59F75526B5FD6000CA8179 /* LinkTextFormatter.swift in Sources */,
 				22C827FACD56611DAAB49AEA /* RegisterEmailPresenter.swift in Sources */,
 				54EE77DA78FEB00F83750356 /* RegisterEmailInteractor.swift in Sources */,
@@ -1381,6 +1428,7 @@
 				F200A59A7CDC30E9FC358D14 /* RegisterEmailBuilder.swift in Sources */,
 				7B8251C9356A2B871F9BE158 /* RegisterEmailProtocols.swift in Sources */,
 				DD59F74326B5ABE200CA8179 /* BaseCustomButtonActionProtocol.swift in Sources */,
+				FB6B9D4B26BAC8370050690F /* ValidatorRegex.swift in Sources */,
 				97A2D593528461FBE8DC692C /* RegisterEmailModule.swift in Sources */,
 				B98DB136D15F13E0DB6007B9 /* LoginEmailViewController.swift in Sources */,
 				C72575A1A6DA8558B87F7FB4 /* LoginEmailPresenter.swift in Sources */,

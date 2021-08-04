@@ -9,10 +9,5 @@ import Foundation
 
 protocol BaseCustomButtonActionProtocol {
     var action: (() -> Void)? { get set }
-}
-
-extension BaseCustomButtonActionProtocol {
-    func startAction() {
-        action?()
-    }
+    func startAction()
 }

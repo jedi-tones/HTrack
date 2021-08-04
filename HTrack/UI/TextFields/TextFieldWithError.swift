@@ -17,6 +17,16 @@ class TextFieldWithError: UIView {
         case inActive
     }
     
+    ///ValidateInput
+    var _validatorInputDelegate: ValidatorInputDelegate?
+    var _rulesToValidate: [ValidatorRule] = []
+    var _errors: [String] = []
+    
+    var changeTextDelegate: ((TextFieldWithError, String?) -> Void)?
+    var returnAction: ((TextFieldWithError)-> Void)?
+    var beginEditingAction: ((TextFieldWithError)-> Void)?
+    var endEditingAction: ((TextFieldWithError)-> Void)?
+    
     let textField: TextFieldWithInsets = {
         let tf = TextFieldWithInsets()
         tf.borderStyle = .none
@@ -39,6 +49,8 @@ class TextFieldWithError: UIView {
         lb.text = "Error"
         lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeSmall).font
         lb.textColor = errorLabelColor
+        lb.isHidden = true
+        lb.numberOfLines = 2
         return lb
     }()
     
@@ -53,6 +65,9 @@ class TextFieldWithError: UIView {
         textField.text?.isEmpty ?? true
     }
     
+    var maxStringLength: Int = 20
+    var limitMaxLength: Bool = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -64,7 +79,6 @@ class TextFieldWithError: UIView {
     }
     
     private func setupView() {
-        
         textField.textColor = textfieldTextColor
         textField.tintColor = textfieldTextColor
         textField.delegate = self
@@ -93,7 +107,8 @@ class TextFieldWithError: UIView {
             customPlaceholder.leadingAnchor.constraint(equalTo: textField.leadingAnchor, constant: Styles.Sizes.baseTextFieldLeftInset),
             
             errorLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: Styles.Sizes.baseVInset),
-            errorLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor, constant: Styles.Sizes.baseTextFieldLeftInset)
+            errorLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor, constant: Styles.Sizes.baseTextFieldLeftInset),
+            errorLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: -Styles.Sizes.baseTextFieldLeftInset)
         ])
         
         topPlaceholderConstraint = customPlaceholder.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -Styles.Sizes.baseVInset)
@@ -131,6 +146,19 @@ class TextFieldWithError: UIView {
             self.textField.layer.borderColor = self.borderColor.cgColor
             self.layoutIfNeeded()
         }
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        let topSize = customPlaceholder.sizeThatFits(size)
+        let inputSize = textField.sizeThatFits(size)
+        let bootomSize = errorLabel.sizeThatFits(size)
+        
+        let width = max(inputSize.width, size.width)
+        var height = (topSize.height == 0) ? 0 : topSize.height + Styles.Sizes.baseVInset
+        height += inputSize.height
+        height += (bootomSize.height == 0) ? 0 : bootomSize.height + Styles.Sizes.baseVInset
+        
+        return CGSize(width: width, height: height)
     }
 }
 
@@ -172,16 +200,25 @@ extension TextFieldWithError {
     }
 }
 
-extension TextFieldWithError: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textFieldState = .active
+extension TextFieldWithError {
+    override func becomeFirstResponder() -> Bool {
+        textField.isUserInteractionEnabled = true
+        textField.becomeFirstResponder()
+        
+        return super.becomeFirstResponder()
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textFieldState = .inActive
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    override func resignFirstResponder() -> Bool {
+        textField.isUserInteractionEnabled = false
         textField.resignFirstResponder()
+        
+        return super.resignFirstResponder()
+    }
+    
+    override func endEditing(_ force: Bool) -> Bool {
+        textField.endEditing(force)
+        textField.isUserInteractionEnabled = false
+        
+        return super.endEditing(force)
     }
 }

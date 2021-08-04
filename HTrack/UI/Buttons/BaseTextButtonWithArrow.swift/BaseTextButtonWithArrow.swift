@@ -70,6 +70,20 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         
         layer.cornerRadius = cornerRadius ?? frame.height / 2
     }
+    
+    override func startAction() {
+        _validatorButtonDelegate?.validate(button: self)
+        { [weak self] result in
+            switch result {
+            
+            case .valid:
+                self?.action?()
+            case .notValides(inputs: _):
+                return
+            }
+        }
+    }
+    
     private func setupViews() {
         stackView.addArrangedSubview(titleLabel)
         stackView.alignment = .center
@@ -170,7 +184,7 @@ class BaseTextButtonWithArrow: BaseCustomButton {
             
             titleLabel.textColor = textColor.withAlphaComponent(0.3)
             arrowIcon.tintColor = textColor.withAlphaComponent(0.3)
-            isUserInteractionEnabled = true
+            isUserInteractionEnabled = false
         }
         return self
     }

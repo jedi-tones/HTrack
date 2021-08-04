@@ -9,35 +9,88 @@ import Foundation
 
 enum ValidatorResult {
     case valid
-    case notValides(rules:[ValidatorRule])
+    case notValides(inputs:[ValidateInput])
+}
+
+protocol ValidateInput: AnyObject {
+    var validatorInputDelegate: ValidatorInputDelegate? { get set }
+    var rulesToValidate: [ValidatorRule] { get }
+    var text: String? { get }
+    var error: String? { get }
+    var errors: [String] { get set }
+    func setValidationError(_ error: String?)
+    func removeValidationError()
+}
+
+protocol ValidatorButton: AnyObject {
+    var validatorButtonDelegate: ValidatorButtonDelegate? { get set }
+    func setStatus(_ status: BaseCustomButton.ButtonStatus)
+}
+
+protocol ValidatorButtonDelegate {
+    func validate(button: ValidatorButton, complition:@escaping(ValidatorResult) -> Void)
+}
+
+protocol ValidatorInputDelegate {
+    func inputChanged(input: ValidateInput)
 }
 
 class Validator {
-    var rulesToValidate: [ValidatorRule] = []
-    var notValid: [ValidatorRule] = []
+    var inputs: [ValidateInput]
+    var validatorButtons: [ValidatorButton]
     
-    init(rules: [ValidatorRule]) {
-        rulesToValidate = rules
+    init(inputs:[ValidateInput], buttons: [ValidatorButton]) {
+        self.inputs = inputs
+        self.validatorButtons = buttons
+        
+        inputs.forEach({$0.validatorInputDelegate = self })
+        buttons.forEach({$0.validatorButtonDelegate = self})
     }
     
-    func isValid(value: String?, complition: @escaping (ValidatorResult) -> Void ) {
-        clear()
+    func validate(complition: @escaping(ValidatorResult) -> Void) {
+        guard inputs.isNotEmpty else { return }
         
-        for rule in rulesToValidate {
-            let validatedResult = rule.validate(value: value)
-            if validatedResult.isNot() {
-                notValid.append(rule)
+        for input in inputs {
+            input.errors.removeAll()
+            
+            let rules = input.rulesToValidate
+            for rule in rules {
+                let validatedResult = rule.validate(value: input.text)
+                if validatedResult.isNot() {
+                    input.errors.append(rule.description)
+                }
+            }
+            
+            if let error = input.errors.first {
+                input.setValidationError(error)
+            } else {
+                input.removeValidationError()
             }
         }
         
-        if notValid.isNotEmpty {
-            complition(.notValides(rules: notValid))
+        let inputsWithErrors = inputs.filter({$0.errors.isNotEmpty})
+        let hasErrors = inputsWithErrors.isNotEmpty
+        
+        if hasErrors {
+            validatorButtons.forEach({$0.setStatus(.deactive)})
+            complition(.notValides(inputs: inputsWithErrors))
         } else {
+            validatorButtons.forEach({$0.setStatus(.normal)})
             complition(.valid)
         }
     }
-    
-    func clear() {
-        notValid = []
+}
+
+extension Validator: ValidatorButtonDelegate {
+    func validate(button: ValidatorButton, complition:@escaping(ValidatorResult) -> Void) {
+        validate(complition: complition)
+    }
+}
+
+extension Validator: ValidatorInputDelegate {
+    func inputChanged(input: ValidateInput) {
+        input.removeValidationError()
+        
+        validatorButtons.forEach({$0.setStatus(.normal)})
     }
 }
