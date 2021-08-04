@@ -22,8 +22,8 @@ class BaseTextButtonWithArrow: BaseCustomButton {
     }()
     private lazy var arrowIcon: UIImageView = {
         let icon = UIImageView()
-        icon.image = Styles.Images.tabBarFriends
         icon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        icon.tintColor = textColor
         return icon
     }()
     private var activityIndicator: UIActivityIndicatorView = {
@@ -43,8 +43,8 @@ class BaseTextButtonWithArrow: BaseCustomButton {
     private var rightStackConstraint: NSLayoutConstraint?
     private var heightConstraint: NSLayoutConstraint?
     
-    private var buttonColor: UIColor?
-    private var textColor: UIColor?
+    private var buttonColor: UIColor = Styles.Colors.myFilledButtonColor()
+    private var textColor: UIColor = Styles.Colors.myFilledButtonLabelColor()
     private var activityIndicatorColor = Styles.Colors.myActivityIndicatorColor()
     
     private var cornerRadius:CGFloat? {
@@ -52,6 +52,8 @@ class BaseTextButtonWithArrow: BaseCustomButton {
             setNeedsLayout()
         }
     }
+    
+    var _validatorButtonDelegate: ValidatorButtonDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -87,11 +89,11 @@ class BaseTextButtonWithArrow: BaseCustomButton {
             
             case .left:
                 titleLabel.textAlignment = .left
-                arrowIcon.image = Styles.Images.buttonLeftArrow
+                arrowIcon.image = Styles.Images.buttonLeftArrow.withRenderingMode(.alwaysTemplate)
                 stackView.insertArrangedSubview(arrowIcon, at: 0)
             case .right:
                 titleLabel.textAlignment = .left
-                arrowIcon.image = Styles.Images.buttonRightArrow
+                arrowIcon.image = Styles.Images.buttonRightArrow.withRenderingMode(.alwaysTemplate)
                 stackView.addArrangedSubview(arrowIcon)
             }
         } else {
@@ -148,10 +150,33 @@ class BaseTextButtonWithArrow: BaseCustomButton {
             self?.layoutIfNeeded()
         }
     }
+    @discardableResult
+    override func setButtonStatus(_ status: ButtonStatus) -> Self {
+        super.setButtonStatus(status)
+        
+        switch status {
+        
+        case .busy:
+            showActivityIndicator()
+        case .normal:
+            hideActivityIndicator()
+            
+            titleLabel.textColor = textColor
+            arrowIcon.tintColor = textColor
+            isUserInteractionEnabled = true
+            
+        case .deactive:
+            hideActivityIndicator()
+            
+            titleLabel.textColor = textColor.withAlphaComponent(0.3)
+            arrowIcon.tintColor = textColor.withAlphaComponent(0.3)
+            isUserInteractionEnabled = true
+        }
+        return self
+    }
 }
 
 extension BaseTextButtonWithArrow {
-    
     @discardableResult
     func setTitle(title: String?) -> Self {
         self.titleLabel.text = title
@@ -173,6 +198,7 @@ extension BaseTextButtonWithArrow {
         
         titleLabel.textColor = color
         activityIndicator.color = color
+        arrowIcon.tintColor = color
         
         return self
     }
