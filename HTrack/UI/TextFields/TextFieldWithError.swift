@@ -50,6 +50,7 @@ class TextFieldWithError: UIView {
         lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeSmall).font
         lb.textColor = errorLabelColor
         lb.isHidden = true
+        lb.alpha = 0
         lb.numberOfLines = 2
         return lb
     }()

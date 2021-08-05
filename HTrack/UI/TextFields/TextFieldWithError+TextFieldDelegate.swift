@@ -65,10 +65,18 @@ extension TextFieldWithError: UITextFieldDelegate {
         } else {
 //            showCloseIcon()
         }
-        removeError()
+        
         
         ///do somthing in validator
-        _validatorInputDelegate?.inputChanged(input: self)
+        if let validatorInputDelegate = _validatorInputDelegate {
+            ///error was delete in validator
+            validatorInputDelegate.inputChanged(input: self)
+        } else {
+            ///simple delete error
+            removeError()
+        }
+        
+        
     }
     
     fileprivate func validate() {

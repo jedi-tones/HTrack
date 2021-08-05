@@ -37,8 +37,7 @@ extension TextFieldWithError: BaseTextFieldProtocol {
     var error: String? {
         get { return errorLabel.text }
         set {
-            errorLabel.text = newValue
-            errorLabel.isHidden = newValue == nil
+            errorTextAnimation(newValue: newValue)
         }
     }
     
@@ -60,5 +59,32 @@ extension TextFieldWithError: BaseTextFieldProtocol {
     var returnKeyType: UIReturnKeyType {
         get { return textField.returnKeyType }
         set { textField.returnKeyType = newValue}
+    }
+}
+
+extension TextFieldWithError {
+    private func errorTextAnimation(newValue: String?) {
+        let needShow = newValue != nil
+        
+        UIView.animate(withDuration: Styles.Constants.animationDuarationBase) {[weak self] in
+            self?.errorLabel.alpha = 0
+        } completion: {[weak self] isComplite in
+            if isComplite {
+                if needShow {
+                    self?.errorLabel.text = newValue
+                    self?.errorTextShowAnimation()
+                } else {
+                    self?.errorLabel.isHidden = true
+                    self?.errorLabel.text = nil
+                }
+            }
+        }
+    }
+    
+    private func errorTextShowAnimation() {
+        errorLabel.isHidden = false
+        UIView.animate(withDuration: Styles.Constants.animationDuarationBase) {[weak self] in
+            self?.errorLabel.alpha = 1
+        }
     }
 }

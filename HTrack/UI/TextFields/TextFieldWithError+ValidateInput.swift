@@ -41,6 +41,4 @@ extension TextFieldWithError: ValidateInput {
     func removeValidationError() {
         removeError()
     }
-    
-    
 }
