@@ -22,6 +22,9 @@ extension TextFieldWithError: BaseTextFieldProtocol {
         get { return textField.text }
         set {
             textField.text = newValue
+            updatePlaceholder()
+            updateBorder()
+            removeError()
             changeTextDelegate?(self, newValue)
         }
     }

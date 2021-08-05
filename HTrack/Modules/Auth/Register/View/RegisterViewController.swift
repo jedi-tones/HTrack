@@ -101,7 +101,7 @@ extension RegisterViewController {
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            nicknameTitle.bottomAnchor.constraint(equalTo: nicknameInput.topAnchor, constant: -Styles.Sizes.bigVInset),
+            nicknameTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Styles.Sizes.bigVInset),
             nicknameTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Styles.Sizes.standartHInset),
             nicknameTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Styles.Sizes.standartHInset),
             

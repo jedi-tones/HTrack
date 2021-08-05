@@ -76,7 +76,6 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
     //MARK: - register mail
     func register(email: String,
                   password: String,
-                  confirmPassword: String?,
                   complition: @escaping (Result<User, Error>) -> Void ) {
             
         auth.createUser(withEmail: email, password: password) { result, error in

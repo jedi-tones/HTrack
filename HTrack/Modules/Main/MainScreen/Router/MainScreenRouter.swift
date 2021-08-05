@@ -16,6 +16,6 @@ class MainScreenRouter: MainScreenRouterInput {
         
         guard let mainScreenCoordinator = coordinator as? MainScreenCoordinatorFlow else { return }
         
-        mainScreenCoordinator.showRegisterScreen()
+        mainScreenCoordinator.showAuthScreen()
     }
 }

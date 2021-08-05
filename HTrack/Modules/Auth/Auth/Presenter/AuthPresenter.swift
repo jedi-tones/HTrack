@@ -21,10 +21,47 @@ extension AuthPresenter: AuthViewOutput {
 
         view.setupInitialState()
     }
+    
+    func registerEmail(email: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        view.setState(state: .notChecked)
+    }
+    
+    func checkEmail(email: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        view.setState(state: .auth)
+        
+    }
+    
+    func authWithEmail(email: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        view.setState(state: .notChecked)
+    }
 }
 
 // MARK: - AuthInteractorOutput
 extension AuthPresenter: AuthInteractorOutput {
+    func setState(state: AuthViewController.AuthViewControllerState) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+    }
+    
+    func showRegisterModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+    }
+    
+    func showMainModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+    }
+    
 
 }
 

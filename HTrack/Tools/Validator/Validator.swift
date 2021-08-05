@@ -18,6 +18,7 @@ protocol ValidateInput: AnyObject {
     var text: String? { get }
     var error: String? { get }
     var errors: [String] { get set }
+    var needValidate: Bool { get }
     func setValidationError(_ error: String?)
     func removeValidationError()
 }
@@ -53,6 +54,8 @@ class Validator {
         for input in inputs {
             input.errors.removeAll()
             
+            guard input.needValidate else { break }
+            
             let rules = input.rulesToValidate
             for rule in rules {
                 let validatedResult = rule.validate(value: input.text)
@@ -78,6 +81,13 @@ class Validator {
             validatorButtons.forEach({$0.setStatus(.normal)})
             complition(.valid)
         }
+    }
+    
+    func removeAllErrors() {
+        inputs.forEach({
+            $0.errors.removeAll()
+            $0.removeValidationError()
+        })
     }
 }
 

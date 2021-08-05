@@ -5,7 +5,7 @@
 //  Created by Денис Щиголев on 8/3/21.
 //
 
-import Foundation
+import UIKit
 
 extension TextFieldWithError {
     
@@ -47,6 +47,18 @@ extension TextFieldWithError {
     @discardableResult
     func setRules(_ rules: [ValidatorRule]) -> Self {
         self._rulesToValidate = rules
+        return self
+    }
+    
+    @discardableResult
+    func setKeyboardType(_ keyboardType: UIKeyboardType ) -> Self {
+        self.keyboardType = keyboardType
+        return self
+    }
+    
+    @discardableResult
+    func setSecureText(_ isSecureText: Bool ) -> Self {
+        self.secureTextEntry = isSecureText
         return self
     }
 }

@@ -7,27 +7,38 @@ import Foundation
 protocol AuthViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
+    func setState(state: AuthViewController.AuthViewControllerState)
 }
 
 protocol AuthViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
+    func registerEmail(email: String)
+    func authWithEmail(email: String)
+    func checkEmail(email: String)
 }
 
 
 // MARK: - Interactor
 protocol AuthInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
+    func registerEmail(email: String)
+    func checkEmail(email: String)
 }
 
 protocol AuthInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
+    func setState(state: AuthViewController.AuthViewControllerState)
+    func showRegisterModule()
+    func showMainModule()
 }
 
 
 // MARK: - Router
 protocol AuthRouterInput {
     // MARK: PRESENTER -> ROUTER
+    func showRegisterModule()
+    func showMainModule()
 }
 
 

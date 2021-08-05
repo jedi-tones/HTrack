@@ -8,6 +8,10 @@
 import UIKit
 
 extension TextFieldWithError: ValidateInput {
+    var needValidate: Bool {
+        isHidden.isNot()
+    }
+    
     var validatorInputDelegate: ValidatorInputDelegate? {
         get {
             _validatorInputDelegate

@@ -9,4 +9,16 @@ class AuthRouter: AuthRouterInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
     }
+    
+    func showRegisterModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+    }
+    
+    func showMainModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+    }
 }

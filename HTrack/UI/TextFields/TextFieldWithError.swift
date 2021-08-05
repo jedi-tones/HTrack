@@ -118,7 +118,7 @@ class TextFieldWithError: UIView {
         centerPlaceholderConstraint?.isActive = true
     }
     
-    private func updatePlaceholder() {
+     func updatePlaceholder() {
         switch self.textFieldState {
         case .active:
             self.centerPlaceholderConstraint?.isActive = false
@@ -140,7 +140,7 @@ class TextFieldWithError: UIView {
         }
     }
     
-    private func updateBorder() {
+    func updateBorder() {
         UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
             guard let self = self else { return }
             self.textField.layer.borderColor = self.borderColor.cgColor

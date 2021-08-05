@@ -10,6 +10,7 @@ protocol MainScreenCoordinatorFlow {
     func showWelcomeScreen(animated: Bool)
     func showProfileSettings()
     func showRegisterScreen()
+    func showAuthScreen()
 }
 
 class MainScreenCoordinator: CoordinatorProtocol {
@@ -72,6 +73,14 @@ extension MainScreenCoordinator: MainScreenCoordinatorFlow {
                     text: "\(type(of: self)) - \(#function)")
         
         let module = RegisterModule(coordinator: self)
+        modulePresenter?.pushModule(with: module.controller, animated: true)
+    }
+    
+    func showAuthScreen() {
+        Logger.show(title: "Coordinator",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        let module = AuthModule(coordinator: self)
         modulePresenter?.pushModule(with: module.controller, animated: true)
     }
 }
