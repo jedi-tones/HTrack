@@ -34,6 +34,7 @@ class AuthViewController: UIViewController {
         
         tf.changeTextDelegate = {[weak self] _, _ in
             self?.setState(state: .notChecked)
+            self?.nextButton.setStatus(.normal)
         }
         return tf
     }()
@@ -44,6 +45,7 @@ class AuthViewController: UIViewController {
             .setSecureText(true)
             .setRules([.isNotEmpty, .rule(regex: .password)])
         
+        tf.alpha = 0
         tf.isHidden = true
         return tf
     }()
@@ -63,6 +65,7 @@ class AuthViewController: UIViewController {
             .setCornerRadius(radius: Styles.Sizes.baseCornerRadius)
             .setWithArrow(withArrow: true, arrowDirection: .right)
             .setTextColor(color: nextButtonTitleColor)
+            .setStatus(.deactive)
         
         bt.action = { [weak self] in
             guard let self = self,
@@ -166,17 +169,29 @@ extension AuthViewController {
         switch state {
         
         case .notChecked:
-            passwordInput.isHidden = true
-            passwordInput.text = ""
-            nextButton.setTitle(title: "Проверить")
+            UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
+                self?.passwordInput.isHidden = true
+                self?.passwordInput.alpha = 0
+                self?.passwordInput.text = ""
+            }
+            
+            nextButton.setTitle(title: "Проверить", animated: true)
         case .auth:
-            passwordInput.setPlacehodler("Пароль")
-            passwordInput.isHidden = false
-            nextButton.setTitle(title: "Войти")
+            UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
+                self?.passwordInput.setPlacehodler("Пароль")
+                self?.passwordInput.isHidden = false
+                self?.passwordInput.alpha = 1
+            }
+            
+            nextButton.setTitle(title: "Войти", animated: true)
         case .register:
-            passwordInput.setPlacehodler("Придумай пароль")
-            passwordInput.isHidden = false
-            nextButton.setTitle(title: "Зарегистрироваться")
+            UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
+                self?.passwordInput.setPlacehodler("Придумай пароль")
+                self?.passwordInput.isHidden = false
+                self?.passwordInput.alpha = 1
+            }
+            
+            nextButton.setTitle(title: "Зарегистрироваться", animated: true)
         }
     }
 }

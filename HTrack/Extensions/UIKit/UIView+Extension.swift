@@ -22,4 +22,38 @@ extension UIView {
             }
         }
     }
+    
+    func swipeAndShow(duaration: TimeInterval = Styles.Constants.animationDuarationBase,
+                      superviewHeight: CGFloat? = nil,
+                      onChange: (()-> Void)?,
+                      complition: (()-> Void)?) {
+        
+        var translationY:CGFloat = 0
+        if let superviewHeight = superviewHeight {
+            translationY = superviewHeight
+        } else if let superviewHeight = superview?.frame.height {
+            translationY = superviewHeight
+        }
+        
+        UIView.animate(withDuration: duaration/2, delay: 0, options: .curveEaseIn) {[weak self] in
+            self?.transform = CGAffineTransform(translationX: 0, y: translationY)
+        } completion: {[weak self] isComplite in
+            if isComplite {
+                onChange?()
+                
+                self?.transform = CGAffineTransform(translationX: 0, y: -translationY)
+                resumeViewAnimation()
+            }
+        }
+        
+        func resumeViewAnimation() {
+            UIView.animate(withDuration: duaration/2, delay: 0, options: .curveEaseOut) {[weak self] in
+                self?.transform = .identity
+            } completion: { isComplite in
+                if isComplite {
+                    complition?()
+                }
+            }
+        }
+    }
 }

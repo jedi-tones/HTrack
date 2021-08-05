@@ -192,9 +192,17 @@ class BaseTextButtonWithArrow: BaseCustomButton {
 
 extension BaseTextButtonWithArrow {
     @discardableResult
-    func setTitle(title: String?) -> Self {
-        self.titleLabel.text = title
+    func setTitle(title: String?, animated: Bool = false) -> Self {
         
+        if animated {
+            titleLabel.swipeAndShow { [weak self] in
+                self?.titleLabel.text = title
+            } complition: {
+                return
+            }
+        } else {
+            titleLabel.text = title
+        }
         return self
     }
     
