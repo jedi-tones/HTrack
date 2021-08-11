@@ -63,6 +63,7 @@
 		C664C103B203C42BF39BAC78 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E276971BE5A082113B303 /* RegisterModule.swift */; };
 		C72575A1A6DA8558B87F7FB4 /* LoginEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32174C17FBCAEAB3B245666 /* LoginEmailPresenter.swift */; };
 		D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39209731F0D8310142B377F9 /* FriendsModule.swift */; };
+		DD5414F426C168E000A13BE0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5414F326C168E000A13BE0 /* ContainerViewController.swift */; };
 		DD59F73826B5A95800CA8179 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F73726B5A95800CA8179 /* WelcomeView.swift */; };
 		DD59F73C26B5AA6600CA8179 /* BaseCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F73B26B5AA6600CA8179 /* BaseCustomButton.swift */; };
 		DD59F73F26B5AAF200CA8179 /* ViewWithCustomTouchArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F73E26B5AAF200CA8179 /* ViewWithCustomTouchArea.swift */; };
@@ -206,6 +207,7 @@
 		D97A4CEDB2C0BD2C7006A050 /* Pods_HTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D997B8B684C982B2BB36FF03 /* WelcomeModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeModule.swift; sourceTree = "<group>"; };
 		DA805F767B093B4A99C63449 /* RegisterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DD5414F326C168E000A13BE0 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		DD59F73726B5A95800CA8179 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DD59F73B26B5AA6600CA8179 /* BaseCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomButton.swift; sourceTree = "<group>"; };
 		DD59F73E26B5AAF200CA8179 /* ViewWithCustomTouchArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithCustomTouchArea.swift; sourceTree = "<group>"; };
@@ -798,6 +800,7 @@
 				DD59F73D26B5AAD800CA8179 /* View */,
 				DD59F73A26B5AA5500CA8179 /* Buttons */,
 				DD65E09826B89E37002BBF80 /* TextFields */,
+				DD5414F326C168E000A13BE0 /* ContainerViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1413,6 +1416,7 @@
 				C629FC19BD05B52BFF25F858 /* RegisterUserInfoViewController.swift in Sources */,
 				DD59F75C26B6113F00CA8179 /* AppManager+Auth.swift in Sources */,
 				DD59F75F26B6F1E300CA8179 /* AppleAuthService.swift in Sources */,
+				DD5414F426C168E000A13BE0 /* ContainerViewController.swift in Sources */,
 				E1010921D470C16A59C6A60B /* RegisterUserInfoPresenter.swift in Sources */,
 				78FD1C958DDB1F4BAF728DD4 /* RegisterUserInfoInteractor.swift in Sources */,
 				6EAE47A5429FDA5B0F0363F3 /* RegisterUserInfoRouter.swift in Sources */,
