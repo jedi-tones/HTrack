@@ -5,6 +5,8 @@ class WelcomeInteractor {
     weak var output: WelcomeInteractorOutput!
 
     lazy var appManager = AppManager.shared
+    lazy var userManager = UserManager.shared
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -25,6 +27,25 @@ extension WelcomeInteractor: WelcomeInteractorInput {
                 self?.output.closeAuthModule()
             case .failure(let error):
                 Logger.show(title: "USER AUTH ERROR", text: error.localizedDescription)
+            }
+        }
+    }
+    
+    func checkCurrentUserProfile() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        userManager.getCurrentUser {[weak self] result in
+            switch result {
+            
+            case .success(let user):
+                if let state = self?.userManager.checkUserProfileState(user: user) {
+                    switch state {
+                    
+                    }
+                }
+            case .failure(_):
+                <#code#>
             }
         }
     }

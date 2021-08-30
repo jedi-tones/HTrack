@@ -2,6 +2,7 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import Foundation
+import FirebaseAuth
 
 // MARK: - View
 protocol WelcomeViewInput: AnyObject {
@@ -21,11 +22,13 @@ protocol WelcomeViewOutput {
 protocol WelcomeInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func signInWithApple()
+    func checkCurrentUserProfile()
 }
 
 protocol WelcomeInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func openRegistrationCompliteModule()
+    func authWithAppleComplite(user: User)
     func closeAuthModule()
 }
 

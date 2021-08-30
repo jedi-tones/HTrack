@@ -17,8 +17,8 @@ enum AuthType: String, Codable {
     }
 }
 
-struct MPeople: Codable {
-    var peopleID: String
+struct MUser: Codable {
+    var userID: String
     var name: String
     var mail: String
     var authType: AuthType
@@ -38,7 +38,7 @@ struct MPeople: Codable {
          isPremiumUser: Bool,
          isActive: Bool) {
         
-        self.peopleID = peopleID
+        self.userID = peopleID
         self.name = name
         self.mail = mail
         self.authType = authType
@@ -54,7 +54,7 @@ struct MPeople: Codable {
     init?(documentSnap: DocumentSnapshot){
         guard let documet = documentSnap.data()  else { return nil }
         
-        if let peopleID = documet["peopleID"] as? String { self.peopleID = peopleID } else { self.peopleID = ""}
+        if let peopleID = documet["peopleID"] as? String { self.userID = peopleID } else { self.userID = ""}
         if let name = documet["name"] as? String { self.name = name } else { self.name = ""}
         if let mail = documet["mail"] as? String { self.mail = mail } else { self.mail = ""}
         if let authType = documet["authType"] as? String {
@@ -78,7 +78,7 @@ struct MPeople: Codable {
     init?(documentSnap: QueryDocumentSnapshot){
         let documet = documentSnap.data()
        
-        if let peopleID = documet["peopleID"] as? String { self.peopleID = peopleID } else { self.peopleID = ""}
+        if let peopleID = documet["peopleID"] as? String { self.userID = peopleID } else { self.userID = ""}
         if let name = documet["name"] as? String { self.name = name } else { self.name = ""}
         if let mail = documet["mail"] as? String { self.mail = mail } else { self.mail = ""}
         if let authType = documet["authType"] as? String {
@@ -97,17 +97,17 @@ struct MPeople: Codable {
         if let isActive = documet["isActive"] as? Bool { self.isActive = isActive } else { self.isActive = true}
     }
     
-    func fromJson(json: [String : Any]) -> MPeople?{
+    func fromJson(json: [String : Any]) -> MUser?{
         if let data = try? JSONSerialization.data(withJSONObject: json, options: []) {
-            let people = try? JSONDecoder().decode(MPeople.self, from: data)
+            let people = try? JSONDecoder().decode(MUser.self, from: data)
             return people
         } else {
             return nil
         }
     }
     
-    func emptyPeople() -> MPeople {
-        let people = MPeople(peopleID: "",
+    func emptyPeople() -> MUser {
+        let people = MUser(peopleID: "",
                              name: "",
                              mail: "",
                              authType: AuthType.defaultAuthType(),

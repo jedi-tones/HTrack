@@ -19,6 +19,4 @@ extension MainScreenInteractor: MainScreenInteractorInput {
         let sections = [MainScreenSection.info]
         output.setupSections(sections: sections)
     }
-    
-
 }

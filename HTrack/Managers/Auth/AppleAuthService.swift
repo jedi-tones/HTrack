@@ -17,6 +17,7 @@ protocol AppleAuthServiceProtocol {
 final class AppleAuthService: NSObject, AppleAuthServiceProtocol {
     static let shared = AppleAuthService()
     private override init() { }
+    
     private let auth = Auth.auth()
     private var currentNonce: String?  //hashed nonce string
     private var complitionAuth: ((Result<(ASAuthorization, String), Error>) -> Void)?

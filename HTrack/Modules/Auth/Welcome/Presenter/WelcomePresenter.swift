@@ -1,6 +1,8 @@
 //  Created by Denis Shchigolev on 14/06/2021.
 //  Copyright © 2021 HTrack. All rights reserved.
 
+import FirebaseAuth
+
 class WelcomePresenter {
     weak var output: WelcomeModuleOutput?
     weak var view: WelcomeViewInput!
@@ -39,6 +41,13 @@ extension WelcomePresenter: WelcomeViewOutput {
 
 // MARK: - WelcomeInteractorOutput
 extension WelcomePresenter: WelcomeInteractorOutput {
+    func authWithAppleComplite(user: User) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        interactor.checkCurrentUserProfile()
+    }
+    
     func openRegistrationCompliteModule() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
