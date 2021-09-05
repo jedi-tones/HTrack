@@ -23,6 +23,8 @@ extension Styles.Colors  {
     
     static let red1 = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
     
+    static let green1 = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+    
     //MARK: label
     static func myBackgroundColor() -> UIColor {
         dynamicColor(light: white1, dark: black1)
@@ -50,6 +52,10 @@ extension Styles.Colors  {
     
     static func myErrorLabelColor() -> UIColor {
         return red1
+    }
+    
+    static func myInfoLabelColor() -> UIColor {
+        return green1
     }
     
     static func myActivityIndicatorColor() -> UIColor {

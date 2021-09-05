@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01E06D4D6DEF75B5EA509DE2 /* MainTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92037C1CF235F29E4A623E /* MainTabBarRouter.swift */; };
+		03699115068A34892C8E27E7 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6F33ACCCDEBBB1544B50C3 /* SettingsBuilder.swift */; };
 		04653B53320E1F132DF569DF /* WelcomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997B8B684C982B2BB36FF03 /* WelcomeModule.swift */; };
 		138A3F3989A61FE3DFD05C5D /* WelcomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF17D914EDB53580BEC7FB /* WelcomeProtocols.swift */; };
 		17ACBEE20335308B1DA12F93 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987707F1B054E8F815A9B342 /* AuthViewController.swift */; };
@@ -25,6 +26,7 @@
 		3DD3FC7271470EEC651AEBAA /* LoginEmailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24054EABB4676551BCF93D81 /* LoginEmailModule.swift */; };
 		3FFBF310BA12633E3C83F21E /* Pods_HTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97A4CEDB2C0BD2C7006A050 /* Pods_HTrack.framework */; };
 		430D5062EE00F28F8DEC3956 /* MainTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BB453587A409493F8FE0E /* MainTabBarProtocols.swift */; };
+		431E45FCFB31AF7DF9941F3E /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B32AA56309EA41FEA4A619 /* SettingsPresenter.swift */; };
 		494A6882885C4BC28A5147F2 /* RegisterUserInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94FEDA4D7F340617BA68C09 /* RegisterUserInfoProtocols.swift */; };
 		49E2B842581A1C3D0F65DC11 /* AuthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9118ABF000B22BB3893F647 /* AuthModule.swift */; };
 		509A7B54583ABC5E21750DA0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAA25128629A6A1030457A /* WelcomeViewController.swift */; };
@@ -42,22 +44,26 @@
 		7C0C19A45E5C4F87DA0E0B79 /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8236A5EB98C111D73F256AC8 /* WelcomeRouter.swift */; };
 		80A01D9AA58963319DCBFD28 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDDDB8EF8CE744A8417A73 /* WelcomeInteractor.swift */; };
 		841C7F771EFB5822C234C2B4 /* LoginEmailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF25DF35D72F9F2C06FD3FBE /* LoginEmailBuilder.swift */; };
+		8781BA80D1FB52D90C82CE39 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8673ED79C5BB2098BEA82750 /* SettingsProtocols.swift */; };
 		88F448F132351CB3306678F7 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */; };
 		8B5D0FE75FE4E01E80BEEE26 /* RegisterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDF0F5267A6ADD172EADAB9 /* RegisterEmailViewController.swift */; };
 		8C40A0692AE914BC371FE056 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB281C1EBC21F4F34D4BAED0 /* RegisterPresenter.swift */; };
 		93CD55BB6E8F90E075C4F98C /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92796598EC5515A195BC1F76 /* MainTabBarPresenter.swift */; };
 		97A2D593528461FBE8DC692C /* RegisterEmailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C900DAEB58DBDC3D8CE49 /* RegisterEmailModule.swift */; };
+		9975FF05D6047FCCE7376B97 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349B702130200F9A6294301 /* SettingsViewController.swift */; };
 		9B856B71AD5236F0BF227766 /* FriendsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B2A3CD602E7E003279269 /* FriendsRouter.swift */; };
 		9CDF368FF81A13B82F0A35AB /* MainScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F19602C1EE60937B0D0C85C /* MainScreenProtocols.swift */; };
 		9DA4C5F02320430EEBB2A568 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBE06AA19D4CB916934DF28 /* WelcomePresenter.swift */; };
 		A7112ACA29A6FE2534EE9780 /* RegisterUserInfoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45105151D64698CBB523CAD5 /* RegisterUserInfoModule.swift */; };
 		A9A301224D7F8880B2D0DDD7 /* LoginEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323D835495DF08E8F340D17C /* LoginEmailRouter.swift */; };
 		AF127BC8E928D8FE8A2492AB /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C16AFDB9E5E973C90C7794 /* AuthProtocols.swift */; };
+		B04211D04219911B7D51F57C /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A61B787379AEE742DCAA7 /* SettingsModule.swift */; };
 		B06A853378EBB9583F7B1F15 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA805F767B093B4A99C63449 /* RegisterViewController.swift */; };
 		B59C60C49C97C4E94BC904AF /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE809CA9CD0597ADD36E0F25 /* RegisterInteractor.swift */; };
 		B897BF24F402A2E61F9D4254 /* RegisterEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AB9A13B26BD8556107406 /* RegisterEmailRouter.swift */; };
 		B98DB136D15F13E0DB6007B9 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E195B9B780EF20A7D79DD7F /* LoginEmailViewController.swift */; };
 		C09BA41CCA8B6E0DADE6067C /* FriendsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF3284BA7263179D23C6C44 /* FriendsProtocols.swift */; };
+		C27C8ADF0CC8C27D309ED1DA /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6984F77B768DE1487D5189 /* SettingsInteractor.swift */; };
 		C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864CB516A53B7925E96F9979 /* FriendsBuilder.swift */; };
 		C629FC19BD05B52BFF25F858 /* RegisterUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4282716F8E4B76F20430C392 /* RegisterUserInfoViewController.swift */; };
 		C664C103B203C42BF39BAC78 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E276971BE5A082113B303 /* RegisterModule.swift */; };
@@ -82,13 +88,13 @@
 		DD59F75C26B6113F00CA8179 /* AppManager+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F75B26B6113F00CA8179 /* AppManager+Auth.swift */; };
 		DD59F75F26B6F1E300CA8179 /* AppleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F75E26B6F1E300CA8179 /* AppleAuthService.swift */; };
 		DD59F76126B6F22900CA8179 /* CryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F76026B6F22900CA8179 /* CryptoService.swift */; };
-		DD59F76326B6F2BC00CA8179 /* FirebaseAuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F76226B6F2BC00CA8179 /* FirebaseAuthentificationService.swift */; };
+		DD59F76326B6F2BC00CA8179 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F76226B6F2BC00CA8179 /* FirebaseAuthManager.swift */; };
 		DD59F76626B6FD3400CA8179 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F76526B6FD3400CA8179 /* AuthError.swift */; };
 		DD59F76826B6FE8800CA8179 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD59F76726B6FE8800CA8179 /* GoogleService-Info.plist */; };
 		DD59F76C26B734C000CA8179 /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F76B26B734C000CA8179 /* MUser.swift */; };
 		DD5F63EC267FA773002131FD /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63EB267FA773002131FD /* SectionViewModel.swift */; };
 		DD5F63EF267FA85B002131FD /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63EE267FA85B002131FD /* CellViewModel.swift */; };
-		DD5F63F1267FAC41002131FD /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63F0267FAC41002131FD /* BaseCell.swift */; };
+		DD5F63F1267FAC41002131FD /* BaseCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63F0267FAC41002131FD /* BaseCellProtocol.swift */; };
 		DD5F63F3267FAD18002131FD /* MainScreenInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63F2267FAD18002131FD /* MainScreenInfoCell.swift */; };
 		DD5F63F6267FB246002131FD /* MainScreenInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63F5267FB246002131FD /* MainScreenInfoViewModel.swift */; };
 		DD5F63F9267FB8D2002131FD /* MainScreenSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63F8267FB8D2002131FD /* MainScreenSection.swift */; };
@@ -105,6 +111,8 @@
 		DD870D6E26D7E2D8000F59AE /* FirestoreEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6D26D7E2D8000F59AE /* FirestoreEndPoint.swift */; };
 		DD870D7026D7E320000F59AE /* BaseEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6F26D7E320000F59AE /* BaseEndPoint.swift */; };
 		DD870D7526D93EDE000F59AE /* FirestoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D7426D93EDE000F59AE /* FirestoreError.swift */; };
+		DD870D7726DEC1A6000F59AE /* WeekCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D7626DEC1A6000F59AE /* WeekCollection.swift */; };
+		DD870D7926DEC1FB000F59AE /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D7826DEC1FB000F59AE /* Notifier.swift */; };
 		DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214EC26763DFB00A3623E /* AppDelegate.swift */; };
 		DD9214EF26763DFB00A3623E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214EE26763DFB00A3623E /* SceneDelegate.swift */; };
 		DD9214F126763DFB00A3623E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214F026763DFB00A3623E /* ViewController.swift */; };
@@ -135,7 +143,22 @@
 		DD9EAD152699BE4D0032B3D7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD142699BE4D0032B3D7 /* NetworkError.swift */; };
 		DD9EAD192699BE8B0032B3D7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD182699BE8B0032B3D7 /* NetworkService.swift */; };
 		DD9EAD1B2699BEBD0032B3D7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD1A2699BEBD0032B3D7 /* HTTPMethod.swift */; };
+		DD9F613326E0BD1E009E3D39 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F613226E0BD1E009E3D39 /* UserError.swift */; };
+		DD9F613526E0E823009E3D39 /* UserManager+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F613426E0E823009E3D39 /* UserManager+Get.swift */; };
+		DD9F613726E0E85D009E3D39 /* UserManager+Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F613626E0E85D009E3D39 /* UserManager+Set.swift */; };
+		DD9F613926E0E8C7009E3D39 /* UserManager+Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F613826E0E8C7009E3D39 /* UserManager+Check.swift */; };
+		DD9F613D26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F613C26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift */; };
+		DD9F613F26E2AEE0009E3D39 /* SettingsViewController+CollectionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F613E26E2AEE0009E3D39 /* SettingsViewController+CollectionVIew.swift */; };
+		DD9F614126E2AFA2009E3D39 /* SettingsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F614026E2AFA2009E3D39 /* SettingsViewController+Delegate.swift */; };
+		DD9F614326E2AFC2009E3D39 /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F614226E2AFC2009E3D39 /* SettingsViewController+DataSource.swift */; };
+		DD9F614526E2B048009E3D39 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F614426E2B048009E3D39 /* SettingsSection.swift */; };
+		DD9F614826E51A7A009E3D39 /* TextCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F614726E51A7A009E3D39 /* TextCollectionCell.swift */; };
+		DD9F614B26E51B44009E3D39 /* TextCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F614A26E51B44009E3D39 /* TextCollectionCellViewModel.swift */; };
+		DD9F614E26E51E41009E3D39 /* TextCollectionCell+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F614D26E51E41009E3D39 /* TextCollectionCell+Touches.swift */; };
+		DD9F615026E523C8009E3D39 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F614F26E523C8009E3D39 /* BaseCell.swift */; };
+		DD9F615226E52434009E3D39 /* BaseCell+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F615126E52434009E3D39 /* BaseCell+Touches.swift */; };
 		E1010921D470C16A59C6A60B /* RegisterUserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A6C38414672B8073EC767E /* RegisterUserInfoPresenter.swift */; };
+		E1560B40513E728EEAD06A5B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931C55A79037676521FC968 /* SettingsRouter.swift */; };
 		E791506092A3252CB263145A /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F339803F883491C41641E /* MainScreenInteractor.swift */; };
 		EFB394C10363780861596021 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BAAB1C1AD8223E12C698BD /* FriendsViewController.swift */; };
 		F172449F63A9506E7070F9CE /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EA5EAE71EDBCF6A6E1B91 /* RegisterRouter.swift */; };
@@ -157,6 +180,7 @@
 /* Begin PBXFileReference section */
 		126E276971BE5A082113B303 /* RegisterModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterModule.swift; sourceTree = "<group>"; };
 		1C2F5967AA878A68881E09A7 /* MainScreenRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
+		1C6F33ACCCDEBBB1544B50C3 /* SettingsBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		1DBE06AA19D4CB916934DF28 /* WelcomePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		1F19602C1EE60937B0D0C85C /* MainScreenProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenProtocols.swift; sourceTree = "<group>"; };
 		225DE4B92E0D7405B18BE42E /* RegisterEmailBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailBuilder.swift; sourceTree = "<group>"; };
@@ -171,6 +195,7 @@
 		3D92037C1CF235F29E4A623E /* MainTabBarRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
 		4282716F8E4B76F20430C392 /* RegisterUserInfoViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoViewController.swift; sourceTree = "<group>"; };
 		45105151D64698CBB523CAD5 /* RegisterUserInfoModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoModule.swift; sourceTree = "<group>"; };
+		505A61B787379AEE742DCAA7 /* SettingsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
 		530BF96EA13DA10118717E42 /* MainTabBarModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarModule.swift; sourceTree = "<group>"; };
 		574C900DAEB58DBDC3D8CE49 /* RegisterEmailModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailModule.swift; sourceTree = "<group>"; };
 		57A6C38414672B8073EC767E /* RegisterUserInfoPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoPresenter.swift; sourceTree = "<group>"; };
@@ -184,6 +209,7 @@
 		8236A5EB98C111D73F256AC8 /* WelcomeRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
 		85BEBAC5A449BC6711324E1F /* FriendsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsPresenter.swift; sourceTree = "<group>"; };
 		864CB516A53B7925E96F9979 /* FriendsBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsBuilder.swift; sourceTree = "<group>"; };
+		8673ED79C5BB2098BEA82750 /* SettingsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
 		8F414682F88A38F8E4268719 /* RegisterEmailInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailInteractor.swift; sourceTree = "<group>"; };
 		92796598EC5515A195BC1F76 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		9399D9E40E81AAE5B947BE8B /* AuthBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthBuilder.swift; sourceTree = "<group>"; };
@@ -192,14 +218,17 @@
 		991869064D01F27107F1944C /* MainScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		9EFBC17BE46551737D5650F2 /* MainTabBarBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarBuilder.swift; sourceTree = "<group>"; };
 		9FDF0F5267A6ADD172EADAB9 /* RegisterEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailViewController.swift; sourceTree = "<group>"; };
+		A349B702130200F9A6294301 /* SettingsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A71AB9A13B26BD8556107406 /* RegisterEmailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailRouter.swift; sourceTree = "<group>"; };
 		AB7BB453587A409493F8FE0E /* MainTabBarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarProtocols.swift; sourceTree = "<group>"; };
+		AC6984F77B768DE1487D5189 /* SettingsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		AE809CA9CD0597ADD36E0F25 /* RegisterInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		AF25DF35D72F9F2C06FD3FBE /* LoginEmailBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailBuilder.swift; sourceTree = "<group>"; };
 		B59C94EE62CF3781E31E2A05 /* LoginEmailProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailProtocols.swift; sourceTree = "<group>"; };
 		B5EC09EB2614BEA27A0E4546 /* RegisterEmailProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailProtocols.swift; sourceTree = "<group>"; };
 		B6EAA18178898B4E896D6775 /* AuthRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		B8C16AFDB9E5E973C90C7794 /* AuthProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
+		B931C55A79037676521FC968 /* SettingsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		BB281C1EBC21F4F34D4BAED0 /* RegisterPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		C32174C17FBCAEAB3B245666 /* LoginEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailPresenter.swift; sourceTree = "<group>"; };
 		C439913315BC02EBFCA0B627 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -234,14 +263,14 @@
 		DD59F75B26B6113F00CA8179 /* AppManager+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppManager+Auth.swift"; sourceTree = "<group>"; };
 		DD59F75E26B6F1E300CA8179 /* AppleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthService.swift; sourceTree = "<group>"; };
 		DD59F76026B6F22900CA8179 /* CryptoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoService.swift; sourceTree = "<group>"; };
-		DD59F76226B6F2BC00CA8179 /* FirebaseAuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentificationService.swift; sourceTree = "<group>"; };
+		DD59F76226B6F2BC00CA8179 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		DD59F76526B6FD3400CA8179 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		DD59F76726B6FE8800CA8179 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD59F76926B70C3700CA8179 /* HTrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HTrack.entitlements; sourceTree = "<group>"; };
 		DD59F76B26B734C000CA8179 /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		DD5F63EB267FA773002131FD /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
 		DD5F63EE267FA85B002131FD /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
-		DD5F63F0267FAC41002131FD /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		DD5F63F0267FAC41002131FD /* BaseCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellProtocol.swift; sourceTree = "<group>"; };
 		DD5F63F2267FAD18002131FD /* MainScreenInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInfoCell.swift; sourceTree = "<group>"; };
 		DD5F63F5267FB246002131FD /* MainScreenInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInfoViewModel.swift; sourceTree = "<group>"; };
 		DD5F63F8267FB8D2002131FD /* MainScreenSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSection.swift; sourceTree = "<group>"; };
@@ -258,6 +287,8 @@
 		DD870D6D26D7E2D8000F59AE /* FirestoreEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreEndPoint.swift; sourceTree = "<group>"; };
 		DD870D6F26D7E320000F59AE /* BaseEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEndPoint.swift; sourceTree = "<group>"; };
 		DD870D7426D93EDE000F59AE /* FirestoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreError.swift; sourceTree = "<group>"; };
+		DD870D7626DEC1A6000F59AE /* WeekCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCollection.swift; sourceTree = "<group>"; };
+		DD870D7826DEC1FB000F59AE /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		DD9214E926763DFB00A3623E /* HTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9214EC26763DFB00A3623E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD9214EE26763DFB00A3623E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -290,11 +321,26 @@
 		DD9EAD142699BE4D0032B3D7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DD9EAD182699BE8B0032B3D7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DD9EAD1A2699BEBD0032B3D7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		DD9F613226E0BD1E009E3D39 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		DD9F613426E0E823009E3D39 /* UserManager+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Get.swift"; sourceTree = "<group>"; };
+		DD9F613626E0E85D009E3D39 /* UserManager+Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Set.swift"; sourceTree = "<group>"; };
+		DD9F613826E0E8C7009E3D39 /* UserManager+Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Check.swift"; sourceTree = "<group>"; };
+		DD9F613C26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBarInteractor+FirebaseAuth.swift"; sourceTree = "<group>"; };
+		DD9F613E26E2AEE0009E3D39 /* SettingsViewController+CollectionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+CollectionVIew.swift"; sourceTree = "<group>"; };
+		DD9F614026E2AFA2009E3D39 /* SettingsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Delegate.swift"; sourceTree = "<group>"; };
+		DD9F614226E2AFC2009E3D39 /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
+		DD9F614426E2B048009E3D39 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		DD9F614726E51A7A009E3D39 /* TextCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionCell.swift; sourceTree = "<group>"; };
+		DD9F614A26E51B44009E3D39 /* TextCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		DD9F614D26E51E41009E3D39 /* TextCollectionCell+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextCollectionCell+Touches.swift"; sourceTree = "<group>"; };
+		DD9F614F26E523C8009E3D39 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		DD9F615126E52434009E3D39 /* BaseCell+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCell+Touches.swift"; sourceTree = "<group>"; };
 		E2DF7355EF3EBC57DA24544F /* AuthInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
 		ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		EFF3284BA7263179D23C6C44 /* FriendsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsProtocols.swift; sourceTree = "<group>"; };
 		F43EA5EAE71EDBCF6A6E1B91 /* RegisterRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
+		F4B32AA56309EA41FEA4A619 /* SettingsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+BaseTextFieldProtocol.swift"; sourceTree = "<group>"; };
 		FB6B9D4026B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		FB6B9D4226B96E6A0050690F /* TextFiledWithError+Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFiledWithError+Set.swift"; sourceTree = "<group>"; };
@@ -367,6 +413,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		1D27996B24EA7EC2934BC7C2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B931C55A79037676521FC968 /* SettingsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		1D3ABFE15F188BB251539911 /* NewModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +429,17 @@
 				8D44BE58A366088DEF4D5B5A /* LoginEmail */,
 			);
 			path = NewModules;
+			sourceTree = "<group>";
+		};
+		1E0449240E2F3CBC2593AE06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A349B702130200F9A6294301 /* SettingsViewController.swift */,
+				DD9F613E26E2AEE0009E3D39 /* SettingsViewController+CollectionVIew.swift */,
+				DD9F614026E2AFA2009E3D39 /* SettingsViewController+Delegate.swift */,
+				DD9F614226E2AFC2009E3D39 /* SettingsViewController+DataSource.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1F9344EB1EE8E90BBEF6DBB7 /* Interactor */ = {
@@ -437,13 +502,36 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		33BC43AE790800A80F68DE8F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F4B32AA56309EA41FEA4A619 /* SettingsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		3468E4FBA120085C999C95BD /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
 				E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */,
+				DD9F613C26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift */,
 				DD92152A2677DEB400A3623E /* Model */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		362C26A702B3440F8E8C1D8C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1E0449240E2F3CBC2593AE06 /* View */,
+				33BC43AE790800A80F68DE8F /* Presenter */,
+				43C03B5E76B1208B5C73D9B7 /* Interactor */,
+				1D27996B24EA7EC2934BC7C2 /* Router */,
+				464064CC67DC7377309DC5B3 /* Builder */,
+				FCE24D622A8BA7277144ABA2 /* Protocols */,
+				505A61B787379AEE742DCAA7 /* SettingsModule.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		3AE7E5A8DBE17EDEAECDBF6C /* Welcome */ = {
@@ -466,6 +554,23 @@
 				8F414682F88A38F8E4268719 /* RegisterEmailInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		43C03B5E76B1208B5C73D9B7 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				AC6984F77B768DE1487D5189 /* SettingsInteractor.swift */,
+				DD9F614626E2B05C009E3D39 /* Model */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		464064CC67DC7377309DC5B3 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				1C6F33ACCCDEBBB1544B50C3 /* SettingsBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		4719416C0F9426E3EA751A9B /* RegisterEmail */ = {
@@ -813,6 +918,7 @@
 		DD59F73926B5AA4B00CA8179 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DD9F614926E51A83009E3D39 /* Cells */,
 				DD59F73D26B5AAD800CA8179 /* View */,
 				DD59F73A26B5AA5500CA8179 /* Buttons */,
 				DD65E09826B89E37002BBF80 /* TextFields */,
@@ -852,8 +958,8 @@
 		DD59F75D26B6F1D200CA8179 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				DD59F76226B6F2BC00CA8179 /* FirebaseAuthManager.swift */,
 				DD59F75E26B6F1E300CA8179 /* AppleAuthService.swift */,
-				DD59F76226B6F2BC00CA8179 /* FirebaseAuthentificationService.swift */,
 				DD59F76026B6F22900CA8179 /* CryptoService.swift */,
 			);
 			path = Auth;
@@ -864,6 +970,7 @@
 			children = (
 				DD59F76526B6FD3400CA8179 /* AuthError.swift */,
 				DD870D7426D93EDE000F59AE /* FirestoreError.swift */,
+				DD9F613226E0BD1E009E3D39 /* UserError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -883,7 +990,7 @@
 				DD59F76426B6FD2900CA8179 /* Errors */,
 				DD5F63EB267FA773002131FD /* SectionViewModel.swift */,
 				DD5F63EE267FA85B002131FD /* CellViewModel.swift */,
-				DD5F63F0267FAC41002131FD /* BaseCell.swift */,
+				DD5F63F0267FAC41002131FD /* BaseCellProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -931,6 +1038,9 @@
 			isa = PBXGroup;
 			children = (
 				DD870D6426D7DBF3000F59AE /* UserManager.swift */,
+				DD9F613426E0E823009E3D39 /* UserManager+Get.swift */,
+				DD9F613626E0E85D009E3D39 /* UserManager+Set.swift */,
+				DD9F613826E0E8C7009E3D39 /* UserManager+Check.swift */,
 				DD870D6826D7E0BE000F59AE /* UserRequestManager.swift */,
 			);
 			path = User;
@@ -995,6 +1105,8 @@
 				DD92150F26777DB500A3623E /* Module.swift */,
 				DD92150326763EC300A3623E /* Logger.swift */,
 				DD59F75426B5FD6000CA8179 /* LinkTextFormatter.swift */,
+				DD870D7626DEC1A6000F59AE /* WeekCollection.swift */,
+				DD870D7826DEC1FB000F59AE /* Notifier.swift */,
 				FB6B9D5026BAF7080050690F /* Validator */,
 			);
 			path = Tools;
@@ -1083,6 +1195,7 @@
 		DD92152F2677FD2500A3623E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				362C26A702B3440F8E8C1D8C /* Settings */,
 				9E16106EBED3C73477247602 /* MainScreen */,
 				CF2B8C29C8A7AA20ED3C404D /* Friends */,
 			);
@@ -1112,6 +1225,34 @@
 				DD870D6B26D7E155000F59AE /* FirestoreManager+User.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		DD9F614626E2B05C009E3D39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD9F614426E2B048009E3D39 /* SettingsSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD9F614926E51A83009E3D39 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD9F614C26E51B4A009E3D39 /* TextCollectionCell */,
+				DD9F614F26E523C8009E3D39 /* BaseCell.swift */,
+				DD9F615126E52434009E3D39 /* BaseCell+Touches.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DD9F614C26E51B4A009E3D39 /* TextCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD9F614726E51A7A009E3D39 /* TextCollectionCell.swift */,
+				DD9F614D26E51E41009E3D39 /* TextCollectionCell+Touches.swift */,
+				DD9F614A26E51B44009E3D39 /* TextCollectionCellViewModel.swift */,
+			);
+			path = TextCollectionCell;
 			sourceTree = "<group>";
 		};
 		DD9FD651B10B8B892D175469 /* Interactor */ = {
@@ -1216,6 +1357,14 @@
 				C439913315BC02EBFCA0B627 /* MainTabBarViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FCE24D622A8BA7277144ABA2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8673ED79C5BB2098BEA82750 /* SettingsProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		FE69BF32A343F78A6B18E9FA /* Interactor */ = {
@@ -1353,21 +1502,25 @@
 				DD5F63F3267FAD18002131FD /* MainScreenInfoCell.swift in Sources */,
 				DD92150426763EC300A3623E /* Logger.swift in Sources */,
 				DD5F63F9267FB8D2002131FD /* MainScreenSection.swift in Sources */,
+				DD9F614826E51A7A009E3D39 /* TextCollectionCell.swift in Sources */,
 				DD9215222677D7C800A3623E /* Colors.swift in Sources */,
 				DD59F76C26B734C000CA8179 /* MUser.swift in Sources */,
 				DD9EAD192699BE8B0032B3D7 /* NetworkService.swift in Sources */,
 				DD59F76626B6FD3400CA8179 /* AuthError.swift in Sources */,
+				DD9F613926E0E8C7009E3D39 /* UserManager+Check.swift in Sources */,
 				DD9214F126763DFB00A3623E /* ViewController.swift in Sources */,
 				FB6B9D3F26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift in Sources */,
 				DD92151026777DB500A3623E /* Module.swift in Sources */,
-				DD59F76326B6F2BC00CA8179 /* FirebaseAuthentificationService.swift in Sources */,
+				DD59F76326B6F2BC00CA8179 /* FirebaseAuthManager.swift in Sources */,
 				DD92150D2676577800A3623E /* UIApplication+Extension.swift in Sources */,
 				DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */,
 				DD59F74526B5AC8F00CA8179 /* UIView+Extension.swift in Sources */,
 				DD870D6726D7DCE8000F59AE /* FirestoreManager.swift in Sources */,
 				DD92150126763E8F00A3623E /* CoordinatorProtocol.swift in Sources */,
+				DD870D7726DEC1A6000F59AE /* WeekCollection.swift in Sources */,
 				FB6B9D4726B99EE10050690F /* Validator.swift in Sources */,
 				DD59F73C26B5AA6600CA8179 /* BaseCustomButton.swift in Sources */,
+				DD9F615226E52434009E3D39 /* BaseCell+Touches.swift in Sources */,
 				DD870D6526D7DBF3000F59AE /* UserManager.swift in Sources */,
 				DD870D6926D7E0BE000F59AE /* UserRequestManager.swift in Sources */,
 				DD59F73F26B5AAF200CA8179 /* ViewWithCustomTouchArea.swift in Sources */,
@@ -1380,6 +1533,7 @@
 				DD59F73826B5A95800CA8179 /* WelcomeView.swift in Sources */,
 				DD9EAD1B2699BEBD0032B3D7 /* HTTPMethod.swift in Sources */,
 				DD92150626763ED800A3623E /* Date+Extension.swift in Sources */,
+				DD9F613526E0E823009E3D39 /* UserManager+Get.swift in Sources */,
 				2B356FC45A82196D554AC8AA /* MainTabBarViewController.swift in Sources */,
 				DD59F75A26B60A4200CA8179 /* AppManager+ViewControllers.swift in Sources */,
 				DD92150B26764CC500A3623E /* Presentable.swift in Sources */,
@@ -1398,17 +1552,21 @@
 				430D5062EE00F28F8DEC3956 /* MainTabBarProtocols.swift in Sources */,
 				1FE44880DAC40890D3C84F48 /* MainTabBarModule.swift in Sources */,
 				17ACBEE20335308B1DA12F93 /* AuthViewController.swift in Sources */,
+				DD9F614326E2AFC2009E3D39 /* SettingsViewController+DataSource.swift in Sources */,
+				DD9F613F26E2AEE0009E3D39 /* SettingsViewController+CollectionVIew.swift in Sources */,
 				6DE3BF25DAA64151D2059581 /* AuthPresenter.swift in Sources */,
 				69B458BC169C4D34045BDC59 /* AuthInteractor.swift in Sources */,
 				DD5F63FE267FBE05002131FD /* MainScreenViewController+Delegate.swift in Sources */,
+				DD9F614526E2B048009E3D39 /* SettingsSection.swift in Sources */,
 				DD9EAD152699BE4D0032B3D7 /* NetworkError.swift in Sources */,
 				2089B038C856887E459DA17C /* AuthRouter.swift in Sources */,
 				DD92152C2677DFBA00A3623E /* Array+Extension.swift in Sources */,
+				DD870D7926DEC1FB000F59AE /* Notifier.swift in Sources */,
 				F5D22FF44227FD89348873D9 /* AuthBuilder.swift in Sources */,
 				DD9215292677DEB100A3623E /* MainTabBarTabs.swift in Sources */,
 				DD870D6E26D7E2D8000F59AE /* FirestoreEndPoint.swift in Sources */,
 				DD5F63EC267FA773002131FD /* SectionViewModel.swift in Sources */,
-				DD5F63F1267FAC41002131FD /* BaseCell.swift in Sources */,
+				DD5F63F1267FAC41002131FD /* BaseCellProtocol.swift in Sources */,
 				DD921515267790FC00A3623E /* MainTabBarCoordinator.swift in Sources */,
 				AF127BC8E928D8FE8A2492AB /* AuthProtocols.swift in Sources */,
 				DD9215272677D99D00A3623E /* Fonts.swift in Sources */,
@@ -1417,6 +1575,7 @@
 				49E2B842581A1C3D0F65DC11 /* AuthModule.swift in Sources */,
 				FB6B9D4926BAC81C0050690F /* ValidatorRule.swift in Sources */,
 				509A7B54583ABC5E21750DA0 /* WelcomeViewController.swift in Sources */,
+				DD9F613D26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift in Sources */,
 				DD59F74B26B5B04700CA8179 /* Styles.swift in Sources */,
 				9DA4C5F02320430EEBB2A568 /* WelcomePresenter.swift in Sources */,
 				80A01D9AA58963319DCBFD28 /* WelcomeInteractor.swift in Sources */,
@@ -1433,6 +1592,7 @@
 				DD870D7026D7E320000F59AE /* BaseEndPoint.swift in Sources */,
 				B59C60C49C97C4E94BC904AF /* RegisterInteractor.swift in Sources */,
 				F172449F63A9506E7070F9CE /* RegisterRouter.swift in Sources */,
+				DD9F613726E0E85D009E3D39 /* UserManager+Set.swift in Sources */,
 				DD5F63EF267FA85B002131FD /* CellViewModel.swift in Sources */,
 				DD92151B2677B48D00A3623E /* FriendsCoordinator.swift in Sources */,
 				DD5F6400267FC79C002131FD /* MainScreenViewController+DataSource.swift in Sources */,
@@ -1441,6 +1601,7 @@
 				DD92152E2677E93000A3623E /* Images.swift in Sources */,
 				3D2033EF6E0A6448AD82F9DF /* RegisterProtocols.swift in Sources */,
 				C664C103B203C42BF39BAC78 /* RegisterModule.swift in Sources */,
+				DD9F614B26E51B44009E3D39 /* TextCollectionCellViewModel.swift in Sources */,
 				1C5F427021A242DAB0196C2F /* MainScreenViewController.swift in Sources */,
 				DD59F75826B60A2B00CA8179 /* AppManager.swift in Sources */,
 				88F448F132351CB3306678F7 /* MainScreenPresenter.swift in Sources */,
@@ -1451,8 +1612,10 @@
 				FB6B9D5726BB0E210050690F /* TextFieldWithError+ValidateInput.swift in Sources */,
 				531722F56884B0B21760A9CE /* MainScreenModule.swift in Sources */,
 				EFB394C10363780861596021 /* FriendsViewController.swift in Sources */,
+				DD9F614126E2AFA2009E3D39 /* SettingsViewController+Delegate.swift in Sources */,
 				7AFDB051828D8FD0834617E8 /* FriendsPresenter.swift in Sources */,
 				1E59D486271C092536D82ED8 /* FriendsInteractor.swift in Sources */,
+				DD9F614E26E51E41009E3D39 /* TextCollectionCell+Touches.swift in Sources */,
 				9B856B71AD5236F0BF227766 /* FriendsRouter.swift in Sources */,
 				DD9EAD132699BE2F0032B3D7 /* NetworkServiceProtocol.swift in Sources */,
 				C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */,
@@ -1478,6 +1641,8 @@
 				54EE77DA78FEB00F83750356 /* RegisterEmailInteractor.swift in Sources */,
 				B897BF24F402A2E61F9D4254 /* RegisterEmailRouter.swift in Sources */,
 				F200A59A7CDC30E9FC358D14 /* RegisterEmailBuilder.swift in Sources */,
+				DD9F615026E523C8009E3D39 /* BaseCell.swift in Sources */,
+				DD9F613326E0BD1E009E3D39 /* UserError.swift in Sources */,
 				7B8251C9356A2B871F9BE158 /* RegisterEmailProtocols.swift in Sources */,
 				DD59F74326B5ABE200CA8179 /* BaseCustomButtonActionProtocol.swift in Sources */,
 				FB6B9D4B26BAC8370050690F /* ValidatorRegex.swift in Sources */,
@@ -1490,6 +1655,13 @@
 				28F48C2A3C5055DD6FF34D66 /* LoginEmailProtocols.swift in Sources */,
 				DD65E09526B89511002BBF80 /* TextFieldWithError.swift in Sources */,
 				3DD3FC7271470EEC651AEBAA /* LoginEmailModule.swift in Sources */,
+				9975FF05D6047FCCE7376B97 /* SettingsViewController.swift in Sources */,
+				431E45FCFB31AF7DF9941F3E /* SettingsPresenter.swift in Sources */,
+				C27C8ADF0CC8C27D309ED1DA /* SettingsInteractor.swift in Sources */,
+				E1560B40513E728EEAD06A5B /* SettingsRouter.swift in Sources */,
+				03699115068A34892C8E27E7 /* SettingsBuilder.swift in Sources */,
+				8781BA80D1FB52D90C82CE39 /* SettingsProtocols.swift in Sources */,
+				B04211D04219911B7D51F57C /* SettingsModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

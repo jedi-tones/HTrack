@@ -12,7 +12,7 @@ protocol MainTabBarCoordinatorFlow {
     
     func startMainScreenCoordinator(modulePresenter: Presentable)
     func startFriendsCoordinator(modulePresenter: Presentable)
-    func startAuthCoordinator(animated: Bool)
+    func startAuthCoordinator(animated: Bool, showScreen: AuthCoordinator.Screens?)
 }
 
 class MainTabBarCoordinator: CoordinatorProtocol {
@@ -87,13 +87,17 @@ extension MainTabBarCoordinator: MainTabBarCoordinatorFlow {
         
     }
     
-    func startAuthCoordinator(animated: Bool) {
+    func startAuthCoordinator(animated: Bool, showScreen: AuthCoordinator.Screens?) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
         let authCoordinator = AuthCoordinator()
         authCoordinator.parentCoordinator = self
         authCoordinator.start(animated: animated)
+        
+        if let showScreen = showScreen {
+            authCoordinator.open(screen: showScreen, animated: false)
+        }
         
         addCoordinator(authCoordinator)
     }

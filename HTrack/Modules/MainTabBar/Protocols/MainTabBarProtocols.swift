@@ -29,6 +29,7 @@ protocol MainTabBarInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupTabs(tabs: [MainTabBarTabs])
     func showAuth()
+    func showCompliteRegistration()
 }
 
 
@@ -37,6 +38,7 @@ protocol MainTabBarRouterInput {
     // MARK: PRESENTER -> ROUTER
     func startCoordinatorsFor(navigators: [UINavigationController])
     func showAuthModule()
+    func showCompliteRegistration()
 }
 
 

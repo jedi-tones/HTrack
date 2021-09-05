@@ -14,10 +14,10 @@ protocol InfoViewModelDelegate {
 class MainScreenInfoViewModel: CellViewModel {
     
     var delegate: InfoViewModelDelegate?
-    var cell: BaseCell.Type {
+    var cell: BaseCellProtocol.Type {
         MainScreenInfoCell.self
     }
-    
+    var needAnimationTap = false
     var title: String?
     var description: String?
 }

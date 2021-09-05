@@ -8,13 +8,17 @@
 import UIKit
 
 protocol AuthCoordinatorFlow {
-    func showWelcomeScreen(animated: Bool)
-    func showCompliteRegisterScreen()
-    func showEmailAuthScreen()
-    func showMainTabBarScreen(animated: Bool)
+    func open(screen: AuthCoordinator.Screens, animated: Bool)
+    func closeAuth(animated: Bool)
 }
 
 class AuthCoordinator: CoordinatorProtocol {
+    enum Screens {
+        case welcome
+        case compliteRegistration
+        case emailAuthScreen
+    }
+    
     var navigationController: UINavigationController?
     
     var childCoordinators: [CoordinatorProtocol] = []
@@ -42,7 +46,29 @@ class AuthCoordinator: CoordinatorProtocol {
 }
 
 extension AuthCoordinator: AuthCoordinatorFlow {
-    func showWelcomeScreen(animated: Bool) {
+    func open(screen: Screens, animated: Bool) {
+        Logger.show(title: "Coordinator",
+                    text: "\(type(of: self)) - \(#function) screen: \(screen)")
+        
+        switch screen {
+        
+        case .welcome:
+            showWelcomeScreen(animated: animated)
+        case .compliteRegistration:
+            showCompliteRegisterScreen(animated: animated)
+        case .emailAuthScreen:
+            showEmailAuthScreen(animated: animated)
+        }
+    }
+    
+    func closeAuth(animated: Bool) {
+        Logger.show(title: "Coordinator",
+                    text: "\(type(of: self)) - \(#function)")
+        guard let parentCoordinator = self.parentCoordinator else { return }
+        parentCoordinator.childDidFinish(self)
+    }
+    
+   private func showWelcomeScreen(animated: Bool) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
@@ -63,34 +89,28 @@ extension AuthCoordinator: AuthCoordinatorFlow {
             if let tabBarModulePresenter =  parentCoordinator?.modulePresenter {
                 Logger.show(title: "Coordinator presentModule",
                             text: "\(type(of: self)) - \(#function)")
-                tabBarModulePresenter.presentModule(with: navController, presentationStyle: .automatic, animated: animated)
+                tabBarModulePresenter.presentModule(with: navController,
+                                                    presentationStyle: .fullScreen,
+                                                    animated: animated)
             } else if let presentedVC = UIApplication.getCurrentViewController() {
                 presentedVC.present(navController, animated: true, completion: nil)
             }
         }
     }
     
-    func showEmailAuthScreen() {
+    private func showEmailAuthScreen(animated: Bool) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
         let module = AuthModule(coordinator: self)
-        modulePresenter?.pushModule(with: module.controller, animated: true)
+        modulePresenter?.pushModule(with: module.controller, animated: animated)
     }
     
-    func showCompliteRegisterScreen() {
+    private func showCompliteRegisterScreen(animated: Bool) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
         let module = RegisterModule(coordinator: self)
-        modulePresenter?.pushModule(with: module.controller, animated: true)
-    }
-    
-    func showMainTabBarScreen(animated: Bool) {
-        Logger.show(title: "Coordinator",
-                    text: "\(type(of: self)) - \(#function)")
-         
-        guard let parentCoordinator = self.parentCoordinator else { return }
-        parentCoordinator.childDidFinish(self)
+        modulePresenter?.pushModule(with: module.controller, animated: animated)
     }
 }

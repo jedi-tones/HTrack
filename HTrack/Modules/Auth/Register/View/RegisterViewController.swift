@@ -7,6 +7,13 @@ class RegisterViewController: UIViewController {
     // MARK: Properties
     var output: RegisterViewOutput!
     
+    enum RegisterViewControllerState {
+        case notChecked
+        case nicknameExist
+        case nicknameNotExist
+    }
+    
+    fileprivate var _state: RegisterViewControllerState = .notChecked
     var nicknameInputCenterConstraint: NSLayoutConstraint?
     
     lazy var nicknameTitle: UILabel = {
@@ -19,27 +26,40 @@ class RegisterViewController: UIViewController {
     }()
     
     lazy var nicknameInput: TextFieldWithError = {
-        let tv = TextFieldWithError()
+        let tf = TextFieldWithError()
             .setPlacehodler("Имя")
             .setRules([.isNotEmpty, .isNickname])
-        return tv
+        tf.changeTextDelegate = { [weak self] _, text in
+            self?.setupState(state: .notChecked)
+        }
+        return tf
     }()
     
     lazy var nextButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: nextButtonCollor)
-            .setTitle(title: "Cохранить")
+            .setTitle(title: "Проверить")
             .setCornerRadius(radius: Styles.Sizes.baseCornerRadius)
             .setWithArrow(withArrow: true, arrowDirection: .right)
             .setTextColor(color: nextButtonTitleCollor)
         
         bt.action = { [weak self] in
-            self?.output.saveNickname()
+            switch self?._state {
+                
+                case .notChecked:
+                    self?.checkNickname()
+                case .nicknameNotExist:
+                    self?.saveNickname()
+                case .nicknameExist:
+                    self?.checkNickname()
+            case .none:
+                break
+            }
         }
         return bt
     }()
     
-     var validator: Validator?
+    fileprivate var validator: Validator?
 
     // MARK: Life cycle
     override func loadView() {
@@ -87,8 +107,27 @@ extension RegisterViewController {
     func setupViews() {
         validator = Validator(inputs: [nicknameInput], buttons: [nextButton])
         
+        configureNavigationBar()
         view.backgroundColor = backColor
         setupConstraints()
+    }
+    
+    func configureNavigationBar() {
+        navigationItem.hidesBackButton = true
+    }
+    
+    func checkNickname() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        output.checkNickName(name: nicknameInput.text ?? "")
+    }
+    
+    func saveNickname() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        output.saveNickname(name: nicknameInput.text ?? "")
     }
 
     func setupConstraints() {
@@ -117,6 +156,22 @@ extension RegisterViewController {
         nicknameInputCenterConstraint = nicknameInput.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         nicknameInputCenterConstraint?.isActive = true
     }
+    
+    fileprivate func updateLayoutToState(state: RegisterViewControllerState) {
+        switch state {
+        
+        case .notChecked:
+            nextButton.setTitle(title: "Проверить", animated: true)
+            
+        case .nicknameNotExist:
+            nicknameInput.infoLabel = "Никнейм свободен"
+            nextButton.setTitle(title: "Сохранить", animated: true)
+            
+        case .nicknameExist:
+            nicknameInput.error = "Никнейм занят"
+            nextButton.setTitle(title: "Проверить", animated: true)
+        }
+    }
 }
 
 // MARK: - RegisterViewInput
@@ -126,6 +181,14 @@ extension RegisterViewController: RegisterViewInput {
                     text: "\(type(of: self)) - \(#function)")
 
         setupViews()
+    }
+    
+    func setupState(state: RegisterViewControllerState) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) state: \(state)")
+        
+        _state = state
+        updateLayoutToState(state: state)
     }
 }
 

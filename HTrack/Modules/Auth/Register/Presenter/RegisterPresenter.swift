@@ -22,16 +22,40 @@ extension RegisterPresenter: RegisterViewOutput {
         view.setupInitialState()
     }
     
-    func saveNickname() {
+    func saveNickname(name: String) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        interactor.saveNickname(name: name)
+    }
+    
+    func checkNickName(name: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        interactor.checkNickName(name: name)
     }
 }
 
 // MARK: - RegisterInteractorOutput
 extension RegisterPresenter: RegisterInteractorOutput {
-
+    func nicknameState(isExist: Bool) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        if isExist {
+            view.setupState(state: .nicknameExist)
+        } else {
+            view.setupState(state: .nicknameNotExist)
+        }
+    }
+    
+    func nicknameIsUpdated() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.showMainScreen()
+    }
 }
 
 // MARK: - RegisterModuleInput

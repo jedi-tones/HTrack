@@ -28,6 +28,7 @@ extension UINavigationController {
         appereance.shadowColor = .clear
         appereance.backgroundImage = UIImage()
         appereance.backgroundColor = Styles.Colors.myWhiteColor()
+        appereance.configureWithTransparentBackground()
         
         self.navigationBar.standardAppearance = appereance
         self.navigationBar.prefersLargeTitles = false

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol CellViewModel {
-    var cell: BaseCell.Type { get }
+    var cell: BaseCellProtocol.Type { get }
+    var needAnimationTap: Bool { get set }
 }
 

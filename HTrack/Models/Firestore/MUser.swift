@@ -19,14 +19,14 @@ enum AuthType: String, Codable {
 
 struct MUser: Codable {
     var userID: String
-    var name: String
-    var mail: String
-    var authType: AuthType
-    var startDate: Date
-    var fcmKey: String
-    var isAdmin: Bool
-    var isPremiumUser: Bool
-    var isActive: Bool
+    var name: String?
+    var mail: String?
+    var authType: AuthType?
+    var startDate: Date?
+    var fcmKey: String?
+    var isAdmin: Bool?
+    var isPremiumUser: Bool?
+    var isActive: Bool?
     
     init(peopleID: String,
          name: String,
@@ -54,7 +54,7 @@ struct MUser: Codable {
     init?(documentSnap: DocumentSnapshot){
         guard let documet = documentSnap.data()  else { return nil }
         
-        if let peopleID = documet["peopleID"] as? String { self.userID = peopleID } else { self.userID = ""}
+        if let peopleID = documet["userID"] as? String { self.userID = peopleID } else { self.userID = ""}
         if let name = documet["name"] as? String { self.name = name } else { self.name = ""}
         if let mail = documet["mail"] as? String { self.mail = mail } else { self.mail = ""}
         if let authType = documet["authType"] as? String {
@@ -78,7 +78,7 @@ struct MUser: Codable {
     init?(documentSnap: QueryDocumentSnapshot){
         let documet = documentSnap.data()
        
-        if let peopleID = documet["peopleID"] as? String { self.userID = peopleID } else { self.userID = ""}
+        if let peopleID = documet["userID"] as? String { self.userID = peopleID } else { self.userID = ""}
         if let name = documet["name"] as? String { self.name = name } else { self.name = ""}
         if let mail = documet["mail"] as? String { self.mail = mail } else { self.mail = ""}
         if let authType = documet["authType"] as? String {
@@ -106,7 +106,40 @@ struct MUser: Codable {
         }
     }
     
-    func emptyPeople() -> MUser {
+     func mergeWithJson(json: [String : Any]) -> MUser {
+        var updatedUser = self
+        if let peopleID = json["userID"] as? String { updatedUser.userID = peopleID }
+        if let name = json["name"] as? String { updatedUser.name = name }
+        if let mail = json["mail"] as? String { updatedUser.mail = mail }
+        if let authType = json["authType"] as? String {
+            if let type = AuthType(rawValue: authType) {
+                updatedUser.authType = type
+            }
+        } else {
+            updatedUser.authType = AuthType.defaultAuthType()
+        }
+        if let startDate = json["startDate"] as? Timestamp { updatedUser.startDate = startDate.dateValue() }
+        if let fcmKey = json["fcmKey"] as? String { updatedUser.fcmKey = fcmKey }
+        if let isAdmin = json["isAdmin"] as? Bool { updatedUser.isAdmin = isAdmin }
+        if let isPremiumUser = json["isPremiumUser"] as? Bool { updatedUser.isPremiumUser = isPremiumUser }
+        if let isActive = json["isActive"] as? Bool { updatedUser.isActive = isActive }
+        
+        return updatedUser
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case userID
+        case name
+        case mail
+        case authType
+        case startDate
+        case fcmKey
+        case isAdmin
+        case isPremiumUser
+        case isActive
+    }
+    
+    static func emptyPeople() -> MUser {
         let people = MUser(peopleID: "",
                              name: "",
                              mail: "",

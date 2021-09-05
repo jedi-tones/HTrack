@@ -9,16 +9,16 @@ import UIKit
 
 extension MainScreenViewController {
     func setupDataSource() {
-        guard let collectionView = collectionView else { fatalError("collectionView is nil") }
+        guard let collectionView = collectionView else { return }
         
         dataSource = UICollectionViewDiffableDataSource(
             collectionView: collectionView,
             cellProvider: {[weak self] collectionView, indexpath, item -> UICollectionViewCell? in
                 
                 guard let sectionModel = self?.dataSource?.snapshot().sectionIdentifiers[indexpath.section]
-                else { fatalError("Unknown section")}
+                else { return nil }
                 guard let section = MainScreenSection(rawValue: sectionModel.section)
-                else { fatalError("Unknown section")}
+                else { return nil }
         
                 switch section {
                 
@@ -60,7 +60,7 @@ extension MainScreenViewController {
         collectionView.register(vm.cell, forCellWithReuseIdentifier: vm.cell.reuseID)
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: vm.cell.reuseID,
-                                                            for: indexPath) as? BaseCell
+                                                            for: indexPath) as? BaseCellProtocol
         else { return UICollectionViewCell() }
         
         cell.configure(viewModel: vm)
@@ -77,7 +77,7 @@ extension MainScreenViewController {
         
         if let reuseSectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                  withReuseIdentifier: headerVM.cell.reuseID,
-                                                                                 for: indexPath) as? BaseCell {
+                                                                                 for: indexPath) as? BaseCellProtocol {
            
             reuseSectionHeader.configure(viewModel: headerVM)
             return reuseSectionHeader as? UICollectionReusableView

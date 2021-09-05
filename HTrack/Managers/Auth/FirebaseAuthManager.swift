@@ -8,20 +8,23 @@
 import FirebaseAuth
 import AuthenticationServices
 
-protocol FirebaseAuthentificationProtocol {
+protocol FirebaseAuthProtocol {
     func initializeFirebaseCredential(authorization: ASAuthorization, nonce: String?) -> OAuthCredential
     func signInWithApple(credential: OAuthCredential, complition:@escaping(Result<User, Error>)->Void)
     func signOut() -> Error?
     func reAuthentificate(credential: AuthCredential?, email: String?, password: String?, complition: @escaping (Result<User,Error>) -> Void)
     func getCurrentUser() -> User?
     func updateUser(user: User, complition: @escaping(Result<Bool, Error>)->Void)
-    func checkAuthState(complition: @escaping (FirebaseAuthentificationService.UserState) -> Void)
+    func checkAuthState(complition: @escaping (FirebaseAuthManager.UserState) -> Void)
 }
 
+protocol FirebaseAuthListner {
+    func logOut()
+    func logIn(user: User)
+}
 
-final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
-    
-    static let shared = FirebaseAuthentificationService()
+final class FirebaseAuthManager: FirebaseAuthProtocol {
+    static let shared = FirebaseAuthManager()
     private init() {}
     private let auth = Auth.auth()
     
@@ -29,6 +32,16 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
         case authorized
         case notAuthorized
         case notAvalible
+    }
+    
+    let notifier = Notifier<FirebaseAuthListner>()
+    
+    private func updateSignIn(user: User) {
+        notifier.forEach({$0.logIn(user: user)})
+    }
+    
+    private func updateLogOut() {
+        notifier.forEach({$0.logOut()})
     }
     
     //MARK: - Initialize a Firebase credential from AppleIDAuth
@@ -59,12 +72,15 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
        let user = getCurrentUser()
         
         if let authUser = user {
-            updateUser(user: authUser) { result in
+            updateUser(user: authUser) {[weak self] result in
                 switch result {
                 
                 case .success(_):
+                    self?.updateSignIn(user: authUser)
                     complition(.authorized)
+                    
                 case .failure(_):
+                    self?.updateLogOut()
                     complition(.notAvalible)
                 }
             }
@@ -78,12 +94,13 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
                   password: String,
                   complition: @escaping (Result<User, Error>) -> Void ) {
             
-        auth.createUser(withEmail: email, password: password) { result, error in
+        auth.createUser(withEmail: email, password: password) {[weak self] result, error in
             
             guard let result = result else {
                 complition(.failure(error!))
                 return
             }
+            self?.updateSignIn(user: result.user)
             complition(.success(result.user))
         }
     }
@@ -94,13 +111,14 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
                 complition: @escaping (Result<User,Error>) -> Void) {
     
         
-        auth.signIn(withEmail: email, password: password) { result, error in
+        auth.signIn(withEmail: email, password: password) {[weak self] result, error in
             
             guard let result = result else {
                 complition(.failure(error!))
                 return
             }
             
+            self?.updateSignIn(user: result.user)
             complition(.success(result.user))
             
         }
@@ -109,7 +127,7 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
     //MARK: - signInWithApple
     func signInWithApple(credential: OAuthCredential, complition:@escaping(Result<User, Error>)->Void) {
         
-        Auth.auth().signIn(with: credential) { (authResult, error) in
+        Auth.auth().signIn(with: credential) {[weak self] (authResult, error) in
             if let error = error {
                 // Error. If error.code == .MissingOrInvalidNonce, make sure
                 // you're sending the SHA256-hashed nonce as a hex string with
@@ -122,6 +140,8 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
                 complition(.failure(AuthError.userError))
                 return
             }
+            
+            self?.updateSignIn(user: user)
             complition(.success(user))
         }
     }
@@ -143,6 +163,24 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
         }
     }
     
+    func checkAuthMethods(email: String, complition: @escaping(Result<AuthType,Error>) -> Void) {
+        auth.fetchSignInMethods(forEmail: email) { (methods, error) in
+            if let error = error {
+                complition(.failure(error))
+            } else if let methods = methods {
+                if methods.contains("apple.com") {
+                    complition(.success(.apple))
+                } else if methods.contains(AuthType.mail.rawValue) {
+                        complition(.success(.mail))
+                } else {
+                    complition(.failure(AuthError.authTypeUnowned(types: methods)))
+                }
+            } else {
+                complition(.failure(AuthError.authTypeEpmty))
+            }
+        }
+    }
+    
     //MARK: - verifyEmail
     func verifyEmail(user: User, complition: @escaping(Result<Bool,Error>) -> Void) {
         
@@ -159,7 +197,7 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
             
            // let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
            // keyWindow?.rootViewController = AuthViewController(currentPeopleDelegate: currentPeopleDelegate)
-            
+            updateLogOut()
             return nil
         } catch {
             return error
@@ -174,11 +212,12 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
         let user = Auth.auth().currentUser
 
         if let newCredential = credential {
-            user?.reauthenticate(with: newCredential) { arg, error   in
+            user?.reauthenticate(with: newCredential) {[weak self] arg, error   in
                 if let error = error {
                     complition(.failure(error))
                 } else {
                     if let user = arg?.user {
+                        self?.updateSignIn(user: user)
                         complition(.success(user))
                     }
                 }
@@ -187,11 +226,13 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
             //if dont have credential, login with email to get them
             guard let email = email else { complition(.failure(AuthError.invalidEmail)); return }
             guard let password = password else { complition(.failure(AuthError.invalidPassword)); return }
-            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            
+            Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
                 if let error = error {
                     complition(.failure(error))
                 }
                 if let result = result {
+                    self?.updateSignIn(user: result.user)
                     complition(.success(result.user))
                 }
             }
@@ -200,22 +241,22 @@ final class FirebaseAuthentificationService: FirebaseAuthentificationProtocol {
     
     //MARK: - deleteUser
     func deleteUser(complition: @escaping (Result<Bool,Error>)-> Void) {
-        auth.currentUser?.delete(completion: { error in
+        auth.currentUser?.delete(completion: {[weak self] error in
             if let error = error {
                 complition(.failure(error))
             } else {
+                self?.updateLogOut()
                 complition(.success(true))
             }
         })
     }
     
-    //MARK: - deleteUser
+    //MARK: - reload
     func getCurrentUser() -> User? {
         auth.currentUser
     }
     
     func updateUser(user: User, complition: @escaping (Result<Bool,Error>) -> Void) {
-        
         user.reload { (error) in
             if let error = error {
                 complition(.failure(error))

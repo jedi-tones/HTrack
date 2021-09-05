@@ -13,5 +13,5 @@ class FirestoreManager {
     private init() {}
     
     let firestore = Firestore.firestore()
-    let authFirestoreManager = FirebaseAuthentificationService.shared
+    let authFirestoreManager = FirebaseAuthManager.shared
 }

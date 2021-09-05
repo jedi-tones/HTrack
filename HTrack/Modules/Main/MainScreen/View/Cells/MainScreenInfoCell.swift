@@ -7,10 +7,12 @@
 
 import UIKit
 
-class MainScreenInfoCell: UICollectionViewCell, BaseCell {
+class MainScreenInfoCell: UICollectionViewCell, BaseCellProtocol {
     static var reuseID: String {
         return "mainScreenInfoCell"
     }
+    
+    var needAnimationTap = false
     
     var descLabel: UILabel = {
         let lb = UILabel()

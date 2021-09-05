@@ -21,6 +21,8 @@ enum AuthError {
     case serializeAppleToken
     case missingEmail
     case credentialError
+    case authTypeEpmty
+    case authTypeUnowned(types: [String])
     case unowned(error: String)
 }
 
@@ -54,6 +56,10 @@ extension AuthError: LocalizedError {
             return NSLocalizedString("Отсутствует Email у пользователя", comment: "")
         case .credentialError:
             return NSLocalizedString("Не удалось получить данные авторизации", comment: "")
+        case .authTypeEpmty:
+            return NSLocalizedString("Типы авторизации пользователя не найдены", comment: "")
+        case .authTypeUnowned(let types):
+            return NSLocalizedString("Неизвестные типы авторизации \(types)", comment: "")
         case .unowned(let error):
             return NSLocalizedString(error, comment: "")
         }

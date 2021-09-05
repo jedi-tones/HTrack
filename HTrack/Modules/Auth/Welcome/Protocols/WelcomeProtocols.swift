@@ -27,8 +27,9 @@ protocol WelcomeInteractorInput {
 
 protocol WelcomeInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
-    func openRegistrationCompliteModule()
     func authWithAppleComplite(user: User)
+    func showMainScreen()
+    func showCompliteRegistration()
     func closeAuthModule()
 }
 

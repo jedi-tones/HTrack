@@ -24,7 +24,7 @@ extension WelcomeInteractor: WelcomeInteractorInput {
             
             case .success(let user):
                 Logger.show(title: "USER AUTHORISED", text: user.email ?? "")
-                self?.output.closeAuthModule()
+                self?.output.authWithAppleComplite(user: user)
             case .failure(let error):
                 Logger.show(title: "USER AUTH ERROR", text: error.localizedDescription)
             }
@@ -35,17 +35,42 @@ extension WelcomeInteractor: WelcomeInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        userManager.getCurrentUser {[weak self] result in
+        userManager.checkCurrentUserProfileRegistration {[weak self] result in
             switch result {
             
-            case .success(let user):
-                if let state = self?.userManager.checkUserProfileState(user: user) {
-                    switch state {
-                    
-                    }
+            case .success(let state):
+                switch state {
+                
+                case .filled:
+                    self?.output.showMainScreen()
+                case .needComplite:
+                    self?.output.showCompliteRegistration()
+                case .notExist:
+                    self?.createNewCurrentUser()
                 }
-            case .failure(_):
-                <#code#>
+            case .failure(let error):
+                Logger.show(title: "Module",
+                            text: "\(type(of: self)) - \(#function) error: \(error.localizedDescription)",
+                            withHeader: true,
+                            withFooter: true)
+            }
+        }
+    }
+    
+    func createNewCurrentUser() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        userManager.createNewCurrentUser {[weak self] result in
+            switch result {
+            
+            case .success(_):
+                self?.output.showCompliteRegistration()
+            case .failure(let error):
+                Logger.show(title: "Module",
+                            text: "\(type(of: self)) - \(#function) error: \(error.localizedDescription)",
+                            withHeader: true,
+                            withFooter: true)
             }
         }
     }

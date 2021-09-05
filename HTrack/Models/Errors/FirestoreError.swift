@@ -10,7 +10,7 @@ import Foundation
 enum FirestoreError {
     case getDocumentDataError
     case cantDecodeData
-    case unowned(error: String)
+    case documentSnapshotNotExist
 }
 
 extension FirestoreError: LocalizedError {
@@ -20,8 +20,8 @@ extension FirestoreError: LocalizedError {
             return NSLocalizedString("Ошибка получения данных документа", comment: "")
         case .cantDecodeData:
             return NSLocalizedString("Невозможно преобразовать data в обьект", comment: "")
-        case .unowned(let error):
-            return NSLocalizedString(error, comment: "")
+        case .documentSnapshotNotExist:
+            return NSLocalizedString("DocumentSnapshot не существует", comment: "")
         }
     }
 }

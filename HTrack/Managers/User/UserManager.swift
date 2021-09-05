@@ -11,40 +11,42 @@ import FirebaseAuth
 enum UserProfileState {
     case filled
     case needComplite
+    case notExist
+}
+
+protocol UserManagerListner {
+    func userUpdated(user: MUser)
 }
 
 class UserManager {
     static let shared = UserManager()
     private init() {}
     
-    let firebaseAuthService = FirebaseAuthentificationService.shared
+    let firebaseAuthService = FirebaseAuthManager.shared
     let userRequestManager = UserRequestManager.shared
     
-    var firUser: User? { firebaseAuthService.getCurrentUser() }
-    var currentUser: MUser?
+    let notifier = Notifier<UserManagerListner>()
     
-    func getCurrentUser(complition: ((Result<MUser,Error>) -> Void)?) {
-        userRequestManager.getCurrentUser {[weak self] result in
-            switch result {
+    var firUser: User? { firebaseAuthService.getCurrentUser() }
+    var currentUser: MUser? 
+    
+    func updateUser(_ user: MUser) {
+        Logger.show(title: "Current UserUpdated",
+                    text: "User \(String(describing: currentUser))", withHeader: true, withFooter: true)
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
             
-            case .success(let mUser):
-                self?.currentUser = mUser
-                complition?(.success(mUser))
-            case .failure(let error):
-                complition?(.failure(error))
-            }
+            self.notifier.forEach({$0.userUpdated(user: user)})
         }
     }
     
-    func saveUser(user: MUser, complition: ((Result<MUser,Error>) -> Void)?) {
-        userRequestManager.saveUser(user: user, complition: complition)
-    }
-    
-    func checkUserProfileState(user: MUser) -> UserProfileState {
-        if user.name.isEmpty {
-            return .needComplite
+    func isCurrentUser(id: String) -> Bool {
+        if let user = firebaseAuthService.getCurrentUser(),
+           let currentID = user.email {
+            return currentID == id
         } else {
-            return .filled
+            return false
         }
     }
 }

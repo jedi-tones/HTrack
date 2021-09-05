@@ -37,6 +37,15 @@ extension TextFieldWithError: BaseTextFieldProtocol {
     var error: String? {
         get { return errorLabel.text }
         set {
+            errorLabel.textColor = errorLabelColor
+            errorTextAnimation(newValue: newValue)
+        }
+    }
+    
+    var infoLabel: String? {
+        get { return errorLabel.text }
+        set {
+            errorLabel.textColor = infoLabelColor
             errorTextAnimation(newValue: newValue)
         }
     }

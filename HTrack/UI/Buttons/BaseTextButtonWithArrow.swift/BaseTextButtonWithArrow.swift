@@ -72,15 +72,19 @@ class BaseTextButtonWithArrow: BaseCustomButton {
     }
     
     override func startAction() {
-        _validatorButtonDelegate?.validate(button: self)
-        { [weak self] result in
-            switch result {
-            
-            case .valid:
-                self?.action?()
-            case .notValides(inputs: _):
-                return
+        if let validator = _validatorButtonDelegate {
+            validator.validate(button: self)
+            { [weak self] result in
+                switch result {
+                
+                case .valid:
+                    self?.action?()
+                case .notValides(inputs: _):
+                    self?.setStatus(.deactive)
+                }
             }
+        } else {
+            action?()
         }
     }
     

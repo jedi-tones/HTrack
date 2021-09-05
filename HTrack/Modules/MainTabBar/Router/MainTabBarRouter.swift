@@ -48,6 +48,20 @@ class MainTabBarRouter: MainTabBarRouterInput {
             return
         }
         
-        coordinator.startAuthCoordinator(animated: true)
+        coordinator.startAuthCoordinator(animated: true, showScreen: nil)
+    }
+    
+    func showCompliteRegistration() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let coordinator = coordinator as? MainTabBarCoordinatorFlow
+        else {
+            Logger.show(title: "Module ERROR",
+                        text: "\(type(of: self)) - \(#function) - coordinator is nil")
+            return
+        }
+        
+        coordinator.startAuthCoordinator(animated: true, showScreen: .compliteRegistration)
     }
 }

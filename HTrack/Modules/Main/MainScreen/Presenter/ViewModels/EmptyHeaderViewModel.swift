@@ -9,10 +9,10 @@ import UIKit
 
 class EmptyHeaderViewModel: CellViewModel {
     
-    var cell: BaseCell.Type {
+    var cell: BaseCellProtocol.Type {
         EmptyHeaderCell.self
     }
-    
+    var needAnimationTap = false
     var height: CGFloat = 0
 }
 

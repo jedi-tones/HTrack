@@ -16,7 +16,7 @@ class WelcomeRouter: WelcomeRouterInput {
         
         guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
         
-        authCoordinator.showCompliteRegisterScreen()
+        authCoordinator.open(screen: .compliteRegistration, animated: true)
     }
     
     func opensSignInWithEmail() {
@@ -25,7 +25,7 @@ class WelcomeRouter: WelcomeRouterInput {
         
         guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
         
-        authCoordinator.showEmailAuthScreen()
+        authCoordinator.open(screen: .emailAuthScreen, animated: true)
     }
     
     func closeAuthModule() {
@@ -34,6 +34,6 @@ class WelcomeRouter: WelcomeRouterInput {
         
         guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
         
-        authCoordinator.showMainTabBarScreen(animated: true)
+        authCoordinator.closeAuth(animated: true)
     }
 }

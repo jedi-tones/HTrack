@@ -62,6 +62,13 @@ extension MainTabBarPresenter: MainTabBarInteractorOutput {
         
         router.showAuthModule()
     }
+    
+    func showCompliteRegistration() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.showCompliteRegistration()
+    }
 }
 
 //MARK: private methods

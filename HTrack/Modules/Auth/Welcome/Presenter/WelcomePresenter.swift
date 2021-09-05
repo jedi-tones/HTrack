@@ -48,7 +48,14 @@ extension WelcomePresenter: WelcomeInteractorOutput {
         interactor.checkCurrentUserProfile()
     }
     
-    func openRegistrationCompliteModule() {
+    func showMainScreen() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.closeAuthModule()
+    }
+    
+    func showCompliteRegistration() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         

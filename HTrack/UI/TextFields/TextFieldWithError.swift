@@ -199,6 +199,10 @@ extension TextFieldWithError {
     var errorLabelColor: UIColor {
         return Styles.Colors.myErrorLabelColor()
     }
+    
+    var infoLabelColor: UIColor {
+        return Styles.Colors.myInfoLabelColor()
+    }
 }
 
 extension TextFieldWithError {

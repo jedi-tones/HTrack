@@ -7,28 +7,35 @@ import Foundation
 protocol RegisterViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
+    func setupState(state: RegisterViewController.RegisterViewControllerState)
 }
 
 protocol RegisterViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
-    func saveNickname()
+    func saveNickname(name: String)
+    func checkNickName(name: String)
 }
 
 
 // MARK: - Interactor
 protocol RegisterInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
+    func checkNickName(name: String)
+    func saveNickname(name: String)
 }
 
 protocol RegisterInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
+    func nicknameState(isExist: Bool)
+    func nicknameIsUpdated()
 }
 
 
 // MARK: - Router
 protocol RegisterRouterInput {
     // MARK: PRESENTER -> ROUTER
+    func showMainScreen()
 }
 
 

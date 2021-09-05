@@ -12,6 +12,6 @@ class AppManager {
     init() {}
     
     let appleAuthService = AppleAuthService.shared
-    let firebaseAuthService =  FirebaseAuthentificationService.shared
+    let firebaseAuthService =  FirebaseAuthManager.shared
     
 }

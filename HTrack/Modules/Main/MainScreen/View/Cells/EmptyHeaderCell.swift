@@ -7,10 +7,11 @@
 
 import UIKit
 
-class EmptyHeaderCell: UICollectionViewCell, BaseCell {
+class EmptyHeaderCell: UICollectionViewCell, BaseCellProtocol {
     static var reuseID: String {
         return "emptyHeaderCell"
     }
+    var needAnimationTap = false
     private var heightConst: NSLayoutConstraint?
     private var viewModel: EmptyHeaderViewModel?
     

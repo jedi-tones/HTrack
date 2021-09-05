@@ -38,9 +38,9 @@ extension BaseEndPoint {
         switch self.environment {
         
         case .publicAPI:
-            return "users"
+            return "prod"
         case .devAPI:
-            return "debugUsers"
+            return "debug"
         }
     }
     

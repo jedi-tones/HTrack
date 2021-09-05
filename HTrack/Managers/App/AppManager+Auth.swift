@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 
 extension AppManager {
-    func checkAuth(complition: @escaping (FirebaseAuthentificationService.UserState) -> Void)  {
+    func checkAuth(complition: @escaping (FirebaseAuthManager.UserState) -> Void)  {
         firebaseAuthService.checkAuthState(complition: complition)
     }
     

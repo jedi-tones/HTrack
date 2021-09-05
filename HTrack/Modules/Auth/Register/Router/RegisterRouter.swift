@@ -9,4 +9,13 @@ class RegisterRouter: RegisterRouterInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
     }
+    
+    func showMainScreen() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
+        
+        authCoordinator.closeAuth(animated: true)
+    }
 }

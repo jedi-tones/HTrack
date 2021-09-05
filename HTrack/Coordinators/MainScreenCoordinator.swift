@@ -7,10 +7,8 @@
 
 import UIKit
 protocol MainScreenCoordinatorFlow {
-    func showWelcomeScreen(animated: Bool)
-    func showProfileSettings()
-    func showRegisterScreen()
-    func showAuthScreen()
+    func open(screen: MainScreenCoordinator.Screens, animated: Bool)
+    func close()
 }
 
 class MainScreenCoordinator: CoordinatorProtocol {
@@ -19,6 +17,10 @@ class MainScreenCoordinator: CoordinatorProtocol {
     var parentCoordinator: CoordinatorProtocol?
     var parentMainTabBar: MainTabBarCoordinatorFlow? {
         return parentCoordinator as? MainTabBarCoordinatorFlow
+    }
+    
+    enum Screens {
+        case settings
     }
     
     init(modulePresenter: Presentable) {
@@ -51,36 +53,27 @@ class MainScreenCoordinator: CoordinatorProtocol {
 }
 
 extension MainScreenCoordinator: MainScreenCoordinatorFlow {
-    func showWelcomeScreen(animated: Bool = true) {
+    func open(screen: MainScreenCoordinator.Screens, animated: Bool) {
+        Logger.show(title: "Coordinator",
+                    text: "\(type(of: self)) - \(#function) screen: \(screen)")
+        
+        switch screen {
+        case .settings:
+            showProfileSettings()
+        }
+    }
+    
+    func close() {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
-        
-        let authCoordinator = AuthCoordinator()
-        authCoordinator.parentCoordinator = self
-        authCoordinator.start(animated: animated)
-        
-        addCoordinator(authCoordinator)
+        guard let parentCoordinator = self.parentCoordinator else { return }
+        parentCoordinator.childDidFinish(self)
     }
+    
     
     func showProfileSettings() {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
-    }
-    
-    func showRegisterScreen() {
-        Logger.show(title: "Coordinator",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        let module = RegisterModule(coordinator: self)
-        modulePresenter?.pushModule(with: module.controller, animated: true)
-    }
-    
-    func showAuthScreen() {
-        Logger.show(title: "Coordinator",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        let module = AuthModule(coordinator: self)
-        modulePresenter?.pushModule(with: module.controller, animated: true)
     }
 }

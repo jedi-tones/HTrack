@@ -10,10 +10,11 @@ import FirebaseFirestore
 
 enum FirestoreEndPoint: BaseEndPoint {
     case user(id: String)
+    case nickname(name: String)
 }
 
 extension FirestoreEndPoint {
-    var userRef: CollectionReference {
+    var baseRef: CollectionReference {
         FirestoreEndPoint.baseCollectionReference
     }
     
@@ -21,7 +22,10 @@ extension FirestoreEndPoint {
         switch self {
         
         case .user(let id):
-            return userRef.document(id)
+            return baseRef.document("users").collection("users").document(id)
+            
+        case .nickname(let name):
+            return baseRef.document("users").collection("nicknames").document(name)
         }
     }
 }

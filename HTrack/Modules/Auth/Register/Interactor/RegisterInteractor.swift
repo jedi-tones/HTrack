@@ -4,6 +4,12 @@
 class RegisterInteractor {
     weak var output: RegisterInteractorOutput!
 
+    let userManager = UserManager.shared
+    
+    var currentUser: MUser? {
+        userManager.currentUser
+    }
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -12,5 +18,45 @@ class RegisterInteractor {
 
 // MARK: - RegisterInteractorInput
 extension RegisterInteractor: RegisterInteractorInput {
-
+    func checkNickName(name: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        userManager.checkNicknameIsExist(nickname: name) {[weak self] result in
+            switch result {
+                
+            case .success(let isExist):
+                self?.output.nicknameState(isExist: isExist)
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) : \(error)")
+            }
+        }
+    }
+    
+    func saveNickname(name: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard
+            let currentUser = currentUser
+        else {
+            Logger.show(title: "Module ERROR",
+                           text: "\(type(of: self)) - \(#function) currentUser is NIL")
+            return
+        }
+        let currentUserID = currentUser.userID
+        let dic = [MUser.CodingKeys.name : name]
+        userManager.updateUser(userID: currentUserID,
+                               dic: dic) {[weak self] result in
+            switch result {
+            
+            case .success(_):
+                self?.output.nicknameIsUpdated()
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                               text: "\(type(of: self)) - \(#function) \(error)")
+            }
+        }
+    }
 }
