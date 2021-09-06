@@ -20,6 +20,7 @@ class MainScreenCoordinator: CoordinatorProtocol {
     }
     
     enum Screens {
+        case main
         case settings
     }
     
@@ -60,6 +61,8 @@ extension MainScreenCoordinator: MainScreenCoordinatorFlow {
         switch screen {
         case .settings:
             showProfileSettings()
+        case .main:
+            showMainScreen(animated: animated)
         }
     }
     
@@ -70,10 +73,26 @@ extension MainScreenCoordinator: MainScreenCoordinatorFlow {
         parentCoordinator.childDidFinish(self)
     }
     
+    func showMainScreen(animated: Bool) {
+        Logger.show(title: "Coordinator",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        ///pop to first MainScreenViewController module
+        if let navController = modulePresenter as? UINavigationController {
+            if navController.viewControllers.first is MainScreenViewController {
+                navController.popToRootViewController(animated: animated)
+            } else { /// if don't have MainScreenModule in stack, add them
+                let module = MainScreenModule(coordinator: self)
+                navController.setViewControllers([module.controller], animated: animated)
+            }
+        }
+    }
     
     func showProfileSettings() {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
+        let module = SettingsModule(coordinator: self)
+        modulePresenter?.pushModule(with: module.controller, animated: true)
     }
 }

@@ -1,13 +1,13 @@
 //
-//  TextCollectionCell.swift
+//  SettingsButtonCell.swift
 //  HTrack
 //
-//  Created by Jedi Tones on 9/5/21.
+//  Created by Jedi Tones on 9/6/21.
 //
 
 import UIKit
 
-class TextCollectionCell: UICollectionViewCell, BaseCellProtocol {
+class SettingsButtonCell: UICollectionViewCell, BaseCellProtocol {
     static var reuseID: String {
         return "textCollectionCell"
     }
@@ -15,14 +15,14 @@ class TextCollectionCell: UICollectionViewCell, BaseCellProtocol {
     var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Styles.Colors.myLabelColor()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBiggest).font
-        lb.text = "Заголовок"
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBig).font
+        lb.text = "Кнопка"
         return lb
     }()
     
     var needAnimationTap = true
     
-    var viewModel: TextCollectionCellViewModel?
+    var viewModel: SettingsButtonViewModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,8 +34,14 @@ class TextCollectionCell: UICollectionViewCell, BaseCellProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        
+    }
+    
     func configure(viewModel: CellViewModel?) {
-        guard let viewModel = viewModel as? TextCollectionCellViewModel else { return }
+        guard let viewModel = viewModel as? SettingsButtonViewModel else { return }
         
         self.viewModel = viewModel
         setup()
@@ -45,6 +51,8 @@ class TextCollectionCell: UICollectionViewCell, BaseCellProtocol {
         guard let viewModel = viewModel else { return }
         
         titleLabel.text = viewModel.title
+        backgroundColor = Styles.Colors.mySecondBackgroundColor()
+        layer.cornerRadius = Styles.Sizes.baseCornerRadius
     }
     
     func setupConstraints() {

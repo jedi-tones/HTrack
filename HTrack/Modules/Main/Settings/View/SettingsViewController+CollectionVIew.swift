@@ -31,13 +31,16 @@ extension SettingsViewController {
         group.interItemSpacing = NSCollectionLayoutSpacing.fixed(Styles.Sizes.baseVInset)
 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: .zero,
-                                                        leading: Styles.Sizes.baseHInset,
-                                                        bottom: .zero,
-                                                        trailing: Styles.Sizes.baseHInset)
+        section.contentInsets = NSDirectionalEdgeInsets(top: Styles.Sizes.baseHInset,
+                                                        leading: Styles.Sizes.standartHInset,
+                                                        bottom: Styles.Sizes.baseVInset,
+                                                        trailing: Styles.Sizes.standartHInset)
         let header = configureHeaderLayout()
     
         section.boundarySupplementaryItems = [header]
+        
+//        let backItem = configureBackgoundItem
+//        section.decorationItems = [backItem]
         
         return section
     }
@@ -61,6 +64,9 @@ extension SettingsViewController {
                 return self?.setupBaseSection()
             }
         }
+        
+        layout.register(BackgroudSectionView.self, forDecorationViewOfKind: "background")
+        
         return layout
     }
     
@@ -73,5 +79,16 @@ extension SettingsViewController {
                                                                alignment: .top)
         
         return item
+    }
+    
+    private func configureBackgoundItem() -> NSCollectionLayoutDecorationItem{
+        let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+        let backgroundInset: CGFloat = .zero
+        backgroundItem.contentInsets = NSDirectionalEdgeInsets(top: backgroundInset,
+                                                               leading: backgroundInset,
+                                                               bottom: backgroundInset,
+                                                               trailing: backgroundInset)
+        
+        return backgroundItem
     }
 }

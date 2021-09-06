@@ -49,5 +49,9 @@ extension AppManager {
     func checkIsEmailAlreadyRegister(email: String, complition: @escaping(Result<Bool, Error>) -> Void) {
         firebaseAuthService.isEmailAlreadyRegister(email: email, complition: complition)
     }
+    
+    func logOut() throws {
+        try firebaseAuthService.signOut()
+    }
 }
 

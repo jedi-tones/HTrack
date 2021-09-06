@@ -84,7 +84,7 @@ extension SettingsViewController {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: EmptyHeaderCell.reuseID)
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
         
         guard let reuseSectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                        withReuseIdentifier: EmptyHeaderCell.reuseID,

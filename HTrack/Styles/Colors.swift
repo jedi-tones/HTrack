@@ -17,6 +17,8 @@ extension Styles.Colors  {
     static let black1 = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     static let black2 = black1.withAlphaComponent(0.5)
     
+    static let gray1: UIColor = .secondarySystemFill
+    
     static let white1 = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     static let white2 = white1.withAlphaComponent(0.5)
     static let white3 = #colorLiteral(red: 0.9198400378, green: 0.9143720269, blue: 0.9240432382, alpha: 1)
@@ -28,6 +30,10 @@ extension Styles.Colors  {
     //MARK: label
     static func myBackgroundColor() -> UIColor {
         dynamicColor(light: white1, dark: black1)
+    }
+    
+    static func mySecondBackgroundColor() -> UIColor {
+        return gray1
     }
     
     static func myLabelColor() -> UIColor {

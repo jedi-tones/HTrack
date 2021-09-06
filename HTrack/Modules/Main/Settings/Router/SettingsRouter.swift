@@ -9,4 +9,13 @@ class SettingsRouter: SettingsRouterInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
     }
+    
+    func showMainScreen() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let mainCoordinator = coordinator as? MainScreenCoordinatorFlow else { return }
+        
+        mainCoordinator.open(screen: .main, animated: true)
+    }
 }

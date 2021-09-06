@@ -29,14 +29,16 @@ extension Styles.Sizes  {
     
     static let baseButtonHeight: CGFloat = 44
     
+    static let smallCornerRadius: CGFloat = 5
     static let baseCornerRadius: CGFloat = 16
     static let baseBorderWidth: CGFloat = 2
     
     static let baseTextFieldLeftInset: CGFloat = 10
     static let baseTextFieldRightInset: CGFloat = 10
     
+    static let fontSizeBig: CGFloat = 22
     static let fontSizeBase: CGFloat = 16
     static let fontSizeMedium: CGFloat = 13
     static let fontSizeSmall: CGFloat = 11
-    static let fontSizeBig: CGFloat = 55
+    static let fontSizeBiggest: CGFloat = 55
 }

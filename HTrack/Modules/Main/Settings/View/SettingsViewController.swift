@@ -58,7 +58,7 @@ extension SettingsViewController {
         
         view.backgroundColor = backColor
         navigationItem.title = "Настройки"
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .always
         
         setupCollectionView()
         setupConstraints()
@@ -98,7 +98,7 @@ extension SettingsViewController: SettingsViewInput {
             sectionVM.items.forEach { cellViewModel in
                 
                 switch cellViewModel {
-                case let vm as TextCollectionCellViewModel:
+                case let vm as SettingsButtonViewModel:
                     vms.append(vm)
                 default:
                     break

@@ -4,6 +4,8 @@
 class SettingsInteractor {
     weak var output: SettingsInteractorOutput!
 
+    var appManager = AppManager.shared
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -18,5 +20,35 @@ extension SettingsInteractor: SettingsInteractorInput {
         
         let sections = [SettingsSection.control]
         output.setupSections(sections: sections)
+    }
+    
+    func getElementsFor(section: SettingsSection) -> [SettingsElement] {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        switch section {
+        
+        case .settings:
+            return []
+        case .control:
+            return [.exit]
+        case .info:
+            return []
+        }
+    }
+    
+    func logOut() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        do {
+           try appManager.logOut()
+            output.logOutSuccess()
+        } catch {
+            Logger.show(title: "Module",
+                        text: "\(type(of: self)) - \(#function) error LogOut: \(error)",
+                        withHeader: true,
+                        withFooter: true)
+        }
     }
 }

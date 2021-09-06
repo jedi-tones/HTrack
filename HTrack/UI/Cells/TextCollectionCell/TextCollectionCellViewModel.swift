@@ -11,7 +11,7 @@ protocol TextCollectionCellViewModelDelegate {
     func didTap(title: String)
 }
 
-class TextCollectionCellViewModel: CellViewModel {
+class TextCollectionCellViewModel: CellViewModel, Hashable {
     
     var delegate: TextCollectionCellViewModelDelegate?
     var cell: BaseCellProtocol.Type {
@@ -23,9 +23,7 @@ class TextCollectionCellViewModel: CellViewModel {
     func didTap() {
         delegate?.didTap(title: title ?? "")
     }
-}
-
-extension TextCollectionCellViewModel: Hashable {
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(title)
     }

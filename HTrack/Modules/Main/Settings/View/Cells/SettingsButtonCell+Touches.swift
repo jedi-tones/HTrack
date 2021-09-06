@@ -1,13 +1,13 @@
 //
-//  TextCollectionCell+Touches.swift
+//  SettingsButtonCell+Touches.swift
 //  HTrack
 //
-//  Created by Jedi Tones on 9/5/21.
+//  Created by Jedi Tones on 9/6/21.
 //
 
 import UIKit
 
-extension TextCollectionCell {
+extension SettingsButtonCell {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if needAnimationTap, touchToContent(touches) {
             scaleDown()

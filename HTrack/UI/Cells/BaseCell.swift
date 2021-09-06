@@ -8,7 +8,9 @@
 import UIKit
 
 class BaseCell: UICollectionViewCell, BaseCellProtocol {
-    static var reuseID = "baseCell"
+    static var reuseID: String {
+        return "baseCell"
+    }
     
     var needAnimationTap = true
     

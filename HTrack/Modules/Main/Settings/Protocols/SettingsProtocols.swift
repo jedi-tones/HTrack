@@ -20,17 +20,21 @@ protocol SettingsViewOutput {
 protocol SettingsInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getSections()
+    func getElementsFor(section: SettingsSection) -> [SettingsElement]
+    func logOut()
 }
 
 protocol SettingsInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupSections(sections: [SettingsSection])
+    func logOutSuccess()
 }
 
 
 // MARK: - Router
 protocol SettingsRouterInput {
     // MARK: PRESENTER -> ROUTER
+    func showMainScreen()
 }
 
 

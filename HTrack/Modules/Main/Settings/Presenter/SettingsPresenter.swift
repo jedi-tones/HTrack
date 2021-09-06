@@ -43,13 +43,14 @@ extension SettingsPresenter: SettingsInteractorOutput {
                                                  footer: nil,
                                                  items: [])
                 
-                if let elements = section.sectionElements {
-                    for element in elements {
-                        let controlVM = TextCollectionCellViewModel()
-                        controlVM.title = element.rawValue
-                        controlVM.delegate = self
-                        sectionVM.items.append(controlVM)
-                    }
+                let elements = interactor.getElementsFor(section: section)
+                
+                for element in elements {
+                    let buttonVM = SettingsButtonViewModel()
+                    buttonVM.title = element.title
+                    buttonVM.element = element
+                    buttonVM.delegate = self
+                    sectionVM.items.append(buttonVM)
                 }
                 
                 let header = EmptyHeaderViewModel()
@@ -64,13 +65,26 @@ extension SettingsPresenter: SettingsInteractorOutput {
         self.viewModel = newViewModel
         view.setupData(newData: viewModel)
     }
+    
+    func logOutSuccess() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.showMainScreen()
+    }
 }
 
-extension SettingsPresenter: TextCollectionCellViewModelDelegate {
-    func didTap(title: String) {
+extension SettingsPresenter: SettingsButtonViewModelDelegate {
+    func didTap(element: SettingsElement?) {
         Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) element title: \(title)")
+                    text: "\(type(of: self)) - \(#function) element title: \(String(describing: element?.rawValue))")
         
+        guard let element = element else { return }
+        switch element {
+        
+        case .exit:
+            interactor.logOut()
+        }
     }
 }
 

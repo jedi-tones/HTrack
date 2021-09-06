@@ -11,7 +11,7 @@ import AuthenticationServices
 protocol FirebaseAuthProtocol {
     func initializeFirebaseCredential(authorization: ASAuthorization, nonce: String?) -> OAuthCredential
     func signInWithApple(credential: OAuthCredential, complition:@escaping(Result<User, Error>)->Void)
-    func signOut() -> Error?
+    func signOut() throws
     func reAuthentificate(credential: AuthCredential?, email: String?, password: String?, complition: @escaping (Result<User,Error>) -> Void)
     func getCurrentUser() -> User?
     func updateUser(user: User, complition: @escaping(Result<Bool, Error>)->Void)
@@ -191,16 +191,15 @@ final class FirebaseAuthManager: FirebaseAuthProtocol {
     }
     
     //MARK: - signOut
-    func signOut() -> Error? {
+    func signOut() throws {
         do {
             try Auth.auth().signOut()
             
            // let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
            // keyWindow?.rootViewController = AuthViewController(currentPeopleDelegate: currentPeopleDelegate)
             updateLogOut()
-            return nil
         } catch {
-            return error
+            throw error
         }
     }
     
