@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol MainScreenInfoCellDelegate {
+    func update(vm: MainScreenInfoViewModel)
+}
+
 protocol InfoViewModelDelegate {
     func didTapInfo()
 }
@@ -14,12 +18,24 @@ protocol InfoViewModelDelegate {
 class MainScreenInfoViewModel: CellViewModel {
     
     var delegate: InfoViewModelDelegate?
+    var cellDelegate: MainScreenInfoCellDelegate?
+    
     var cell: BaseCellProtocol.Type {
         MainScreenInfoCell.self
     }
     var needAnimationTap = false
     var title: String?
     var description: String?
+
+}
+
+extension MainScreenInfoViewModel: MainScreenUpdateDelegate {
+    func update(info: MainScreenInfoViewModel) {
+        
+        self.title = info.title
+        self.description = info.description
+        cellDelegate?.update(vm: self)
+    }
 }
 
 extension MainScreenInfoViewModel: Hashable {

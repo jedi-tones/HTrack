@@ -121,6 +121,15 @@ extension MainScreenViewController: MainScreenViewInput {
         }
         dataSource?.apply(snapshot)
     }
+    
+    func updateTitle(title: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationItem.title = title
+        }
+    }
 }
 
 extension MainScreenViewController {

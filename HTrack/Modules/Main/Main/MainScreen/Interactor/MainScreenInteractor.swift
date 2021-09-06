@@ -4,9 +4,15 @@
 class MainScreenInteractor {
     weak var output: MainScreenInteractorOutput!
 
+    let userManager = UserManager.shared
+    let authManager = FirebaseAuthManager.shared
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+        
+        userManager.notifier.unsubscribe(self)
+        authManager.notifier.unsubscribe(self)
     }
 }
 
@@ -18,5 +24,19 @@ extension MainScreenInteractor: MainScreenInteractorInput {
         
         let sections = [MainScreenSection.info]
         output.setupSections(sections: sections)
+    }
+    
+    func getUser() -> MUser? {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        userManager.notifier.subscribe(self)
+        authManager.notifier.subscribe(self)
+        
+        if let user = userManager.currentUser {
+            return user
+        } else {
+            return nil
+        }
     }
 }

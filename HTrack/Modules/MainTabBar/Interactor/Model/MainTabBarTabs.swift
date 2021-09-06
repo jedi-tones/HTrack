@@ -15,7 +15,7 @@ enum MainTabBarTabs: CaseIterable {
         switch self {
         
         case .main:
-           return "Статистика"
+           return "Anonym"
         case .friends:
            return "Друзья"
         }

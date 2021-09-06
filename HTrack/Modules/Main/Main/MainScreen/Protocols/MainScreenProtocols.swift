@@ -8,6 +8,7 @@ protocol MainScreenViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
     func setupData(newData: [SectionViewModel])
+    func updateTitle(title: String)
 }
 
 protocol MainScreenViewOutput {
@@ -21,11 +22,13 @@ protocol MainScreenViewOutput {
 protocol MainScreenInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getSections()
+    func getUser() -> MUser?
 }
 
 protocol MainScreenInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupSections(sections: [MainScreenSection])
+    func updateUserStat(user: MUser?)
 }
 
 

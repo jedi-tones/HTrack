@@ -46,14 +46,18 @@ class MainScreenInfoCell: UICollectionViewCell, BaseCellProtocol {
         guard let viewModel = viewModel as? MainScreenInfoViewModel else { return }
         
         self.viewModel = viewModel
+        self.viewModel?.cellDelegate = self
+        
         setup()
     }
     
     func setup() {
         guard let viewModel = viewModel else { return }
         
-        descLabel.text = viewModel.title
-        countLabel.text = viewModel.description
+        DispatchQueue.main.async {[weak self] in
+            self?.descLabel.text = viewModel.title
+            self?.countLabel.text = viewModel.description
+        }
     }
     
     func setupConstraints() {
@@ -71,5 +75,21 @@ class MainScreenInfoCell: UICollectionViewCell, BaseCellProtocol {
             descLabel.topAnchor.constraint(equalTo: countLabel.bottomAnchor, constant: Styles.Sizes.stadartVInset),
             descLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.stadartVInset),
         ])
+    }
+}
+
+extension MainScreenInfoCell: MainScreenInfoCellDelegate {
+    func update(vm: MainScreenInfoViewModel) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) MAIN INFO UPDATED title: \(vm.title) desc: \(vm.description)",
+                    withHeader: true,
+                    withFooter: true)
+        
+        self.viewModel = vm
+        DispatchQueue.main.async {[weak self] in
+            self?.descLabel.text = vm.description
+            self?.countLabel.text = vm.title
+        }
+//        setup()
     }
 }

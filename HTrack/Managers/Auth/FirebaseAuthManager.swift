@@ -76,7 +76,7 @@ final class FirebaseAuthManager: FirebaseAuthProtocol {
                 switch result {
                 
                 case .success(_):
-                    self?.updateSignIn(user: authUser)
+//                    self?.updateSignIn(user: authUser)
                     complition(.authorized)
                     
                 case .failure(_):
