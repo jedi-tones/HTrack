@@ -15,7 +15,7 @@ class SettingsButtonCell: UICollectionViewCell, BaseCellProtocol {
     var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Styles.Colors.myLabelColor()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBig).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
         lb.text = "Кнопка"
         return lb
     }()

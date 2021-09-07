@@ -21,20 +21,19 @@ extension SettingsViewController {
     
     private func setupBaseSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                              heightDimension: .estimated(10))
+                                              heightDimension: .estimated(100))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .estimated(10))
+                                               heightDimension: .estimated(100))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.interItemSpacing = NSCollectionLayoutSpacing.fixed(Styles.Sizes.baseVInset)
 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: Styles.Sizes.baseHInset,
+        section.contentInsets = NSDirectionalEdgeInsets(top: Styles.Sizes.standartHInset,
                                                         leading: Styles.Sizes.standartHInset,
-                                                        bottom: Styles.Sizes.baseVInset,
+                                                        bottom: Styles.Sizes.bigVInset,
                                                         trailing: Styles.Sizes.standartHInset)
+        section.interGroupSpacing = Styles.Sizes.stadartVInset
         let header = configureHeaderLayout()
     
         section.boundarySupplementaryItems = [header]

@@ -8,6 +8,8 @@
 import Foundation
 
 enum SettingsElement: String, Hashable {
+    case datePicker
+    case reset
     case exit
     
     var title: String {
@@ -15,6 +17,10 @@ enum SettingsElement: String, Hashable {
         
         case .exit:
             return "Выход"
+        case .datePicker:
+            return "Трезв с:"
+        case .reset:
+            return "Сбросить дату"
         }
     }
 }

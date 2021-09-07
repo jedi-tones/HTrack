@@ -7,18 +7,18 @@
 
 import Foundation
 
-protocol MainScreenInfoCellDelegate {
+protocol MainScreenInfoCellDelegate: AnyObject {
     func update(vm: MainScreenInfoViewModel)
 }
 
-protocol InfoViewModelDelegate {
+protocol InfoViewModelDelegate: AnyObject  {
     func didTapInfo()
 }
 
 class MainScreenInfoViewModel: CellViewModel {
     
-    var delegate: InfoViewModelDelegate?
-    var cellDelegate: MainScreenInfoCellDelegate?
+    weak var delegate: InfoViewModelDelegate?
+    weak var cellDelegate: MainScreenInfoCellDelegate?
     
     var cell: BaseCellProtocol.Type {
         MainScreenInfoCell.self

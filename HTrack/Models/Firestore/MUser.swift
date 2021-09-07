@@ -118,7 +118,7 @@ struct MUser: Codable {
         } else {
             updatedUser.authType = AuthType.defaultAuthType()
         }
-        if let startDate = json["startDate"] as? Timestamp { updatedUser.startDate = startDate.dateValue() }
+        if let startDate = json["startDate"] as? Date { updatedUser.startDate = startDate }
         if let fcmKey = json["fcmKey"] as? String { updatedUser.fcmKey = fcmKey }
         if let isAdmin = json["isAdmin"] as? Bool { updatedUser.isAdmin = isAdmin }
         if let isPremiumUser = json["isPremiumUser"] as? Bool { updatedUser.isPremiumUser = isPremiumUser }

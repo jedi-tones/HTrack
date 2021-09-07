@@ -166,6 +166,9 @@
 		DD9F616326E678B7009E3D39 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = DD9F616226E678B7009E3D39 /* Localizable.stringsdict */; };
 		DD9F616926E67F84009E3D39 /* MainScreenInteractor+UserListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F616826E67F84009E3D39 /* MainScreenInteractor+UserListner.swift */; };
 		DD9F616B26E68985009E3D39 /* MainScreenInteractor+AuthListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F616A26E68985009E3D39 /* MainScreenInteractor+AuthListner.swift */; };
+		DD9F616D26E7E72A009E3D39 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F616C26E7E72A009E3D39 /* DatePickerCell.swift */; };
+		DD9F616F26E7E816009E3D39 /* DatePickerCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F616E26E7E816009E3D39 /* DatePickerCellViewModel.swift */; };
+		DD9F617126E8035C009E3D39 /* SettingsInteractor+UserListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F617026E8035C009E3D39 /* SettingsInteractor+UserListner.swift */; };
 		E1010921D470C16A59C6A60B /* RegisterUserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A6C38414672B8073EC767E /* RegisterUserInfoPresenter.swift */; };
 		E1560B40513E728EEAD06A5B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931C55A79037676521FC968 /* SettingsRouter.swift */; };
 		E791506092A3252CB263145A /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F339803F883491C41641E /* MainScreenInteractor.swift */; };
@@ -353,6 +356,9 @@
 		DD9F616226E678B7009E3D39 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		DD9F616826E67F84009E3D39 /* MainScreenInteractor+UserListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenInteractor+UserListner.swift"; sourceTree = "<group>"; };
 		DD9F616A26E68985009E3D39 /* MainScreenInteractor+AuthListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenInteractor+AuthListner.swift"; sourceTree = "<group>"; };
+		DD9F616C26E7E72A009E3D39 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		DD9F616E26E7E816009E3D39 /* DatePickerCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCellViewModel.swift; sourceTree = "<group>"; };
+		DD9F617026E8035C009E3D39 /* SettingsInteractor+UserListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsInteractor+UserListner.swift"; sourceTree = "<group>"; };
 		E2DF7355EF3EBC57DA24544F /* AuthInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
 		ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
@@ -581,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				AC6984F77B768DE1487D5189 /* SettingsInteractor.swift */,
+				DD9F617026E8035C009E3D39 /* SettingsInteractor+UserListner.swift */,
 				DD9F614626E2B05C009E3D39 /* Model */,
 			);
 			path = Interactor;
@@ -1282,6 +1289,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9F615526E6444E009E3D39 /* SettingsButtonViewModel.swift */,
+				DD9F616E26E7E816009E3D39 /* DatePickerCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1291,6 +1299,7 @@
 			children = (
 				DD9F615826E64D50009E3D39 /* SettingsButtonCell.swift */,
 				DD9F615B26E64DE5009E3D39 /* SettingsButtonCell+Touches.swift */,
+				DD9F616C26E7E72A009E3D39 /* DatePickerCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1654,6 +1663,8 @@
 				DD92151B2677B48D00A3623E /* FriendsCoordinator.swift in Sources */,
 				DD5F6400267FC79C002131FD /* MainScreenViewController+DataSource.swift in Sources */,
 				6225EF4BD962064B9F8D11C9 /* RegisterBuilder.swift in Sources */,
+				DD9F616F26E7E816009E3D39 /* DatePickerCellViewModel.swift in Sources */,
+				DD9F616D26E7E72A009E3D39 /* DatePickerCell.swift in Sources */,
 				DD9F615E26E65538009E3D39 /* BackgroudSectionView.swift in Sources */,
 				DD65E09726B89C94002BBF80 /* TextFieldWithInsets.swift in Sources */,
 				DD92152E2677E93000A3623E /* Images.swift in Sources */,
@@ -1683,6 +1694,7 @@
 				C629FC19BD05B52BFF25F858 /* RegisterUserInfoViewController.swift in Sources */,
 				DD59F75C26B6113F00CA8179 /* AppManager+Auth.swift in Sources */,
 				DD59F75F26B6F1E300CA8179 /* AppleAuthService.swift in Sources */,
+				DD9F617126E8035C009E3D39 /* SettingsInteractor+UserListner.swift in Sources */,
 				DD5414F426C168E000A13BE0 /* ContainerViewController.swift in Sources */,
 				E1010921D470C16A59C6A60B /* RegisterUserInfoPresenter.swift in Sources */,
 				78FD1C958DDB1F4BAF728DD4 /* RegisterUserInfoInteractor.swift in Sources */,

@@ -98,6 +98,8 @@ extension SettingsViewController: SettingsViewInput {
             sectionVM.items.forEach { cellViewModel in
                 
                 switch cellViewModel {
+                case let vm as DatePickerCellViewModel:
+                    vms.append(vm)
                 case let vm as SettingsButtonViewModel:
                     vms.append(vm)
                 default:
@@ -108,7 +110,10 @@ extension SettingsViewController: SettingsViewInput {
             snapshot.appendSections([sectionVM])
             snapshot.appendItems(vms, toSection: sectionVM)
         }
-        dataSource?.apply(snapshot)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource?.apply(snapshot)
+        }
     }
 }
 

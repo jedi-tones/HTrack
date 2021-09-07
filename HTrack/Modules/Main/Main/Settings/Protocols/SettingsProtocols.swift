@@ -22,12 +22,15 @@ protocol SettingsInteractorInput {
     func getSections()
     func getElementsFor(section: SettingsSection) -> [SettingsElement]
     func logOut()
+    func getUserData()
+    func changeStartDate(to: Date)
 }
 
 protocol SettingsInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupSections(sections: [SettingsSection])
     func logOutSuccess()
+    func updateUser(user: MUser)
 }
 
 

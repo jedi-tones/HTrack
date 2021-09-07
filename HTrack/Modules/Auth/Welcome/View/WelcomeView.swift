@@ -12,7 +12,7 @@ class WelcomeView: UIView {
     
     let logoImage: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = Styles.Images.testImage1
+        imageView.image = nil
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

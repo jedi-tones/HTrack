@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SettingsButtonViewModelDelegate {
+protocol SettingsButtonViewModelDelegate: AnyObject {
     func didTap(element: SettingsElement?)
 }
 
@@ -18,7 +18,7 @@ class SettingsButtonViewModel: CellViewModel, Hashable {
     
     var needAnimationTap = true
     
-    var delegate: SettingsButtonViewModelDelegate?
+    weak var delegate: SettingsButtonViewModelDelegate?
     var element: SettingsElement?
     var title: String?
     
