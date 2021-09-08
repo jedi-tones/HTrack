@@ -112,11 +112,13 @@ extension UserManager {
         }
         
         if isCurrentUser(id: userID) {
+            //if current user load from firestore
             if let currentUser = currentUser{
                 userRequestManager.updateUser(userID: currentUser.userID,
                                               dic: dic,
                                               complition: complitCurrentUserMerge)
             } else {
+                //if current not load erly from firestore, load first then change
                 getCurrentUser {[weak self] result in
                     switch result {
                     
@@ -153,5 +155,9 @@ extension UserManager {
                 }
             }
         }
+    }
+    
+    func saveNickName(nickname: String, userID: String, complition:((Result<String,Error>) -> Void)?) {
+        userRequestManager.saveNickName(nickname: nickname, userID: userID, complition: complition)
     }
 }

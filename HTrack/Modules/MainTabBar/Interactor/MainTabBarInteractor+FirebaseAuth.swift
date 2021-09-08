@@ -23,6 +23,8 @@ extension MainTabBarInteractor: FirebaseAuthListner {
                     withHeader: true,
                     withFooter: true)
         
-        checkCurrentUserProfile()
+        if appManager.needAutoCheckProfileFullFilled {
+            checkCurrentUserProfile()
+        }
     }
 }

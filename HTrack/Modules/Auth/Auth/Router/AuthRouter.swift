@@ -14,11 +14,17 @@ class AuthRouter: AuthRouterInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
+        
+        authCoordinator.open(screen: .compliteRegistration, animated: true)
     }
     
     func showMainModule() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        guard let authCoordinator = coordinator as? AuthCoordinatorFlow else { return }
+        
+        authCoordinator.closeAuth(animated: true)
     }
 }

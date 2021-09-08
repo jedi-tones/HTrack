@@ -13,6 +13,7 @@ class AuthViewController: UIViewController {
         case notChecked
         case auth
         case register
+        case load
     }
     
     fileprivate var _state: AuthViewControllerState = .notChecked
@@ -58,6 +59,11 @@ class AuthViewController: UIViewController {
         return sv
     }()
     
+    fileprivate lazy var keyboardNotification: KeyboardNotifications = {
+        let kn = KeyboardNotifications(notifications: [.didShow, .didHide], delegate: self)
+        return kn
+    }()
+    
     fileprivate lazy var nextButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: nextButtonColor)
@@ -76,9 +82,13 @@ class AuthViewController: UIViewController {
             case .notChecked:
                 self.output.checkEmail(email: email)
             case .auth:
-                self.output.authWithEmail(email: email)
+                guard let password = self.passwordInput.text else { return }
+                self.output.authWithEmail(email: email, password: password)
             case .register:
-                self.output.registerEmail(email: email)
+                guard let password = self.passwordInput.text else { return }
+                self.output.registerEmail(email: email, password: password)
+            case .load:
+                return
             }
         }
         return bt
@@ -133,6 +143,7 @@ extension AuthViewController {
         validator = Validator(inputs: [emailInput, passwordInput], buttons: [nextButton])
         
         view.backgroundColor = backColor
+        keyboardNotification.isEnabled = true
         setupConstraints()
     }
 
@@ -169,30 +180,68 @@ extension AuthViewController {
         switch state {
         
         case .notChecked:
+            emailInput.isUserInteractionEnabled = true
+            passwordInput.isUserInteractionEnabled = true
+            nextButton.setStatus(.normal)
             UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
                 self?.passwordInput.isHidden = true
                 self?.passwordInput.alpha = 0
                 self?.passwordInput.text = ""
             }
-            
             nextButton.setTitle(title: "Проверить", animated: true)
+            
         case .auth:
+            emailInput.isUserInteractionEnabled = true
+            passwordInput.isUserInteractionEnabled = true
+            nextButton.setStatus(.normal)
             UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
                 self?.passwordInput.setPlacehodler("Пароль")
                 self?.passwordInput.isHidden = false
                 self?.passwordInput.alpha = 1
             }
-            
             nextButton.setTitle(title: "Войти", animated: true)
+            
         case .register:
+            emailInput.isUserInteractionEnabled = true
+            passwordInput.isUserInteractionEnabled = true
+            nextButton.setStatus(.normal)
             UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
                 self?.passwordInput.setPlacehodler("Придумай пароль")
                 self?.passwordInput.isHidden = false
                 self?.passwordInput.alpha = 1
             }
-            
             nextButton.setTitle(title: "Зарегистрироваться", animated: true)
+            
+        case .load:
+            emailInput.isUserInteractionEnabled = false
+            passwordInput.isUserInteractionEnabled = false
+            nextButton.setStatus(.busy)
         }
+    }
+    
+    fileprivate func updateConstraints(keyboardY: CGFloat?) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) stackview \(stackView.frame.maxY)")
+        
+        if let keyboardY = keyboardY {
+            if stackView.frame.maxY  > keyboardY {
+                let addY = stackView.frame.maxY - keyboardY
+                _stackviewCenterConstraint?.constant = addY
+                UIView.animate(withDuration: Styles.Constants.animationDuarationBase) {[weak self] in
+                    self?.view.layoutIfNeeded()
+                }
+            }
+        } else {
+            _stackviewCenterConstraint?.constant = 0
+            UIView.animate(withDuration: Styles.Constants.animationDuarationBase) {[weak self] in
+                self?.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
 }
 
@@ -212,6 +261,19 @@ extension AuthViewController: AuthViewInput {
         guard self._state != state else { return }
         _state = state
         updateLayoutToState(state: state)
+    }
+}
+
+extension AuthViewController: KeyboardNotificationsDelegate {
+    func keyboardDidShow(notification: NSNotification) {
+        let keyboardInfo = KeyboardPayload(notification)
+        if let keyboardY = keyboardInfo?.frameEnd.origin.y {
+            updateConstraints(keyboardY: keyboardY)
+        }
+    }
+    
+    func keyboardDidHide(notification: NSNotification) {
+        updateConstraints(keyboardY: nil)
     }
 }
 

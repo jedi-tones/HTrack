@@ -4,7 +4,7 @@
 class MainTabBarInteractor {
     weak var output: MainTabBarInteractorOutput!
     
-    private var appManager = AppManager.shared
+    var appManager = AppManager.shared
     private var userManager = UserManager.shared
     private var authManager = FirebaseAuthManager.shared
     

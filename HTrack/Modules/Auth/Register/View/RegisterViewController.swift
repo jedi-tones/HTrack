@@ -11,6 +11,7 @@ class RegisterViewController: UIViewController {
         case notChecked
         case nicknameExist
         case nicknameNotExist
+        case load
     }
     
     fileprivate var _state: RegisterViewControllerState = .notChecked
@@ -45,13 +46,15 @@ class RegisterViewController: UIViewController {
         
         bt.action = { [weak self] in
             switch self?._state {
-                
-                case .notChecked:
-                    self?.checkNickname()
-                case .nicknameNotExist:
-                    self?.saveNickname()
-                case .nicknameExist:
-                    self?.checkNickname()
+            
+            case .notChecked:
+                self?.checkNickname()
+            case .nicknameNotExist:
+                self?.saveNickname()
+            case .nicknameExist:
+                self?.checkNickname()
+            case .load:
+                return
             case .none:
                 break
             }
@@ -161,15 +164,25 @@ extension RegisterViewController {
         switch state {
         
         case .notChecked:
+            nicknameInput.isUserInteractionEnabled = true
+            nextButton.setStatus(.normal)
             nextButton.setTitle(title: "Проверить", animated: true)
             
         case .nicknameNotExist:
+            nicknameInput.isUserInteractionEnabled = true
             nicknameInput.infoLabel = "Никнейм свободен"
+            nextButton.setStatus(.normal)
             nextButton.setTitle(title: "Сохранить", animated: true)
             
         case .nicknameExist:
+            nicknameInput.isUserInteractionEnabled = true
             nicknameInput.error = "Никнейм занят"
+            nextButton.setStatus(.normal)
             nextButton.setTitle(title: "Проверить", animated: true)
+            
+        case .load:
+            nicknameInput.isUserInteractionEnabled = false
+            nextButton.setStatus(.busy)
         }
     }
 }

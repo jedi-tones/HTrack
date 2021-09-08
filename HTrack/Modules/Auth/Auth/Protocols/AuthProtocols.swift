@@ -13,8 +13,8 @@ protocol AuthViewInput: AnyObject {
 protocol AuthViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
-    func registerEmail(email: String)
-    func authWithEmail(email: String)
+    func registerEmail(email: String, password: String)
+    func authWithEmail(email: String, password: String)
     func checkEmail(email: String)
 }
 
@@ -22,8 +22,9 @@ protocol AuthViewOutput {
 // MARK: - Interactor
 protocol AuthInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
-    func registerEmail(email: String)
+    func registerEmail(email: String, password: String)
     func checkEmail(email: String)
+    func authWithEmail(email: String, password: String)
 }
 
 protocol AuthInteractorOutput: AnyObject {
@@ -31,6 +32,7 @@ protocol AuthInteractorOutput: AnyObject {
     func setState(state: AuthViewController.AuthViewControllerState)
     func showRegisterModule()
     func showMainModule()
+    func showAuthError(error: AuthError)
 }
 
 

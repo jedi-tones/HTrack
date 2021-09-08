@@ -5,6 +5,7 @@ class RegisterInteractor {
     weak var output: RegisterInteractorOutput!
 
     let userManager = UserManager.shared
+    let appManager = AppManager.shared
     
     var currentUser: MUser? {
         userManager.currentUser
@@ -52,11 +53,36 @@ extension RegisterInteractor: RegisterInteractorInput {
             switch result {
             
             case .success(_):
-                self?.output.nicknameIsUpdated()
+                self?.saveNicknameToStore(nickname: name, userID: currentUserID)
             case .failure(let error):
                 Logger.show(title: "Module ERROR",
                                text: "\(type(of: self)) - \(#function) \(error)")
+                self?.output.saveError(error: error)
             }
         }
+    }
+    
+    func saveNicknameToStore(nickname: String,
+                             userID: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        userManager.saveNickName(nickname: nickname,
+                                 userID: userID) {[weak self] result in
+            switch result {
+            
+            case .success(_):
+                self?.output.nicknameIsUpdated()
+            case .failure(let error):
+                self?.output.saveError(error: error)
+            }
+        }
+    }
+    
+    func setAutoCheckFullFillProfile() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        appManager.needAutoCheckProfileFullFilled = true
     }
 }

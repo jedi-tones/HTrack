@@ -6,7 +6,8 @@ class RegisterPresenter {
     weak var view: RegisterViewInput!
     var router: RegisterRouterInput!
     var interactor: RegisterInteractorInput!
-
+    var _state: RegisterViewController.RegisterViewControllerState = .notChecked
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -26,6 +27,8 @@ extension RegisterPresenter: RegisterViewOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        view.setupState(state: .load)
+        _state = .nicknameNotExist
         interactor.saveNickname(name: name)
     }
     
@@ -33,6 +36,8 @@ extension RegisterPresenter: RegisterViewOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        view.setupState(state: .load)
+        _state = .notChecked
         interactor.checkNickName(name: name)
     }
 }
@@ -55,6 +60,13 @@ extension RegisterPresenter: RegisterInteractorOutput {
                     text: "\(type(of: self)) - \(#function)")
         
         router.showMainScreen()
+    }
+    
+    func saveError(error: Error) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) error \(error)")
+        
+        view.setupState(state: _state)
     }
 }
 

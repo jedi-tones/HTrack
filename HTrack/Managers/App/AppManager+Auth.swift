@@ -51,7 +51,12 @@ extension AppManager {
     }
     
     func logOut() throws {
-        try firebaseAuthService.signOut()
+        do {
+            try firebaseAuthService.signOut()
+            userManager.currentUser = nil
+        } catch {
+            throw error
+        }
     }
 }
 

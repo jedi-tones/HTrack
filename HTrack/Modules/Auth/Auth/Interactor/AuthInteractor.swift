@@ -5,6 +5,8 @@ class AuthInteractor {
     weak var output: AuthInteractorOutput!
     
     let appManager = AppManager.shared
+    let userManager = UserManager.shared
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -13,10 +15,44 @@ class AuthInteractor {
 
 // MARK: - AuthInteractorInput
 extension AuthInteractor: AuthInteractorInput {
-    func registerEmail(email: String) {
+    func authWithEmail(email: String, password: String) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        appManager.needAutoCheckProfileFullFilled = true
+        appManager.authWithEmail(email: email,
+                                 password: password) {[weak self] result in
+            switch result {
+            
+            case .success:
+                self?.output.showMainModule()
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) \(error)")
+                
+                self?.output.showAuthError(error: AuthError.invalidPassword)
+            }
+        }
+    }
+    
+    func registerEmail(email: String, password: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        appManager.needAutoCheckProfileFullFilled = false
+        appManager.registerWithEmail(email: email,
+                                     password: password) {[weak self] result in
+            switch result {
+            
+            case .success(_):
+                self?.createNewUser()
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) \(error)")
+                
+                self?.output.showAuthError(error: AuthError.serverError)
+            }
+        }
     }
     
     func checkEmail(email: String) {
@@ -34,6 +70,24 @@ extension AuthInteractor: AuthInteractorInput {
                 }
             case .failure(_):
                 return
+            }
+        }
+    }
+    
+    private func createNewUser() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        userManager.createNewCurrentUser {[weak self] result in
+            switch result {
+            
+            case .success(_):
+                self?.output.showRegisterModule()
+            case .failure(let error):
+                Logger.show(title: "Module",
+                            text: "\(type(of: self)) - \(#function) error: \(error.localizedDescription)",
+                            withHeader: true,
+                            withFooter: true)
             }
         }
     }

@@ -151,7 +151,7 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
             guard let self = self else { return }
             
-            self.titleLabel.isHidden = true
+            self.stackView.isHidden = true
             self.activityIndicator.isHidden = false
             self.activityIndicator.startAnimating()
             
@@ -161,7 +161,7 @@ class BaseTextButtonWithArrow: BaseCustomButton {
     
     private func hideActivityIndicator() {
         UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
-            self?.titleLabel.isHidden = false
+            self?.stackView.isHidden = false
             self?.activityIndicator.isHidden = true
             self?.activityIndicator.stopAnimating()
             
@@ -176,6 +176,8 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         
         case .busy:
             showActivityIndicator()
+            isUserInteractionEnabled = false
+            
         case .normal:
             hideActivityIndicator()
             

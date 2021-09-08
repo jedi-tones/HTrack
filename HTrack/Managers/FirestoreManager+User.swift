@@ -109,4 +109,22 @@ extension FirestoreManager {
             }
         }
     }
+    
+    func saveNickName(nickname: String, userID: String, complition:((Result<String,Error>) -> Void)?) {
+        let nicknameRef = FirestoreEndPoint.nickname(name: nickname).documentRef
+        
+        let nicknameModel = MNickname(nickname: nickname, userID: userID)
+        do {
+           try nicknameRef.setData(from: nicknameModel) { error in
+                if let error = error {
+                    complition?(.failure(error))
+                } else {
+                    complition?(.success(nickname))
+                }
+            }
+        } catch {
+            complition?(.failure(error))
+        }
+        
+    }
 }

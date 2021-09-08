@@ -30,6 +30,10 @@ class UserRequestManager {
         firestoreManager.checkNickNameIsExists(nickname: nickname, complition: complition)
     }
     
+    func saveNickName(nickname: String, userID: String, complition:((Result<String,Error>) -> Void)?) {
+        firestoreManager.saveNickName(nickname: nickname, userID: userID, complition: complition)
+    }
+    
     func updateUser(userID: String, dic:[MUser.CodingKeys: Any], complition: ((Result<[String : Any], Error>) -> Void)?) {
         let dicToFirebase: [String: Any] = Dictionary(uniqueKeysWithValues: dic.map({($0.key.rawValue, $0.value)}))
         

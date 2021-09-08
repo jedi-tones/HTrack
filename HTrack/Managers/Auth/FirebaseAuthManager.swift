@@ -170,7 +170,7 @@ final class FirebaseAuthManager: FirebaseAuthProtocol {
             } else if let methods = methods {
                 if methods.contains("apple.com") {
                     complition(.success(.apple))
-                } else if methods.contains(AuthType.mail.rawValue) {
+                } else if methods.contains("password") {
                         complition(.success(.mail))
                 } else {
                     complition(.failure(AuthError.authTypeUnowned(types: methods)))

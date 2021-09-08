@@ -6,7 +6,9 @@ class AuthPresenter {
     weak var view: AuthViewInput!
     var router: AuthRouterInput!
     var interactor: AuthInteractorInput!
-
+    
+    var _state: AuthViewController.AuthViewControllerState = .notChecked
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -22,23 +24,31 @@ extension AuthPresenter: AuthViewOutput {
         view.setupInitialState()
     }
     
-    func registerEmail(email: String) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        view.setState(state: .notChecked)
-    }
-    
     func checkEmail(email: String) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
-        view.setState(state: .auth)
         
+        view.setState(state: .load)
+        _state = .notChecked
+        interactor.checkEmail(email: email)
     }
     
-    func authWithEmail(email: String) {
+    func registerEmail(email: String, password: String) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
-        view.setState(state: .notChecked)
+        
+        view.setState(state: .load)
+        _state = .register
+        interactor.registerEmail(email: email, password: password)
+    }
+    
+    func authWithEmail(email: String, password: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        view.setState(state: .load)
+        _state = .auth
+        interactor.authWithEmail(email: email, password: password)
     }
 }
 
@@ -48,21 +58,29 @@ extension AuthPresenter: AuthInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        view.setState(state: state)
     }
     
     func showRegisterModule() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        router.showRegisterModule()
     }
     
     func showMainModule() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        router.showMainModule()
     }
     
-
+    func showAuthError(error: AuthError) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) error: \(error)")
+        
+        view.setState(state: _state)
+    }
 }
 
 // MARK: - AuthModuleInput

@@ -23,12 +23,14 @@ protocol RegisterInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func checkNickName(name: String)
     func saveNickname(name: String)
+    func setAutoCheckFullFillProfile()
 }
 
 protocol RegisterInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func nicknameState(isExist: Bool)
     func nicknameIsUpdated()
+    func saveError(error: Error)
 }
 
 
