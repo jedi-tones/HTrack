@@ -11,6 +11,12 @@ extension FriendsManager: FirebaseAuthListner {
     func logOut() {
         friendsRequestManager.unsubscribeFriendsListner()
         friendsRequestManager.unsubscribeInputRequestsListner()
+        
+        friends = []
+        updateFriends(friends)
+        
+        inputRequests = []
+        updateInputRequsts(inputRequests)
     }
     
     func logIn(user: User) {
