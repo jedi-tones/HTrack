@@ -122,7 +122,7 @@ class WelcomeView: UIView {
         privacyLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            noiseImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Styles.Sizes.baseVInset),
+            noiseImage.topAnchor.constraint(equalTo: topAnchor),
             noiseImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Styles.Sizes.baseHInset),
             noiseImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Styles.Sizes.baseHInset),
             noiseImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
