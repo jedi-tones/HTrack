@@ -20,22 +20,26 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         lb.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return lb
     }()
+    
     private lazy var arrowIcon: UIImageView = {
         let icon = UIImageView()
         icon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         icon.tintColor = textColor
         return icon
     }()
+    
     private var activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.color = Styles.Colors.myActivityIndicatorColor()
         return view
     }()
+    
     private var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return stackView
     }()
+    
     private var withArrow = false
     private var arrowDirection: ArrowDirection = .left
     
@@ -132,6 +136,7 @@ class BaseTextButtonWithArrow: BaseCustomButton {
             activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
+        
         let topStackConstraint = stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: insets.top)
         topStackConstraint.priority = .defaultHigh
         topStackConstraint.isActive = true

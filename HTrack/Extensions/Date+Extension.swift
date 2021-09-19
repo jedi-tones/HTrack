@@ -52,7 +52,7 @@ extension Date {
     
     func getPeriod() -> String {
         let calendar = Calendar.current
-        let timePeriod = calendar.dateComponents([.second,.minute,.hour,.day,.month,.year], from: self, to: Date())
+        let timePeriod = calendar.dateComponents([.minute,.hour,.day,.month,.year], from: self, to: Date())
         if let year = timePeriod.year, year > 0 {
             switch year {
             case let currentYear where (year % 10 == 1) && (year != 11):
@@ -98,17 +98,15 @@ extension Date {
             default:
                 return String("\(minute) минут")
             }
-        } else if let seconds = timePeriod.second, seconds > 0 {
-            switch seconds {
-            case let currentSeconds where (seconds % 10 == 1) && (seconds != 11):
-                return String("\(currentSeconds) секунда")
-            case let currentSeconds where (seconds % 10 >= 2) && (seconds % 10 <= 4) && (( seconds < 12) || (seconds > 14)):
-                return String("\(currentSeconds) секунды")
-            default:
-                return String("\(seconds) секунд")
-            }
         } else {
-            return "Только что"
+            return "0 минут"
         }
+    }
+    
+    func getDayCount() -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: self, to: Date())
+        let day = components.day ?? 0
+        return day
     }
 }

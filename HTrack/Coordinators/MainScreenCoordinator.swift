@@ -21,7 +21,6 @@ class MainScreenCoordinator: CoordinatorProtocol {
     
     enum Screens {
         case main
-        case settings
     }
     
     init(modulePresenter: Presentable) {
@@ -59,8 +58,6 @@ extension MainScreenCoordinator: MainScreenCoordinatorFlow {
                     text: "\(type(of: self)) - \(#function) screen: \(screen)")
         
         switch screen {
-        case .settings:
-            showProfileSettings()
         case .main:
             showMainScreen(animated: animated)
         }

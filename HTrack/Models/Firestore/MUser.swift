@@ -17,7 +17,7 @@ enum AuthType: String, Codable {
     }
 }
 
-struct MUser: Codable {
+struct MUser: Codable, Hashable {
     var userID: String
     var name: String?
     var mail: String?

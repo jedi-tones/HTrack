@@ -14,7 +14,8 @@ enum NetworkEnvironment {
 }
 
 protocol BaseEndPoint {
-    var documentRef: DocumentReference { get }
+    var documentRef: DocumentReference? { get }
+    var collectionRef: CollectionReference? { get }
 }
 
 extension BaseEndPoint{

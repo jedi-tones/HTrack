@@ -12,6 +12,22 @@ class FirestoreManager {
     static let shared = FirestoreManager()
     private init() {}
     
+    deinit {
+        friendsListnerDelegate = nil
+        inputRequestListnerDelegate = nil
+        
+        friendsListner?.remove()
+        inputRequestsListner?.remove()
+        outputRequestsListner?.remove()
+    }
+    
     let firestore = Firestore.firestore()
     let authFirestoreManager = FirebaseAuthManager.shared
+    
+    weak var friendsListnerDelegate: FriendsListnerDelegate?
+    weak var inputRequestListnerDelegate: InputRequestListnerDelegate?
+    
+    var friendsListner: ListenerRegistration?
+    var inputRequestsListner: ListenerRegistration?
+    var outputRequestsListner: ListenerRegistration?
 }

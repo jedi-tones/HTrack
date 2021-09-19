@@ -2,20 +2,17 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import UIKit
+import TinyConstraints
 
 class MainScreenViewController: UIViewController {
     // MARK: Properties
     var output: MainScreenViewOutput!
 
-    var collectionView: UICollectionView?
-    var layout: UICollectionViewLayout?
-    var dataSource: UICollectionViewDiffableDataSource<SectionViewModel, AnyHashable>?
-
-    lazy var rightSettingsButton: UIBarButtonItem = {
-        let item = UIBarButtonItem(barButtonSystemItem: .action,
-                                   target: self,
-                                   action: #selector(settingsButtonTapped(sender:)))
-        return item
+    lazy var infoView = MainScreenInfoView()
+    lazy var backNoiseImageView: UIImageView = {
+        let iv = UIImageView(image: Styles.Images.mainScreenNoise)
+        
+        return iv
     }()
     
     // MARK: Life cycle
@@ -27,10 +24,10 @@ class MainScreenViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = backColor
-        navigationItem.title = MainTabBarTabs.main.title
-        navigationItem.rightBarButtonItem = rightSettingsButton
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationController?.navigationBar.isHidden = true
         output.viewIsReady()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,31 +58,20 @@ class MainScreenViewController: UIViewController {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
     }
-    
-    @objc private func settingsButtonTapped(sender: UIBarButtonItem) {
-        output.settingsButtonTapped()
-    }
 }
 
 extension MainScreenViewController {
     // MARK: Methods
     func setupViews() {
         
-        setupCollectionView()
         setupConstraints()
     }
 
     func setupConstraints() {
-        guard let collectionView = collectionView else { return }
-        view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+        view.addSubview(infoView)
+        view.addSubview(backNoiseImageView)
+        infoView.centerInSuperview()
+        backNoiseImageView.edgesToSuperview(excluding: .bottom)
     }
 }
 
@@ -98,37 +84,11 @@ extension MainScreenViewController: MainScreenViewInput {
         setupViews()
     }
     
-    func setupData(newData: [SectionViewModel]) {
+    func update(vm: MainScreenInfoViewModel) {
         Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) \(newData)")
+                    text: "\(type(of: self)) - \(#function) vm: \(vm)")
         
-        var snapshot = NSDiffableDataSourceSnapshot<SectionViewModel, AnyHashable>()
-        
-        newData.forEach { sectionVM in
-            var vms: [AnyHashable] = []
-            sectionVM.items.forEach { cellViewModel in
-                
-                switch cellViewModel {
-                case let vm as MainScreenInfoViewModel:
-                    vms.append(vm)
-                default:
-                    break
-                }
-            }
-            
-            snapshot.appendSections([sectionVM])
-            snapshot.appendItems(vms, toSection: sectionVM)
-        }
-        dataSource?.apply(snapshot)
-    }
-    
-    func updateTitle(title: String) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.navigationItem.title = title
-        }
+        infoView.setup(vm: vm)
     }
 }
 

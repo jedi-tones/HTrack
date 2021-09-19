@@ -7,12 +7,13 @@
 
 import UIKit
 import AuthenticationServices
+import TinyConstraints
 
 class WelcomeView: UIView {
     
-    let logoImage: UIImageView = {
+    let noiseImage: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = nil
+        imageView.image = Styles.Images.authScreenNoise
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -108,22 +109,23 @@ class WelcomeView: UIView {
     }
     
     private func setupConstraints() {
-        addSubview(logoImage)
+        addSubview(noiseImage)
         addSubview(signInWithApple)
         addSubview(orLabel)
         addSubview(signInWithEmail)
         addSubview(privacyLabel)
         
-        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        noiseImage.translatesAutoresizingMaskIntoConstraints = false
         signInWithApple.translatesAutoresizingMaskIntoConstraints = false
         orLabel.translatesAutoresizingMaskIntoConstraints = false
         signInWithEmail.translatesAutoresizingMaskIntoConstraints = false
         privacyLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            logoImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Styles.Sizes.baseVInset),
-            logoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Styles.Sizes.baseHInset),
-            logoImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Styles.Sizes.baseHInset),
+            noiseImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Styles.Sizes.baseVInset),
+            noiseImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Styles.Sizes.baseHInset),
+            noiseImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Styles.Sizes.baseHInset),
+            noiseImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
             privacyLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Styles.Sizes.stadartVInset),
             privacyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Styles.Sizes.baseHInset),
@@ -141,9 +143,6 @@ class WelcomeView: UIView {
             signInWithApple.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Styles.Sizes.standartHInset),
             signInWithApple.heightAnchor.constraint(equalToConstant: Styles.Sizes.baseButtonHeight)
         ])
-        
-        let logoImageBottomConstraint = logoImage.bottomAnchor.constraint(equalTo: signInWithApple.topAnchor, constant: -Styles.Sizes.baseInterItemInset)
-        logoImageBottomConstraint.isActive = true
     }
 }
 

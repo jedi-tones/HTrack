@@ -19,6 +19,7 @@ extension WelcomeInteractor: WelcomeInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        appManager.needAutoCheckProfileFullFilled = true
         appManager.authWithApple {[weak self] result in
             switch result {
             

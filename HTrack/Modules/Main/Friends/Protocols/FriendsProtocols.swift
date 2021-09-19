@@ -7,28 +7,41 @@ import UIKit
 protocol FriendsViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
+    func setupData(newData: [SectionViewModel])
+    func updateNickname(nickName: String)
 }
 
 protocol FriendsViewOutput {
     // MARK: VIEW -> PRESENTER
-    
     func viewIsReady()
+    func addFriendButtonTapped()
+    func settingsButtonTapped()
 }
 
 
 // MARK: - Interactor
 protocol FriendsInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
+    func getSections()
+    func subscribeUserListner()
+    func addDataListnerFor(section: FriendsScreenSection)
 }
 
 protocol FriendsInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
+    func setupSections(sections: [FriendsScreenSection])
+    func updateFriendsData(friends: [MUser])
+    func updateRequestData(requests: [MRequestUser])
+    func userUpdated(user: MUser)
 }
 
 
 // MARK: - Router
 protocol FriendsRouterInput {
     // MARK: PRESENTER -> ROUTER
+    func showSettinsScreen()
+    func showAddFriendScreen()
+    func showFriendDetailScreen()
 }
 
 

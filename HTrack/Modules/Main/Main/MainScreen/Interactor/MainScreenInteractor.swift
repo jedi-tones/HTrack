@@ -18,14 +18,6 @@ class MainScreenInteractor {
 
 // MARK: - MainScreenInteractorInput
 extension MainScreenInteractor: MainScreenInteractorInput {
-    func getSections() {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        let sections = [MainScreenSection.info]
-        output.setupSections(sections: sections)
-    }
-    
     func getUser() -> MUser? {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")

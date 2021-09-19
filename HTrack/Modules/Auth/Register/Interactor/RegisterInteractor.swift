@@ -23,7 +23,7 @@ extension RegisterInteractor: RegisterInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        userManager.checkNicknameIsExist(nickname: name) {[weak self] result in
+        userManager.checkNicknameIsExist(nickname: name.uppercased()) {[weak self] result in
             switch result {
                 
             case .success(let isExist):
@@ -47,13 +47,13 @@ extension RegisterInteractor: RegisterInteractorInput {
             return
         }
         let currentUserID = currentUser.userID
-        let dic = [MUser.CodingKeys.name : name]
+        let dic = [MUser.CodingKeys.name : name.uppercased()]
         userManager.updateUser(userID: currentUserID,
                                dic: dic) {[weak self] result in
             switch result {
             
             case .success(_):
-                self?.saveNicknameToStore(nickname: name, userID: currentUserID)
+                self?.saveNicknameToStore(nickname: name.uppercased(), userID: currentUserID)
             case .failure(let error):
                 Logger.show(title: "Module ERROR",
                                text: "\(type(of: self)) - \(#function) \(error)")
@@ -67,7 +67,7 @@ extension RegisterInteractor: RegisterInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        userManager.saveNickName(nickname: nickname,
+        userManager.saveNickName(nickname: nickname.uppercased(),
                                  userID: userID) {[weak self] result in
             switch result {
             

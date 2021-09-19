@@ -13,6 +13,6 @@ extension MainScreenInteractor: FirebaseAuthListner {
     }
     
     func logIn(user: User) {
-        return
+        getUser()
     }
 }

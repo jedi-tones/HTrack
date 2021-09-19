@@ -11,6 +11,9 @@ import FirebaseFirestore
 enum FirestoreEndPoint: BaseEndPoint {
     case user(id: String)
     case nickname(name: String)
+    case friends(currentUserID: String)
+    case inputRequests(currentUserID: String)
+    case outputRequests(currentUserID: String)
 }
 
 extension FirestoreEndPoint {
@@ -18,7 +21,7 @@ extension FirestoreEndPoint {
         FirestoreEndPoint.baseCollectionReference
     }
     
-    var documentRef: DocumentReference {
+    var documentRef: DocumentReference? {
         switch self {
         
         case .user(let id):
@@ -26,6 +29,26 @@ extension FirestoreEndPoint {
             
         case .nickname(let name):
             return baseRef.document("users").collection("nicknames").document(name)
+            
+        default:
+            return nil
+        }
+    }
+    
+    var collectionRef: CollectionReference? {
+        switch self {
+        
+        case .friends(let currentUserID):
+            return baseRef.document("users").collection("users").document(currentUserID).collection("friends")
+            
+        case .inputRequests(let currentUserID):
+            return baseRef.document("users").collection("users").document(currentUserID).collection("inRequest")
+            
+        case .outputRequests(let currentUserID):
+            return baseRef.document("users").collection("users").document(currentUserID).collection("outRequest")
+            
+        default:
+            return nil
         }
     }
 }

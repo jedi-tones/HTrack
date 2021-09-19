@@ -9,16 +9,18 @@ import Foundation
 import FirebaseFirestoreSwift
 
 extension FirestoreManager {
-    
     func saveUser(user: MUser,
                   complition: ((Result<MUser, Error>) -> Void)?){
         
         let userDocRef = FirestoreEndPoint.user(id: user.userID).documentRef
         
-        Logger.show(title: "save user userDocRef", text: "\(userDocRef.path)", withHeader: true, withFooter: true)
+        Logger.show(title: "Save user userDocRef",
+                    text: "\(String(describing: userDocRef?.path))",
+                    withHeader: true,
+                    withFooter: true)
         
         do {
-            try userDocRef.setData(from: user, completion: { error in
+            try userDocRef?.setData(from: user, completion: { error in
                 if let error = error {
                     complition?(.failure(error))
                 } else {
@@ -35,7 +37,7 @@ extension FirestoreManager {
                     complition: ((Result<[String : Any], Error>) -> Void)?) {
         let userDocRef = FirestoreEndPoint.user(id: userID).documentRef
         
-        userDocRef.updateData(dic, completion: { error in
+        userDocRef?.updateData(dic, completion: { error in
             if let error = error {
                 complition?(.failure(error))
             } else {
@@ -57,9 +59,12 @@ extension FirestoreManager {
         
         let userDocRef = FirestoreEndPoint.user(id: currentUserID).documentRef
         
-        Logger.show(title: "getCurrentUser userDocRef", text: "\(userDocRef.path)", withHeader: true, withFooter: true)
+        Logger.show(title: "getCurrentUser userDocRef",
+                    text: "\(String(describing: userDocRef?.path))",
+                    withHeader: true,
+                    withFooter: true)
         
-        userDocRef.getDocument { documentSnapshot, error in
+        userDocRef?.getDocument { documentSnapshot, error in
             if let error = error {
                 complition?(.failure(error))
             } else if let documentSnapshot = documentSnapshot,
@@ -78,9 +83,12 @@ extension FirestoreManager {
     func getUser(id: String, complition: ((Result<MUser, Error>) -> Void)?) {
         let userDocRef = FirestoreEndPoint.user(id: id).documentRef
         
-        Logger.show(title: "getUser id: \(id) userDocRef", text: "\(userDocRef.path)", withHeader: true, withFooter: true)
+        Logger.show(title: "getUser id: \(id) userDocRef",
+                    text: "\(String(describing: userDocRef?.path))",
+                    withHeader: true,
+                    withFooter: true)
         
-        userDocRef.getDocument { documentSnapshot, error in
+        userDocRef?.getDocument { documentSnapshot, error in
             if let error = error {
                 complition?(.failure(error))
             } else if let documentSnapshot = documentSnapshot,
@@ -99,7 +107,7 @@ extension FirestoreManager {
     func checkNickNameIsExists(nickname: String, complition:((Result<Bool,Error>) -> Void)?) {
         let nicknameRef = FirestoreEndPoint.nickname(name: nickname).documentRef
         
-        nicknameRef.getDocument { docSnapshot, error in
+        nicknameRef?.getDocument { docSnapshot, error in
             if let error = error {
                 complition?(.failure(error))
             } else if let document = docSnapshot {
@@ -115,7 +123,7 @@ extension FirestoreManager {
         
         let nicknameModel = MNickname(nickname: nickname, userID: userID)
         do {
-           try nicknameRef.setData(from: nicknameModel) { error in
+           try nicknameRef?.setData(from: nicknameModel) { error in
                 if let error = error {
                     complition?(.failure(error))
                 } else {
@@ -125,6 +133,5 @@ extension FirestoreManager {
         } catch {
             complition?(.failure(error))
         }
-        
     }
 }

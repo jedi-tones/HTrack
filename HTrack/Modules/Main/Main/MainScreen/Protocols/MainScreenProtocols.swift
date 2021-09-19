@@ -7,27 +7,22 @@ import Foundation
 protocol MainScreenViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
-    func setupData(newData: [SectionViewModel])
-    func updateTitle(title: String)
+    func update(vm: MainScreenInfoViewModel)
 }
 
 protocol MainScreenViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
-    func settingsButtonTapped()
 }
-
 
 // MARK: - Interactor
 protocol MainScreenInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
-    func getSections()
     func getUser() -> MUser?
 }
 
 protocol MainScreenInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
-    func setupSections(sections: [MainScreenSection])
     func updateUserStat(user: MUser?)
 }
 
@@ -35,7 +30,6 @@ protocol MainScreenInteractorOutput: AnyObject {
 // MARK: - Router
 protocol MainScreenRouterInput {
     // MARK: PRESENTER -> ROUTER
-    func showSettinsScreen()
 }
 
 
