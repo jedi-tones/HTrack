@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TinyConstraints
 
 class RequestCell: UICollectionViewCell, BaseCellProtocol {
     static var reuseID: String {
@@ -17,7 +18,7 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
     lazy var nameLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = nameLabelColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBig).font
         lb.text = "Name"
         return lb
     }()
@@ -25,7 +26,7 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
     lazy var acceptButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setTitle(title: "Принять")
-            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font)
+            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeMedium).font)
             .setButtonColor(color: self.acceptButtonColor)
             .setTextColor(color: self.acceptButtonLabelColor)
         
@@ -35,11 +36,22 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
     lazy var cancelButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setTitle(title: "Отклонить")
-            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font)
+            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeMedium).font)
             .setButtonColor(color: self.cancelButtonColor)
             .setTextColor(color: self.cancelButtonLabelColor)
         
         return bt
+    }()
+    
+    lazy var stackView: UIStackView = {
+       let stack = UIStackView()
+        stack.addArrangedSubview(self.acceptButton)
+        stack.addArrangedSubview(self.cancelButton)
+        stack.alignment = .center
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        stack.spacing = Styles.Sizes.standartHInset
+        return stack
     }()
     
     var viewModel: FriendInputRequestViewModel?
@@ -48,6 +60,7 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
         super.init(frame: frame)
         
         setupConstraints()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -66,37 +79,34 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
         guard let viewModel = viewModel else { return }
         
         DispatchQueue.main.async {[weak self] in
-            self?.nameLabel.text = viewModel.name
+            self?.nameLabel.text = "@\(viewModel.name.uppercased())"
         }
+    }
+    
+    private func setupView() {
+        backgroundColor = backColor
+        layer.cornerRadius = Styles.Sizes.baseCornerRadius
     }
     
     func setupConstraints() {
         contentView.addSubview(nameLabel)
-        contentView.addSubview(acceptButton)
-        contentView.addSubview(cancelButton)
+        contentView.addSubview(stackView)
         
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        acceptButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Styles.Sizes.standartHInset),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Styles.Sizes.stadartVInset),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.stadartVInset),
-            
-            cancelButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            acceptButton.trailingAnchor.constraint(equalTo: cancelButton.leadingAnchor, constant: -Styles.Sizes.standartHInset),
-            acceptButton.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: Styles.Sizes.standartHInset)
-        ])
-        
-        nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        nameLabel.edgesToSuperview(excluding: .bottom, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
+                                                                              left: Styles.Sizes.standartHInset,
+                                                                              bottom: .zero,
+                                                                              right: Styles.Sizes.standartHInset))
+        stackView.edgesToSuperview(excluding: .top, insets: TinyEdgeInsets(top: .zero,
+                                                                              left: Styles.Sizes.standartHInset,
+                                                                              bottom: Styles.Sizes.standartHInset,
+                                                                              right: Styles.Sizes.standartHInset))
+        stackView.topToBottom(of: nameLabel, offset: Styles.Sizes.standartHInset)
     }
 }
 
 extension RequestCell {
     var backColor: UIColor {
-        Styles.Colors.myBackgroundColor()
+        Styles.Colors.mySecondBackgroundColor()
     }
     
     var acceptButtonColor: UIColor {
@@ -108,11 +118,11 @@ extension RequestCell {
     }
     
     var cancelButtonColor: UIColor {
-        Styles.Colors.onlyTextButtonColor()
+        Styles.Colors.myFilledDisableButtonColor()
     }
     
     var cancelButtonLabelColor: UIColor {
-        Styles.Colors.onlyTextButtonLabelColor()
+        Styles.Colors.myFilledButtonLabelColor()
     }
     
     var nameLabelColor: UIColor {

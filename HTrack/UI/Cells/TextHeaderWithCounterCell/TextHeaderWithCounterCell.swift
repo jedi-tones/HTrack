@@ -16,7 +16,7 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
     lazy var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = titleColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextRegular(size: Styles.Sizes.fontSizeBase).font
         return lb
     }()
     
@@ -24,7 +24,7 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
         let lb = UILabel()
         lb.text = ""
         lb.textColor = titleColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextRegular(size: Styles.Sizes.fontSizeBase).font
         lb.isHidden = true
         return lb
     }()
@@ -49,13 +49,15 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
         
         self.viewModel = viewModel
         
-        titleLabel.text = viewModel.title
-        
-        if let count = viewModel.count {
-            countLabel.isHidden = false
-            countLabel.text = String(count)
-        } else {
-            countLabel.isHidden = true
+        DispatchQueue.main.async {[weak self] in
+            self?.titleLabel.text = viewModel.title
+            
+            if let count = viewModel.count {
+                self?.countLabel.isHidden = false
+                self?.countLabel.text = String(count)
+            } else {
+                self?.countLabel.isHidden = true
+            }
         }
     }
     

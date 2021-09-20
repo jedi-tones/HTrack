@@ -19,6 +19,13 @@ class FriendsViewController: UIViewController {
         return item
     }()
     
+    var customNavView = FriendsCustomNavigationView()
+    
+    lazy var leftNavButton: UIBarButtonItem = {
+        let item = UIBarButtonItem(customView: customNavView)
+        return item
+    }()
+    
     // MARK: Life cycle
     override func loadView() {
         super.loadView()
@@ -69,10 +76,7 @@ extension FriendsViewController {
     func setupViews() {
         view.backgroundColor = backColor
         
-        navigationController?.navigationBar.backgroundColor = Styles.Colors.myBackgroundColor()
-        navigationItem.rightBarButtonItem = rightSettingsButton
-        navigationController?.navigationBar.prefersLargeTitles = false
-        
+        setupNavBar()
         setupCollectionView()
         setupConstraints()
     }
@@ -132,7 +136,7 @@ extension FriendsViewController: FriendsViewInput {
                     text: "\(type(of: self)) - \(#function)")
         
         DispatchQueue.main.async {[weak self] in
-            self?.navigationItem.title = "@\(nickName.uppercased())"
+            self?.customNavView.updateTitle(title: nickName)
         }
     }
 }

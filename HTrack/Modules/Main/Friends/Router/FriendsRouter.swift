@@ -17,6 +17,9 @@ class FriendsRouter: FriendsRouterInput {
         guard let friendsScreenCoordinator = coordinator as? FriendsCoordinatorFlow else { return }
         
         friendsScreenCoordinator.open(screen: .settings, animated: true)
+//        
+//        let moduleController = SettingsModule(coordinator: coordinator!).controller
+//        PopUpManager.shared.showViewController(viewController: moduleController, withAnimation: true, name: "test")
     }
     
     func showAddFriendScreen() {

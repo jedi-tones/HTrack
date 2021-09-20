@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TinyConstraints
 
 class FriendCell: UICollectionViewCell, BaseCellProtocol {
     static var reuseID: String {
@@ -25,7 +26,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
     lazy var countLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = labelColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBig).font
+        lb.font = Styles.Fonts.AvenirFonts.avenirNextRegular(size: Styles.Sizes.fontSizeMedium).font
         lb.text = "0 Дней"
         return lb
     }()
@@ -53,14 +54,14 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
     
     func setupView() {
         backgroundColor = backColor
-        layer.cornerRadius = Styles.Sizes.smallCornerRadius
+        layer.cornerRadius = Styles.Sizes.baseCornerRadius
     }
     
     func setup() {
         guard let viewModel = viewModel else { return }
         
         DispatchQueue.main.async {[weak self] in
-            self?.nameLabel.text = viewModel.name
+            self?.nameLabel.text = "@\(viewModel.name.uppercased())"
             self?.countLabel.text = viewModel.count
         }
     }
@@ -69,21 +70,16 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
         contentView.addSubview(nameLabel)
         contentView.addSubview(countLabel)
         
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        countLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Styles.Sizes.standartHInset),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Styles.Sizes.stadartVInset),
-            
-            countLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor),
-            countLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            countLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: Styles.Sizes.standartHInset)
-        ])
-        
-        let bottomConstraint = nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.stadartVInset)
-        bottomConstraint.priority = .defaultHigh
-        bottomConstraint.isActive = true
+        nameLabel.edgesToSuperview(excluding: .bottom, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
+                                                                              left: Styles.Sizes.standartHInset,
+                                                                              bottom: .zero,
+                                                                              right: Styles.Sizes.standartHInset))
+        countLabel.edgesToSuperview(excluding: [.top, .bottom], insets: TinyEdgeInsets(top: .zero,
+                                                                               left: Styles.Sizes.standartHInset,
+                                                                               bottom: Styles.Sizes.standartHInset,
+                                                                               right: Styles.Sizes.standartHInset))
+        countLabel.topToBottom(of: nameLabel)
+        countLabel.bottomToSuperview(offset: -Styles.Sizes.stadartVInset, priority: .defaultHigh)
         
         nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)

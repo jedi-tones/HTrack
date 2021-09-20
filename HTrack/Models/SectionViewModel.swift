@@ -10,6 +10,7 @@ import UIKit
 
 struct SectionViewModel {
     var section: String
+    var id = UUID()
     var header: CellViewModel?
     var footer: CellViewModel?
     var items: [CellViewModel]
@@ -18,6 +19,7 @@ struct SectionViewModel {
 extension SectionViewModel: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(section)
+        hasher.combine(id)
     }
     
     static func == (lhs: SectionViewModel, rhs: SectionViewModel) -> Bool {

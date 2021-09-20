@@ -30,9 +30,9 @@ extension FriendsViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0,
-                                                        leading: 20,
-                                                        bottom: 0,
-                                                        trailing: 20)
+                                                        leading: 16,
+                                                        bottom: 20,
+                                                        trailing: 16)
         section.interGroupSpacing = Styles.Sizes.stadartVInset
         
         let header = configureHeaderLayout()

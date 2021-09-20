@@ -125,6 +125,9 @@
 		DD5F63F9267FB8D2002131FD /* MainScreenSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63F8267FB8D2002131FD /* MainScreenSection.swift */; };
 		DD65E09526B89511002BBF80 /* TextFieldWithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65E09426B89511002BBF80 /* TextFieldWithError.swift */; };
 		DD65E09726B89C94002BBF80 /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */; };
+		DD6BD6B426F8EC9E006369BB /* FriendsCustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */; };
+		DD6BD6B726F8EE89006369BB /* FriendsViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */; };
+		DD6BD70E26F90981006369BB /* PopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD70D26F90981006369BB /* PopUpManager.swift */; };
 		DD870D6326D3B3ED000F59AE /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6226D3B3ED000F59AE /* PushNotificationManager.swift */; };
 		DD870D6526D7DBF3000F59AE /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6426D7DBF3000F59AE /* UserManager.swift */; };
 		DD870D6726D7DCE8000F59AE /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6626D7DCE8000F59AE /* FirestoreManager.swift */; };
@@ -327,6 +330,9 @@
 		DD5F63F8267FB8D2002131FD /* MainScreenSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSection.swift; sourceTree = "<group>"; };
 		DD65E09426B89511002BBF80 /* TextFieldWithError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithError.swift; sourceTree = "<group>"; };
 		DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
+		DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCustomNavigationView.swift; sourceTree = "<group>"; };
+		DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+NavigationBar.swift"; sourceTree = "<group>"; };
+		DD6BD70D26F90981006369BB /* PopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpManager.swift; sourceTree = "<group>"; };
 		DD870D6226D3B3ED000F59AE /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		DD870D6426D7DBF3000F59AE /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		DD870D6626D7DCE8000F59AE /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
@@ -856,6 +862,8 @@
 				DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */,
 				DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */,
 				DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */,
+				DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */,
+				DD6BD6B526F8ECA1006369BB /* Subviews */,
 				DD3FBCC326EE0623002591A6 /* Cells */,
 			);
 			path = View;
@@ -1038,6 +1046,7 @@
 				DD59F73A26B5AA5500CA8179 /* Buttons */,
 				DD65E09826B89E37002BBF80 /* TextFields */,
 				DD5414F326C168E000A13BE0 /* ContainerViewController.swift */,
+				DD6BD6BA26F8F7DE006369BB /* DrawerView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1148,6 +1157,21 @@
 				DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		DD6BD6B526F8ECA1006369BB /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		DD6BD6BA26F8F7DE006369BB /* DrawerView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DrawerView;
 			sourceTree = "<group>";
 		};
 		DD870D6A26D7E0C4000F59AE /* User */ = {
@@ -1341,6 +1365,7 @@
 				DD870D6626D7DCE8000F59AE /* FirestoreManager.swift */,
 				DD870D6B26D7E155000F59AE /* FirestoreManager+User.swift */,
 				DD3FBCDA26EE426E002591A6 /* FirestoreManager+Friends.swift */,
+				DD6BD70D26F90981006369BB /* PopUpManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1637,6 +1662,7 @@
 				DD59F76326B6F2BC00CA8179 /* FirebaseAuthManager.swift in Sources */,
 				DD92150D2676577800A3623E /* UIApplication+Extension.swift in Sources */,
 				DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */,
+				DD6BD70E26F90981006369BB /* PopUpManager.swift in Sources */,
 				DD59F74526B5AC8F00CA8179 /* UIView+Extension.swift in Sources */,
 				DD870D6726D7DCE8000F59AE /* FirestoreManager.swift in Sources */,
 				DD92150126763E8F00A3623E /* CoordinatorProtocol.swift in Sources */,
@@ -1710,6 +1736,7 @@
 				DD9F613D26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift in Sources */,
 				DD59F74B26B5B04700CA8179 /* Styles.swift in Sources */,
 				9DA4C5F02320430EEBB2A568 /* WelcomePresenter.swift in Sources */,
+				DD6BD6B426F8EC9E006369BB /* FriendsCustomNavigationView.swift in Sources */,
 				80A01D9AA58963319DCBFD28 /* WelcomeInteractor.swift in Sources */,
 				7C0C19A45E5C4F87DA0E0B79 /* WelcomeRouter.swift in Sources */,
 				DD3FBCDB26EE426E002591A6 /* FirestoreManager+Friends.swift in Sources */,
@@ -1720,6 +1747,7 @@
 				DD9F615426E63EB6009E3D39 /* SettingsElement.swift in Sources */,
 				04653B53320E1F132DF569DF /* WelcomeModule.swift in Sources */,
 				DD92151F2677D68300A3623E /* UINavigationController+Extension.swift in Sources */,
+				DD6BD6B726F8EE89006369BB /* FriendsViewController+NavigationBar.swift in Sources */,
 				DD3FBCC526EE07EE002591A6 /* FriendInputRequestViewModel.swift in Sources */,
 				DD9EAD0F2698CD8D0032B3D7 /* EmptyHeaderCell.swift in Sources */,
 				DD59F74926B5B01400CA8179 /* Constants.swift in Sources */,

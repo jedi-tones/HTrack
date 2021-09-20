@@ -69,16 +69,16 @@ extension FriendsPresenter: FriendsInteractorOutput {
                                                  footer: nil,
                                                  items: [])
                 
-                for _ in 1...10 {
-                    let friendVM = FriendViewModel()
-                    friendVM.delegate = self
-                    sectionVM.items.append(friendVM)
-                }
-                
-                let header = TextHeaderWithCounterViewModel()
-                header.title = section.rawValue
-                
-                sectionVM.header = header
+//                for _ in 1...10 {
+//                    let friendVM = FriendViewModel()
+//                    friendVM.delegate = self
+//                    sectionVM.items.append(friendVM)
+//                }
+//                
+//                let header = TextHeaderWithCounterViewModel()
+//                header.title = section.rawValue
+//                
+//                sectionVM.header = header
                 newViewModel.append(sectionVM)
             }
         }

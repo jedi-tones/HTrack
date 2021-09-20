@@ -26,18 +26,16 @@ extension FriendsViewController {
         dataSource?.supplementaryViewProvider = {
             [weak self] collectionView, kind, indexPath in
             
-            guard let sectionModel = self?.dataSource?.snapshot().sectionIdentifiers[indexPath.section]
-            else { return nil }
-            if let headerVM = sectionModel.header {
-                let headerReuseView = self?.setupSectionHeader(collectionView: collectionView,
-                                                               indexPath: indexPath,
-                                                               headerVM: headerVM,
-                                                               kind: kind)
-                
-                return headerReuseView
-            } else {
-                return  nil
-            }
+            guard let sectionModel = self?.dataSource?.snapshot().sectionIdentifiers[indexPath.section],
+                  kind == UICollectionView.elementKindSectionHeader,
+                  let headerVM = sectionModel.header
+            else { return self?.setupEmptySectionHeader(collectionView: collectionView, indexPath: indexPath, kind: kind) }
+            let headerReuseView = self?.setupSectionHeader(collectionView: collectionView,
+                                                           indexPath: indexPath,
+                                                           headerVM: headerVM,
+                                                           kind: kind)
+            
+            return headerReuseView
         }
     }
     

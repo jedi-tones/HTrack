@@ -14,7 +14,7 @@ extension Styles.Sizes  {
     static let mediumVInset: CGFloat = 5
     static let mediumHInset: CGFloat = 8
     
-    static let standartHInset: CGFloat = 16
+    static let standartHInset: CGFloat = 14
     static let stadartVInset: CGFloat = 8
     
     static let bigVInset: CGFloat = 44
@@ -30,15 +30,15 @@ extension Styles.Sizes  {
     static let baseButtonHeight: CGFloat = 44
     
     static let smallCornerRadius: CGFloat = 5
-    static let baseCornerRadius: CGFloat = 16
+    static let baseCornerRadius: CGFloat = 20
     static let baseBorderWidth: CGFloat = 2
     
     static let baseTextFieldLeftInset: CGFloat = 10
     static let baseTextFieldRightInset: CGFloat = 10
     
-    static let fontSizeBig: CGFloat = 22
+    static let fontSizeBig: CGFloat = 24
     static let fontSizeBase: CGFloat = 17
-    static let fontSizeMedium: CGFloat = 13
+    static let fontSizeMedium: CGFloat = 14
     static let fontSizeSmall: CGFloat = 11
     static let fontSizeBiggest: CGFloat = 55
     static let fontSizeMainScreen: CGFloat = 144
