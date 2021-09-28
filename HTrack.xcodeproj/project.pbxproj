@@ -205,6 +205,7 @@
 		F5D22FF44227FD89348873D9 /* AuthBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399D9E40E81AAE5B947BE8B /* AuthBuilder.swift */; };
 		F8A85E87CAD173B8A3870BC2 /* LoginEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CB23FCAE5ED86C6980F0FA /* LoginEmailInteractor.swift */; };
 		F9355AEF5E29281EAE777E3F /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C708CC776B30491E4DAD2 /* MainScreenBuilder.swift */; };
+		FB5F02C326FA561D00A23DAB /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F02C226FA561D00A23DAB /* TabBar.swift */; };
 		FB6B9D3F26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */; };
 		FB6B9D4126B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4026B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift */; };
 		FB6B9D4326B96E6A0050690F /* TextFiledWithError+Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4226B96E6A0050690F /* TextFiledWithError+Set.swift */; };
@@ -409,6 +410,7 @@
 		EFF3284BA7263179D23C6C44 /* FriendsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsProtocols.swift; sourceTree = "<group>"; };
 		F43EA5EAE71EDBCF6A6E1B91 /* RegisterRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		F4B32AA56309EA41FEA4A619 /* SettingsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		FB5F02C226FA561D00A23DAB /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+BaseTextFieldProtocol.swift"; sourceTree = "<group>"; };
 		FB6B9D4026B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		FB6B9D4226B96E6A0050690F /* TextFiledWithError+Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFiledWithError+Set.swift"; sourceTree = "<group>"; };
@@ -1219,6 +1221,7 @@
 				DD9214EC26763DFB00A3623E /* AppDelegate.swift */,
 				DD9214EE26763DFB00A3623E /* SceneDelegate.swift */,
 				DD9214F026763DFB00A3623E /* ViewController.swift */,
+				FB5F02C226FA561D00A23DAB /* TabBar.swift */,
 				DD870D7126D7EC65000F59AE /* EndPoints */,
 				DD92151D2677B59000A3623E /* Modules */,
 				DD5F63ED267FA77B002131FD /* Models */,
@@ -1338,6 +1341,7 @@
 			children = (
 				DD9F616126E66A4F009E3D39 /* Main */,
 				CF2B8C29C8A7AA20ED3C404D /* Friends */,
+				362C26A702B3440F8E8C1D8C /* Settings */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1423,7 +1427,6 @@
 		DD9F616126E66A4F009E3D39 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				362C26A702B3440F8E8C1D8C /* Settings */,
 				9E16106EBED3C73477247602 /* MainScreen */,
 			);
 			path = Main;
@@ -1785,6 +1788,7 @@
 				7AFDB051828D8FD0834617E8 /* FriendsPresenter.swift in Sources */,
 				1E59D486271C092536D82ED8 /* FriendsInteractor.swift in Sources */,
 				DD9F614E26E51E41009E3D39 /* TextCollectionCell+Touches.swift in Sources */,
+				FB5F02C326FA561D00A23DAB /* TabBar.swift in Sources */,
 				9B856B71AD5236F0BF227766 /* FriendsRouter.swift in Sources */,
 				DD9EAD132699BE2F0032B3D7 /* NetworkServiceProtocol.swift in Sources */,
 				C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */,
@@ -1909,7 +1913,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1964,7 +1968,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1984,7 +1988,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2005,7 +2009,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

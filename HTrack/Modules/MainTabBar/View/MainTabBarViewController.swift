@@ -7,40 +7,13 @@ class MainTabBarViewController: UITabBarController {
     // MARK: Properties
     var output: MainTabBarViewOutput!
 
-    // MARK: Life cycle
-    override func loadView() {
-        super.loadView()
-    }
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+ 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-    }
 
     deinit {
         Logger.show(title: "Module",
@@ -81,9 +54,9 @@ extension MainTabBarViewController {
         
         let appearanceTabBarItem = UITabBarItemAppearance(style: .stacked)
         appearanceTabBarItem.normal.badgeBackgroundColor = Styles.Colors.badgeColor()
-        appearanceTabBarItem.normal.badgeTextAttributes = [NSAttributedString.Key.font : Styles.Fonts.AvenirFonts.avenirNextBold(size: 11)]
+        appearanceTabBarItem.normal.badgeTextAttributes = [NSAttributedString.Key.font : Styles.Fonts.AvenirFonts.avenirNextBold(size: 11).font]
         appearanceTabBarItem.selected.badgeBackgroundColor = Styles.Colors.badgeColor()
-        appearanceTabBarItem.selected.badgeTextAttributes = [NSAttributedString.Key.font : Styles.Fonts.AvenirFonts.avenirNextBold(size: 11)]
+        appearanceTabBarItem.selected.badgeTextAttributes = [NSAttributedString.Key.font : Styles.Fonts.AvenirFonts.avenirNextBold(size: 11).font]
         
         tabBar.standardAppearance.stackedLayoutAppearance = appearanceTabBarItem
         
@@ -105,9 +78,9 @@ extension MainTabBarViewController: MainTabBarViewInput {
                                                     tag: tab.tag)
             return navController
         })
-        
+
         viewControllers = navControllers
-        
+
         output.startCoordinatorsFor(navigators: navControllers)
     }
     
