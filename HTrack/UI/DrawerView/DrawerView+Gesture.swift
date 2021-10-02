@@ -47,18 +47,27 @@ extension DrawerView {
         
         let targetHeight = drawerHeight + velocity * CGFloat(animationDuration)
         
+        let topPositionIsEnabled = enabledState.contains(where: {$0 == .top})
         let midPositionIsEnabled = enabledState.contains(where: {$0 == .middle})
         let botPositionIsEnabled = enabledState.contains(where: {$0 == .bottom})
         
         if targetHeight > minDrawerPosition {
           if midPositionIsEnabled {
             if targetHeight > midDrawerPosition {
-                setDrawerPosition(.top) {}
+                if topPositionIsEnabled {
+                    setDrawerPosition(.top) {}
+                } else {
+                    return
+                }
             } else {
                 setDrawerPosition(.middle) {}
             }
           } else {
-            setDrawerPosition(.top) {}
+              if topPositionIsEnabled {
+                  setDrawerPosition(.top) {}
+              } else {
+                  return
+              }
           }
         } else if botPositionIsEnabled {
             setDrawerPosition(.bottom) {}

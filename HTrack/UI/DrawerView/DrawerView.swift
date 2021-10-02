@@ -8,7 +8,7 @@
 import UIKit
 import TinyConstraints
 
-protocol DrawerOverlayViewListener: AnyObject {
+protocol DrawerViewListener: AnyObject {
     func drawerView(_ drawerView: DrawerView, willBeginAnimationToState state: DrawerView.State?)
     func drawerView(_ drawerView: DrawerView, didEndAnimationToState state: DrawerView.State?)
 }
@@ -23,7 +23,7 @@ class DrawerView : UIView {
     }
     
     var enabledState: [State] = [.top, .dismissed]
-    private let notifier = Notifier<DrawerOverlayViewListener>()
+    private let notifier = Notifier<DrawerViewListener>()
     
     var dragRecognizer: UIPanGestureRecognizer!
     
@@ -317,11 +317,11 @@ extension DrawerView {
 }
 
 extension DrawerView {
-    func addListener(_ listener: DrawerOverlayViewListener) {
+    func addListener(_ listener: DrawerViewListener) {
         notifier.subscribe(listener)
     }
     
-    func removeListener(_ listener: DrawerOverlayViewListener) {
+    func removeListener(_ listener: DrawerViewListener) {
         notifier.unsubscribe(listener)
     }
 }

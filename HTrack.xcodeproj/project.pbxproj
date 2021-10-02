@@ -10,63 +10,58 @@
 		01E06D4D6DEF75B5EA509DE2 /* MainTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92037C1CF235F29E4A623E /* MainTabBarRouter.swift */; };
 		03699115068A34892C8E27E7 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6F33ACCCDEBBB1544B50C3 /* SettingsBuilder.swift */; };
 		04653B53320E1F132DF569DF /* WelcomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997B8B684C982B2BB36FF03 /* WelcomeModule.swift */; };
+		0903768DD99CA836A0C77C97 /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB859C20B968DD1502403E0E /* FriendDetailViewController.swift */; };
 		138A3F3989A61FE3DFD05C5D /* WelcomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF17D914EDB53580BEC7FB /* WelcomeProtocols.swift */; };
+		162EDA55240A0170EB05C2D1 /* AddFriendPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016496450D5EEF0BCF61F00 /* AddFriendPresenter.swift */; };
 		17ACBEE20335308B1DA12F93 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987707F1B054E8F815A9B342 /* AuthViewController.swift */; };
 		1C5F427021A242DAB0196C2F /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991869064D01F27107F1944C /* MainScreenViewController.swift */; };
+		1E3BE55087AE90D1FD12BCBA /* AddFriendInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89081A75CA82A6C22D02DAC7 /* AddFriendInteractor.swift */; };
 		1E59D486271C092536D82ED8 /* FriendsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41F2478D71E2C833D9EC1B8 /* FriendsInteractor.swift */; };
 		1FE44880DAC40890D3C84F48 /* MainTabBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530BF96EA13DA10118717E42 /* MainTabBarModule.swift */; };
 		2089B038C856887E459DA17C /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EAA18178898B4E896D6775 /* AuthRouter.swift */; };
-		22C827FACD56611DAAB49AEA /* RegisterEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD549B3802995AC95FA5D5 /* RegisterEmailPresenter.swift */; };
-		28F48C2A3C5055DD6FF34D66 /* LoginEmailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C94EE62CF3781E31E2A05 /* LoginEmailProtocols.swift */; };
+		2A0D1CCA1F00B2A1011E4EBC /* AddFriendProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF86927F633D48CB7904400 /* AddFriendProtocols.swift */; };
 		2B356FC45A82196D554AC8AA /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C439913315BC02EBFCA0B627 /* MainTabBarViewController.swift */; };
-		3352C964FC68FF2CE74E3CDF /* RegisterUserInfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A74632768CA4D0A0C8C56 /* RegisterUserInfoBuilder.swift */; };
+		2C19B5F9326D23F198B1CE85 /* FriendDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D245121FE9E11A5E5434C0 /* FriendDetailBuilder.swift */; };
 		342DB05EC0B1B182E17780B1 /* MainTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFBC17BE46551737D5650F2 /* MainTabBarBuilder.swift */; };
 		38866CBA5AD78DA7754FD72A /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2F5967AA878A68881E09A7 /* MainScreenRouter.swift */; };
 		3D2033EF6E0A6448AD82F9DF /* RegisterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68752187E3C991A11BDDAD94 /* RegisterProtocols.swift */; };
-		3DD3FC7271470EEC651AEBAA /* LoginEmailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24054EABB4676551BCF93D81 /* LoginEmailModule.swift */; };
+		406706AE7C4F63F60FB90CC9 /* AddFriendModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB619CBD2E4946B049A33B4 /* AddFriendModule.swift */; };
 		430D5062EE00F28F8DEC3956 /* MainTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BB453587A409493F8FE0E /* MainTabBarProtocols.swift */; };
 		431E45FCFB31AF7DF9941F3E /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B32AA56309EA41FEA4A619 /* SettingsPresenter.swift */; };
-		494A6882885C4BC28A5147F2 /* RegisterUserInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94FEDA4D7F340617BA68C09 /* RegisterUserInfoProtocols.swift */; };
 		49E2B842581A1C3D0F65DC11 /* AuthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9118ABF000B22BB3893F647 /* AuthModule.swift */; };
 		509A7B54583ABC5E21750DA0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAA25128629A6A1030457A /* WelcomeViewController.swift */; };
 		531722F56884B0B21760A9CE /* MainScreenModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FCA259D976F92108F48620 /* MainScreenModule.swift */; };
-		54EE77DA78FEB00F83750356 /* RegisterEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F414682F88A38F8E4268719 /* RegisterEmailInteractor.swift */; };
+		56F772EEAB8991C581444995 /* AddFriendRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A92C9FF194FF621C45A06D0 /* AddFriendRouter.swift */; };
+		5E0CB0BFEEEC69017C7C7B41 /* FriendDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B764858B3582A69D1D75719 /* FriendDetailInteractor.swift */; };
 		6225EF4BD962064B9F8D11C9 /* RegisterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A211567DA352287653D6C3F /* RegisterBuilder.swift */; };
+		639E4D30DFF9E5EA844D4CB8 /* AddFriendBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0B726C0F434BC3DFDE75D /* AddFriendBuilder.swift */; };
 		69B458BC169C4D34045BDC59 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF7355EF3EBC57DA24544F /* AuthInteractor.swift */; };
 		6DE3BF25DAA64151D2059581 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234FCB8B48967628C9E9841 /* AuthPresenter.swift */; };
-		6EAE47A5429FDA5B0F0363F3 /* RegisterUserInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C8EBA6AF18FFB4D4C9EACC /* RegisterUserInfoRouter.swift */; };
-		78FD1C958DDB1F4BAF728DD4 /* RegisterUserInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C6BAD9C5D2D209484BA2A /* RegisterUserInfoInteractor.swift */; };
+		6FC9E46BF3398C91FDC597BA /* FriendDetailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E3A3EE2C52C04ECFA0ED44 /* FriendDetailModule.swift */; };
+		753FB3AE6C18FCB1448B68B0 /* FriendDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B712E5A0C1761D35B298978 /* FriendDetailProtocols.swift */; };
 		7905043EDAE76365ABC4D5B6 /* MainTabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */; };
 		7AFDB051828D8FD0834617E8 /* FriendsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BEBAC5A449BC6711324E1F /* FriendsPresenter.swift */; };
-		7B8251C9356A2B871F9BE158 /* RegisterEmailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC09EB2614BEA27A0E4546 /* RegisterEmailProtocols.swift */; };
 		7BC81925410F30E3BE45321C /* WelcomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E19424A05B1256BC557218 /* WelcomeBuilder.swift */; };
 		7C0C19A45E5C4F87DA0E0B79 /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8236A5EB98C111D73F256AC8 /* WelcomeRouter.swift */; };
 		80A01D9AA58963319DCBFD28 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDDDB8EF8CE744A8417A73 /* WelcomeInteractor.swift */; };
-		841C7F771EFB5822C234C2B4 /* LoginEmailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF25DF35D72F9F2C06FD3FBE /* LoginEmailBuilder.swift */; };
 		8781BA80D1FB52D90C82CE39 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8673ED79C5BB2098BEA82750 /* SettingsProtocols.swift */; };
 		88F448F132351CB3306678F7 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */; };
-		8B5D0FE75FE4E01E80BEEE26 /* RegisterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDF0F5267A6ADD172EADAB9 /* RegisterEmailViewController.swift */; };
 		8C40A0692AE914BC371FE056 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB281C1EBC21F4F34D4BAED0 /* RegisterPresenter.swift */; };
 		93CD55BB6E8F90E075C4F98C /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92796598EC5515A195BC1F76 /* MainTabBarPresenter.swift */; };
-		97A2D593528461FBE8DC692C /* RegisterEmailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C900DAEB58DBDC3D8CE49 /* RegisterEmailModule.swift */; };
+		96C11A65E1AB366D19DC94EA /* FriendDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12350D3ADE17D1BF21DC4FF /* FriendDetailPresenter.swift */; };
 		9975FF05D6047FCCE7376B97 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349B702130200F9A6294301 /* SettingsViewController.swift */; };
 		9B856B71AD5236F0BF227766 /* FriendsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B2A3CD602E7E003279269 /* FriendsRouter.swift */; };
 		9CDF368FF81A13B82F0A35AB /* MainScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F19602C1EE60937B0D0C85C /* MainScreenProtocols.swift */; };
 		9DA4C5F02320430EEBB2A568 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBE06AA19D4CB916934DF28 /* WelcomePresenter.swift */; };
-		A7112ACA29A6FE2534EE9780 /* RegisterUserInfoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45105151D64698CBB523CAD5 /* RegisterUserInfoModule.swift */; };
-		A9A301224D7F8880B2D0DDD7 /* LoginEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323D835495DF08E8F340D17C /* LoginEmailRouter.swift */; };
 		AF127BC8E928D8FE8A2492AB /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C16AFDB9E5E973C90C7794 /* AuthProtocols.swift */; };
 		B04211D04219911B7D51F57C /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A61B787379AEE742DCAA7 /* SettingsModule.swift */; };
 		B06A853378EBB9583F7B1F15 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA805F767B093B4A99C63449 /* RegisterViewController.swift */; };
 		B59C60C49C97C4E94BC904AF /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE809CA9CD0597ADD36E0F25 /* RegisterInteractor.swift */; };
-		B897BF24F402A2E61F9D4254 /* RegisterEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AB9A13B26BD8556107406 /* RegisterEmailRouter.swift */; };
-		B98DB136D15F13E0DB6007B9 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E195B9B780EF20A7D79DD7F /* LoginEmailViewController.swift */; };
+		BCF481F2B8C995589F90BCBB /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20688646606355E5F45E33D /* AddFriendViewController.swift */; };
 		C09BA41CCA8B6E0DADE6067C /* FriendsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF3284BA7263179D23C6C44 /* FriendsProtocols.swift */; };
 		C27C8ADF0CC8C27D309ED1DA /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6984F77B768DE1487D5189 /* SettingsInteractor.swift */; };
 		C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864CB516A53B7925E96F9979 /* FriendsBuilder.swift */; };
-		C629FC19BD05B52BFF25F858 /* RegisterUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4282716F8E4B76F20430C392 /* RegisterUserInfoViewController.swift */; };
 		C664C103B203C42BF39BAC78 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E276971BE5A082113B303 /* RegisterModule.swift */; };
-		C72575A1A6DA8558B87F7FB4 /* LoginEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32174C17FBCAEAB3B245666 /* LoginEmailPresenter.swift */; };
 		D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39209731F0D8310142B377F9 /* FriendsModule.swift */; };
 		DD1E54C626F665B800CB4903 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD1E54C526F665B800CB4903 /* SwiftEntryKit */; };
 		DD1E54C926F66C1000CB4903 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD1E54C826F66C1000CB4903 /* FirebaseAnalytics */; };
@@ -89,6 +84,17 @@
 		DD2FA0A62708A19400FC0382 /* DrawerTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A52708A19400FC0382 /* DrawerTextHeaderView.swift */; };
 		DD2FA0A82708A2E500FC0382 /* Fonts+Avenir.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A72708A2E400FC0382 /* Fonts+Avenir.swift */; };
 		DD2FA0AA2708A76200FC0382 /* UIButtonWithHitTestInset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A92708A76200FC0382 /* UIButtonWithHitTestInset.swift */; };
+		DD2FA0AC2708B2A700FC0382 /* AddFriendViewController+Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0AB2708B2A700FC0382 /* AddFriendViewController+Sheet.swift */; };
+		DD2FA0AE2708B51800FC0382 /* FriendDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0AD2708B51800FC0382 /* FriendDetailContentView.swift */; };
+		DD2FA0B02708B70D00FC0382 /* AddFriendInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0AF2708B70D00FC0382 /* AddFriendInputViewModel.swift */; };
+		DD2FA0B22708B83A00FC0382 /* FriendDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0B12708B83A00FC0382 /* FriendDetailViewModel.swift */; };
+		DD2FA0B42708E3E400FC0382 /* AddFriendAddButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0B32708E3E400FC0382 /* AddFriendAddButtonViewModel.swift */; };
+		DD2FA0B62708E3FB00FC0382 /* FriendOutputRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0B52708E3FB00FC0382 /* FriendOutputRequestViewModel.swift */; };
+		DD2FA0B92708E5DE00FC0382 /* OutputFriendRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0B82708E5DE00FC0382 /* OutputFriendRequestCell.swift */; };
+		DD2FA0BC2708E81700FC0382 /* BaseIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0BB2708E81700FC0382 /* BaseIconButton.swift */; };
+		DD2FA0BF2708F99800FC0382 /* FriendsDetailElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0BE2708F99800FC0382 /* FriendsDetailElement.swift */; };
+		DD2FA0C32709012100FC0382 /* FriendDetailViewController+Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C22709012100FC0382 /* FriendDetailViewController+Sheet.swift */; };
+		DD2FA0C52709065700FC0382 /* FriendsCell+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */; };
 		DD3FBCB926EE023E002591A6 /* FriendsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */; };
 		DD3FBCBB26EE027C002591A6 /* FriendsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */; };
 		DD3FBCBD26EE029E002591A6 /* FriendsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */; };
@@ -206,14 +212,11 @@
 		DD9F617126E8035C009E3D39 /* SettingsInteractor+UserListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F617026E8035C009E3D39 /* SettingsInteractor+UserListner.swift */; };
 		DD9F617326E93032009E3D39 /* KeyboardNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F617226E93032009E3D39 /* KeyboardNotifications.swift */; };
 		DD9F617526E947D8009E3D39 /* MNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F617426E947D8009E3D39 /* MNickname.swift */; };
-		E1010921D470C16A59C6A60B /* RegisterUserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A6C38414672B8073EC767E /* RegisterUserInfoPresenter.swift */; };
 		E1560B40513E728EEAD06A5B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931C55A79037676521FC968 /* SettingsRouter.swift */; };
 		E791506092A3252CB263145A /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F339803F883491C41641E /* MainScreenInteractor.swift */; };
 		EFB394C10363780861596021 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BAAB1C1AD8223E12C698BD /* FriendsViewController.swift */; };
 		F172449F63A9506E7070F9CE /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EA5EAE71EDBCF6A6E1B91 /* RegisterRouter.swift */; };
-		F200A59A7CDC30E9FC358D14 /* RegisterEmailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DE4B92E0D7405B18BE42E /* RegisterEmailBuilder.swift */; };
 		F5D22FF44227FD89348873D9 /* AuthBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399D9E40E81AAE5B947BE8B /* AuthBuilder.swift */; };
-		F8A85E87CAD173B8A3870BC2 /* LoginEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CB23FCAE5ED86C6980F0FA /* LoginEmailInteractor.swift */; };
 		F9355AEF5E29281EAE777E3F /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C708CC776B30491E4DAD2 /* MainScreenBuilder.swift */; };
 		FB5F02C326FA561D00A23DAB /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F02C226FA561D00A23DAB /* TabBar.swift */; };
 		FB6B9D3F26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */; };
@@ -225,70 +228,62 @@
 		FB6B9D4D26BAD1D60050690F /* Bool+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4C26BAD1D60050690F /* Bool+Extension.swift */; };
 		FB6B9D5226BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D5126BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift */; };
 		FB6B9D5726BB0E210050690F /* TextFieldWithError+ValidateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D5626BB0E210050690F /* TextFieldWithError+ValidateInput.swift */; };
+		FF3E6DA1662DD18D6ECB3C84 /* FriendDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E107C4322513D027960E63 /* FriendDetailRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00E3A3EE2C52C04ECFA0ED44 /* FriendDetailModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailModule.swift; sourceTree = "<group>"; };
 		126E276971BE5A082113B303 /* RegisterModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterModule.swift; sourceTree = "<group>"; };
 		1C2F5967AA878A68881E09A7 /* MainScreenRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		1C6F33ACCCDEBBB1544B50C3 /* SettingsBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		1DBE06AA19D4CB916934DF28 /* WelcomePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		1F19602C1EE60937B0D0C85C /* MainScreenProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenProtocols.swift; sourceTree = "<group>"; };
-		225DE4B92E0D7405B18BE42E /* RegisterEmailBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailBuilder.swift; sourceTree = "<group>"; };
-		235A74632768CA4D0A0C8C56 /* RegisterUserInfoBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoBuilder.swift; sourceTree = "<group>"; };
-		24054EABB4676551BCF93D81 /* LoginEmailModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailModule.swift; sourceTree = "<group>"; };
 		2A2F339803F883491C41641E /* MainScreenInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
+		2AB619CBD2E4946B049A33B4 /* AddFriendModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendModule.swift; sourceTree = "<group>"; };
 		31E19424A05B1256BC557218 /* WelcomeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeBuilder.swift; sourceTree = "<group>"; };
-		323D835495DF08E8F340D17C /* LoginEmailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailRouter.swift; sourceTree = "<group>"; };
+		36E107C4322513D027960E63 /* FriendDetailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailRouter.swift; sourceTree = "<group>"; };
 		39209731F0D8310142B377F9 /* FriendsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsModule.swift; sourceTree = "<group>"; };
 		3D92037C1CF235F29E4A623E /* MainTabBarRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
-		4282716F8E4B76F20430C392 /* RegisterUserInfoViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoViewController.swift; sourceTree = "<group>"; };
-		45105151D64698CBB523CAD5 /* RegisterUserInfoModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoModule.swift; sourceTree = "<group>"; };
 		505A61B787379AEE742DCAA7 /* SettingsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
 		530BF96EA13DA10118717E42 /* MainTabBarModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarModule.swift; sourceTree = "<group>"; };
-		574C900DAEB58DBDC3D8CE49 /* RegisterEmailModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailModule.swift; sourceTree = "<group>"; };
-		57A6C38414672B8073EC767E /* RegisterUserInfoPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoPresenter.swift; sourceTree = "<group>"; };
 		5BDF17D914EDB53580BEC7FB /* WelcomeProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeProtocols.swift; sourceTree = "<group>"; };
 		5ECAA25128629A6A1030457A /* WelcomeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		65C8EBA6AF18FFB4D4C9EACC /* RegisterUserInfoRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoRouter.swift; sourceTree = "<group>"; };
 		68752187E3C991A11BDDAD94 /* RegisterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterProtocols.swift; sourceTree = "<group>"; };
 		6A211567DA352287653D6C3F /* RegisterBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterBuilder.swift; sourceTree = "<group>"; };
-		6E195B9B780EF20A7D79DD7F /* LoginEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
+		6B712E5A0C1761D35B298978 /* FriendDetailProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailProtocols.swift; sourceTree = "<group>"; };
 		72BAAB1C1AD8223E12C698BD /* FriendsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		8236A5EB98C111D73F256AC8 /* WelcomeRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
 		85BEBAC5A449BC6711324E1F /* FriendsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsPresenter.swift; sourceTree = "<group>"; };
 		864CB516A53B7925E96F9979 /* FriendsBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsBuilder.swift; sourceTree = "<group>"; };
 		8673ED79C5BB2098BEA82750 /* SettingsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
-		8F414682F88A38F8E4268719 /* RegisterEmailInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailInteractor.swift; sourceTree = "<group>"; };
+		89081A75CA82A6C22D02DAC7 /* AddFriendInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendInteractor.swift; sourceTree = "<group>"; };
+		8A92C9FF194FF621C45A06D0 /* AddFriendRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendRouter.swift; sourceTree = "<group>"; };
+		8B764858B3582A69D1D75719 /* FriendDetailInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailInteractor.swift; sourceTree = "<group>"; };
+		90E0B726C0F434BC3DFDE75D /* AddFriendBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendBuilder.swift; sourceTree = "<group>"; };
 		92796598EC5515A195BC1F76 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		9399D9E40E81AAE5B947BE8B /* AuthBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthBuilder.swift; sourceTree = "<group>"; };
 		947C708CC776B30491E4DAD2 /* MainScreenBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenBuilder.swift; sourceTree = "<group>"; };
 		987707F1B054E8F815A9B342 /* AuthViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		991869064D01F27107F1944C /* MainScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		9EFBC17BE46551737D5650F2 /* MainTabBarBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarBuilder.swift; sourceTree = "<group>"; };
-		9FDF0F5267A6ADD172EADAB9 /* RegisterEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailViewController.swift; sourceTree = "<group>"; };
+		A12350D3ADE17D1BF21DC4FF /* FriendDetailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailPresenter.swift; sourceTree = "<group>"; };
 		A349B702130200F9A6294301 /* SettingsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A71AB9A13B26BD8556107406 /* RegisterEmailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailRouter.swift; sourceTree = "<group>"; };
 		AB7BB453587A409493F8FE0E /* MainTabBarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarProtocols.swift; sourceTree = "<group>"; };
 		AC6984F77B768DE1487D5189 /* SettingsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		AE809CA9CD0597ADD36E0F25 /* RegisterInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
-		AF25DF35D72F9F2C06FD3FBE /* LoginEmailBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailBuilder.swift; sourceTree = "<group>"; };
-		B59C94EE62CF3781E31E2A05 /* LoginEmailProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailProtocols.swift; sourceTree = "<group>"; };
-		B5EC09EB2614BEA27A0E4546 /* RegisterEmailProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailProtocols.swift; sourceTree = "<group>"; };
+		B016496450D5EEF0BCF61F00 /* AddFriendPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendPresenter.swift; sourceTree = "<group>"; };
 		B6EAA18178898B4E896D6775 /* AuthRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		B8C16AFDB9E5E973C90C7794 /* AuthProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
 		B931C55A79037676521FC968 /* SettingsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		BB281C1EBC21F4F34D4BAED0 /* RegisterPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
-		C32174C17FBCAEAB3B245666 /* LoginEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailPresenter.swift; sourceTree = "<group>"; };
+		C2D245121FE9E11A5E5434C0 /* FriendDetailBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailBuilder.swift; sourceTree = "<group>"; };
 		C439913315BC02EBFCA0B627 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		C4CB23FCAE5ED86C6980F0FA /* LoginEmailInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginEmailInteractor.swift; sourceTree = "<group>"; };
 		C4FCA259D976F92108F48620 /* MainScreenModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenModule.swift; sourceTree = "<group>"; };
 		CBFDDDB8EF8CE744A8417A73 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
 		D17B2A3CD602E7E003279269 /* FriendsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsRouter.swift; sourceTree = "<group>"; };
 		D234FCB8B48967628C9E9841 /* AuthPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		D41F2478D71E2C833D9EC1B8 /* FriendsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsInteractor.swift; sourceTree = "<group>"; };
-		D68C6BAD9C5D2D209484BA2A /* RegisterUserInfoInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoInteractor.swift; sourceTree = "<group>"; };
 		D9118ABF000B22BB3893F647 /* AuthModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthModule.swift; sourceTree = "<group>"; };
-		D94FEDA4D7F340617BA68C09 /* RegisterUserInfoProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUserInfoProtocols.swift; sourceTree = "<group>"; };
 		D997B8B684C982B2BB36FF03 /* WelcomeModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeModule.swift; sourceTree = "<group>"; };
 		DA805F767B093B4A99C63449 /* RegisterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DD1E54DA26F7E42F00CB4903 /* MainScreenInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInfoView.swift; sourceTree = "<group>"; };
@@ -304,6 +299,17 @@
 		DD2FA0A52708A19400FC0382 /* DrawerTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTextHeaderView.swift; sourceTree = "<group>"; };
 		DD2FA0A72708A2E400FC0382 /* Fonts+Avenir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Avenir.swift"; sourceTree = "<group>"; };
 		DD2FA0A92708A76200FC0382 /* UIButtonWithHitTestInset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonWithHitTestInset.swift; sourceTree = "<group>"; };
+		DD2FA0AB2708B2A700FC0382 /* AddFriendViewController+Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddFriendViewController+Sheet.swift"; sourceTree = "<group>"; };
+		DD2FA0AD2708B51800FC0382 /* FriendDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailContentView.swift; sourceTree = "<group>"; };
+		DD2FA0AF2708B70D00FC0382 /* AddFriendInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendInputViewModel.swift; sourceTree = "<group>"; };
+		DD2FA0B12708B83A00FC0382 /* FriendDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewModel.swift; sourceTree = "<group>"; };
+		DD2FA0B32708E3E400FC0382 /* AddFriendAddButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendAddButtonViewModel.swift; sourceTree = "<group>"; };
+		DD2FA0B52708E3FB00FC0382 /* FriendOutputRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendOutputRequestViewModel.swift; sourceTree = "<group>"; };
+		DD2FA0B82708E5DE00FC0382 /* OutputFriendRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputFriendRequestCell.swift; sourceTree = "<group>"; };
+		DD2FA0BB2708E81700FC0382 /* BaseIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseIconButton.swift; sourceTree = "<group>"; };
+		DD2FA0BE2708F99800FC0382 /* FriendsDetailElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDetailElement.swift; sourceTree = "<group>"; };
+		DD2FA0C22709012100FC0382 /* FriendDetailViewController+Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendDetailViewController+Sheet.swift"; sourceTree = "<group>"; };
+		DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsCell+Touches.swift"; sourceTree = "<group>"; };
 		DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+Delegate.swift"; sourceTree = "<group>"; };
 		DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -428,6 +434,7 @@
 		E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
 		ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		EFF3284BA7263179D23C6C44 /* FriendsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsProtocols.swift; sourceTree = "<group>"; };
+		F20688646606355E5F45E33D /* AddFriendViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		F43EA5EAE71EDBCF6A6E1B91 /* RegisterRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		F4B32AA56309EA41FEA4A619 /* SettingsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		FB5F02C226FA561D00A23DAB /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -440,7 +447,8 @@
 		FB6B9D4C26BAD1D60050690F /* Bool+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extension.swift"; sourceTree = "<group>"; };
 		FB6B9D5126BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseTextButtonWithArrow+ValidatorButton.swift"; sourceTree = "<group>"; };
 		FB6B9D5626BB0E210050690F /* TextFieldWithError+ValidateInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+ValidateInput.swift"; sourceTree = "<group>"; };
-		FCDD549B3802995AC95FA5D5 /* RegisterEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterEmailPresenter.swift; sourceTree = "<group>"; };
+		FB859C20B968DD1502403E0E /* FriendDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
+		FCF86927F633D48CB7904400 /* AddFriendProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,30 +486,6 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		089B2D2DC5DA62C8311176C8 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				C4CB23FCAE5ED86C6980F0FA /* LoginEmailInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		1032CA8813A4F28E87B724DE /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				B59C94EE62CF3781E31E2A05 /* LoginEmailProtocols.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		11FEF1BA7ADD7029B965BDB9 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-				AF25DF35D72F9F2C06FD3FBE /* LoginEmailBuilder.swift */,
-			);
-			path = Builder;
-			sourceTree = "<group>";
-		};
 		12674CAE5C7064C6CA23C9A9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,9 +505,6 @@
 		1D3ABFE15F188BB251539911 /* NewModules */ = {
 			isa = PBXGroup;
 			children = (
-				BD4C1B625AAC5AB7D9EFDD6F /* RegisterUserInfo */,
-				4719416C0F9426E3EA751A9B /* RegisterEmail */,
-				8D44BE58A366088DEF4D5B5A /* LoginEmail */,
 			);
 			path = NewModules;
 			sourceTree = "<group>";
@@ -539,14 +520,6 @@
 				DD9F614226E2AFC2009E3D39 /* SettingsViewController+DataSource.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		1F9344EB1EE8E90BBEF6DBB7 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				D68C6BAD9C5D2D209484BA2A /* RegisterUserInfoInteractor.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		22D474EA06C05FC4C5BF36B7 /* Router */ = {
@@ -565,20 +538,18 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		299B25F98C1083C910D8BB4B /* View */ = {
+		29B8DEDC31E65EA3C28AA43E /* FriendDetail */ = {
 			isa = PBXGroup;
 			children = (
-				4282716F8E4B76F20430C392 /* RegisterUserInfoViewController.swift */,
+				9980131BBE8D52F1D7D30E42 /* View */,
+				927180519BCD773DB869C251 /* Presenter */,
+				6551221B47F11EE9C672C93B /* Interactor */,
+				8DD9A8AA8EEBFAD2CAC9795D /* Router */,
+				7B215B0F8EE8CFF3820F0FB1 /* Builder */,
+				BE38D5F7C4C0A18FF5FA8579 /* Protocols */,
+				00E3A3EE2C52C04ECFA0ED44 /* FriendDetailModule.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2A1AA6801E8A89C60EFA294B /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				323D835495DF08E8F340D17C /* LoginEmailRouter.swift */,
-			);
-			path = Router;
+			path = FriendDetail;
 			sourceTree = "<group>";
 		};
 		31D956A4B6F12AF6782730B1 /* View */ = {
@@ -645,14 +616,6 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
-		4079A14DA62D9358985CCF04 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				8F414682F88A38F8E4268719 /* RegisterEmailInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		43C03B5E76B1208B5C73D9B7 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,26 +634,12 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		4719416C0F9426E3EA751A9B /* RegisterEmail */ = {
+		47E2017631AFB461F1CB9D95 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E7B42839663C4C9408B9C23C /* View */,
-				9947967736144CD6BEFD7EDA /* Presenter */,
-				4079A14DA62D9358985CCF04 /* Interactor */,
-				716011792DCA8C225A3792F6 /* Router */,
-				866FAB6D0932E8D0423F7AFF /* Builder */,
-				BE22DEACC80FE5C2563E277F /* Protocols */,
-				574C900DAEB58DBDC3D8CE49 /* RegisterEmailModule.swift */,
+				FCF86927F633D48CB7904400 /* AddFriendProtocols.swift */,
 			);
-			path = RegisterEmail;
-			sourceTree = "<group>";
-		};
-		484FB97A5D704CCBC70362FA /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				65C8EBA6AF18FFB4D4C9EACC /* RegisterUserInfoRouter.swift */,
-			);
-			path = Router;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		55C8754BC24A43DD9C8E6073 /* Router */ = {
@@ -699,6 +648,23 @@
 				1C2F5967AA878A68881E09A7 /* MainScreenRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		5C989180D0C8BC11D1449675 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				90E0B726C0F434BC3DFDE75D /* AddFriendBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		6551221B47F11EE9C672C93B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8B764858B3582A69D1D75719 /* FriendDetailInteractor.swift */,
+				DD2FA0C02708F9B500FC0382 /* Models */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		664524C418E4B6CF497147A8 /* Builder */ = {
@@ -727,14 +693,6 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		716011792DCA8C225A3792F6 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				A71AB9A13B26BD8556107406 /* RegisterEmailRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		72EB03B75989C6F1D6C24AD1 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,26 +717,30 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		866FAB6D0932E8D0423F7AFF /* Builder */ = {
+		7B215B0F8EE8CFF3820F0FB1 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				225DE4B92E0D7405B18BE42E /* RegisterEmailBuilder.swift */,
+				C2D245121FE9E11A5E5434C0 /* FriendDetailBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		8D44BE58A366088DEF4D5B5A /* LoginEmail */ = {
+		8CB505B690B8207C572A83AC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A8273BCF035F649463474EDF /* View */,
-				9918F5BEAA1783BEAEE46531 /* Presenter */,
-				089B2D2DC5DA62C8311176C8 /* Interactor */,
-				2A1AA6801E8A89C60EFA294B /* Router */,
-				11FEF1BA7ADD7029B965BDB9 /* Builder */,
-				1032CA8813A4F28E87B724DE /* Protocols */,
-				24054EABB4676551BCF93D81 /* LoginEmailModule.swift */,
+				F20688646606355E5F45E33D /* AddFriendViewController.swift */,
+				DD2FA0AB2708B2A700FC0382 /* AddFriendViewController+Sheet.swift */,
+				DD2FA0BA2708E60700FC0382 /* Cells */,
 			);
-			path = LoginEmail;
+			path = View;
+			sourceTree = "<group>";
+		};
+		8DD9A8AA8EEBFAD2CAC9795D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				36E107C4322513D027960E63 /* FriendDetailRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		8E84A9E5DFC46BD0B06CB46D /* Protocols */ = {
@@ -789,36 +751,23 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		9156E50D71256279153DC416 /* Builder */ = {
+		927180519BCD773DB869C251 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				235A74632768CA4D0A0C8C56 /* RegisterUserInfoBuilder.swift */,
-			);
-			path = Builder;
-			sourceTree = "<group>";
-		};
-		9908E5E6D8429EC85E5C62E3 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				57A6C38414672B8073EC767E /* RegisterUserInfoPresenter.swift */,
+				A12350D3ADE17D1BF21DC4FF /* FriendDetailPresenter.swift */,
+				DD2FA0BD2708F93B00FC0382 /* ViewModels */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		9918F5BEAA1783BEAEE46531 /* Presenter */ = {
+		9980131BBE8D52F1D7D30E42 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C32174C17FBCAEAB3B245666 /* LoginEmailPresenter.swift */,
+				FB859C20B968DD1502403E0E /* FriendDetailViewController.swift */,
+				DD2FA0C22709012100FC0382 /* FriendDetailViewController+Sheet.swift */,
+				DD2FA0C12709010C00FC0382 /* Subviews */,
 			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		9947967736144CD6BEFD7EDA /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				FCDD549B3802995AC95FA5D5 /* RegisterEmailPresenter.swift */,
-			);
-			path = Presenter;
+			path = View;
 			sourceTree = "<group>";
 		};
 		9E16106EBED3C73477247602 /* MainScreen */ = {
@@ -869,14 +818,6 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		A8273BCF035F649463474EDF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6E195B9B780EF20A7D79DD7F /* LoginEmailViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		ABAB55484A071D0D643A0581 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,6 +840,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		B32FB8BBBE09C9002031B3D1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				89081A75CA82A6C22D02DAC7 /* AddFriendInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		B81D8DA87D8BF5E703A0F460 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,34 +864,34 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		BD4C1B625AAC5AB7D9EFDD6F /* RegisterUserInfo */ = {
-			isa = PBXGroup;
-			children = (
-				299B25F98C1083C910D8BB4B /* View */,
-				9908E5E6D8429EC85E5C62E3 /* Presenter */,
-				1F9344EB1EE8E90BBEF6DBB7 /* Interactor */,
-				484FB97A5D704CCBC70362FA /* Router */,
-				9156E50D71256279153DC416 /* Builder */,
-				FE9B947CFE21D058E1A4D0BD /* Protocols */,
-				45105151D64698CBB523CAD5 /* RegisterUserInfoModule.swift */,
-			);
-			path = RegisterUserInfo;
-			sourceTree = "<group>";
-		};
-		BE22DEACC80FE5C2563E277F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				B5EC09EB2614BEA27A0E4546 /* RegisterEmailProtocols.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		BE24D8EEFDC3A6A55E77206F /* Builder */ = {
 			isa = PBXGroup;
 			children = (
 				864CB516A53B7925E96F9979 /* FriendsBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		BE38D5F7C4C0A18FF5FA8579 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6B712E5A0C1761D35B298978 /* FriendDetailProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BEAD88F6F65726C2A4E1BE01 /* AddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				8CB505B690B8207C572A83AC /* View */,
+				E3AFBEA4B2B5CC68650C343D /* Presenter */,
+				B32FB8BBBE09C9002031B3D1 /* Interactor */,
+				F6A913F013AC51FCC492B5B2 /* Router */,
+				5C989180D0C8BC11D1449675 /* Builder */,
+				47E2017631AFB461F1CB9D95 /* Protocols */,
+				2AB619CBD2E4946B049A33B4 /* AddFriendModule.swift */,
+			);
+			path = AddFriend;
 			sourceTree = "<group>";
 		};
 		C44AEA70D2E18757AF006FD9 /* Router */ = {
@@ -1027,6 +976,48 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		DD2FA0B72708E58C00FC0382 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA0AF2708B70D00FC0382 /* AddFriendInputViewModel.swift */,
+				DD2FA0B32708E3E400FC0382 /* AddFriendAddButtonViewModel.swift */,
+				DD2FA0B52708E3FB00FC0382 /* FriendOutputRequestViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DD2FA0BA2708E60700FC0382 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA0B82708E5DE00FC0382 /* OutputFriendRequestCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DD2FA0BD2708F93B00FC0382 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA0B12708B83A00FC0382 /* FriendDetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DD2FA0C02708F9B500FC0382 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA0BE2708F99800FC0382 /* FriendsDetailElement.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD2FA0C12709010C00FC0382 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA0AD2708B51800FC0382 /* FriendDetailContentView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		DD3FBCC226EE061E002591A6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1040,6 +1031,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3FBCBE26EE0434002591A6 /* FriendCell.swift */,
+				DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */,
 				DD3FBCC826EE0999002591A6 /* RequestCell.swift */,
 			);
 			path = Cells;
@@ -1100,6 +1092,7 @@
 			children = (
 				FB6B9D5526BB057E0050690F /* BaseTextButtonWithArrow.swift */,
 				DD59F73B26B5AA6600CA8179 /* BaseCustomButton.swift */,
+				DD2FA0BB2708E81700FC0382 /* BaseIconButton.swift */,
 				DD59F74226B5ABE200CA8179 /* BaseCustomButtonActionProtocol.swift */,
 				DD2FA0A92708A76200FC0382 /* UIButtonWithHitTestInset.swift */,
 			);
@@ -1377,6 +1370,8 @@
 		DD92152F2677FD2500A3623E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				29B8DEDC31E65EA3C28AA43E /* FriendDetail */,
+				BEAD88F6F65726C2A4E1BE01 /* AddFriend */,
 				DD9F616126E66A4F009E3D39 /* Main */,
 				CF2B8C29C8A7AA20ED3C404D /* Friends */,
 				362C26A702B3440F8E8C1D8C /* Settings */,
@@ -1478,12 +1473,13 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		E7B42839663C4C9408B9C23C /* View */ = {
+		E3AFBEA4B2B5CC68650C343D /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				9FDF0F5267A6ADD172EADAB9 /* RegisterEmailViewController.swift */,
+				B016496450D5EEF0BCF61F00 /* AddFriendPresenter.swift */,
+				DD2FA0B72708E58C00FC0382 /* ViewModels */,
 			);
-			path = View;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E874C995BE96F067E05E8638 /* Register */ = {
@@ -1539,6 +1535,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		F6A913F013AC51FCC492B5B2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8A92C9FF194FF621C45A06D0 /* AddFriendRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		F6D2C88223B8BEF3AE1AEBB3 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1591,14 +1595,6 @@
 				DD5F63FA267FBA5B002131FD /* Model */,
 			);
 			path = Interactor;
-			sourceTree = "<group>";
-		};
-		FE9B947CFE21D058E1A4D0BD /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				D94FEDA4D7F340617BA68C09 /* RegisterUserInfoProtocols.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1708,6 +1704,7 @@
 				DD59F74526B5AC8F00CA8179 /* UIView+Extension.swift in Sources */,
 				DD870D6726D7DCE8000F59AE /* FirestoreManager.swift in Sources */,
 				DD92150126763E8F00A3623E /* CoordinatorProtocol.swift in Sources */,
+				DD2FA0C32709012100FC0382 /* FriendDetailViewController+Sheet.swift in Sources */,
 				DD870D7726DEC1A6000F59AE /* WeekCollection.swift in Sources */,
 				FB6B9D4726B99EE10050690F /* Validator.swift in Sources */,
 				DD59F73C26B5AA6600CA8179 /* BaseCustomButton.swift in Sources */,
@@ -1736,8 +1733,10 @@
 				DD59F74F26B5D3AF00CA8179 /* UIView+Gradient.swift in Sources */,
 				FB6B9D4D26BAD1D60050690F /* Bool+Extension.swift in Sources */,
 				DD9F615C26E64DE5009E3D39 /* SettingsButtonCell+Touches.swift in Sources */,
+				DD2FA0BF2708F99800FC0382 /* FriendsDetailElement.swift in Sources */,
 				DD9EAD112698D01D0032B3D7 /* EmptyHeaderViewModel.swift in Sources */,
 				DD59F74726B5AEEA00CA8179 /* CGRect+Extension.swift in Sources */,
+				DD2FA0B02708B70D00FC0382 /* AddFriendInputViewModel.swift in Sources */,
 				01E06D4D6DEF75B5EA509DE2 /* MainTabBarRouter.swift in Sources */,
 				DD3FBCBD26EE029E002591A6 /* FriendsViewController+DataSource.swift in Sources */,
 				DD9215192677B48000A3623E /* MainScreenCoordinator.swift in Sources */,
@@ -1756,9 +1755,11 @@
 				69B458BC169C4D34045BDC59 /* AuthInteractor.swift in Sources */,
 				DD9F614526E2B048009E3D39 /* SettingsSection.swift in Sources */,
 				DD3FBCBB26EE027C002591A6 /* FriendsViewController+Delegate.swift in Sources */,
+				DD2FA0B42708E3E400FC0382 /* AddFriendAddButtonViewModel.swift in Sources */,
 				DD9EAD152699BE4D0032B3D7 /* NetworkError.swift in Sources */,
 				DD9F617526E947D8009E3D39 /* MNickname.swift in Sources */,
 				2089B038C856887E459DA17C /* AuthRouter.swift in Sources */,
+				DD2FA0B22708B83A00FC0382 /* FriendDetailViewModel.swift in Sources */,
 				DD92152C2677DFBA00A3623E /* Array+Extension.swift in Sources */,
 				DD870D7926DEC1FB000F59AE /* Notifier.swift in Sources */,
 				F5D22FF44227FD89348873D9 /* AuthBuilder.swift in Sources */,
@@ -1774,6 +1775,7 @@
 				DD9215272677D99D00A3623E /* Fonts.swift in Sources */,
 				DD9F616B26E68985009E3D39 /* MainScreenInteractor+AuthListner.swift in Sources */,
 				FB6B9D4326B96E6A0050690F /* TextFiledWithError+Set.swift in Sources */,
+				DD2FA0B62708E3FB00FC0382 /* FriendOutputRequestViewModel.swift in Sources */,
 				DD59F75126B5DD2600CA8179 /* UIStackView+Extension.swift in Sources */,
 				49E2B842581A1C3D0F65DC11 /* AuthModule.swift in Sources */,
 				FB6B9D4926BAC81C0050690F /* ValidatorRule.swift in Sources */,
@@ -1781,6 +1783,7 @@
 				DD9F613D26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift in Sources */,
 				DD59F74B26B5B04700CA8179 /* Styles.swift in Sources */,
 				9DA4C5F02320430EEBB2A568 /* WelcomePresenter.swift in Sources */,
+				DD2FA0AC2708B2A700FC0382 /* AddFriendViewController+Sheet.swift in Sources */,
 				DD6BD6B426F8EC9E006369BB /* FriendsCustomNavigationView.swift in Sources */,
 				80A01D9AA58963319DCBFD28 /* WelcomeInteractor.swift in Sources */,
 				7C0C19A45E5C4F87DA0E0B79 /* WelcomeRouter.swift in Sources */,
@@ -1832,6 +1835,7 @@
 				7AFDB051828D8FD0834617E8 /* FriendsPresenter.swift in Sources */,
 				1E59D486271C092536D82ED8 /* FriendsInteractor.swift in Sources */,
 				DD9F614E26E51E41009E3D39 /* TextCollectionCell+Touches.swift in Sources */,
+				DD2FA0BC2708E81700FC0382 /* BaseIconButton.swift in Sources */,
 				FB5F02C326FA561D00A23DAB /* TabBar.swift in Sources */,
 				9B856B71AD5236F0BF227766 /* FriendsRouter.swift in Sources */,
 				DD9EAD132699BE2F0032B3D7 /* NetworkServiceProtocol.swift in Sources */,
@@ -1840,7 +1844,6 @@
 				C09BA41CCA8B6E0DADE6067C /* FriendsProtocols.swift in Sources */,
 				DD2FA0A32708983B00FC0382 /* UIView+Size.swift in Sources */,
 				D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */,
-				C629FC19BD05B52BFF25F858 /* RegisterUserInfoViewController.swift in Sources */,
 				DD59F75C26B6113F00CA8179 /* AppManager+Auth.swift in Sources */,
 				DD2FA0A62708A19400FC0382 /* DrawerTextHeaderView.swift in Sources */,
 				DD3FBCBF26EE0434002591A6 /* FriendCell.swift in Sources */,
@@ -1849,40 +1852,21 @@
 				DD59F75F26B6F1E300CA8179 /* AppleAuthService.swift in Sources */,
 				DD9F617126E8035C009E3D39 /* SettingsInteractor+UserListner.swift in Sources */,
 				DD5414F426C168E000A13BE0 /* ContainerViewController.swift in Sources */,
-				E1010921D470C16A59C6A60B /* RegisterUserInfoPresenter.swift in Sources */,
-				78FD1C958DDB1F4BAF728DD4 /* RegisterUserInfoInteractor.swift in Sources */,
 				DD870D7526D93EDE000F59AE /* FirestoreError.swift in Sources */,
 				DD9F616926E67F84009E3D39 /* MainScreenInteractor+UserListner.swift in Sources */,
-				6EAE47A5429FDA5B0F0363F3 /* RegisterUserInfoRouter.swift in Sources */,
-				3352C964FC68FF2CE74E3CDF /* RegisterUserInfoBuilder.swift in Sources */,
-				494A6882885C4BC28A5147F2 /* RegisterUserInfoProtocols.swift in Sources */,
-				A7112ACA29A6FE2534EE9780 /* RegisterUserInfoModule.swift in Sources */,
 				DD870D6326D3B3ED000F59AE /* PushNotificationManager.swift in Sources */,
-				8B5D0FE75FE4E01E80BEEE26 /* RegisterEmailViewController.swift in Sources */,
 				FB6B9D5226BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift in Sources */,
+				DD2FA0B92708E5DE00FC0382 /* OutputFriendRequestCell.swift in Sources */,
 				DD59F75526B5FD6000CA8179 /* LinkTextFormatter.swift in Sources */,
-				22C827FACD56611DAAB49AEA /* RegisterEmailPresenter.swift in Sources */,
 				DD3FBCCB26EE1670002591A6 /* FriendsScreenSection.swift in Sources */,
-				54EE77DA78FEB00F83750356 /* RegisterEmailInteractor.swift in Sources */,
-				B897BF24F402A2E61F9D4254 /* RegisterEmailRouter.swift in Sources */,
-				F200A59A7CDC30E9FC358D14 /* RegisterEmailBuilder.swift in Sources */,
 				DD9F615026E523C8009E3D39 /* BaseCell.swift in Sources */,
 				DD9F613326E0BD1E009E3D39 /* UserError.swift in Sources */,
-				7B8251C9356A2B871F9BE158 /* RegisterEmailProtocols.swift in Sources */,
 				DD3FBCC726EE0854002591A6 /* MRequestUser.swift in Sources */,
 				DD3FBCDD26EE4983002591A6 /* FirebaseListnersError.swift in Sources */,
 				DD59F74326B5ABE200CA8179 /* BaseCustomButtonActionProtocol.swift in Sources */,
 				FB6B9D4B26BAC8370050690F /* ValidatorRegex.swift in Sources */,
-				97A2D593528461FBE8DC692C /* RegisterEmailModule.swift in Sources */,
-				B98DB136D15F13E0DB6007B9 /* LoginEmailViewController.swift in Sources */,
-				C72575A1A6DA8558B87F7FB4 /* LoginEmailPresenter.swift in Sources */,
-				F8A85E87CAD173B8A3870BC2 /* LoginEmailInteractor.swift in Sources */,
-				A9A301224D7F8880B2D0DDD7 /* LoginEmailRouter.swift in Sources */,
-				841C7F771EFB5822C234C2B4 /* LoginEmailBuilder.swift in Sources */,
-				28F48C2A3C5055DD6FF34D66 /* LoginEmailProtocols.swift in Sources */,
 				DD3FBCC126EE061B002591A6 /* FriendViewModel.swift in Sources */,
 				DD65E09526B89511002BBF80 /* TextFieldWithError.swift in Sources */,
-				3DD3FC7271470EEC651AEBAA /* LoginEmailModule.swift in Sources */,
 				9975FF05D6047FCCE7376B97 /* SettingsViewController.swift in Sources */,
 				DD1E54DF26F7FE4E00CB4903 /* FriendsManager+Auth.swift in Sources */,
 				431E45FCFB31AF7DF9941F3E /* SettingsPresenter.swift in Sources */,
@@ -1893,6 +1877,22 @@
 				8781BA80D1FB52D90C82CE39 /* SettingsProtocols.swift in Sources */,
 				B04211D04219911B7D51F57C /* SettingsModule.swift in Sources */,
 				DD3FBCB926EE023E002591A6 /* FriendsViewController+CollectionView.swift in Sources */,
+				DD2FA0AE2708B51800FC0382 /* FriendDetailContentView.swift in Sources */,
+				BCF481F2B8C995589F90BCBB /* AddFriendViewController.swift in Sources */,
+				162EDA55240A0170EB05C2D1 /* AddFriendPresenter.swift in Sources */,
+				1E3BE55087AE90D1FD12BCBA /* AddFriendInteractor.swift in Sources */,
+				56F772EEAB8991C581444995 /* AddFriendRouter.swift in Sources */,
+				639E4D30DFF9E5EA844D4CB8 /* AddFriendBuilder.swift in Sources */,
+				2A0D1CCA1F00B2A1011E4EBC /* AddFriendProtocols.swift in Sources */,
+				406706AE7C4F63F60FB90CC9 /* AddFriendModule.swift in Sources */,
+				0903768DD99CA836A0C77C97 /* FriendDetailViewController.swift in Sources */,
+				96C11A65E1AB366D19DC94EA /* FriendDetailPresenter.swift in Sources */,
+				5E0CB0BFEEEC69017C7C7B41 /* FriendDetailInteractor.swift in Sources */,
+				FF3E6DA1662DD18D6ECB3C84 /* FriendDetailRouter.swift in Sources */,
+				2C19B5F9326D23F198B1CE85 /* FriendDetailBuilder.swift in Sources */,
+				753FB3AE6C18FCB1448B68B0 /* FriendDetailProtocols.swift in Sources */,
+				6FC9E46BF3398C91FDC597BA /* FriendDetailModule.swift in Sources */,
+				DD2FA0C52709065700FC0382 /* FriendsCell+Touches.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

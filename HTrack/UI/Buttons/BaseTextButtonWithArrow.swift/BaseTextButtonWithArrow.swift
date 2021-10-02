@@ -50,6 +50,17 @@ class BaseTextButtonWithArrow: BaseCustomButton {
     private var buttonColor: UIColor = Styles.Colors.myFilledButtonColor()
     private var textColor: UIColor = Styles.Colors.myFilledButtonLabelColor()
     private var activityIndicatorColor = Styles.Colors.myActivityIndicatorColor()
+    private var borderColor: UIColor? {
+        didSet {
+            if let borderColor = borderColor {
+                layer.borderColor = borderColor.cgColor
+                layer.borderWidth = Styles.Sizes.baseBorderWidth
+            } else {
+                layer.borderWidth = .zero
+                layer.borderColor = nil
+            }
+        }
+    }
     
     private var cornerRadius:CGFloat? {
         didSet {
@@ -97,6 +108,14 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         stackView.alignment = .center
         stackView.axis = .horizontal
         stackView.spacing = Styles.Sizes.baseHInset
+        
+        if let borderColor = borderColor {
+            layer.borderWidth = Styles.Sizes.baseBorderWidth
+            layer.borderColor = borderColor.cgColor
+        } else {
+            layer.borderWidth = .zero
+            layer.borderColor = nil
+        }
         
         setupConstraints()
         updateStackView()
@@ -255,6 +274,13 @@ extension BaseTextButtonWithArrow {
     @discardableResult
     func setCornerRadius(radius: CGFloat) -> Self {
         self.cornerRadius = radius
+        
+        return self
+    }
+    
+    @discardableResult
+    func setBorderColor(color: UIColor) -> Self {
+        self.borderColor = color
         
         return self
     }

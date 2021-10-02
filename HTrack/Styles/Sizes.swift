@@ -12,6 +12,7 @@ extension Styles.Sizes  {
     static let safeAreaInsets = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets ?? .zero
     
     static let screenSize: CGSize = UIScreen.main.bounds.size
+    static let minHeightDrawerView: CGFloat = 200
     
     static let baseVInset: CGFloat = 3
     static let baseHInset: CGFloat = 5
@@ -19,8 +20,8 @@ extension Styles.Sizes  {
     static let mediumVInset: CGFloat = 5
     static let mediumHInset: CGFloat = 8
     
-    static let standartHInset: CGFloat = 14
     static let stadartVInset: CGFloat = 8
+    static let standartHInset: CGFloat = 14
     
     static let bigVInset: CGFloat = 44
     static let bigHInset: CGFloat = 22

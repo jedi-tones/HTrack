@@ -11,7 +11,7 @@ extension FriendsViewController {
     func setupNavBar() {
         navigationController?.navigationBar.backgroundColor = Styles.Colors.myBackgroundColor()
         navigationItem.leftBarButtonItem = leftNavButton
-        navigationItem.rightBarButtonItem = rightSettingsButton
+        navigationItem.rightBarButtonItems = [rightSettingsButton, addFriendNavButton]
         navigationController?.navigationBar.prefersLargeTitles = false
         
         

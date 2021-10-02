@@ -41,7 +41,7 @@ protocol FriendsRouterInput {
     // MARK: PRESENTER -> ROUTER
     func showSettinsScreen()
     func showAddFriendScreen()
-    func showFriendDetailScreen()
+    func showFriendDetailScreen(user: MUser)
 }
 
 

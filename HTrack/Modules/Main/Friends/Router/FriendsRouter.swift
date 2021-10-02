@@ -28,15 +28,15 @@ class FriendsRouter: FriendsRouterInput {
         
         guard let friendsScreenCoordinator = coordinator as? FriendsCoordinatorFlow else { return }
         
-        friendsScreenCoordinator.open(screen: .addFriend, animated: true)
+        friendsScreenCoordinator.open(screen: .addFriend, animated: false)
     }
     
-    func showFriendDetailScreen() {
+    func showFriendDetailScreen(user: MUser) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
         guard let friendsScreenCoordinator = coordinator as? FriendsCoordinatorFlow else { return }
         
-        friendsScreenCoordinator.open(screen: .friendDetail, animated: true)
+        friendsScreenCoordinator.open(screen: .friendDetail(friend: user), animated: false)
     }
 }

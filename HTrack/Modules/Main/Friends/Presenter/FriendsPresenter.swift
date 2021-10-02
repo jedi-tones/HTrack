@@ -31,6 +31,15 @@ extension FriendsPresenter: FriendsViewOutput {
     func addFriendButtonTapped() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+        
+        router.showAddFriendScreen()
+    }
+    
+    func settingsButtonTapped() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.showSettinsScreen()
     }
 }
 
@@ -166,13 +175,6 @@ extension FriendsPresenter: FriendsInteractorOutput {
         viewModel = newViewModel
         view.setupData(newData: viewModel)
     }
-    
-    func settingsButtonTapped() {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        router.showSettinsScreen()
-    }
 }
 
 extension FriendsPresenter: FriendInputRequestViewModelDelegate {
@@ -200,6 +202,7 @@ extension FriendsPresenter: FriendViewModelDelegate {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function) friend: \(friend)")
         
+        router.showFriendDetailScreen(user: friend)
     }
 }
 

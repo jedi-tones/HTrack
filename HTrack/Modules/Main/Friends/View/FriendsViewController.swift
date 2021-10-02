@@ -19,6 +19,14 @@ class FriendsViewController: UIViewController {
         return item
     }()
     
+    lazy var addFriendNavButton: UIBarButtonItem = {
+        let item = UIBarButtonItem(image: Styles.Images.addUserButtonImage,
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(addFriendButtonTapped(sender:)))
+        return item
+    }()
+    
     var customNavView = FriendsCustomNavigationView()
     
     lazy var leftNavButton: UIBarButtonItem = {
@@ -68,6 +76,10 @@ class FriendsViewController: UIViewController {
     
     @objc private func settingsButtonTapped(sender: UIBarButtonItem) {
         output.settingsButtonTapped()
+    }
+    
+    @objc private func addFriendButtonTapped(sender: UIBarButtonItem) {
+        output.addFriendButtonTapped()
     }
 }
 

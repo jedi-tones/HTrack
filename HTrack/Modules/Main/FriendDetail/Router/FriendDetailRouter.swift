@@ -1,0 +1,19 @@
+//  Created by Denis Shchigolev on 02/10/2021.
+//  Copyright © 2021 HTrack. All rights reserved.
+
+class FriendDetailRouter: FriendDetailRouterInput {
+    weak var controller: Presentable?
+    weak var coordinator: CoordinatorProtocol?
+
+    deinit {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+    }
+    
+    func closeModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        controller?.dismiss(false, completion: nil)
+    }
+}
