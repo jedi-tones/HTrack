@@ -18,6 +18,8 @@ extension DrawerView {
         let velocity = recognizer.velocity(in: containerView).y
         
         switch recognizer.state {
+        case .began:
+            startDragHeight = drawerHeight
         case .changed:
             let newHeight = max(0, min(maxDrawerPosition, drawerHeight - offset))
             dragDrawer(height: newHeight)
@@ -57,7 +59,7 @@ extension DrawerView {
                 if topPositionIsEnabled {
                     setDrawerPosition(.top) {}
                 } else {
-                    return
+                    setDrawerPosition(.custom(height: startDragHeight)) {}
                 }
             } else {
                 setDrawerPosition(.middle) {}
@@ -66,7 +68,7 @@ extension DrawerView {
               if topPositionIsEnabled {
                   setDrawerPosition(.top) {}
               } else {
-                  return
+                  setDrawerPosition(.custom(height: startDragHeight)) {}
               }
           }
         } else if botPositionIsEnabled {
@@ -74,5 +76,7 @@ extension DrawerView {
         } else {
             setDrawerPosition(.dismissed) {}
         }
+        
+        startDragHeight = 0
     }
 }

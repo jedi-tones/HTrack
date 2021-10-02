@@ -47,8 +47,9 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
     lazy var title: UILabel = {
         let t = UILabel()
         t.text = "Friend"
-        t.font = Styles.Fonts.baseNormalFont(size: 17)
+        t.font = Styles.Fonts.baseBoldFont(size: 17)
         t.textColor = titleColor
+        t.textAlignment = .center
         return t
     }()
     
@@ -56,15 +57,16 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
         let c = UILabel()
         c.text = "0"
         c.textColor = counterColor
-        c.font = Styles.Fonts.baseNormalFont(size: 144)
+        c.font = Styles.Fonts.baseBoldFont(size: 144)
+        c.textAlignment = .center
         return c
     }()
     
     lazy var removeButton: BaseTextButtonWithArrow = {
         let button = BaseTextButtonWithArrow()
         button.setTitle(title: "Удалить")
-        button.setTextColor(color: self.removeButtonColor)
-        button.setButtonColor(color: self.removeButtonColor)
+        button.setTextColor(color: self.removeButtonTextColor)
+        button.setButtonColor(color: self.removeButtonBackColor)
         button.setBorderColor(color: self.removeButtonColor)
         button.action = {[weak self] in
             self?.viewModel?.tapRemoveButton()
@@ -125,6 +127,14 @@ extension FriendDetailContentView {
     
     var removeButtonColor: UIColor {
         Styles.Colors.myErrorLabelColor()
+    }
+    
+    var removeButtonTextColor: UIColor {
+        Styles.Colors.myErrorLabelColor()
+    }
+    
+    var removeButtonBackColor: UIColor {
+        .clear
     }
 }
 

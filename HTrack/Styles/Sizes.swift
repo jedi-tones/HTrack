@@ -33,6 +33,7 @@ extension Styles.Sizes  {
                                                              bottom: 10,
                                                              right: 10)
     
+    static let smallButtonHeight: CGFloat = 22
     static let baseButtonHeight: CGFloat = 44
     
     static let smallCornerRadius: CGFloat = 5

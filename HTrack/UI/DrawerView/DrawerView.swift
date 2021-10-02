@@ -27,9 +27,9 @@ class DrawerView : UIView {
     
     var dragRecognizer: UIPanGestureRecognizer!
     
-    let animationDamping : CGFloat = Styles.Constants.animationDuarationBase
+    let animationDamping : CGFloat = Styles.Constants.animationDamping
     let animationDuration  = Styles.Constants.animationDuarationBase
-    
+    let maxHeight: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height
     var maxDrawerPosition: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height {
         didSet {
             midDrawerPosition = maxDrawerPosition/2
@@ -48,6 +48,7 @@ class DrawerView : UIView {
         }
     }
     
+    var startDragHeight:CGFloat = 0
     var contentsOffsetTop: CGFloat = 0
     var drawerHeight: CGFloat = 0
     
@@ -351,6 +352,6 @@ extension DrawerView {
         containerView.backgroundColor  = .clear
         blurBackgroundView.setCustomBlurColor(color: Styles.Colors.myBackgroundColor(),
                                               blurEffectStyle: .systemMaterial)
-        backgroundView.backgroundColor = Styles.Colors.black1.withAlphaComponent(0.40)
+        backgroundView.backgroundColor = Styles.Colors.gray1.withAlphaComponent(0.2)
     }
 }

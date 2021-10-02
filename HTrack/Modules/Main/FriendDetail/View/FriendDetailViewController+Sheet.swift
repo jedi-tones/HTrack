@@ -30,8 +30,11 @@ extension FriendDetailViewController {
                 h = minHeight
             }
             
-            if h > self.drawerView.maxDrawerPosition {
-                h = self.drawerView.maxDrawerPosition
+            
+            if h <= self.drawerView.maxHeight {
+                self.drawerView.maxDrawerPosition = h
+            } else {
+                h = self.drawerView.maxHeight
             }
             
             self.drawerView.setDrawerPosition(.custom(height: h), animated: true) {}

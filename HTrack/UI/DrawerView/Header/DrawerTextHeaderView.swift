@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import TinyConstraints
 
 class DrawerTextHeaderView: UIView {
     var onClose: (() -> Void)?
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = Styles.Fonts.baseNormalFont(size: 17)
+        label.font = Styles.Fonts.baseBoldFont(size: 17)
         label.numberOfLines = 0
         return label
     }()
@@ -54,7 +55,8 @@ class DrawerTextHeaderView: UIView {
         
         titleLabel.edgesToSuperview(excluding: .right)
         closeButton.edgesToSuperview(excluding: .left)
-        
+        closeButton.height(Styles.Sizes.smallButtonHeight)
+        closeButton.widthToHeight(of: closeButton)
         spacerView.topToSuperview()
         spacerView.bottomToSuperview()
         spacerView.leftToRight(of: titleLabel)

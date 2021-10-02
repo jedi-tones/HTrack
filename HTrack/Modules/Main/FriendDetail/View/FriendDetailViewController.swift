@@ -12,7 +12,7 @@ class FriendDetailViewController: UIViewController {
     var drawerView = DrawerView()
     lazy var drawerHeaderView: DrawerTextHeaderView = {
         let header = DrawerTextHeaderView()
-        header.setTitle(title: "Добавить друга")
+        header.setTitle(title: "@FRIEND")
         header.onClose = { [weak self] in
             self?.drawerView.setDrawerPosition(.dismissed,
                                          animated: true,
@@ -87,7 +87,8 @@ extension FriendDetailViewController: FriendDetailViewInput {
     func setData(viewModel: FriendDetailViewModel) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
-        
+        let headerTitle = "@\(viewModel.sheetHeaderTitle.uppercased())"
+        drawerHeaderView.setTitle(title: headerTitle)
         friendDetailContentView.setData(viewModel)
     }
 }

@@ -104,7 +104,7 @@ extension FriendsCoordinator: FriendsCoordinatorFlow {
         
         let module = AddFriendModule(coordinator: self, complition: nil)
         modulePresenter?.presentModule(with: module.controller,
-                                       presentationStyle: .fullScreen,
+                                       presentationStyle: .overFullScreen,
                                        animated: false)
     }
     
@@ -116,7 +116,7 @@ extension FriendsCoordinator: FriendsCoordinatorFlow {
             input.configure(friend: friend)
         }
         modulePresenter?.presentModule(with: module.controller,
-                                       presentationStyle: .fullScreen,
+                                       presentationStyle: .overFullScreen,
                                        animated: animated)
     }
 }
