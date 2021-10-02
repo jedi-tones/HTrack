@@ -8,6 +8,11 @@
 import UIKit
 
 extension Styles.Sizes  {
+    static let statusBar = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+    static let safeAreaInsets = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets ?? .zero
+    
+    static let screenSize: CGSize = UIScreen.main.bounds.size
+    
     static let baseVInset: CGFloat = 3
     static let baseHInset: CGFloat = 5
     

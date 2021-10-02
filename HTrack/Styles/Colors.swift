@@ -36,6 +36,14 @@ extension Styles.Colors  {
         return gray1
     }
     
+    static func myShadowColor() -> UIColor {
+        dynamicColor(light: black1, dark: white1)
+    }
+    
+    static func myDragAccessoryColor() -> UIColor {
+        dynamicColor(light: black1, dark: white1)
+    }
+    
     static func myLabelColor() -> UIColor {
         dynamicColor(light: black1, dark: white1)
     }

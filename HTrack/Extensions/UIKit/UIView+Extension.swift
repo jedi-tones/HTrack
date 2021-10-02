@@ -56,4 +56,20 @@ extension UIView {
             }
         }
     }
+    
+    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float, withPath: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowOffset = offset
+        if withPath {
+            layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        }
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+    }
+    
+    func setCornerRadius(radius: CGFloat){
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = radius
+    }
 }

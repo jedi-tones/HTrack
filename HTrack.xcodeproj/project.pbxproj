@@ -79,6 +79,16 @@
 		DD1E54DB26F7E42F00CB4903 /* MainScreenInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E54DA26F7E42F00CB4903 /* MainScreenInfoView.swift */; };
 		DD1E54DD26F7F09800CB4903 /* FriendsInteractor+UserListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E54DC26F7F09800CB4903 /* FriendsInteractor+UserListner.swift */; };
 		DD1E54DF26F7FE4E00CB4903 /* FriendsManager+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E54DE26F7FE4E00CB4903 /* FriendsManager+Auth.swift */; };
+		DD2FA09627088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA09527088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift */; };
+		DD2FA09827088BE500FC0382 /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA09727088BE500FC0382 /* DrawerView.swift */; };
+		DD2FA09A27088D2300FC0382 /* DrawerView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA09927088D2300FC0382 /* DrawerView+Gesture.swift */; };
+		DD2FA09D27088D9E00FC0382 /* ScrollableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA09C27088D9E00FC0382 /* ScrollableContent.swift */; };
+		DD2FA09F270892F100FC0382 /* BlurBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA09E270892F100FC0382 /* BlurBackView.swift */; };
+		DD2FA0A12708959700FC0382 /* DrawerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A02708959700FC0382 /* DrawerHeaderView.swift */; };
+		DD2FA0A32708983B00FC0382 /* UIView+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A22708983B00FC0382 /* UIView+Size.swift */; };
+		DD2FA0A62708A19400FC0382 /* DrawerTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A52708A19400FC0382 /* DrawerTextHeaderView.swift */; };
+		DD2FA0A82708A2E500FC0382 /* Fonts+Avenir.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A72708A2E400FC0382 /* Fonts+Avenir.swift */; };
+		DD2FA0AA2708A76200FC0382 /* UIButtonWithHitTestInset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A92708A76200FC0382 /* UIButtonWithHitTestInset.swift */; };
 		DD3FBCB926EE023E002591A6 /* FriendsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */; };
 		DD3FBCBB26EE027C002591A6 /* FriendsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */; };
 		DD3FBCBD26EE029E002591A6 /* FriendsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */; };
@@ -284,6 +294,16 @@
 		DD1E54DA26F7E42F00CB4903 /* MainScreenInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInfoView.swift; sourceTree = "<group>"; };
 		DD1E54DC26F7F09800CB4903 /* FriendsInteractor+UserListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsInteractor+UserListner.swift"; sourceTree = "<group>"; };
 		DD1E54DE26F7FE4E00CB4903 /* FriendsManager+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsManager+Auth.swift"; sourceTree = "<group>"; };
+		DD2FA09527088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrawerView+ScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		DD2FA09727088BE500FC0382 /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		DD2FA09927088D2300FC0382 /* DrawerView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrawerView+Gesture.swift"; sourceTree = "<group>"; };
+		DD2FA09C27088D9E00FC0382 /* ScrollableContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableContent.swift; sourceTree = "<group>"; };
+		DD2FA09E270892F100FC0382 /* BlurBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackView.swift; sourceTree = "<group>"; };
+		DD2FA0A02708959700FC0382 /* DrawerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerHeaderView.swift; sourceTree = "<group>"; };
+		DD2FA0A22708983B00FC0382 /* UIView+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Size.swift"; sourceTree = "<group>"; };
+		DD2FA0A52708A19400FC0382 /* DrawerTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTextHeaderView.swift; sourceTree = "<group>"; };
+		DD2FA0A72708A2E400FC0382 /* Fonts+Avenir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Avenir.swift"; sourceTree = "<group>"; };
+		DD2FA0A92708A76200FC0382 /* UIButtonWithHitTestInset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonWithHitTestInset.swift; sourceTree = "<group>"; };
 		DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+Delegate.swift"; sourceTree = "<group>"; };
 		DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -985,6 +1005,28 @@
 			path = MainTabBar;
 			sourceTree = "<group>";
 		};
+		DD2FA09B27088D5C00FC0382 /* DrawerView */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA0A427089DA600FC0382 /* Header */,
+				DD2FA09927088D2300FC0382 /* DrawerView+Gesture.swift */,
+				DD2FA09527088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift */,
+				DD2FA09727088BE500FC0382 /* DrawerView.swift */,
+				DD2FA09C27088D9E00FC0382 /* ScrollableContent.swift */,
+				DD2FA09E270892F100FC0382 /* BlurBackView.swift */,
+			);
+			path = DrawerView;
+			sourceTree = "<group>";
+		};
+		DD2FA0A427089DA600FC0382 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA0A02708959700FC0382 /* DrawerHeaderView.swift */,
+				DD2FA0A52708A19400FC0382 /* DrawerTextHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		DD3FBCC226EE061E002591A6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1043,12 +1085,12 @@
 		DD59F73926B5AA4B00CA8179 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DD2FA09B27088D5C00FC0382 /* DrawerView */,
 				DD9F614926E51A83009E3D39 /* Cells */,
 				DD59F73D26B5AAD800CA8179 /* View */,
 				DD59F73A26B5AA5500CA8179 /* Buttons */,
 				DD65E09826B89E37002BBF80 /* TextFields */,
 				DD5414F326C168E000A13BE0 /* ContainerViewController.swift */,
-				DD6BD6BA26F8F7DE006369BB /* DrawerView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1059,6 +1101,7 @@
 				FB6B9D5526BB057E0050690F /* BaseTextButtonWithArrow.swift */,
 				DD59F73B26B5AA6600CA8179 /* BaseCustomButton.swift */,
 				DD59F74226B5ABE200CA8179 /* BaseCustomButtonActionProtocol.swift */,
+				DD2FA0A92708A76200FC0382 /* UIButtonWithHitTestInset.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1167,13 +1210,6 @@
 				DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */,
 			);
 			path = Subviews;
-			sourceTree = "<group>";
-		};
-		DD6BD6BA26F8F7DE006369BB /* DrawerView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DrawerView;
 			sourceTree = "<group>";
 		};
 		DD870D6A26D7E0C4000F59AE /* User */ = {
@@ -1308,6 +1344,7 @@
 				DD59F74026B5AB9200CA8179 /* UIEdges+Extension.swift */,
 				DD92150C2676577800A3623E /* UIApplication+Extension.swift */,
 				DD59F74426B5AC8F00CA8179 /* UIView+Extension.swift */,
+				DD2FA0A22708983B00FC0382 /* UIView+Size.swift */,
 				DD59F74E26B5D3AE00CA8179 /* UIView+Gradient.swift */,
 				DD59F75026B5DD2600CA8179 /* UIStackView+Extension.swift */,
 				DD59F74626B5AEEA00CA8179 /* CGRect+Extension.swift */,
@@ -1323,6 +1360,7 @@
 				DD59F74826B5B01400CA8179 /* Constants.swift */,
 				DD9215242677D99400A3623E /* Sizes.swift */,
 				DD9215262677D99D00A3623E /* Fonts.swift */,
+				DD2FA0A72708A2E400FC0382 /* Fonts+Avenir.swift */,
 				DD92152D2677E93000A3623E /* Images.swift */,
 			);
 			path = Styles;
@@ -1663,6 +1701,7 @@
 				FB6B9D3F26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift in Sources */,
 				DD92151026777DB500A3623E /* Module.swift in Sources */,
 				DD59F76326B6F2BC00CA8179 /* FirebaseAuthManager.swift in Sources */,
+				DD2FA0A12708959700FC0382 /* DrawerHeaderView.swift in Sources */,
 				DD92150D2676577800A3623E /* UIApplication+Extension.swift in Sources */,
 				DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */,
 				DD6BD70E26F90981006369BB /* PopUpManager.swift in Sources */,
@@ -1673,6 +1712,7 @@
 				FB6B9D4726B99EE10050690F /* Validator.swift in Sources */,
 				DD59F73C26B5AA6600CA8179 /* BaseCustomButton.swift in Sources */,
 				DD9F615226E52434009E3D39 /* BaseCell+Touches.swift in Sources */,
+				DD2FA09D27088D9E00FC0382 /* ScrollableContent.swift in Sources */,
 				DD870D6526D7DBF3000F59AE /* UserManager.swift in Sources */,
 				DD870D6926D7E0BE000F59AE /* UserRequestManager.swift in Sources */,
 				DD59F73F26B5AAF200CA8179 /* ViewWithCustomTouchArea.swift in Sources */,
@@ -1681,6 +1721,7 @@
 				DD92150926764C6900A3623E /* UIViewController+Extension.swift in Sources */,
 				DD9214EF26763DFB00A3623E /* SceneDelegate.swift in Sources */,
 				DD870D6C26D7E155000F59AE /* FirestoreManager+User.swift in Sources */,
+				DD2FA09A27088D2300FC0382 /* DrawerView+Gesture.swift in Sources */,
 				DD59F73826B5A95800CA8179 /* WelcomeView.swift in Sources */,
 				DD9EAD1B2699BEBD0032B3D7 /* HTTPMethod.swift in Sources */,
 				DD92150626763ED800A3623E /* Date+Extension.swift in Sources */,
@@ -1688,6 +1729,7 @@
 				DD9F616026E657B0009E3D39 /* UICollectionReusableView+Extension.swift in Sources */,
 				2B356FC45A82196D554AC8AA /* MainTabBarViewController.swift in Sources */,
 				DD59F75A26B60A4200CA8179 /* AppManager+ViewControllers.swift in Sources */,
+				DD2FA09827088BE500FC0382 /* DrawerView.swift in Sources */,
 				DD92150B26764CC500A3623E /* Presentable.swift in Sources */,
 				93CD55BB6E8F90E075C4F98C /* MainTabBarPresenter.swift in Sources */,
 				7905043EDAE76365ABC4D5B6 /* MainTabBarInteractor.swift in Sources */,
@@ -1756,6 +1798,7 @@
 				DD59F74926B5B01400CA8179 /* Constants.swift in Sources */,
 				B06A853378EBB9583F7B1F15 /* RegisterViewController.swift in Sources */,
 				8C40A0692AE914BC371FE056 /* RegisterPresenter.swift in Sources */,
+				DD2FA09F270892F100FC0382 /* BlurBackView.swift in Sources */,
 				DD870D7026D7E320000F59AE /* BaseEndPoint.swift in Sources */,
 				B59C60C49C97C4E94BC904AF /* RegisterInteractor.swift in Sources */,
 				F172449F63A9506E7070F9CE /* RegisterRouter.swift in Sources */,
@@ -1783,6 +1826,7 @@
 				FB6B9D5726BB0E210050690F /* TextFieldWithError+ValidateInput.swift in Sources */,
 				531722F56884B0B21760A9CE /* MainScreenModule.swift in Sources */,
 				DD3FBCD926EE3D9D002591A6 /* FriendsRequestManager.swift in Sources */,
+				DD2FA09627088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift in Sources */,
 				EFB394C10363780861596021 /* FriendsViewController.swift in Sources */,
 				DD9F614126E2AFA2009E3D39 /* SettingsViewController+Delegate.swift in Sources */,
 				7AFDB051828D8FD0834617E8 /* FriendsPresenter.swift in Sources */,
@@ -1794,10 +1838,14 @@
 				C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */,
 				DD59F74D26B5B8AB00CA8179 /* BaseTextButtonWithArrow.swift in Sources */,
 				C09BA41CCA8B6E0DADE6067C /* FriendsProtocols.swift in Sources */,
+				DD2FA0A32708983B00FC0382 /* UIView+Size.swift in Sources */,
 				D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */,
 				C629FC19BD05B52BFF25F858 /* RegisterUserInfoViewController.swift in Sources */,
 				DD59F75C26B6113F00CA8179 /* AppManager+Auth.swift in Sources */,
+				DD2FA0A62708A19400FC0382 /* DrawerTextHeaderView.swift in Sources */,
 				DD3FBCBF26EE0434002591A6 /* FriendCell.swift in Sources */,
+				DD2FA0AA2708A76200FC0382 /* UIButtonWithHitTestInset.swift in Sources */,
+				DD2FA0A82708A2E500FC0382 /* Fonts+Avenir.swift in Sources */,
 				DD59F75F26B6F1E300CA8179 /* AppleAuthService.swift in Sources */,
 				DD9F617126E8035C009E3D39 /* SettingsInteractor+UserListner.swift in Sources */,
 				DD5414F426C168E000A13BE0 /* ContainerViewController.swift in Sources */,

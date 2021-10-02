@@ -26,4 +26,6 @@ extension Styles.Images  {
     
     static let mainScreenNoise: UIImage =  #imageLiteral(resourceName: "MainScreenNoise")
     static let authScreenNoise: UIImage = #imageLiteral(resourceName: "AuthScreenNoise")
+    
+    static let closeCross: UIImage = #imageLiteral(resourceName: "closeCross")
 }
