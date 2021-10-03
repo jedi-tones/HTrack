@@ -106,7 +106,6 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
         }
     }
 
-    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let obj = object as? UIScrollView {
             if obj == self && keyPath == "contentSize" {

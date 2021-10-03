@@ -165,6 +165,7 @@ class DrawerView : UIView {
     func setDrawerPosition(_ position: State,
                            animated: Bool = true,
                            fastUpdate: Bool = false,
+                           delay: TimeInterval = 0.0,
                            completion: @escaping () -> Void) {
         
         var newSize = containerView.frame.size
@@ -189,7 +190,7 @@ class DrawerView : UIView {
             
             if animated {
                 UIView.animate(withDuration: animationDuration,
-                               delay: 0.0,
+                               delay: delay,
                                usingSpringWithDamping: animationDamping,
                                initialSpringVelocity: 0,
                                options: [ .beginFromCurrentState ],

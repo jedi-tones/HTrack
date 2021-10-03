@@ -38,4 +38,8 @@ extension UIView {
             self.frame.size.height = newValue
         }
     }
+    
+    var smallestCalculatedConstraintsSize: CGSize {
+        return systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+    }
 }

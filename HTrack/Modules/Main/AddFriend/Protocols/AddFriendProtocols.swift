@@ -12,6 +12,7 @@ protocol AddFriendViewInput: AnyObject {
 protocol AddFriendViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
+    func didDismissedSheet()
 }
 
 
@@ -28,6 +29,7 @@ protocol AddFriendInteractorOutput: AnyObject {
 // MARK: - Router
 protocol AddFriendRouterInput {
     // MARK: PRESENTER -> ROUTER
+    func closeModule()
 }
 
 

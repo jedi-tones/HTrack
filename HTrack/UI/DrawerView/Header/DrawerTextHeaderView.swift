@@ -33,7 +33,7 @@ class DrawerTextHeaderView: UIView {
     var insets: UIEdgeInsets = UIEdgeInsets(top: Styles.Sizes.mediumVInset,
                                             left: Styles.Sizes.mediumHInset * 2,
                                             bottom: Styles.Sizes.mediumVInset,
-                                            right: Styles.Sizes.mediumHInset)
+                                            right: Styles.Sizes.mediumHInset * 2)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

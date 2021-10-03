@@ -95,6 +95,8 @@
 		DD2FA0BF2708F99800FC0382 /* FriendsDetailElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0BE2708F99800FC0382 /* FriendsDetailElement.swift */; };
 		DD2FA0C32709012100FC0382 /* FriendDetailViewController+Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C22709012100FC0382 /* FriendDetailViewController+Sheet.swift */; };
 		DD2FA0C52709065700FC0382 /* FriendsCell+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */; };
+		DD2FA0C72709C64C00FC0382 /* AddFriendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C62709C64C00FC0382 /* AddFriendHeaderView.swift */; };
+		DD2FA0C92709D6CD00FC0382 /* OutputRequestContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C82709D6CD00FC0382 /* OutputRequestContentView.swift */; };
 		DD3FBCB926EE023E002591A6 /* FriendsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */; };
 		DD3FBCBB26EE027C002591A6 /* FriendsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */; };
 		DD3FBCBD26EE029E002591A6 /* FriendsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */; };
@@ -310,6 +312,8 @@
 		DD2FA0BE2708F99800FC0382 /* FriendsDetailElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDetailElement.swift; sourceTree = "<group>"; };
 		DD2FA0C22709012100FC0382 /* FriendDetailViewController+Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendDetailViewController+Sheet.swift"; sourceTree = "<group>"; };
 		DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsCell+Touches.swift"; sourceTree = "<group>"; };
+		DD2FA0C62709C64C00FC0382 /* AddFriendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendHeaderView.swift; sourceTree = "<group>"; };
+		DD2FA0C82709D6CD00FC0382 /* OutputRequestContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputRequestContentView.swift; sourceTree = "<group>"; };
 		DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+Delegate.swift"; sourceTree = "<group>"; };
 		DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -730,6 +734,7 @@
 			children = (
 				F20688646606355E5F45E33D /* AddFriendViewController.swift */,
 				DD2FA0AB2708B2A700FC0382 /* AddFriendViewController+Sheet.swift */,
+				DD2FA0CA2709D73900FC0382 /* Subviews */,
 				DD2FA0BA2708E60700FC0382 /* Cells */,
 			);
 			path = View;
@@ -1014,6 +1019,15 @@
 			isa = PBXGroup;
 			children = (
 				DD2FA0AD2708B51800FC0382 /* FriendDetailContentView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		DD2FA0CA2709D73900FC0382 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA0C62709C64C00FC0382 /* AddFriendHeaderView.swift */,
+				DD2FA0C82709D6CD00FC0382 /* OutputRequestContentView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -1764,6 +1778,7 @@
 				DD870D7926DEC1FB000F59AE /* Notifier.swift in Sources */,
 				F5D22FF44227FD89348873D9 /* AuthBuilder.swift in Sources */,
 				DD9215292677DEB100A3623E /* MainTabBarTabs.swift in Sources */,
+				DD2FA0C72709C64C00FC0382 /* AddFriendHeaderView.swift in Sources */,
 				DD870D6E26D7E2D8000F59AE /* FirestoreEndPoint.swift in Sources */,
 				DD5F63EC267FA773002131FD /* SectionViewModel.swift in Sources */,
 				DD3FBCD426EE3ACE002591A6 /* FriendsManager.swift in Sources */,
@@ -1811,6 +1826,7 @@
 				DD3FBCC926EE0999002591A6 /* RequestCell.swift in Sources */,
 				6225EF4BD962064B9F8D11C9 /* RegisterBuilder.swift in Sources */,
 				DD9F616F26E7E816009E3D39 /* DatePickerCellViewModel.swift in Sources */,
+				DD2FA0C92709D6CD00FC0382 /* OutputRequestContentView.swift in Sources */,
 				DD9F616D26E7E72A009E3D39 /* DatePickerCell.swift in Sources */,
 				DD9F615E26E65538009E3D39 /* BackgroudSectionView.swift in Sources */,
 				DD65E09726B89C94002BBF80 /* TextFieldWithInsets.swift in Sources */,

@@ -7,7 +7,31 @@ import TinyConstraints
 class AddFriendViewController: UIViewController {
     // MARK: Properties
     var output: AddFriendViewOutput!
-
+    
+    var drawerView = DrawerView()
+    lazy var drawerHeaderView: DrawerTextHeaderView = {
+        let header = DrawerTextHeaderView()
+        header.setTitle(title: "Добавить друга")
+        header.onClose = { [weak self] in
+            self?.drawerView.setDrawerPosition(.dismissed,
+                                         animated: true,
+                                         fastUpdate: false) {}
+        }
+        return header
+    }()
+    
+    lazy var addFriendHeaderView: AddFriendHeaderView = {
+        let hv = AddFriendHeaderView()
+        hv.updateState(to: .normal)
+        return hv
+    }()
+    
+    lazy var outputRequestsContentView: OutputRequestContentView = {
+        let contentView = OutputRequestContentView()
+        
+        return contentView
+    }()
+    
     // MARK: Life cycle
     override func loadView() {
         super.loadView()
@@ -43,20 +67,6 @@ class AddFriendViewController: UIViewController {
         super.viewDidDisappear(animated)
     }
     
-    var drawerView = DrawerView()
-    
-    lazy var drawerHeaderView: DrawerTextHeaderView = {
-        let header = DrawerTextHeaderView()
-        header.setTitle(title: "Добавить друга")
-        header.onClose = { [weak self] in
-            self?.drawerView.setDrawerPosition(.dismissed,
-                                         animated: true,
-                                         fastUpdate: false) {}
-        }
-        return header
-    }()
-    
-
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -66,8 +76,8 @@ class AddFriendViewController: UIViewController {
 extension AddFriendViewController {
     // MARK: Methods
     func setupViews() {
-        setupDrawerView()
         setupConstraints()
+        setupDrawerView()
     }
 
     func setupConstraints() {
@@ -83,5 +93,12 @@ extension AddFriendViewController: AddFriendViewInput {
                     text: "\(type(of: self)) - \(#function)")
 
         setupViews()
+    }
+    
+    func setupState(state: AddFriendHeaderView.AddFriendHeaderState) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) state: \(state)")
+        
+        addFriendHeaderView.updateState(to: state)
     }
 }

@@ -105,7 +105,7 @@ extension FriendsCoordinator: FriendsCoordinatorFlow {
         let module = AddFriendModule(coordinator: self, complition: nil)
         modulePresenter?.presentModule(with: module.controller,
                                        presentationStyle: .overFullScreen,
-                                       animated: false)
+                                       animated: animated)
     }
     
     func showFriendDetailScreen(friend: MUser, animated: Bool) {

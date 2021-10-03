@@ -21,6 +21,13 @@ extension AddFriendPresenter: AddFriendViewOutput {
 
         view.setupInitialState()
     }
+    
+    func didDismissedSheet() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router.closeModule()
+    }
 }
 
 // MARK: - AddFriendInteractorOutput

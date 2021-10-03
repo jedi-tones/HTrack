@@ -21,7 +21,7 @@ extension Styles.Sizes  {
     static let mediumHInset: CGFloat = 8
     
     static let stadartVInset: CGFloat = 8
-    static let standartHInset: CGFloat = 14
+    static let standartHInset: CGFloat = 16
     
     static let bigVInset: CGFloat = 44
     static let bigHInset: CGFloat = 22

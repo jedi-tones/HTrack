@@ -9,4 +9,11 @@ class AddFriendRouter: AddFriendRouterInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
     }
+    
+    func closeModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        controller?.dismiss(false, completion: nil)
+    }
 }
