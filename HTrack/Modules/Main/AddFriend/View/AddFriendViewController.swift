@@ -6,9 +6,12 @@ import TinyConstraints
 
 class AddFriendViewController: UIViewController {
     // MARK: Properties
-    var output: AddFriendViewOutput!
-    
+    var output: AddFriendViewOutput?
+    var diffableDataSource: UICollectionViewDiffableDataSource<SectionViewModel, AnyHashable>?
+    var layout: UICollectionViewLayout?
+    var outputRequestsCollectionView: OutputRequestCollectionView?
     var drawerView = DrawerView()
+    
     lazy var drawerHeaderView: DrawerTextHeaderView = {
         let header = DrawerTextHeaderView()
         header.setTitle(title: "Добавить друга")
@@ -23,13 +26,10 @@ class AddFriendViewController: UIViewController {
     lazy var addFriendHeaderView: AddFriendHeaderView = {
         let hv = AddFriendHeaderView()
         hv.updateState(to: .normal)
+        hv.addFriendAction = {[weak self] friendName in
+            self?.output?.addFriendAction(name: friendName)
+        }
         return hv
-    }()
-    
-    lazy var outputRequestsContentView: OutputRequestContentView = {
-        let contentView = OutputRequestContentView()
-        
-        return contentView
     }()
     
     // MARK: Life cycle
@@ -40,7 +40,7 @@ class AddFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        output.viewIsReady()
+        output?.viewIsReady()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +76,7 @@ class AddFriendViewController: UIViewController {
 extension AddFriendViewController {
     // MARK: Methods
     func setupViews() {
+        setupCollectionView()
         setupConstraints()
         setupDrawerView()
     }
@@ -100,5 +101,37 @@ extension AddFriendViewController: AddFriendViewInput {
                     text: "\(type(of: self)) - \(#function) state: \(state)")
         
         addFriendHeaderView.updateState(to: state)
+    }
+    
+    func setupData(newData: [SectionViewModel]) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) \(newData)")
+        
+        var snapshot = NSDiffableDataSourceSnapshot<SectionViewModel, AnyHashable>()
+        
+        newData.forEach { sectionVM in
+            var vms: [AnyHashable] = []
+            sectionVM.items.forEach { cellViewModel in
+                
+                switch cellViewModel {
+                case let vm as FriendViewModel:
+                    vms.append(vm)
+                    
+                case let vm as FriendInputRequestViewModel:
+                    vms.append(vm)
+                default:
+                    break
+                }
+            }
+            
+            snapshot.appendSections([sectionVM])
+            snapshot.appendItems(vms, toSection: sectionVM)
+        }
+        diffableDataSource?.apply(snapshot,
+                                  animatingDifferences: true,
+                                  completion: {[weak self] in
+            let contentSize = self?.outputRequestsCollectionView?.contentSize ?? .zero
+            self?.outputRequestsCollectionView?.didChangeContentSize?(contentSize)
+        })
     }
 }

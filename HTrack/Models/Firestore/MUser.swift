@@ -27,6 +27,9 @@ struct MUser: Codable, Hashable {
     var isAdmin: Bool?
     var isPremiumUser: Bool?
     var isActive: Bool?
+    var drinkDays: [Date] = []
+    var reportList: [MReports] = []
+    var photo: String?
     
     init(peopleID: String,
          name: String,
@@ -36,7 +39,10 @@ struct MUser: Codable, Hashable {
          fcmKey: String,
          isAdmin: Bool,
          isPremiumUser: Bool,
-         isActive: Bool) {
+         isActive: Bool,
+         drinkDays: [Date],
+         reportList: [MReports],
+         photo: String) {
         
         self.userID = peopleID
         self.name = name
@@ -47,6 +53,9 @@ struct MUser: Codable, Hashable {
         self.isAdmin = isAdmin
         self.isPremiumUser = isPremiumUser
         self.isActive = isActive
+        self.drinkDays = drinkDays
+        self.reportList = reportList
+        self.photo = photo
     }
     
     //MARK: documentSnapshot
@@ -71,13 +80,16 @@ struct MUser: Codable, Hashable {
         if let isAdmin = documet["isAdmin"] as? Bool { self.isAdmin = isAdmin } else { self.isAdmin = false}
         if let isPremiumUser = documet["isPremiumUser"] as? Bool { self.isPremiumUser = isPremiumUser } else { self.isPremiumUser = false}
         if let isActive = documet["isActive"] as? Bool { self.isActive = isActive } else { self.isActive = true}
+        if let drinkDays = documet["drinkDays"] as? [Timestamp] { self.drinkDays = drinkDays.map({$0.dateValue()}) } else { self.drinkDays = [startDate ?? Date()]}
+        if let reportList = documet["reportList"] as? [[String : Any]] { self.reportList = reportList.compactMap({$0.toObject()}) }
+        if let photo = documet["photo"] as? String { self.photo = photo } else { self.photo = ""}
     }
     
     //MARK: QueryDocumentSnapshot
     //for init with ListenerService
     init?(documentSnap: QueryDocumentSnapshot){
         let documet = documentSnap.data()
-       
+        
         if let peopleID = documet["userID"] as? String { self.userID = peopleID } else { self.userID = ""}
         if let name = documet["name"] as? String { self.name = name } else { self.name = ""}
         if let mail = documet["mail"] as? String { self.mail = mail } else { self.mail = ""}
@@ -95,18 +107,16 @@ struct MUser: Codable, Hashable {
         if let isAdmin = documet["isAdmin"] as? Bool { self.isAdmin = isAdmin } else { self.isAdmin = false}
         if let isPremiumUser = documet["isPremiumUser"] as? Bool { self.isPremiumUser = isPremiumUser } else { self.isPremiumUser = false}
         if let isActive = documet["isActive"] as? Bool { self.isActive = isActive } else { self.isActive = true}
+        if let drinkDays = documet["drinkDays"] as? [Timestamp] { self.drinkDays = drinkDays.map({$0.dateValue()}) } else { self.drinkDays = [startDate ?? Date()]}
+        if let reportList = documet["reportList"] as? [[String : Any]] { self.reportList = reportList.compactMap({$0.toObject()}) }
+        if let photo = documet["photo"] as? String { self.photo = photo } else { self.photo = ""}
     }
     
     func fromJson(json: [String : Any]) -> MUser?{
-        if let data = try? JSONSerialization.data(withJSONObject: json, options: []) {
-            let people = try? JSONDecoder().decode(MUser.self, from: data)
-            return people
-        } else {
-            return nil
-        }
+        return json.toObject()
     }
     
-     func mergeWithJson(json: [String : Any]) -> MUser {
+    func mergeWithJson(json: [String : Any]) -> MUser {
         var updatedUser = self
         if let peopleID = json["userID"] as? String { updatedUser.userID = peopleID }
         if let name = json["name"] as? String { updatedUser.name = name }
@@ -123,6 +133,9 @@ struct MUser: Codable, Hashable {
         if let isAdmin = json["isAdmin"] as? Bool { updatedUser.isAdmin = isAdmin }
         if let isPremiumUser = json["isPremiumUser"] as? Bool { updatedUser.isPremiumUser = isPremiumUser }
         if let isActive = json["isActive"] as? Bool { updatedUser.isActive = isActive }
+        if let drinkDays = json["drinkDays"] as? [Timestamp] { updatedUser.drinkDays = drinkDays.map({$0.dateValue()}) }
+        if let reportList = json["reportList"] as? [[String : Any]] { updatedUser.reportList = reportList.compactMap({$0.toObject()})}
+        if let photo = json["photo"] as? String { updatedUser.photo = photo }
         
         return updatedUser
     }
@@ -137,18 +150,24 @@ struct MUser: Codable, Hashable {
         case isAdmin
         case isPremiumUser
         case isActive
+        case drinkDays
+        case reportList
+        case photo
     }
     
     static func emptyPeople() -> MUser {
         let people = MUser(peopleID: "",
-                             name: "",
-                             mail: "",
-                             authType: AuthType.defaultAuthType(),
-                             startDate: Date(),
-                             fcmKey: "",
-                             isAdmin: false,
-                             isPremiumUser: false,
-                             isActive: true)
+                           name: "",
+                           mail: "",
+                           authType: AuthType.defaultAuthType(),
+                           startDate: Date(),
+                           fcmKey: "",
+                           isAdmin: false,
+                           isPremiumUser: false,
+                           isActive: true,
+                           drinkDays: [],
+                           reportList: [],
+                           photo: "")
         return people
     }
 }

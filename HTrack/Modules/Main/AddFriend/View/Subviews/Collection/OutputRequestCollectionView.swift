@@ -1,22 +1,34 @@
 //
-//  OutputRequestContentView.swift
+//  OutputRequestCollectionView.swift
 //  HTrack
 //
-//  Created by Jedi Tones on 10/3/21.
+//  Created by Денис Щиголев on 10/9/21.
 //
 
 import UIKit
 
-class OutputRequestContentView: UICollectionView, ScrollableContent {
+class OutputRequestCollectionView: UICollectionView, ScrollableContent {
     var didChangeContentSize: ((_ size: CGSize) -> ())?
     var scrollViewDelegate: UIScrollViewDelegate?
-
+    
+    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
+        
+        setupViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupViews() {
+        backgroundColor = backColor
+    }
+    
     func scrollToTop() {}
-    
-    
 }
 
-extension OutputRequestContentView: UIScrollViewDelegate {
+extension OutputRequestCollectionView {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         scrollViewDelegate?.scrollViewWillBeginDragging?(scrollView)
     }
@@ -31,5 +43,11 @@ extension OutputRequestContentView: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollViewDelegate?.scrollViewDidScroll?(scrollView)
+    }
+}
+
+extension OutputRequestCollectionView {
+    var backColor: UIColor {
+        Styles.Colors.myBackgroundColor()
     }
 }

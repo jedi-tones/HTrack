@@ -8,11 +8,11 @@
 import Foundation
 
 protocol FriendOutputRequestViewModelDelegate: AnyObject  {
-    func didTapFriend(friend: MUser)
+    func didTapCancelRequst(friend: MUser)
 }
 
 class FriendOutputRequestViewModel: CellViewModel {
-    weak var delegate: FriendViewModelDelegate?
+    weak var delegate: FriendOutputRequestViewModelDelegate?
     
     var cell: BaseCellProtocol.Type {
         FriendCell.self
@@ -27,9 +27,9 @@ class FriendOutputRequestViewModel: CellViewModel {
         friend?.startDate?.getPeriod() ?? Date().getPeriod()
     }
 
-    func tapFriend() {
+    func tapCancel() {
         guard let friend = friend else { return }
-        delegate?.didTapFriend(friend: friend)
+        delegate?.didTapCancelRequst(friend: friend)
     }
 }
 

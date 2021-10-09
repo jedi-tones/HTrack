@@ -15,6 +15,10 @@ protocol FriendsManagerInputRequestsListner {
     func inputRequestsUpdated(request: [MRequestUser])
 }
 
+protocol FriendsManagerOutputRequestsListner {
+    func outputRequestsUpdated(request: [MRequestUser])
+}
+
 class FriendsManager {
     static let shared = FriendsManager()
     
@@ -34,10 +38,12 @@ class FriendsManager {
     
     private let friendsNotifier = Notifier<FriendsManagerFriendsListner>()
     private let inputRequestsNotifier = Notifier<FriendsManagerInputRequestsListner>()
+    private let outputRequestsNotifier = Notifier<FriendsManagerOutputRequestsListner>()
     
     var firUser: User? { firebaseAuthService.getCurrentUser() }
     var friends: [MUser] = []
     var inputRequests: [MRequestUser] = []
+    var outputRequests: [MRequestUser] = []
     
     func subscribeListners() {
         do {
@@ -65,12 +71,21 @@ class FriendsManager {
         return inputRequests
     }
     
+    func subscribeOutputRequestsNotifier(listner: FriendsManagerOutputRequestsListner) -> [MRequestUser] {
+        outputRequestsNotifier.subscribe(listner)
+        return inputRequests
+    }
+    
     func unsubscribeFriendsNotifier(listner: FriendsManagerFriendsListner) {
         friendsNotifier.unsubscribe(listner)
     }
     
     func unsubscribeInputRequestsNotifier(listner: FriendsManagerInputRequestsListner) {
         inputRequestsNotifier.unsubscribe(listner)
+    }
+    
+    func unsubscribeOutputRequestsNotifier(listner: FriendsManagerOutputRequestsListner) {
+        outputRequestsNotifier.unsubscribe(listner)
     }
     
     func updateFriends(_ friends: [MUser]) {

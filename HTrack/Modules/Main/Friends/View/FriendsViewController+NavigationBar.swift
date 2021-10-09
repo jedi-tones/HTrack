@@ -13,7 +13,5 @@ extension FriendsViewController {
         navigationItem.leftBarButtonItem = leftNavButton
         navigationItem.rightBarButtonItems = [rightSettingsButton, addFriendNavButton]
         navigationController?.navigationBar.prefersLargeTitles = false
-        
-        
     }
 }

@@ -1,0 +1,71 @@
+//
+//  MReports.swift
+//  HTrack
+//
+//  Created by Денис Щиголев on 10/9/21.
+//
+
+import FirebaseFirestore
+
+enum MTypeReports: String, Codable, CaseIterable{
+    case fake = "Фейк"
+    case spam = "Спам"
+    case offensiveContent = "Оскорбительный контент"
+    case other = "Другое"
+    
+    static let description = "Жалоба"
+    static let getReport = "Получил жалобу"
+    
+    static var modelStringAllCases: [String] {
+        allCases.map { report -> String in
+            report.rawValue
+        }
+    }
+}
+
+struct MReports: Codable, Hashable{
+    var reportUserID: String?
+    var typeOfReports: String?
+    var text: String?
+    
+    init(reportUserID: String, typeOfReports: MTypeReports, text: String){
+        self.reportUserID = reportUserID
+        self.typeOfReports = typeOfReports.rawValue
+        self.text = text
+    }
+    
+    init(json: [String: Any]) {
+        if let reportUserID = json["reportUserID"] as? String {
+            self.reportUserID = reportUserID
+        } else {
+            self.reportUserID = ""
+        }
+        if let typeOfReports = json["typeOfReports"] as? String {
+            self.typeOfReports = typeOfReports
+        } else {
+            self.typeOfReports = ""
+        }
+        if let text = json["text"] as? String {
+            self.text = text
+        } else {
+            self.text = ""
+        }
+    }
+    
+    init?(documentSnap: QueryDocumentSnapshot ) {
+        let document = documentSnap.data()
+        guard let reportUserID = document["reportUserID"] as? String else { return nil }
+        guard let typeOfReports = document["typeOfReports"] as? String else { return nil }
+        guard let text = document["text"] as? String else { return nil }
+        
+        self.reportUserID = reportUserID
+        self.typeOfReports = typeOfReports
+        self.text = text
+    }
+    
+    enum CodingKeys: String, CodingKey  {
+        case reportUserID
+        case typeOfReports
+        case text
+    }
+}

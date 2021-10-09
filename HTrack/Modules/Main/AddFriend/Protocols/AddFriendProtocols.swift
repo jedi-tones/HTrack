@@ -7,22 +7,29 @@ import Foundation
 protocol AddFriendViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
+    func setupState(state: AddFriendHeaderView.AddFriendHeaderState)
+    func setupData(newData: [SectionViewModel])
 }
 
 protocol AddFriendViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
     func didDismissedSheet()
+    func addFriendAction(name: String)
 }
 
 
 // MARK: - Interactor
 protocol AddFriendInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
+    func getOuputRequestSection()
+    func sendAddFriendAction(name: String)
+    func addDataListnerFor(section: OutputRequestSection)
 }
 
 protocol AddFriendInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
+    func setupSections(sections: [OutputRequestSection])
 }
 
 

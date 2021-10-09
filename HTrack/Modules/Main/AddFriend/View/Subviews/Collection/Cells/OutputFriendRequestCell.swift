@@ -10,7 +10,7 @@ import TinyConstraints
 
 class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
     static var reuseID: String {
-        return "friendCell"
+        return "outputFriendRequestCell"
     }
     
     var needAnimationTap = false

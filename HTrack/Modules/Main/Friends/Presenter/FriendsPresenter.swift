@@ -73,7 +73,7 @@ extension FriendsPresenter: FriendsInteractorOutput {
                 newViewModel.append(sectionVM)
             
             case .friends:
-                var sectionVM = SectionViewModel(section: section.rawValue,
+                let sectionVM = SectionViewModel(section: section.rawValue,
                                                  header: nil,
                                                  footer: nil,
                                                  items: [])

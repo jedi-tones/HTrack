@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct MRequestUser: Codable, Hashable {
     var nickname: String?

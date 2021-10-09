@@ -19,7 +19,6 @@ class EmptyHeaderCell: UICollectionViewCell, BaseCellProtocol {
         super.init(frame: frame)
         
         setupConstraints()
-        backgroundColor = .red
     }
     
     required init?(coder: NSCoder) {
