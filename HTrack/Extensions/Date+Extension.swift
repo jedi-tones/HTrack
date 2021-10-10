@@ -18,6 +18,11 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func toUNIXTime() -> Double {
+        return self.timeIntervalSince1970
+    }
+    
+    
     func getPluarPeriod() -> String {
         let calendar = Calendar.current
         let timePeriod = calendar.dateComponents([.second,.minute,.hour,.day,.month,.year], from: self, to: Date())

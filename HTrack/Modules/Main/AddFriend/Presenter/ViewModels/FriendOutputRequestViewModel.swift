@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FriendOutputRequestViewModelDelegate: AnyObject  {
-    func didTapCancelRequst(friend: MUser)
+    func didTapCancelRequst(friend: MRequestUser)
 }
 
 class FriendOutputRequestViewModel: CellViewModel {
@@ -18,13 +18,10 @@ class FriendOutputRequestViewModel: CellViewModel {
         FriendCell.self
     }
 
-    var friend: MUser?
+    var friend: MRequestUser?
     
     var name: String {
-        friend?.name ?? "Name"
-    }
-    var count: String {
-        friend?.startDate?.getPeriod() ?? Date().getPeriod()
+        friend?.nickname ?? "Name"
     }
 
     func tapCancel() {

@@ -3,10 +3,14 @@
 
 class AddFriendInteractor {
     weak var output: AddFriendInteractorOutput?
-
+    var friendsManager = FriendsManager.shared
+    var userManager = UserManager.shared
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+        
+        friendsManager.outputRequestsNotifier.unsubscribe(self)
     }
 }
 
@@ -16,12 +20,20 @@ extension AddFriendInteractor: AddFriendInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        
+        switch section {
+        case .ouputRequest:
+            friendsManager.outputRequestsNotifier.subscribe(self)
+            let requests = friendsManager.outputRequests
+            
+            guard requests.isNotEmpty else { return }
+            output?.updateOutputRequestData(friends: requests)
+        }
     }
     
     func sendAddFriendAction(name: String) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+        
         
     }
     
@@ -32,6 +44,13 @@ extension AddFriendInteractor: AddFriendInteractorInput {
         let sections:[OutputRequestSection] = [.ouputRequest]
         output?.setupSections(sections: sections)
     }
-    
-    
+}
+
+extension AddFriendInteractor: FriendsManagerOutputRequestsListner {
+    func outputRequestsUpdated(request: [MRequestUser]) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        output?.updateOutputRequestData(friends: request)
+    }
 }

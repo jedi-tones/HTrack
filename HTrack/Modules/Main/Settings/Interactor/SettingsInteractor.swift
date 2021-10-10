@@ -76,8 +76,8 @@ extension SettingsInteractor: SettingsInteractorInput {
         
         guard let firUser = userManager.firUser,
               let id = firUser.email else { return }
-        
-        let dic: [MUser.CodingKeys : Any ] = [.startDate : to]
+        let unixTimeStamp = to.toUNIXTime()
+        let dic: [MUser.CodingKeys : Any ] = [.startDate : unixTimeStamp]
         
         userManager.updateUser(userID: id,
                                dic: dic,

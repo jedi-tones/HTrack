@@ -66,7 +66,7 @@ extension FirestoreManager {
             }
             
             snapshot.documentChanges.forEach { change in
-                guard let inputRequest = MRequestUser(json: change.document.data())
+                guard let inputRequest: MRequestUser = change.document.data().toObject()
                 else {
                     delegate.inputRequestsSubscribeError(error: .queryDocumentInitError)
                     return
@@ -87,5 +87,45 @@ extension FirestoreManager {
     
     func unsubscribeInputRequestsListner() {
         inputRequestsListner?.remove()
+    }
+    
+    func subscribeOutputRequestsListner(userID: String, delegate: OutputRequestListnerDelegate) {
+        outputRequestListnerDelegate = delegate
+        
+        guard let collectionPath = FirestoreEndPoint.outputRequests(currentUserID: userID).collectionRef
+        else {
+            delegate.outputRequestsSubscribeError(error: .collectionPathError)
+            return
+        }
+        
+        collectionPath.addSnapshotListener { snapshot, error in
+            guard let snapshot = snapshot
+            else {
+                delegate.outputRequestsSubscribeError(error: .snapshotIsNil)
+                return
+            }
+            
+            snapshot.documentChanges.forEach { change in
+                guard let inputRequest: MRequestUser = change.document.data().toObject()
+                else {
+                    delegate.outputRequestsSubscribeError(error: .queryDocumentInitError)
+                    return
+                }
+                
+                switch change.type {
+                
+                case .added:
+                    delegate.outputRequestAdd(request: inputRequest)
+                case .modified:
+                    delegate.outputRequestModified(request: inputRequest)
+                case .removed:
+                    delegate.outputRequestRemoved(request: inputRequest)
+                }
+            }
+        }
+    }
+    
+    func unsubscribeOutputRequestsListner() {
+        outputRequestsListner?.remove()
     }
 }

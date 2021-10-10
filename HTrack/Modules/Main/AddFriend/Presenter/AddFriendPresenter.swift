@@ -67,45 +67,45 @@ extension AddFriendPresenter: AddFriendInteractorOutput {
             
             sections.forEach({interactor?.addDataListnerFor(section: $0)})
         }
+    }
+    
+    func updateOutputRequestData(friends: [MRequestUser]) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
         
-        func updateOutputRequestData(friends: [MUser]) {
-            Logger.show(title: "Module",
-                        text: "\(type(of: self)) - \(#function)")
-            
-            var newViewModel = viewModel
-            
-            let sectionName = OutputRequestSection.ouputRequest.rawValue
-            
-            guard let sectionIndex = newViewModel.firstIndex(where: {$0.section == sectionName})
-            else { return }
-            
-            var sectionVM = SectionViewModel(section: sectionName,
-                                             header: nil,
-                                             footer: nil,
-                                             items: [])
-            
-            for friend in friends {
-                let friendVM = FriendOutputRequestViewModel()
-                friendVM.friend = friend
-                friendVM.delegate = self
-                sectionVM.items.append(friendVM)
-            }
-            
-            if sectionVM.items.isNotEmpty {
-                let header = TextHeaderWithCounterViewModel()
-                header.title = sectionName
-                header.count = sectionVM.items.count
-                sectionVM.header = header
-            } else {
-                let header = EmptyHeaderViewModel()
-                sectionVM.header = header
-            }
-            
-            newViewModel[sectionIndex] = sectionVM
-            
-            viewModel = newViewModel
-            view?.setupData(newData: viewModel)
+        var newViewModel = viewModel
+        
+        let sectionName = OutputRequestSection.ouputRequest.rawValue
+        
+        guard let sectionIndex = newViewModel.firstIndex(where: {$0.section == sectionName})
+        else { return }
+        
+        var sectionVM = SectionViewModel(section: sectionName,
+                                         header: nil,
+                                         footer: nil,
+                                         items: [])
+        
+        for friend in friends {
+            let friendVM = FriendOutputRequestViewModel()
+            friendVM.friend = friend
+            friendVM.delegate = self
+            sectionVM.items.append(friendVM)
         }
+        
+        if sectionVM.items.isNotEmpty {
+            let header = TextHeaderWithCounterViewModel()
+            header.title = sectionName
+            header.count = sectionVM.items.count
+            sectionVM.header = header
+        } else {
+            let header = EmptyHeaderViewModel()
+            sectionVM.header = header
+        }
+        
+        newViewModel[sectionIndex] = sectionVM
+        
+        viewModel = newViewModel
+        view?.setupData(newData: viewModel)
     }
 }
 
@@ -119,7 +119,7 @@ extension AddFriendPresenter: AddFriendModuleInput {
 }
 
 extension AddFriendPresenter: FriendOutputRequestViewModelDelegate {
-    func didTapCancelRequst(friend: MUser) {
+    func didTapCancelRequst(friend: MRequestUser) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         

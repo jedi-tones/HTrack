@@ -36,9 +36,9 @@ class FriendsManager {
     let firebaseAuthService = FirebaseAuthManager.shared
     let friendsRequestManager = FriendsRequestManager.shared
     
-    private let friendsNotifier = Notifier<FriendsManagerFriendsListner>()
-    private let inputRequestsNotifier = Notifier<FriendsManagerInputRequestsListner>()
-    private let outputRequestsNotifier = Notifier<FriendsManagerOutputRequestsListner>()
+    let friendsNotifier = Notifier<FriendsManagerFriendsListner>()
+    let inputRequestsNotifier = Notifier<FriendsManagerInputRequestsListner>()
+    let outputRequestsNotifier = Notifier<FriendsManagerOutputRequestsListner>()
     
     var firUser: User? { firebaseAuthService.getCurrentUser() }
     var friends: [MUser] = []
@@ -55,37 +55,6 @@ class FriendsManager {
                         withHeader: true,
                         withFooter: true)
         }
-    }
-    
-    func unsubscribeListners() {
-        
-    }
-    
-    func subscribeFriendsNotifier(listner: FriendsManagerFriendsListner) -> [MUser] {
-        friendsNotifier.subscribe(listner)
-        return friends
-    }
-    
-    func subscribeInputRequestsNotifier(listner: FriendsManagerInputRequestsListner) -> [MRequestUser] {
-        inputRequestsNotifier.subscribe(listner)
-        return inputRequests
-    }
-    
-    func subscribeOutputRequestsNotifier(listner: FriendsManagerOutputRequestsListner) -> [MRequestUser] {
-        outputRequestsNotifier.subscribe(listner)
-        return inputRequests
-    }
-    
-    func unsubscribeFriendsNotifier(listner: FriendsManagerFriendsListner) {
-        friendsNotifier.unsubscribe(listner)
-    }
-    
-    func unsubscribeInputRequestsNotifier(listner: FriendsManagerInputRequestsListner) {
-        inputRequestsNotifier.unsubscribe(listner)
-    }
-    
-    func unsubscribeOutputRequestsNotifier(listner: FriendsManagerOutputRequestsListner) {
-        outputRequestsNotifier.unsubscribe(listner)
     }
     
     func updateFriends(_ friends: [MUser]) {
@@ -111,6 +80,19 @@ class FriendsManager {
             guard let self = self else { return }
             
             self.inputRequestsNotifier.forEach({$0.inputRequestsUpdated(request: requests)})
+        }
+    }
+    
+    func updateOutputRequsts(_ requests: [MRequestUser]) {
+        Logger.show(title: "OutputRequests updated",
+                    text: "requests \(String(describing: requests))",
+                    withHeader: true,
+                    withFooter: true)
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            
+            self.outputRequestsNotifier.forEach({$0.outputRequestsUpdated(request: requests)})
         }
     }
 }

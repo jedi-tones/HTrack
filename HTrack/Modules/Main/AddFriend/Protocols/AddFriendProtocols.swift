@@ -30,6 +30,7 @@ protocol AddFriendInteractorInput {
 protocol AddFriendInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupSections(sections: [OutputRequestSection])
+    func updateOutputRequestData(friends: [MRequestUser])
 }
 
 

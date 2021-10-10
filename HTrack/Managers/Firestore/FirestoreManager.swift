@@ -15,6 +15,7 @@ class FirestoreManager {
     deinit {
         friendsListnerDelegate = nil
         inputRequestListnerDelegate = nil
+        outputRequestListnerDelegate = nil
         
         friendsListner?.remove()
         inputRequestsListner?.remove()
@@ -26,6 +27,7 @@ class FirestoreManager {
     
     weak var friendsListnerDelegate: FriendsListnerDelegate?
     weak var inputRequestListnerDelegate: InputRequestListnerDelegate?
+    weak var outputRequestListnerDelegate: OutputRequestListnerDelegate?
     
     var friendsListner: ListenerRegistration?
     var inputRequestsListner: ListenerRegistration?

@@ -16,6 +16,15 @@ enum MTypeReports: String, Codable, CaseIterable{
     static let description = "Жалоба"
     static let getReport = "Получил жалобу"
     
+    init(from decoder: Decoder) throws {
+        guard let rawValue = try? decoder.singleValueContainer().decode(String.self) else {
+            self = .other
+            return
+        }
+        
+        self = MTypeReports(rawValue: rawValue) ?? .other
+    }
+    
     static var modelStringAllCases: [String] {
         allCases.map { report -> String in
             report.rawValue
@@ -25,13 +34,21 @@ enum MTypeReports: String, Codable, CaseIterable{
 
 struct MReports: Codable, Hashable{
     var reportUserID: String?
-    var typeOfReports: String?
+    var typeOfReports: MTypeReports?
     var text: String?
     
     init(reportUserID: String, typeOfReports: MTypeReports, text: String){
         self.reportUserID = reportUserID
-        self.typeOfReports = typeOfReports.rawValue
+        self.typeOfReports = typeOfReports
         self.text = text
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        reportUserID = try? container.decode(String.self, forKey: .reportUserID)
+        typeOfReports = try? container.decode(MTypeReports.self, forKey: .typeOfReports)
+        text = try? container.decode(String.self, forKey: .text)
     }
     
     init(json: [String: Any]) {
@@ -41,9 +58,9 @@ struct MReports: Codable, Hashable{
             self.reportUserID = ""
         }
         if let typeOfReports = json["typeOfReports"] as? String {
-            self.typeOfReports = typeOfReports
+            self.typeOfReports = MTypeReports(rawValue: typeOfReports) ?? MTypeReports.other
         } else {
-            self.typeOfReports = ""
+            self.typeOfReports = MTypeReports.other
         }
         if let text = json["text"] as? String {
             self.text = text
@@ -59,7 +76,7 @@ struct MReports: Codable, Hashable{
         guard let text = document["text"] as? String else { return nil }
         
         self.reportUserID = reportUserID
-        self.typeOfReports = typeOfReports
+        self.typeOfReports = MTypeReports(rawValue: typeOfReports) ?? MTypeReports.other
         self.text = text
     }
     

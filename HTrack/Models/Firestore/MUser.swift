@@ -11,6 +11,15 @@ import FirebaseFirestore
 enum AuthType: String, Codable {
     case apple
     case mail
+    case unowned
+    
+    init(from decoder: Decoder) throws {
+        guard let rawValue = try? decoder.singleValueContainer().decode(String.self) else {
+            self = .unowned
+            return
+        }
+        self = AuthType(rawValue: rawValue) ?? .unowned
+    }
     
     static func defaultAuthType() -> AuthType {
         return .apple
@@ -27,8 +36,8 @@ struct MUser: Codable, Hashable {
     var isAdmin: Bool?
     var isPremiumUser: Bool?
     var isActive: Bool?
-    var drinkDays: [Date] = []
-    var reportList: [MReports] = []
+    var drinkDays: [Date]? = []
+    var reportList: [MReports]? = []
     var photo: String?
     
     init(peopleID: String,
@@ -58,6 +67,38 @@ struct MUser: Codable, Hashable {
         self.photo = photo
     }
     
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        userID = try container.decode(String.self, forKey: .userID)
+        name = try? container.decode(String.self, forKey: .name)
+        mail = try? container.decode(String.self, forKey: .mail)
+        authType = try? container.decode(AuthType.self, forKey: .authType)
+        
+        let unixTime = try? container.decode(Double.self, forKey: .startDate)
+        if let unixTime = unixTime {
+            startDate = unixTime.fromUNIXTimestampToDate()
+        } else {
+            startDate = Date()
+        }
+        
+        fcmKey = try? container.decode(String.self, forKey: .fcmKey)
+        isAdmin = try? container.decode(Bool.self, forKey: .isAdmin)
+        isPremiumUser = try? container.decode(Bool.self, forKey: .isPremiumUser)
+        isActive = try? container.decode(Bool.self, forKey: .isActive)
+        let drinkDaysUnixTimes = try? container.decode([Double].self, forKey: .drinkDays)
+        
+        if let drinkDaysUnixTimes = drinkDaysUnixTimes {
+            drinkDays = drinkDaysUnixTimes.compactMap({$0.fromUNIXTimestampToDate()})
+        } else {
+            drinkDays = [startDate ?? Date()]
+        }
+        
+        reportList = try? container.decode([MReports].self, forKey: .reportList)
+        photo = try? container.decode(String.self, forKey: .photo)
+    }
+    
+    
     //MARK: documentSnapshot
     // for get document from Firestore
     init?(documentSnap: DocumentSnapshot){
@@ -75,12 +116,12 @@ struct MUser: Codable, Hashable {
         } else {
             self.authType = AuthType.defaultAuthType()
         }
-        if let startDate = documet["startDate"] as? Timestamp { self.startDate = startDate.dateValue() } else { self.startDate = Date()}
+        if let startDate = documet["startDate"] as? Double { self.startDate = startDate.fromUNIXTimestampToDate() } else { self.startDate = Date()}
         if let fcmKey = documet["fcmKey"] as? String { self.fcmKey = fcmKey } else { self.fcmKey = ""}
         if let isAdmin = documet["isAdmin"] as? Bool { self.isAdmin = isAdmin } else { self.isAdmin = false}
         if let isPremiumUser = documet["isPremiumUser"] as? Bool { self.isPremiumUser = isPremiumUser } else { self.isPremiumUser = false}
         if let isActive = documet["isActive"] as? Bool { self.isActive = isActive } else { self.isActive = true}
-        if let drinkDays = documet["drinkDays"] as? [Timestamp] { self.drinkDays = drinkDays.map({$0.dateValue()}) } else { self.drinkDays = [startDate ?? Date()]}
+        if let drinkDays = documet["drinkDays"] as? [Double] { self.drinkDays = drinkDays.map({$0.fromUNIXTimestampToDate()}) } else { self.drinkDays = [startDate ?? Date()]}
         if let reportList = documet["reportList"] as? [[String : Any]] { self.reportList = reportList.compactMap({$0.toObject()}) }
         if let photo = documet["photo"] as? String { self.photo = photo } else { self.photo = ""}
     }
@@ -102,12 +143,12 @@ struct MUser: Codable, Hashable {
         } else {
             self.authType = AuthType.defaultAuthType()
         }
-        if let startDate = documet["startDate"] as? Timestamp { self.startDate = startDate.dateValue() } else { self.startDate = Date()}
+        if let startDate = documet["startDate"] as? Double { self.startDate = startDate.fromUNIXTimestampToDate() } else { self.startDate = Date()}
         if let fcmKey = documet["fcmKey"] as? String { self.fcmKey = fcmKey } else { self.fcmKey = ""}
         if let isAdmin = documet["isAdmin"] as? Bool { self.isAdmin = isAdmin } else { self.isAdmin = false}
         if let isPremiumUser = documet["isPremiumUser"] as? Bool { self.isPremiumUser = isPremiumUser } else { self.isPremiumUser = false}
         if let isActive = documet["isActive"] as? Bool { self.isActive = isActive } else { self.isActive = true}
-        if let drinkDays = documet["drinkDays"] as? [Timestamp] { self.drinkDays = drinkDays.map({$0.dateValue()}) } else { self.drinkDays = [startDate ?? Date()]}
+        if let drinkDays = documet["drinkDays"] as? [Double] { self.drinkDays = drinkDays.map({$0.fromUNIXTimestampToDate()}) } else { self.drinkDays = [startDate ?? Date()]}
         if let reportList = documet["reportList"] as? [[String : Any]] { self.reportList = reportList.compactMap({$0.toObject()}) }
         if let photo = documet["photo"] as? String { self.photo = photo } else { self.photo = ""}
     }
@@ -128,12 +169,12 @@ struct MUser: Codable, Hashable {
         } else {
             updatedUser.authType = AuthType.defaultAuthType()
         }
-        if let startDate = json["startDate"] as? Date { updatedUser.startDate = startDate }
+        if let startDate = json["startDate"] as? Double { updatedUser.startDate = startDate.fromUNIXTimestampToDate() }
         if let fcmKey = json["fcmKey"] as? String { updatedUser.fcmKey = fcmKey }
         if let isAdmin = json["isAdmin"] as? Bool { updatedUser.isAdmin = isAdmin }
         if let isPremiumUser = json["isPremiumUser"] as? Bool { updatedUser.isPremiumUser = isPremiumUser }
         if let isActive = json["isActive"] as? Bool { updatedUser.isActive = isActive }
-        if let drinkDays = json["drinkDays"] as? [Timestamp] { updatedUser.drinkDays = drinkDays.map({$0.dateValue()}) }
+        if let drinkDays = json["drinkDays"] as? [Double] { updatedUser.drinkDays = drinkDays.compactMap({$0.fromUNIXTimestampToDate()}) }
         if let reportList = json["reportList"] as? [[String : Any]] { updatedUser.reportList = reportList.compactMap({$0.toObject()})}
         if let photo = json["photo"] as? String { updatedUser.photo = photo }
         

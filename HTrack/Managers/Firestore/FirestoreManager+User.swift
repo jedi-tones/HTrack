@@ -99,11 +99,32 @@ extension FirestoreManager {
                     complition?(.failure(FirestoreError.cantDecodeData))
                 }
             } else {
-                complition?(.failure(FirestoreError.documentSnapshotNotExist))
+                complition?(.failure(FirestoreError.userWithIDNotExist))
             }
         }
     }
     
+    func getUser(nickname: String, complition: ((Result<MUser, Error>) -> Void)?) {
+        let usersCollection = FirestoreEndPoint.users.collectionRef
+        
+        usersCollection?.whereField("name", isEqualTo: nickname).getDocuments(completion: { documentsSnapshot, error in
+            if let error = error {
+                complition?(.failure(error))
+            } else if let documentsSnapshot = documentsSnapshot {
+                let users = documentsSnapshot.documents.compactMap({MUser(documentSnap: $0)})
+                
+                if let user = users.first {
+                    complition?(.success(user))
+                } else {
+                    complition?(.failure(FirestoreError.userWithNameNotExist))
+                }
+            } else {
+                complition?(.failure(FirestoreError.userWithNameNotExist))
+            }
+        })
+    }
+    
+    //MARK: nickname check and save
     func checkNickNameIsExists(nickname: String, complition:((Result<Bool,Error>) -> Void)?) {
         let nicknameRef = FirestoreEndPoint.nickname(name: nickname).documentRef
         

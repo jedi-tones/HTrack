@@ -11,8 +11,8 @@ class FriendsInteractor {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        friendsManager.unsubscribeFriendsNotifier(listner: self)
-        friendsManager.unsubscribeInputRequestsNotifier(listner: self)
+        friendsManager.friendsNotifier.unsubscribe(self)
+        friendsManager.inputRequestsNotifier.unsubscribe(self)
         userManager.notifier.unsubscribe(self)
     }
 }
@@ -48,10 +48,17 @@ extension FriendsInteractor: FriendsInteractorInput {
         switch section {
         
         case .inputRequest:
-            let inputRequests = friendsManager.subscribeInputRequestsNotifier(listner: self)
+            friendsManager.inputRequestsNotifier.subscribe(self)
+            let inputRequests = friendsManager.inputRequests
+            
+            guard inputRequests.isNotEmpty else { return }
+            
             output.updateRequestData(requests: inputRequests)
         case .friends:
-            let friends = friendsManager.subscribeFriendsNotifier(listner: self)
+            friendsManager.friendsNotifier.subscribe(self)
+            let friends = friendsManager.friends
+            
+            guard friends.isNotEmpty else { return }
             output.updateFriendsData(friends: friends)
         }
     }

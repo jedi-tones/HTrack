@@ -23,6 +23,14 @@ protocol InputRequestListnerDelegate: AnyObject {
     func inputRequestsSubscribeError(error: FirebaseListnersError)
 }
 
+protocol OutputRequestListnerDelegate: AnyObject {
+    func outputRequestAdd(request: MRequestUser)
+    func outputRequestModified(request: MRequestUser)
+    func outputRequestRemoved(request: MRequestUser)
+    
+    func outputRequestsSubscribeError(error: FirebaseListnersError)
+}
+
 extension FriendsManager {
     func subscribeFriendsListner() throws  {
         guard let userID = firUser?.email
@@ -32,6 +40,13 @@ extension FriendsManager {
     }
     
     func subscribeInputRequestsListner() throws {
+        guard let userID = firUser?.email
+        else { throw AuthError.authUserNil }
+        
+        friendsRequestManager.subscribeInputRequestsListner(forUserID: userID, delegate: self)
+    }
+    
+    func subscribeOutputRequestsListner() throws {
         guard let userID = firUser?.email
         else { throw AuthError.authUserNil }
         
