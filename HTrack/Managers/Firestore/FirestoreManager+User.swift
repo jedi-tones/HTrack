@@ -69,7 +69,7 @@ extension FirestoreManager {
                 complition?(.failure(error))
             } else if let documentSnapshot = documentSnapshot,
                       documentSnapshot.exists {
-                if let user = MUser(documentSnap: documentSnapshot) {
+                if let user: MUser = documentSnapshot.data()?.toObject() {
                     complition?(.success(user))
                 } else  {
                     complition?(.failure(FirestoreError.cantDecodeData))
@@ -93,7 +93,7 @@ extension FirestoreManager {
                 complition?(.failure(error))
             } else if let documentSnapshot = documentSnapshot,
                       documentSnapshot.exists {
-                if let user = MUser(documentSnap: documentSnapshot) {
+                if let user: MUser = documentSnapshot.data()?.toObject() {
                     complition?(.success(user))
                 } else  {
                     complition?(.failure(FirestoreError.cantDecodeData))
@@ -111,7 +111,7 @@ extension FirestoreManager {
             if let error = error {
                 complition?(.failure(error))
             } else if let documentsSnapshot = documentsSnapshot {
-                let users = documentsSnapshot.documents.compactMap({MUser(documentSnap: $0)})
+                let users: [MUser] = documentsSnapshot.documents.compactMap({$0.data().toObject()})
                 
                 if let user = users.first {
                     complition?(.success(user))
