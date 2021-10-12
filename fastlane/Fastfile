@@ -44,8 +44,8 @@ def create_temp_keychain(name, password)
 end
 
 def ensure_temp_keychain(name, password)
-#  delete_temp_keychain(name)
-#  create_temp_keychain(name, password)
+  delete_temp_keychain(name)
+  create_temp_keychain(name, password)
 end
 
 platform :ios do
