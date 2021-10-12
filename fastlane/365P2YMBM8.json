@@ -1,0 +1,7 @@
+{
+  "key_id": "365P2YMBM8",
+  "issuer_id": "28cd3860-3db6-4eb9-a633-7492f3f52795",
+  "key": "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgvtZ07KL6ofvSZTkZgcR4Gtvb+DTgYQetRYo2r9Qh3B6gCgYIKoZIzj0DAQehRANCAATb3/RoKZSbC+a1LmRKBUKp4PvLNruFSUKdaKqo1gyvoSzUO4djpjWsDpgW6JYfjEYzyj8Q3Qp74pY1iMEPHH4x\n-----END PRIVATE KEY-----",
+  "duration": 1200,
+  "in_house": false
+}
