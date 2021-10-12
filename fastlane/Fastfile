@@ -25,6 +25,9 @@ APPLE_KEY_ID = ENV["APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["APPLE_KEY_CONTENT"]
 GIT_AUTHORIZATION = ENV["GIT_AUTHORIZATION"]
 
+ENV["APPLE_KEY_CONTENT"] = "fastlane/365P2YMBM8.json"
+@api_key = ENV["APPLE_KEY_CONTENT"]
+
 def delete_temp_keychain(name)
   delete_keychain(
     name: name
@@ -51,13 +54,7 @@ platform :ios do
     keychain_password = TEMP_KEYCHAIN_PASSWORD
     ensure_temp_keychain(keychain_name, keychain_password)
 
-    api_key = app_store_connect_api_key(
-      key_id: APPLE_KEY_ID,
-      issuer_id: APPLE_ISSUER_ID,
-      key_content: APPLE_KEY_CONTENT,            
-      duration: 1200,            
-      in_house: false
-    )
+    api_key_path: @api_key
     
     increment_build_number(xcodeproj: "HTrack.xcodeproj")
     
