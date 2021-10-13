@@ -27,7 +27,7 @@ class DrawerView : UIView {
     
     var dragRecognizer: UIPanGestureRecognizer!
     
-    let animationDamping : CGFloat = Styles.Constants.animationDamping
+    let animationDamping: CGFloat = Styles.Constants.animationDamping
     let animationDuration  = Styles.Constants.animationDuarationBase
     let maxHeight: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height
     var maxDrawerPosition: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height {

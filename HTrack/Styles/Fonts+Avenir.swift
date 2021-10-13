@@ -42,12 +42,12 @@ extension Styles.Fonts {
         }
         
         private func getFont(font: Styles.Fonts.AvenirFonts, size: CGFloat) -> UIFont {
-            guard let font = UIFont.init(name: font.name, size: size)
-            else {
+            if let font = UIFont.init(name: font.name, size: size) {
+                return font
+            } else {
                 Logger.show(title: "Fonts ERROR", text: "Unknown Font \(font.name)")
                 return UIFont.systemFont(ofSize: size)
             }
-            return font
         }
     }
 }
