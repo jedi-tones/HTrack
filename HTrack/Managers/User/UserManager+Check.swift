@@ -54,4 +54,8 @@ extension UserManager {
     func checkUserAuthMethods(email: String, complition:@escaping (Result<AuthType, Error>) -> Void) {
         firebaseAuthService.checkAuthMethods(email: email, complition: complition)
     }
+    
+    func checkUserIsAvalible(withName: String, complition:((Result<MRequestUser?,Error>) -> Void)?) {
+        userRequestManager.checkUserIsAvalible(withName: withName, complition: complition)
+    }
 }

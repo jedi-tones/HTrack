@@ -13,6 +13,7 @@ enum FirestoreError {
     case documentSnapshotNotExist
     case userWithNameNotExist
     case userWithIDNotExist
+    case collectionPathIncorrect
 }
 
 extension FirestoreError: LocalizedError {
@@ -28,6 +29,8 @@ extension FirestoreError: LocalizedError {
             return NSLocalizedString("Пользователя с таким ником не существует", comment: "")
         case .userWithIDNotExist:
             return NSLocalizedString("Пользователя с таким ID не существует", comment: "")
+        case .collectionPathIncorrect:
+            return NSLocalizedString("Путь коллекции некорректный", comment: "")
 
         }
     }

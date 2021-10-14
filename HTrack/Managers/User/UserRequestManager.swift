@@ -49,4 +49,8 @@ class UserRequestManager {
             }
         }
     }
+    
+    func checkUserIsAvalible(withName: String, complition:((Result<MRequestUser?,Error>) -> Void)?) {
+        firestoreManager.checkUserIsAvalible(userName: withName, complition: complition)
+    }
 }

@@ -12,9 +12,9 @@ enum FirestoreEndPoint: BaseEndPoint {
     case user(id: String)
     case users
     case nickname(name: String)
-    case friends(currentUserID: String)
-    case inputRequests(currentUserID: String)
-    case outputRequests(currentUserID: String)
+    case friends(userID: String)
+    case inputRequests(userID: String)
+    case outputRequests(userID: String)
     case bannedUsers(userID: String)
 }
 

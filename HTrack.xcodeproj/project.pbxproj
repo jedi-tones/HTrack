@@ -63,6 +63,10 @@
 		C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864CB516A53B7925E96F9979 /* FriendsBuilder.swift */; };
 		C664C103B203C42BF39BAC78 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E276971BE5A082113B303 /* RegisterModule.swift */; };
 		D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39209731F0D8310142B377F9 /* FriendsModule.swift */; };
+		DD1C00D227178BB900E4BBBF /* COperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D127178BB900E4BBBF /* COperationQueue.swift */; };
+		DD1C00D427178BCF00E4BBBF /* COperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D327178BCF00E4BBBF /* COperation.swift */; };
+		DD1C00D727178CA600E4BBBF /* AsyncCOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */; };
+		DD1C00D927178ED700E4BBBF /* BaseAsyncOperationConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D827178ED700E4BBBF /* BaseAsyncOperationConstructor.swift */; };
 		DD1E54C626F665B800CB4903 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD1E54C526F665B800CB4903 /* SwiftEntryKit */; };
 		DD1E54C926F66C1000CB4903 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD1E54C826F66C1000CB4903 /* FirebaseAnalytics */; };
 		DD1E54CB26F66C1000CB4903 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = DD1E54CA26F66C1000CB4903 /* FirebaseFirestoreSwift-Beta */; };
@@ -297,6 +301,10 @@
 		D9118ABF000B22BB3893F647 /* AuthModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthModule.swift; sourceTree = "<group>"; };
 		D997B8B684C982B2BB36FF03 /* WelcomeModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeModule.swift; sourceTree = "<group>"; };
 		DA805F767B093B4A99C63449 /* RegisterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DD1C00D127178BB900E4BBBF /* COperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperationQueue.swift; sourceTree = "<group>"; };
+		DD1C00D327178BCF00E4BBBF /* COperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperation.swift; sourceTree = "<group>"; };
+		DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCOperation.swift; sourceTree = "<group>"; };
+		DD1C00D827178ED700E4BBBF /* BaseAsyncOperationConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAsyncOperationConstructor.swift; sourceTree = "<group>"; };
 		DD1E54DA26F7E42F00CB4903 /* MainScreenInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInfoView.swift; sourceTree = "<group>"; };
 		DD1E54DC26F7F09800CB4903 /* FriendsInteractor+UserListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsInteractor+UserListner.swift"; sourceTree = "<group>"; };
 		DD1E54DE26F7FE4E00CB4903 /* FriendsManager+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsManager+Auth.swift"; sourceTree = "<group>"; };
@@ -979,6 +987,17 @@
 			path = MainTabBar;
 			sourceTree = "<group>";
 		};
+		DD1C00D527178BD200E4BBBF /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				DD1C00D127178BB900E4BBBF /* COperationQueue.swift */,
+				DD1C00D327178BCF00E4BBBF /* COperation.swift */,
+				DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */,
+				DD1C00D827178ED700E4BBBF /* BaseAsyncOperationConstructor.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		DD2FA09B27088D5C00FC0382 /* DrawerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1312,6 +1331,7 @@
 				DD870D7626DEC1A6000F59AE /* WeekCollection.swift */,
 				DD870D7826DEC1FB000F59AE /* Notifier.swift */,
 				DD9F617226E93032009E3D39 /* KeyboardNotifications.swift */,
+				DD1C00D527178BD200E4BBBF /* Operations */,
 				FB6B9D5026BAF7080050690F /* Validator */,
 			);
 			path = Tools;
@@ -1836,7 +1856,9 @@
 				2089B038C856887E459DA17C /* AuthRouter.swift in Sources */,
 				DD2FA0B22708B83A00FC0382 /* FriendDetailViewModel.swift in Sources */,
 				DD92152C2677DFBA00A3623E /* Array+Extension.swift in Sources */,
+				DD1C00D427178BCF00E4BBBF /* COperation.swift in Sources */,
 				DD870D7926DEC1FB000F59AE /* Notifier.swift in Sources */,
+				DD1C00D727178CA600E4BBBF /* AsyncCOperation.swift in Sources */,
 				F5D22FF44227FD89348873D9 /* AuthBuilder.swift in Sources */,
 				DD9215292677DEB100A3623E /* MainTabBarTabs.swift in Sources */,
 				DD2FA0C72709C64C00FC0382 /* AddFriendHeaderView.swift in Sources */,
@@ -1855,6 +1877,7 @@
 				DD59F75126B5DD2600CA8179 /* UIStackView+Extension.swift in Sources */,
 				49E2B842581A1C3D0F65DC11 /* AuthModule.swift in Sources */,
 				FB6B9D4926BAC81C0050690F /* ValidatorRule.swift in Sources */,
+				DD1C00D927178ED700E4BBBF /* BaseAsyncOperationConstructor.swift in Sources */,
 				509A7B54583ABC5E21750DA0 /* WelcomeViewController.swift in Sources */,
 				FBDCF2012711FB97006188E8 /* Dictionary+ToObject.swift in Sources */,
 				DD9F613D26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift in Sources */,
@@ -1919,6 +1942,7 @@
 				9B856B71AD5236F0BF227766 /* FriendsRouter.swift in Sources */,
 				FBAF501627133BC3003CF510 /* FirestoreManager+Ban.swift in Sources */,
 				DD9EAD132699BE2F0032B3D7 /* NetworkServiceProtocol.swift in Sources */,
+				DD1C00D227178BB900E4BBBF /* COperationQueue.swift in Sources */,
 				C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */,
 				DD59F74D26B5B8AB00CA8179 /* BaseTextButtonWithArrow.swift in Sources */,
 				C09BA41CCA8B6E0DADE6067C /* FriendsProtocols.swift in Sources */,

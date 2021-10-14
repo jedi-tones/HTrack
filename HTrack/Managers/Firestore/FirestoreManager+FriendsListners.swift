@@ -12,11 +12,11 @@ extension FirestoreManager {
     func subscribeFriendsListner(userID: String, delegate: FriendsListnerDelegate) {
         friendsListnerDelegate = delegate
         
-       guard let collectionPath = FirestoreEndPoint.friends(currentUserID: userID).collectionRef
-       else {
-        delegate.friendsSubscribeError(error: .collectionPathError)
-        return
-       }
+        guard let collectionPath = FirestoreEndPoint.friends(userID: userID).collectionRef
+        else {
+            delegate.friendsSubscribeError(error: .collectionPathError)
+            return
+        }
         
         collectionPath.addSnapshotListener { snapshot, error in
             guard let snapshot = snapshot
@@ -52,7 +52,7 @@ extension FirestoreManager {
     func subscribeInputRequestsListner(userID: String, delegate: InputRequestListnerDelegate) {
         inputRequestListnerDelegate = delegate
         
-        guard let collectionPath = FirestoreEndPoint.inputRequests(currentUserID: userID).collectionRef
+        guard let collectionPath = FirestoreEndPoint.inputRequests(userID: userID).collectionRef
         else {
             delegate.inputRequestsSubscribeError(error: .collectionPathError)
             return
@@ -92,7 +92,7 @@ extension FirestoreManager {
     func subscribeOutputRequestsListner(userID: String, delegate: OutputRequestListnerDelegate) {
         outputRequestListnerDelegate = delegate
         
-        guard let collectionPath = FirestoreEndPoint.outputRequests(currentUserID: userID).collectionRef
+        guard let collectionPath = FirestoreEndPoint.outputRequests(userID: userID).collectionRef
         else {
             delegate.outputRequestsSubscribeError(error: .collectionPathError)
             return

@@ -1,6 +1,8 @@
 //  Created by Denis Shchigolev on 02/10/2021.
 //  Copyright © 2021 HTrack. All rights reserved.
 
+import Dispatch
+
 class AddFriendInteractor {
     weak var output: AddFriendInteractorOutput?
     var friendsManager = FriendsManager.shared
@@ -34,7 +36,19 @@ extension AddFriendInteractor: AddFriendInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        
+        DispatchQueue.global().async {
+            self.userManager.checkUserIsAvalible(withName: name) { result in
+                switch result {
+                    
+                case .success(let requestUser):
+                    Logger.show(title: "SUCCESS",
+                                text: "\(type(of: self)) - \(#function) request user: \(String(describing: requestUser))")
+                case .failure(let error):
+                    Logger.show(title: "Error",
+                                text: "\(type(of: self)) - \(#function) error \(error)")
+                }
+            }
+        }
     }
     
     func getOuputRequestSection() {

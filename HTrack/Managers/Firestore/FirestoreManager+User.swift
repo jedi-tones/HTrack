@@ -105,9 +105,13 @@ extension FirestoreManager {
     }
     
     func getUser(nickname: String, complition: ((Result<MUser, Error>) -> Void)?) {
-        let usersCollection = FirestoreEndPoint.users.collectionRef
+        guard let usersCollection = FirestoreEndPoint.users.collectionRef
+        else {
+            complition?(.failure(FirestoreError.collectionPathIncorrect))
+            return
+        }
         
-        usersCollection?.whereField("name", isEqualTo: nickname).getDocuments(completion: { documentsSnapshot, error in
+        usersCollection.whereField("name", isEqualTo: nickname).getDocuments { documentsSnapshot, error in
             if let error = error {
                 complition?(.failure(error))
             } else if let documentsSnapshot = documentsSnapshot {
@@ -121,7 +125,7 @@ extension FirestoreManager {
             } else {
                 complition?(.failure(FirestoreError.userWithNameNotExist))
             }
-        })
+        }
     }
     
     //MARK: nickname check and save
