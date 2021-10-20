@@ -21,7 +21,8 @@ extension AddFriendPresenter: AddFriendViewOutput {
                     text: "\(type(of: self)) - \(#function)")
         
         view?.setupInitialState()
-        interactor?.getOuputRequestSection()
+        interactor?.subscribeInputRequests()
+        interactor?.getOuputRequestSections()
     }
     
     func didDismissedSheet() {
@@ -36,6 +37,13 @@ extension AddFriendPresenter: AddFriendViewOutput {
                     text: "\(type(of: self)) - \(#function)")
         
         interactor?.sendAddFriendAction(name: name)
+    }
+    
+    func closeModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        router?.closeModule()
     }
 }
 
@@ -106,6 +114,27 @@ extension AddFriendPresenter: AddFriendInteractorOutput {
         
         viewModel = newViewModel
         view?.setupData(newData: viewModel)
+    }
+    
+    func showAddFriendError(error: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) error \(error)")
+        
+        view?.setupState(state: .error(error: error))
+    }
+    
+    func addComplite() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        view?.setupState(state: .normal)
+    }
+    
+    func needCloseSheet() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        view?.closeDrawerView()
     }
 }
 

@@ -10,8 +10,8 @@ import FirebaseFirestoreSwift
 
 extension FirestoreManager {
     //MARK: ban/unban
-    func getBannedUsersFor(user: String, complition:((Result<[MRequestUser],Error>) -> Void)?) {
-        let bannedUserCollection = FirestoreEndPoint.bannedUsers(userID: user).collectionRef
+    func getBannedUsersFor(userID: String, complition:((Result<[MRequestUser],Error>) -> Void)?) {
+        let bannedUserCollection = FirestoreEndPoint.bannedUsers(userID: userID).collectionRef
         
         bannedUserCollection?.getDocuments(completion: { docSnapshot, error in
             if let error = error {
@@ -43,6 +43,7 @@ extension FirestoreManager {
             if let error = error {
                 complition?(.failure(error))
             } else if let document = docSnapshot {
+                //если документ существует, то мы забанены у юзера
                 complition?(.success(document.exists))
             } else {
                 complition?(.success(false))

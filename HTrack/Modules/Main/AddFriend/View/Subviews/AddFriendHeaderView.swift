@@ -11,7 +11,7 @@ import TinyConstraints
 class AddFriendHeaderView: UIView {
     enum AddFriendHeaderState {
         case normal
-        case nicknameNotExist
+        case error(error: String)
         case load
     }
     
@@ -86,9 +86,9 @@ class AddFriendHeaderView: UIView {
             addFriendInput.error = ""
             addFriendButton.setStatus(.normal)
             
-        case .nicknameNotExist:
+        case .error(let error):
             addFriendInput.isUserInteractionEnabled = true
-            addFriendInput.error = "Пользователь с таким ником не найден"
+            addFriendInput.error = error
             addFriendButton.setStatus(.deactive)
             
         case .load:

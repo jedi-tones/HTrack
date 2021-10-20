@@ -128,6 +128,37 @@ extension FirestoreManager {
         }
     }
     
+    func hasInputRequestFrom(userID: String, complition:((Result<MRequestUser?,Error>) -> Void)?) {
+        guard let currentUser = authFirestoreManager.getCurrentUser() else {
+            complition?(.failure(AuthError.userError))
+            return
+        }
+        guard let currentUserID = currentUser.email else {
+            complition?(.failure(AuthError.userEmailNil))
+            return
+        }
+        guard let inputRequestsCollection = FirestoreEndPoint.inputRequests(userID: currentUserID).collectionRef else {
+            complition?(.failure(FirestoreError.collectionPathIncorrect))
+            return
+        }
+        
+        let inputRequestDocRef = inputRequestsCollection.document(userID)
+        inputRequestDocRef.getDocument { documentSnapshot, error in
+            if let error = error {
+                complition?(.failure(error))
+            } else if let documentSnapshot = documentSnapshot,
+                      documentSnapshot.exists {
+                if let user: MRequestUser = documentSnapshot.data()?.toObject() {
+                    complition?(.success(user))
+                } else  {
+                    complition?(.failure(FirestoreError.cantDecodeData))
+                }
+            } else {
+                complition?(.failure(FirestoreError.inputRequestFromUserNotExist))
+            }
+        }
+    }
+    
     //MARK: nickname check and save
     func checkNickNameIsExists(nickname: String, complition:((Result<Bool,Error>) -> Void)?) {
         let nicknameRef = FirestoreEndPoint.nickname(name: nickname).documentRef

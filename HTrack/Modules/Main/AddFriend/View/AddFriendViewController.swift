@@ -100,7 +100,9 @@ extension AddFriendViewController: AddFriendViewInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function) state: \(state)")
         
-        addFriendHeaderView.updateState(to: state)
+        DispatchQueue.main.async {[weak self] in
+            self?.addFriendHeaderView.updateState(to: state)
+        }
     }
     
     func setupData(newData: [SectionViewModel]) {
@@ -114,10 +116,7 @@ extension AddFriendViewController: AddFriendViewInput {
             sectionVM.items.forEach { cellViewModel in
                 
                 switch cellViewModel {
-                case let vm as FriendViewModel:
-                    vms.append(vm)
-                    
-                case let vm as FriendInputRequestViewModel:
+                case let vm as FriendOutputRequestViewModel:
                     vms.append(vm)
                 default:
                     break
@@ -133,5 +132,14 @@ extension AddFriendViewController: AddFriendViewInput {
             let contentSize = self?.outputRequestsCollectionView?.contentSize ?? .zero
             self?.outputRequestsCollectionView?.didChangeContentSize?(contentSize)
         })
+    }
+    
+    func closeDrawerView() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        drawerView.setDrawerPosition(.dismissed) { [weak self] in
+            self?.output?.closeModule()
+        }
     }
 }

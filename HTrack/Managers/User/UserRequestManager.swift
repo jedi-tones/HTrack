@@ -50,7 +50,7 @@ class UserRequestManager {
         }
     }
     
-    func checkUserIsAvalible(withName: String, complition:((Result<MRequestUser?,Error>) -> Void)?) {
-        firestoreManager.checkUserIsAvalible(userName: withName, complition: complition)
+    func checkUserIsAvalible(withName: String, complition:((Result<MUser,Error>) -> Void)?) {
+        firestoreManager.getUser(nickname: withName, complition: complition)
     }
 }

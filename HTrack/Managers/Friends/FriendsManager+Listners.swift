@@ -50,7 +50,11 @@ extension FriendsManager {
         guard let userID = firUser?.email
         else { throw AuthError.authUserNil }
         
-        friendsRequestManager.subscribeInputRequestsListner(forUserID: userID, delegate: self)
+        friendsRequestManager.subscribeOutputRequestsListner(forUserID: userID, delegate: self)
+    }
+    
+    func unsubscribeOutputRequestsListner() {
+        friendsRequestManager.unsubscribeOutputRequestsListner()
     }
 }
 
@@ -114,4 +118,36 @@ extension FriendsManager: InputRequestListnerDelegate {
                     withFooter: true)
         
     }
+}
+
+extension FriendsManager: OutputRequestListnerDelegate {
+    func outputRequestAdd(request: MRequestUser) {
+        guard !outputRequests.contains(request) else { return }
+        
+        outputRequests.append(request)
+        updateOutputRequsts(outputRequests)
+    }
+    
+    func outputRequestModified(request: MRequestUser) {
+        guard let index = outputRequests.firstIndex(of: request) else { return }
+        
+        outputRequests[index] = request
+        updateOutputRequsts(outputRequests)
+    }
+    
+    func outputRequestRemoved(request: MRequestUser) {
+        guard let index = outputRequests.firstIndex(of: request) else { return }
+        
+        outputRequests.remove(at: index)
+        updateOutputRequsts(outputRequests)
+    }
+    
+    func outputRequestsSubscribeError(error: FirebaseListnersError) {
+        Logger.show(title: "Module error",
+                    text: "\(type(of: self)) - \(#function) \(error)",
+                    withHeader: true,
+                    withFooter: true)
+    }
+    
+    
 }

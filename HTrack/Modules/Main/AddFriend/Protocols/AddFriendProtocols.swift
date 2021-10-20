@@ -9,6 +9,7 @@ protocol AddFriendViewInput: AnyObject {
     func setupInitialState()
     func setupState(state: AddFriendHeaderView.AddFriendHeaderState)
     func setupData(newData: [SectionViewModel])
+    func closeDrawerView()
 }
 
 protocol AddFriendViewOutput {
@@ -16,13 +17,15 @@ protocol AddFriendViewOutput {
     func viewIsReady()
     func didDismissedSheet()
     func addFriendAction(name: String)
+    func closeModule()
 }
 
 
 // MARK: - Interactor
 protocol AddFriendInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
-    func getOuputRequestSection()
+    func subscribeInputRequests()
+    func getOuputRequestSections()
     func sendAddFriendAction(name: String)
     func addDataListnerFor(section: OutputRequestSection)
 }
@@ -31,6 +34,9 @@ protocol AddFriendInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupSections(sections: [OutputRequestSection])
     func updateOutputRequestData(friends: [MRequestUser])
+    func needCloseSheet()
+    func showAddFriendError(error: String)
+    func addComplite()
 }
 
 

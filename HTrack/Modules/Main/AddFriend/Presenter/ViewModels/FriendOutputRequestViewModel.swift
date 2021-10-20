@@ -15,7 +15,7 @@ class FriendOutputRequestViewModel: CellViewModel {
     weak var delegate: FriendOutputRequestViewModelDelegate?
     
     var cell: BaseCellProtocol.Type {
-        FriendCell.self
+        OutputFriendRequestCell.self
     }
 
     var friend: MRequestUser?

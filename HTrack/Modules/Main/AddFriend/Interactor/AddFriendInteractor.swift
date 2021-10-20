@@ -12,18 +12,28 @@ class AddFriendInteractor {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        friendsManager.unsubscribeOutputRequestsListner()
         friendsManager.outputRequestsNotifier.unsubscribe(self)
     }
 }
 
 // MARK: - AddFriendInteractorInput
 extension AddFriendInteractor: AddFriendInteractorInput {
+    func subscribeInputRequests() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        //а нужно ли подписываться на обновления? ведь список у нас и так есть в friendsManager
+    }
+    
     func addDataListnerFor(section: OutputRequestSection) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
         switch section {
         case .ouputRequest:
+            //подписка на firebase слушателя
+            try? friendsManager.subscribeOutputRequestsListner()
             friendsManager.outputRequestsNotifier.subscribe(self)
             let requests = friendsManager.outputRequests
             
@@ -36,22 +46,55 @@ extension AddFriendInteractor: AddFriendInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        DispatchQueue.global().async {
-            self.userManager.checkUserIsAvalible(withName: name) { result in
+        guard let currentMUser = userManager.currentUser else { return }
+        let nameToAdd = name.uppercased()
+        //если у нас уже есть входящая заявка, то принимаем ее и закрываем пикер
+        if let requestUser = friendsManager.inputRequests.filter({$0.nickname?.uppercased() == nameToAdd}).first {
+            friendsManager.acceptInputRequest(userID: requestUser.userID) {[weak self] result in
                 switch result {
                     
-                case .success(let requestUser):
-                    Logger.show(title: "SUCCESS",
-                                text: "\(type(of: self)) - \(#function) request user: \(String(describing: requestUser))")
+                case .success(_):
+                    self?.output?.needCloseSheet()
                 case .failure(let error):
-                    Logger.show(title: "Error",
-                                text: "\(type(of: self)) - \(#function) error \(error)")
+                    Logger.show(title: "Module ERROR",
+                                text: "\(type(of: self)) - \(#function) \(error)")
+                }
+            }
+        } else {
+            //иначе проверяем можем ли мы вообще добавить челика в друзья
+            //вдруг его не существует или он нас забанил
+            DispatchQueue.global().async {
+                self.friendsManager.checkCanAddFriendRequest(userName: nameToAdd) {[weak self] result in
+                    switch result {
+                        
+                    case .success(let mUser):
+                        //можем добавить, отправляем запрос
+                        self?.friendsManager.sendAddFriendRequst(currentMUser: currentMUser,
+                                                                 toUser: mUser,
+                                                                 userID: mUser.userID,
+                                                                 complition: { result in
+                            switch result {
+                                
+                            case .success(_):
+                                self?.output?.addComplite()
+                            case .failure(let error):
+                                Logger.show(title: "Module ERROR",
+                                            text: "\(type(of: self)) - \(#function) \(error)")
+                                self?.output?.showAddFriendError(error: error.localizedDescription)
+                            }
+                        })
+                    case .failure(let error):
+                        Logger.show(title: "Module ERROR",
+                                    text: "\(type(of: self)) - \(#function) \(error)")
+                        self?.output?.showAddFriendError(error: error.localizedDescription)
+                    }
                 }
             }
         }
+        
     }
     
-    func getOuputRequestSection() {
+    func getOuputRequestSections() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         

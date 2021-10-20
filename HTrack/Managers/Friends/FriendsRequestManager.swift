@@ -29,4 +29,31 @@ class FriendsRequestManager {
     func unsubscribeInputRequestsListner() {
         firestoreManager.unsubscribeInputRequestsListner()
     }
+    
+    func subscribeOutputRequestsListner(forUserID: String, delegate: OutputRequestListnerDelegate) {
+        firestoreManager.subscribeOutputRequestsListner(userID: forUserID, delegate: delegate)
+    }
+    
+    func unsubscribeOutputRequestsListner() {
+        firestoreManager.unsubscribeOutputRequestsListner()
+    }
+    
+    func checkCanAddFriendRequest(userName: String, complition:((Result<MUser,Error>) -> Void)?) {
+        firestoreManager.checkCanAddFriendRequest(userName: userName, complition: complition)
+    }
+    
+    func sendAddFriendRequst(currentMUser: MUser, toUser: MUser?, userID: String, complition:((Result<MRequestUser,Error>) -> Void)?) {
+        firestoreManager.sendAddFriendRequst(currentMUser: currentMUser,
+                                             toUser: toUser,
+                                             userID: userID,
+                                             complition: complition)
+    }
+    
+    func acceptInputRequest(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
+        firestoreManager.acceptInputRequest(userID: userID, complition: complition)
+    }
+    
+    func rejectInputRequest(userID: String, complition:((Result<MRequestUser,Error>) -> Void)?) {
+        firestoreManager.rejectInputRequest(userID: userID, complition: complition)
+    }
 }
