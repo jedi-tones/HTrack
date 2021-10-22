@@ -23,6 +23,18 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
         return lb
     }()
     
+    lazy var closeButton: UIButtonWithHitTestInset = {
+        let button = UIButtonWithHitTestInset(type: .custom)
+        let hitInset: CGFloat = 12
+        button.hitTestInset = UIEdgeInsets(top: hitInset, left: hitInset, bottom: hitInset, right: hitInset)
+        button.setImage(Styles.Images.closeCross.withRenderingMode(.alwaysOriginal), for: .normal)
+//        button.adjustsImageWhenHighlighted = false
+        button.startAction = { [weak self] in
+            self?.viewModel?.tapCancel()
+        }
+        return button
+    }()
+    
     var viewModel: FriendOutputRequestViewModel?
     
     override init(frame: CGRect) {
@@ -59,14 +71,19 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
     
     func setupConstraints() {
         contentView.addSubview(nameLabel)
+        contentView.addSubview(closeButton)
         
-        nameLabel.edgesToSuperview(excluding: .bottom, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
+        nameLabel.edgesToSuperview(excluding: .right, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
+                                                                             left: Styles.Sizes.standartHInset,
+                                                                             bottom: Styles.Sizes.standartHInset,
+                                                                             right: Styles.Sizes.standartHInset))
+        closeButton.edgesToSuperview(excluding: .left, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
                                                                               left: Styles.Sizes.standartHInset,
-                                                                              bottom: .zero,
+                                                                              bottom: Styles.Sizes.standartHInset,
                                                                               right: Styles.Sizes.standartHInset))
-       
-        
-        nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        closeButton.height(Styles.Sizes.smallButtonHeight)
+        closeButton.widthToHeight(of: closeButton)
+        nameLabel.rightToLeft(of: closeButton,offset: Styles.Sizes.standartHInset, relation: .equalOrLess)
         nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
 }
@@ -77,6 +94,10 @@ extension OutputFriendRequestCell {
     }
     
     var labelColor: UIColor {
+        Styles.Colors.myLabelColor()
+    }
+    
+    var closeButtonColor: UIColor {
         Styles.Colors.myLabelColor()
     }
 }

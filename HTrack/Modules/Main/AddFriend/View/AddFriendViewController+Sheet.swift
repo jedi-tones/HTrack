@@ -25,6 +25,10 @@ extension AddFriendViewController {
         contentInset.top = headerHeight + Styles.Sizes.stadartVInset
         outputRequestsCollectionView?.contentInset = contentInset
         
+        let startContentSize = outputRequestsCollectionView?.contentSize ?? .zero
+        let startDrawerSize = startContentSize.height + contentInset.top + Styles.Sizes.safeAreaInsets.bottom
+        drawerView.setDrawerPosition(.custom(height: startDrawerSize), animated: true) {}
+        
         outputRequestsCollectionView?.didChangeContentSize = {[weak self] size in
             guard let self = self else { return }
             

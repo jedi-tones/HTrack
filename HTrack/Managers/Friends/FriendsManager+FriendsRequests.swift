@@ -38,4 +38,12 @@ extension FriendsManager {
     func rejectInputRequest(userID: String, complition:((Result<MRequestUser,Error>) -> Void)?) {
         friendsRequestManager.rejectInputRequest(userID: userID, complition: complition)
     }
+    
+    func rejectOutputRequest(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
+        friendsRequestManager.rejectOutputRequest(userID: userID, complition: complition)
+    }
+    
+    func removeFriend(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
+        friendsRequestManager.removeFriend(userID: userID, complition: complition)
+    }
 }

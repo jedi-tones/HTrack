@@ -24,8 +24,9 @@ extension SectionViewModel: Hashable {
     
     static func == (lhs: SectionViewModel, rhs: SectionViewModel) -> Bool {
         lhs.section == rhs.section &&
-            lhs.header?.cell.reuseID == rhs.header?.cell.reuseID &&
-            lhs.footer?.cell.reuseID == rhs.footer?.cell.reuseID
+        lhs.header?.cell.reuseID == rhs.header?.cell.reuseID &&
+        lhs.footer?.cell.reuseID == rhs.footer?.cell.reuseID &&
+        lhs.id == rhs.id
     }
 }
  

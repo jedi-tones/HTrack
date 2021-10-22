@@ -182,12 +182,14 @@ extension FriendsPresenter: FriendInputRequestViewModelDelegate {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function) user: \(user)")
         
+        interactor.accepUserRequest(id: user.userID)
     }
     
     func cancelUser(user: MRequestUser) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function) user: \(user)")
         
+        interactor.cancelUserRequest(id: user.userID)
     }
     
     func blockUser(user: MRequestUser) {

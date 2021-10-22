@@ -52,7 +52,7 @@ extension AddFriendViewController {
         section.interGroupSpacing = Styles.Sizes.stadartVInset
         
         let header = configureHeaderLayout()
-        section.visibleItemsInvalidationHandler = {[weak self] (items, offset, environment) in
+        section.visibleItemsInvalidationHandler = {(items, offset, environment) in
             
         }
         section.boundarySupplementaryItems = [header]

@@ -101,6 +101,22 @@ extension AddFriendInteractor: AddFriendInteractorInput {
         let sections:[OutputRequestSection] = [.ouputRequest]
         output?.setupSections(sections: sections)
     }
+    
+    func cancelRequestFor(id: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        friendsManager.rejectOutputRequest(userID: id) { result in
+            switch result {
+                
+            case .success(_):
+                break
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) \(error)")
+            }
+        }
+    }
 }
 
 extension AddFriendInteractor: FriendsManagerOutputRequestsListner {

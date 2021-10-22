@@ -152,5 +152,6 @@ extension AddFriendPresenter: FriendOutputRequestViewModelDelegate {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        interactor?.cancelRequestFor(id: friend.userID)
     }
 }

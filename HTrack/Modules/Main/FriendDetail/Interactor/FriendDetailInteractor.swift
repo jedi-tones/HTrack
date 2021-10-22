@@ -4,6 +4,8 @@
 class FriendDetailInteractor {
     weak var output: FriendDetailInteractorOutput!
 
+    lazy var friendsManager = FriendsManager.shared
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -41,5 +43,17 @@ extension FriendDetailInteractor: FriendDetailInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        guard let friend = friend else { return }
+        friendsManager.removeFriend(userID: friend.userID) {[weak self] result in
+            switch result {
+                
+            case .success(_):
+                self?.output?.needCloseModule()
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) error - \(error)")
+                self?.output?.needCloseModule()
+            }
+        }
     }
 }

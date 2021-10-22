@@ -43,4 +43,11 @@ class BaseIconButton: BaseCustomButton {
         
         iconConstraint = icon.edgesToSuperview(insets: iconInsets)
     }
+    
+    @discardableResult
+    func setIcon(_ icon: UIImage) -> Self {
+        self.icon.image = icon
+        
+        return self
+    }
 }

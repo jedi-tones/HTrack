@@ -29,7 +29,9 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
             .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeMedium).font)
             .setButtonColor(color: self.acceptButtonColor)
             .setTextColor(color: self.acceptButtonLabelColor)
-        
+        bt.action = { [weak self] in
+            self?.viewModel?.acceptUser()
+        }
         return bt
     }()
     
@@ -39,7 +41,9 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
             .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeMedium).font)
             .setButtonColor(color: self.cancelButtonColor)
             .setTextColor(color: self.cancelButtonLabelColor)
-        
+        bt.action = { [weak self] in
+            self?.viewModel?.cancelUser()
+        }
         return bt
     }()
     

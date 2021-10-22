@@ -14,32 +14,32 @@ extension FirestoreManager {
         
         guard let collectionPath = FirestoreEndPoint.friends(userID: userID).collectionRef
         else {
-            delegate.friendsSubscribeError(error: .collectionPathError)
+            delegate._friendsSubscribeError(error: .collectionPathError)
             return
         }
         
         collectionPath.addSnapshotListener { snapshot, error in
             guard let snapshot = snapshot
             else {
-                delegate.friendsSubscribeError(error: .snapshotIsNil)
+                delegate._friendsSubscribeError(error: .snapshotIsNil)
                 return
             }
             
             snapshot.documentChanges.forEach { change in
                 guard let friend = MUser(documentSnap: change.document)
                 else {
-                    delegate.friendsSubscribeError(error: .queryDocumentInitError)
+                    delegate._friendsSubscribeError(error: .queryDocumentInitError)
                     return
                 }
                 
                 switch change.type {
                 
                 case .added:
-                    delegate.friendAdd(friend: friend)
+                    delegate._friendAdd(friend: friend)
                 case .modified:
-                    delegate.frindsModified(friend: friend)
+                    delegate._frindsModified(friend: friend)
                 case .removed:
-                    delegate.friendRemoved(friend: friend)
+                    delegate._friendRemoved(friend: friend)
                 }
             }
         }

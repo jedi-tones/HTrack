@@ -27,6 +27,7 @@ protocol AddFriendInteractorInput {
     func subscribeInputRequests()
     func getOuputRequestSections()
     func sendAddFriendAction(name: String)
+    func cancelRequestFor(id: String)
     func addDataListnerFor(section: OutputRequestSection)
 }
 

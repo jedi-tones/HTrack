@@ -220,6 +220,42 @@ extension FirestoreManager {
         }
     }
     
+    ///Отклоняем запрос от друга
+    func rejectOutputRequest(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
+        guard let currentUser = authFirestoreManager.getCurrentUser() else {
+            complition?(.failure(AuthError.userError))
+            return
+        }
+        guard let currentUserID = currentUser.email else {
+            complition?(.failure(AuthError.userEmailNil))
+            return
+        }
+        //коллекция входящих у друга
+        guard let inputFriendRequestsCollection = FirestoreEndPoint.inputRequests(userID: userID).collectionRef else {
+            complition?(.failure(FirestoreError.collectionPathIncorrect))
+            return
+        }
+        //коллекция исходящих у себя
+        guard let outputRequestsCollection = FirestoreEndPoint.outputRequests(userID: currentUserID).collectionRef else {
+            complition?(.failure(FirestoreError.collectionPathIncorrect))
+            return
+        }
+        //удаляем входящий запрос у себя и исходящий запроса у будущего друга
+        inputFriendRequestsCollection.document(currentUserID).delete()
+        outputRequestsCollection.document(userID).delete()
+        
+        getUser(id: userID) {[weak self] result in
+            switch result {
+                
+            case .success(let mUser):
+                self?.sendNotificationToFriend(userToken: mUser.fcmKey, text: "Пользователь \(mUser.name ?? "") отозвал заявку на дружбу")
+                complition?(.success(mUser))
+            case .failure(let error):
+                complition?(.failure(error))
+            }
+        }
+    }
+    
     ///Добавление друга в коллекцию друзей, только после принятия входящего запроса.
     ///
     ///В остальных случаях необходимо отправлять исходящую заявку sendAddFriendRequst
@@ -265,6 +301,36 @@ extension FirestoreManager {
                 complition?(.failure(error))
             }
         }
+    }
+    
+    ///Удаление друга из коллекци друзей
+     func removeFriend(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
+        guard let currentUser = authFirestoreManager.getCurrentUser() else {
+            complition?(.failure(AuthError.userError))
+            return
+        }
+        guard let currentUserID = currentUser.email else {
+            complition?(.failure(AuthError.userEmailNil))
+            return
+        }
+        guard let currentUserFriendsCollection = FirestoreEndPoint.friends(userID: currentUserID).collectionRef,
+              let friendFriendsCollection = FirestoreEndPoint.friends(userID: userID).collectionRef else {
+                  complition?(.failure(FirestoreError.collectionPathIncorrect))
+                  return
+              }
+         currentUserFriendsCollection.document(userID).delete()
+         friendFriendsCollection.document(currentUserID).delete()
+        
+         getUser(id: userID) {[weak self] result in
+             switch result {
+                 
+             case .success(let mUser):
+                 self?.sendNotificationToFriend(userToken: mUser.fcmKey, text: "Пользователь \(mUser.name ?? "") удалил тебя из друзей")
+                 complition?(.success(mUser))
+             case .failure(let error):
+                 complition?(.failure(error))
+             }
+         }
     }
     
     func sendNotificationToFriend(userToken: String?, text: String) {

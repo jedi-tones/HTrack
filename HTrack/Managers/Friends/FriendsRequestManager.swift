@@ -56,4 +56,12 @@ class FriendsRequestManager {
     func rejectInputRequest(userID: String, complition:((Result<MRequestUser,Error>) -> Void)?) {
         firestoreManager.rejectInputRequest(userID: userID, complition: complition)
     }
+    
+    func rejectOutputRequest(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
+        firestoreManager.rejectOutputRequest(userID: userID, complition: complition)
+    }
+    
+    func removeFriend(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
+        firestoreManager.removeFriend(userID: userID, complition: complition)
+    }
 }

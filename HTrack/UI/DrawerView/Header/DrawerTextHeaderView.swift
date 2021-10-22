@@ -19,7 +19,7 @@ class DrawerTextHeaderView: UIView {
     }()
     
     lazy var closeButton: UIButton = {
-        let button = UIButtonWithHitTestInset(type: .system)
+        let button = UIButtonWithHitTestInset(type: .custom)
         let hitInset: CGFloat = 12
         button.hitTestInset = UIEdgeInsets(top: hitInset, left: hitInset, bottom: hitInset, right: hitInset)
         button.setImage(Styles.Images.closeCross, for: .normal)

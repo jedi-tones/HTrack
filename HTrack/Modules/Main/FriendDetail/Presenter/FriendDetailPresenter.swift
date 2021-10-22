@@ -62,6 +62,13 @@ extension FriendDetailPresenter: FriendDetailInteractorOutput {
         
         view.setData(viewModel: viewModel)
     }
+    
+    func needCloseModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        view?.dismissDrawerView()
+    }
 }
 
 extension FriendDetailPresenter: FriendDetailViewModelDelegate{

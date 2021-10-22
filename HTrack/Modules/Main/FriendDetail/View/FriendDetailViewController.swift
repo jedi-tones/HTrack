@@ -91,4 +91,13 @@ extension FriendDetailViewController: FriendDetailViewInput {
         drawerHeaderView.setTitle(title: headerTitle)
         friendDetailContentView.setData(viewModel)
     }
+    
+    func dismissDrawerView() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        drawerView.setDrawerPosition(.dismissed) {[weak self] in
+            self?.output?.didDismissedSheet()
+        }
+    }
 }

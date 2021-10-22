@@ -25,6 +25,8 @@ protocol FriendsInteractorInput {
     func getSections()
     func subscribeUserListner()
     func addDataListnerFor(section: FriendsScreenSection)
+    func cancelUserRequest(id: String)
+    func accepUserRequest(id: String)
 }
 
 protocol FriendsInteractorOutput: AnyObject {

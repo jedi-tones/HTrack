@@ -8,11 +8,11 @@
 import Foundation
 
 protocol FriendsListnerDelegate: AnyObject {
-    func friendAdd(friend: MUser)
-    func frindsModified(friend: MUser)
-    func friendRemoved(friend: MUser)
+    func _friendAdd(friend: MUser)
+    func _frindsModified(friend: MUser)
+    func _friendRemoved(friend: MUser)
     
-    func friendsSubscribeError(error: FirebaseListnersError)
+    func _friendsSubscribeError(error: FirebaseListnersError)
 }
 
 protocol InputRequestListnerDelegate: AnyObject {
@@ -59,28 +59,28 @@ extension FriendsManager {
 }
 
 extension FriendsManager: FriendsListnerDelegate {
-    func friendAdd(friend: MUser) {
-        guard !friends.contains(friend) else { return }
+    func _friendAdd(friend: MUser) {
+        guard !friends.contains(where: {$0.userID == friend.userID}) else { return }
         
         friends.append(friend)
         updateFriends(friends)
     }
     
-    func frindsModified(friend: MUser) {
-        guard let index = friends.firstIndex(of: friend) else { return }
+    func _frindsModified(friend: MUser) {
+        guard let index = friends.firstIndex(where: {$0.userID == friend.userID}) else { return }
         
         friends[index] = friend
         updateFriends(friends)
     }
     
-    func friendRemoved(friend: MUser) {
-        guard let index = friends.firstIndex(of: friend) else { return }
+    func _friendRemoved(friend: MUser) {
+        guard let index = friends.firstIndex(where: {$0.userID == friend.userID}) else { return }
         
         friends.remove(at: index)
         updateFriends(friends)
     }
     
-    func friendsSubscribeError(error: FirebaseListnersError) {
+    func _friendsSubscribeError(error: FirebaseListnersError) {
         Logger.show(title: "Module error",
                     text: "\(type(of: self)) - \(#function) \(error)",
                     withHeader: true,
@@ -91,21 +91,21 @@ extension FriendsManager: FriendsListnerDelegate {
 
 extension FriendsManager: InputRequestListnerDelegate {
     func inputRequestAdd(request: MRequestUser) {
-        guard !inputRequests.contains(request) else { return }
+        guard !inputRequests.contains(where: {$0.userID == request.userID}) else { return }
         
         inputRequests.append(request)
         updateInputRequsts(inputRequests)
     }
     
     func inputRequestModified(request: MRequestUser) {
-        guard let index = inputRequests.firstIndex(of: request) else { return }
+        guard let index = inputRequests.firstIndex(where: {$0.userID == request.userID}) else { return }
         
         inputRequests[index] = request
         updateInputRequsts(inputRequests)
     }
     
     func inputRequestRemoved(request: MRequestUser) {
-        guard let index = inputRequests.firstIndex(of: request) else { return }
+        guard let index = inputRequests.firstIndex(where: {$0.userID == request.userID}) else { return }
         
         inputRequests.remove(at: index)
         updateInputRequsts(inputRequests)
@@ -122,21 +122,21 @@ extension FriendsManager: InputRequestListnerDelegate {
 
 extension FriendsManager: OutputRequestListnerDelegate {
     func outputRequestAdd(request: MRequestUser) {
-        guard !outputRequests.contains(request) else { return }
+        guard !outputRequests.contains(where: {$0.userID == request.userID}) else { return }
         
         outputRequests.append(request)
         updateOutputRequsts(outputRequests)
     }
     
     func outputRequestModified(request: MRequestUser) {
-        guard let index = outputRequests.firstIndex(of: request) else { return }
+        guard let index = outputRequests.firstIndex(where: {$0.userID == request.userID}) else { return }
         
         outputRequests[index] = request
         updateOutputRequsts(outputRequests)
     }
     
     func outputRequestRemoved(request: MRequestUser) {
-        guard let index = outputRequests.firstIndex(of: request) else { return }
+        guard let index = outputRequests.firstIndex(where: {$0.userID == request.userID}) else { return }
         
         outputRequests.remove(at: index)
         updateOutputRequsts(outputRequests)

@@ -8,6 +8,7 @@ protocol FriendDetailViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
     func setData(viewModel: FriendDetailViewModel)
+    func dismissDrawerView()
 }
 
 protocol FriendDetailViewOutput {
@@ -30,6 +31,7 @@ protocol FriendDetailInteractorInput {
 protocol FriendDetailInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupModule(elements: [FriendsDetailElement])
+    func needCloseModule()
 }
 
 

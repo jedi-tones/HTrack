@@ -140,7 +140,9 @@ extension FriendsViewController: FriendsViewInput {
             snapshot.appendSections([sectionVM])
             snapshot.appendItems(vms, toSection: sectionVM)
         }
-        dataSource?.apply(snapshot)
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource?.apply(snapshot)
+        }
     }
     
     func updateNickname(nickName: String) {

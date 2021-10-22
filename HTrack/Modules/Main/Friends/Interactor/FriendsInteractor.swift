@@ -40,11 +40,6 @@ extension FriendsInteractor: FriendsInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        //for test
-        if true {
-            
-        }
-        
         switch section {
         
         case .inputRequest:
@@ -60,6 +55,38 @@ extension FriendsInteractor: FriendsInteractorInput {
             
             guard friends.isNotEmpty else { return }
             output.updateFriendsData(friends: friends)
+        }
+    }
+    
+    func cancelUserRequest(id: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        friendsManager.rejectInputRequest(userID: id) { result in
+            switch result {
+                
+            case .success(_):
+                break
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) error - \(error)")
+            }
+        }
+    }
+    
+    func accepUserRequest(id: String) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        friendsManager.acceptInputRequest(userID: id) { result in
+            switch result {
+                
+            case .success(_):
+                break
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) error - \(error)")
+            }
         }
     }
 }
