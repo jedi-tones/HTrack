@@ -28,7 +28,7 @@ class RegisterViewController: UIViewController {
     
     lazy var nicknameInput: TextFieldWithError = {
         let tf = TextFieldWithError()
-            .setPlacehodler("Имя")
+            .setPlacehodler("введи имя")
             .setRules([.isNotEmpty, .isNickname])
         tf.changeTextDelegate = { [weak self] _, text in
             self?.setupState(state: .notChecked)
@@ -39,9 +39,7 @@ class RegisterViewController: UIViewController {
     lazy var nextButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: nextButtonCollor)
-            .setTitle(title: "Проверить")
-            .setCornerRadius(radius: Styles.Sizes.baseCornerRadius)
-            .setWithArrow(withArrow: true, arrowDirection: .right)
+            .setTitle(title: "продолжить")
             .setTextColor(color: nextButtonTitleCollor)
         
         bt.action = { [weak self] in

@@ -181,6 +181,9 @@
 		DD9215292677DEB100A3623E /* MainTabBarTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9215282677DEB100A3623E /* MainTabBarTabs.swift */; };
 		DD92152C2677DFBA00A3623E /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92152B2677DFBA00A3623E /* Array+Extension.swift */; };
 		DD92152E2677E93000A3623E /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92152D2677E93000A3623E /* Images.swift */; };
+		DD94E7CD2724390B00678AED /* Fonts+SoyuzGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */; };
+		DD94E7CE27243BDC00678AED /* SoyuzGrotesk.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD94E7CA2724382D00678AED /* SoyuzGrotesk.otf */; };
+		DD94E7D0272447C000678AED /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7CF272447C000678AED /* UIColor.swift */; };
 		DD9EAD0F2698CD8D0032B3D7 /* EmptyHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD0E2698CD8D0032B3D7 /* EmptyHeaderCell.swift */; };
 		DD9EAD112698D01D0032B3D7 /* EmptyHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD102698D01D0032B3D7 /* EmptyHeaderViewModel.swift */; };
 		DD9EAD132699BE2F0032B3D7 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD122699BE2F0032B3D7 /* NetworkServiceProtocol.swift */; };
@@ -415,6 +418,9 @@
 		DD9215282677DEB100A3623E /* MainTabBarTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarTabs.swift; sourceTree = "<group>"; };
 		DD92152B2677DFBA00A3623E /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		DD92152D2677E93000A3623E /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		DD94E7CA2724382D00678AED /* SoyuzGrotesk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoyuzGrotesk.otf; sourceTree = "<group>"; };
+		DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+SoyuzGrotesk.swift"; sourceTree = "<group>"; };
+		DD94E7CF272447C000678AED /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		DD9EAD0E2698CD8D0032B3D7 /* EmptyHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHeaderCell.swift; sourceTree = "<group>"; };
 		DD9EAD102698D01D0032B3D7 /* EmptyHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHeaderViewModel.swift; sourceTree = "<group>"; };
 		DD9EAD122699BE2F0032B3D7 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -1315,6 +1321,7 @@
 				DD92150726763EF600A3623E /* Tools */,
 				DD59F73926B5AA4B00CA8179 /* UI */,
 				DD9215232677D8D200A3623E /* Styles */,
+				DD94E7CB2724383600678AED /* Fonts */,
 				DD9214F526763DFD00A3623E /* Assets.xcassets */,
 				DD9214F726763DFD00A3623E /* LaunchScreen.storyboard */,
 				DD9F616226E678B7009E3D39 /* Localizable.stringsdict */,
@@ -1402,6 +1409,7 @@
 				DD59F74E26B5D3AE00CA8179 /* UIView+Gradient.swift */,
 				DD59F75026B5DD2600CA8179 /* UIStackView+Extension.swift */,
 				DD59F74626B5AEEA00CA8179 /* CGRect+Extension.swift */,
+				DD94E7CF272447C000678AED /* UIColor.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1415,6 +1423,7 @@
 				DD9215242677D99400A3623E /* Sizes.swift */,
 				DD9215262677D99D00A3623E /* Fonts.swift */,
 				DD2FA0A72708A2E400FC0382 /* Fonts+Avenir.swift */,
+				DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */,
 				DD92152D2677E93000A3623E /* Images.swift */,
 			);
 			path = Styles;
@@ -1438,6 +1447,14 @@
 				362C26A702B3440F8E8C1D8C /* Settings */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		DD94E7CB2724383600678AED /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DD94E7CA2724382D00678AED /* SoyuzGrotesk.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		DD9EAD162699BE530032B3D7 /* Networking */ = {
@@ -1766,6 +1783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD9214F926763DFD00A3623E /* LaunchScreen.storyboard in Resources */,
+				DD94E7CE27243BDC00678AED /* SoyuzGrotesk.otf in Resources */,
 				DD9F616326E678B7009E3D39 /* Localizable.stringsdict in Resources */,
 				DD9214F626763DFD00A3623E /* Assets.xcassets in Resources */,
 				DD59F76826B6FE8800CA8179 /* GoogleService-Info.plist in Resources */,
@@ -1824,6 +1842,7 @@
 				DD9F616026E657B0009E3D39 /* UICollectionReusableView+Extension.swift in Sources */,
 				2B356FC45A82196D554AC8AA /* MainTabBarViewController.swift in Sources */,
 				DD59F75A26B60A4200CA8179 /* AppManager+ViewControllers.swift in Sources */,
+				DD94E7CD2724390B00678AED /* Fonts+SoyuzGrotesk.swift in Sources */,
 				DD2FA09827088BE500FC0382 /* DrawerView.swift in Sources */,
 				DD92150B26764CC500A3623E /* Presentable.swift in Sources */,
 				93CD55BB6E8F90E075C4F98C /* MainTabBarPresenter.swift in Sources */,
@@ -1995,6 +2014,7 @@
 				639E4D30DFF9E5EA844D4CB8 /* AddFriendBuilder.swift in Sources */,
 				2A0D1CCA1F00B2A1011E4EBC /* AddFriendProtocols.swift in Sources */,
 				406706AE7C4F63F60FB90CC9 /* AddFriendModule.swift in Sources */,
+				DD94E7D0272447C000678AED /* UIColor.swift in Sources */,
 				0903768DD99CA836A0C77C97 /* FriendDetailViewController.swift in Sources */,
 				FBDCF1FD2711F98F006188E8 /* String+Extension.swift in Sources */,
 				96C11A65E1AB366D19DC94EA /* FriendDetailPresenter.swift in Sources */,

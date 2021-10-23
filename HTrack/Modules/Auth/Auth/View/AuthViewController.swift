@@ -2,6 +2,7 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import UIKit
+import TinyConstraints
 
 class AuthViewController: UIViewController {
     // MARK: Properties
@@ -17,24 +18,27 @@ class AuthViewController: UIViewController {
     }
     
     fileprivate var _state: AuthViewControllerState = .notChecked
+    fileprivate var buttonStartMaxY: CGFloat = .zero
+    fileprivate var buttonWithPasswordStartMaxY: CGFloat = .zero
     
     fileprivate lazy var authTitle: UILabel = {
         let lb = UILabel()
-        lb.text = "Войди или зарегистрируйся"
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
+        lb.text = "войди или зарегистрируйся"
+        lb.font = Styles.Fonts.soyuz1
         lb.textColor = registraitionTitleColor
         lb.textAlignment = .center
+        lb.isHidden = true
         return lb
     }()
     
     fileprivate lazy var emailInput: TextFieldWithError = {
         let tf = TextFieldWithError()
-            .setPlacehodler("Email")
+            .setPlacehodler("введи e-mail")
             .setKeyboardType(.emailAddress)
             .setRules([.isNotEmpty, .isEmail])
         
         tf.changeTextDelegate = {[weak self] _, _ in
-            self?.setState(state: .notChecked)
+            self?.setState(state: .notChecked, withError: nil)
             self?.nextButton.setStatus(.normal)
         }
         return tf
@@ -42,7 +46,7 @@ class AuthViewController: UIViewController {
     
     fileprivate lazy var passwordInput: TextFieldWithError = {
         let tf = TextFieldWithError()
-            .setPlacehodler("Пароль")
+            .setPlacehodler("пароль")
             .setSecureText(true)
             .setRules([.isNotEmpty, .rule(regex: .password)])
         
@@ -54,22 +58,16 @@ class AuthViewController: UIViewController {
     fileprivate lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
-        sv.spacing = Styles.Sizes.stadartVInset * 4
+        sv.spacing = Styles.Sizes.standartV2Inset
         sv.distribution = .equalSpacing
         return sv
-    }()
-    
-    fileprivate lazy var keyboardNotification: KeyboardNotifications = {
-        let kn = KeyboardNotifications(notifications: [.didShow, .didHide], delegate: self)
-        return kn
     }()
     
     fileprivate lazy var nextButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: nextButtonColor)
-            .setTitle(title: "Проверить")
-            .setCornerRadius(radius: Styles.Sizes.baseCornerRadius)
-            .setWithArrow(withArrow: true, arrowDirection: .right)
+            .setTitle(title: "продолжить")
+            .setBorderColor(color: nil)
             .setTextColor(color: nextButtonTitleColor)
             .setStatus(.deactive)
         
@@ -94,6 +92,11 @@ class AuthViewController: UIViewController {
         return bt
     }()
     
+    fileprivate lazy var keyboardNotification: KeyboardNotifications = {
+        let kn = KeyboardNotifications(notifications: [.willShow, .didHide], delegate: self)
+        return kn
+    }()
+    
     fileprivate var validator: Validator?
 
     // MARK: Life cycle
@@ -109,6 +112,7 @@ class AuthViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
 
     override func viewWillLayoutSubviews() {
@@ -121,6 +125,8 @@ class AuthViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        buttonStartMaxY = nextButton.frame.maxY
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -134,6 +140,8 @@ class AuthViewController: UIViewController {
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+        
+        keyboardNotification.isEnabled = false
     }
 }
 
@@ -154,26 +162,21 @@ extension AuthViewController {
         stackView.addArrangedSubview(passwordInput)
         view.addSubview(nextButton)
         
-        authTitle.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        authTitle.edgesToSuperview(excluding: .bottom,
+                                   insets: TinyEdgeInsets(top: Styles.Sizes.bigVInset,
+                                                          left: Styles.Sizes.standartHInset,
+                                                          bottom: .zero,
+                                                          right: -Styles.Sizes.standartHInset),
+                                   usingSafeArea: true)
         
-        NSLayoutConstraint.activate([
-            authTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Styles.Sizes.bigVInset),
-            authTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Styles.Sizes.standartHInset),
-            authTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Styles.Sizes.standartHInset),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Styles.Sizes.stadartVInset * 4),
-            nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Styles.Sizes.standartHInset),
-            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            nextButton.heightAnchor.constraint(equalToConstant: Styles.Sizes.baseButtonHeight)
-        ])
+        stackView.leftToSuperview(offset: Styles.Sizes.standartHInset)
+        stackView.rightToSuperview(offset: -Styles.Sizes.standartHInset)
+        _stackviewCenterConstraint = stackView.centerYToSuperview()
         
-        _stackviewCenterConstraint = stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        _stackviewCenterConstraint?.isActive = true
+        nextButton.leftToSuperview(offset: Styles.Sizes.standartHInset)
+        nextButton.rightToSuperview(offset: -Styles.Sizes.standartHInset)
+        nextButton.topToBottom(of: stackView, offset: Styles.Sizes.standartV2Inset)
+        nextButton.height(Styles.Sizes.baseButtonHeight)
     }
     
     fileprivate func updateLayoutToState(state: AuthViewControllerState) {
@@ -188,18 +191,20 @@ extension AuthViewController {
                 self?.passwordInput.alpha = 0
                 self?.passwordInput.text = ""
             }
-            nextButton.setTitle(title: "Проверить", animated: true)
+            nextButton.setTitle(title: "продолжить".uppercased(), animated: true)
             
         case .auth:
             emailInput.isUserInteractionEnabled = true
             passwordInput.isUserInteractionEnabled = true
             nextButton.setStatus(.normal)
             UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
-                self?.passwordInput.setPlacehodler("Пароль")
+                self?.passwordInput.setPlacehodler("пароль")
                 self?.passwordInput.isHidden = false
                 self?.passwordInput.alpha = 1
+            } completion: { [weak self] _ in
+                self?.buttonWithPasswordStartMaxY = self?.nextButton.frame.maxY ?? .zero
             }
-            nextButton.setTitle(title: "Войти", animated: true)
+            nextButton.setTitle(title: "войти", animated: true)
             
         case .register:
             emailInput.isUserInteractionEnabled = true
@@ -209,8 +214,10 @@ extension AuthViewController {
                 self?.passwordInput.setPlacehodler("Придумай пароль")
                 self?.passwordInput.isHidden = false
                 self?.passwordInput.alpha = 1
+            } completion: { [weak self] _ in
+                self?.buttonWithPasswordStartMaxY = self?.nextButton.frame.maxY ?? .zero
             }
-            nextButton.setTitle(title: "Зарегистрироваться", animated: true)
+            nextButton.setTitle(title: "зарегистрироваться".uppercased(), animated: true)
             
         case .load:
             emailInput.isUserInteractionEnabled = false
@@ -223,10 +230,22 @@ extension AuthViewController {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function) stackview \(stackView.frame.maxY)")
         
+        //keyboardWillShow вызывается 2 раза в случае если поле с ввода с паролем,
+        //так как отрисовывается сама клава, потом бар над клавой для кейчейна.
+        //что бы мы знали стартовую позицию кнопки во время второго вызова keyboardWillShow, запоминаем ее заранее
+        var buttonMaxY: CGFloat = .zero
+        switch _state {
+            
+        case .notChecked:
+            buttonMaxY = buttonStartMaxY
+        case .auth, .register, .load:
+            buttonMaxY = buttonWithPasswordStartMaxY
+        }
+        
         if let keyboardY = keyboardY {
-            if stackView.frame.maxY  > keyboardY {
-                let addY = stackView.frame.maxY - keyboardY
-                _stackviewCenterConstraint?.constant = addY
+            if buttonMaxY  > keyboardY {
+                let addY = (buttonMaxY - keyboardY) + Styles.Sizes.standartV2Inset
+                _stackviewCenterConstraint?.constant = -addY
                 UIView.animate(withDuration: Styles.Constants.animationDuarationBase) {[weak self] in
                     self?.view.layoutIfNeeded()
                 }
@@ -254,9 +273,14 @@ extension AuthViewController: AuthViewInput {
         setupViews()
     }
     
-    func setState(state: AuthViewControllerState) {
+    func setState(state: AuthViewControllerState, withError: String?) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+        if let withError = withError {
+            passwordInput.setError(withError)
+        } else {
+            passwordInput.removeError()
+        }
         
         guard self._state != state else { return }
         _state = state
@@ -265,8 +289,10 @@ extension AuthViewController: AuthViewInput {
 }
 
 extension AuthViewController: KeyboardNotificationsDelegate {
-    func keyboardDidShow(notification: NSNotification) {
+    func keyboardWillShow(notification: NSNotification) {
         let keyboardInfo = KeyboardPayload(notification)
+        
+        guard keyboardInfo?.frameEnd.size.height ?? 0 > .zero else { return }
         if let keyboardY = keyboardInfo?.frameEnd.origin.y {
             updateConstraints(keyboardY: keyboardY)
         }
@@ -279,18 +305,18 @@ extension AuthViewController: KeyboardNotificationsDelegate {
 
 extension AuthViewController {
     fileprivate var backColor: UIColor {
-        Styles.Colors.myBackgroundColor()
+        Styles.Colors.base1
     }
     
     fileprivate var registraitionTitleColor: UIColor {
-        Styles.Colors.myLabelColor()
+        Styles.Colors.base3
     }
     
     fileprivate var nextButtonColor: UIColor {
-        Styles.Colors.myFilledButtonColor()
+        Styles.Colors.base3
     }
     
     fileprivate var nextButtonTitleColor: UIColor {
-        Styles.Colors.myFilledButtonLabelColor()
+        Styles.Colors.base1
     }
 }

@@ -60,8 +60,8 @@ extension MainTabBarViewController {
         
         tabBar.standardAppearance.stackedLayoutAppearance = appearanceTabBarItem
         
-        tabBar.unselectedItemTintColor = Styles.Colors.myLightGrayColor()
-        tabBar.tintColor = Styles.Colors.myLabelColor()
+        tabBar.unselectedItemTintColor = Styles.Colors.base1
+        tabBar.tintColor = Styles.Colors.base1
     }
 }
 
@@ -74,6 +74,7 @@ extension MainTabBarViewController: MainTabBarViewInput {
         let navControllers = tabs.map({ tab -> UINavigationController in
             let navController = UINavigationController()
             navController.setupNavigationController(image: tab.image,
+                                                    selectedImage: tab.selectedImage,
                                                     title: tab.title,
                                                     tag: tab.tag)
             return navController

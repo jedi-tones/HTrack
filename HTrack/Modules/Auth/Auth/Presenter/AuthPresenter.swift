@@ -28,7 +28,7 @@ extension AuthPresenter: AuthViewOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        view.setState(state: .load)
+        view.setState(state: .load, withError: nil)
         _state = .notChecked
         interactor.checkEmail(email: email)
     }
@@ -37,7 +37,7 @@ extension AuthPresenter: AuthViewOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        view.setState(state: .load)
+        view.setState(state: .load, withError: nil)
         _state = .register
         interactor.registerEmail(email: email, password: password)
     }
@@ -46,7 +46,7 @@ extension AuthPresenter: AuthViewOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        view.setState(state: .load)
+        view.setState(state: .load, withError: nil)
         _state = .auth
         interactor.authWithEmail(email: email, password: password)
     }
@@ -58,7 +58,7 @@ extension AuthPresenter: AuthInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        view.setState(state: state)
+        view.setState(state: state, withError: nil)
     }
     
     func showRegisterModule() {
@@ -79,7 +79,7 @@ extension AuthPresenter: AuthInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function) error: \(error)")
         
-        view.setState(state: _state)
+        view.setState(state: _state, withError: error.localizedDescription)
     }
 }
 

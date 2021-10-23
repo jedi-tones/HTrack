@@ -25,9 +25,19 @@ enum MainTabBarTabs: CaseIterable {
         switch self {
         
         case .main:
-            return Styles.Images.tabBarUser
+            return Styles.Images.tabBarMainOff
         case .friends:
-            return Styles.Images.tabBarFriends
+            return Styles.Images.tabBarFriendsOff
+        }
+    }
+    
+    var selectedImage: UIImage {
+        switch self {
+        
+        case .main:
+            return Styles.Images.tabBarMainOn
+        case .friends:
+            return Styles.Images.tabBarFriendsOn
         }
     }
     

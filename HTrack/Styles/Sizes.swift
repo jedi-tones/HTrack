@@ -23,6 +23,8 @@ extension Styles.Sizes  {
     static let stadartVInset: CGFloat = 8
     static let standartHInset: CGFloat = 16
     
+    static let standartV2Inset: CGFloat = 24
+    
     static let bigVInset: CGFloat = 44
     static let bigHInset: CGFloat = 22
     
@@ -34,7 +36,8 @@ extension Styles.Sizes  {
                                                              right: 10)
     
     static let smallButtonHeight: CGFloat = 22
-    static let baseButtonHeight: CGFloat = 44
+    static let baseButtonHeight: CGFloat = 54
+    static let appleButtonHeight: CGFloat = 54
     
     static let smallCornerRadius: CGFloat = 5
     static let baseCornerRadius: CGFloat = 20

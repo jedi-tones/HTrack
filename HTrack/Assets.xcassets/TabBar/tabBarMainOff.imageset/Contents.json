@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "offusersLightTheme.pdf",
+      "filename" : "off.pdf",
       "idiom" : "universal"
     },
     {
@@ -11,12 +11,15 @@
           "value" : "dark"
         }
       ],
-      "filename" : "offusersDarkTheme.pdf",
+      "filename" : "off 2.pdf",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

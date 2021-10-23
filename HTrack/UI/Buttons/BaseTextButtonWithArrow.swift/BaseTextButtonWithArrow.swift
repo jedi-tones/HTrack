@@ -13,9 +13,22 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         case right
     }
     
+    override var buttonStatus: ButtonStatus {
+        didSet {
+            switch buttonStatus {
+            case .busy:
+                setColorWithAlpha(withAlpha: true)
+            case .normal:
+                setColorWithAlpha(withAlpha: false)
+            case .deactive:
+                setColorWithAlpha(withAlpha: true)
+            }
+        }
+    }
+    
     private var titleLabel: UILabel = {
         let lb = UILabel()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
+        lb.font = Styles.Fonts.soyuz1
         lb.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         lb.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return lb
@@ -47,10 +60,10 @@ class BaseTextButtonWithArrow: BaseCustomButton {
     private var rightStackConstraint: NSLayoutConstraint?
     private var heightConstraint: NSLayoutConstraint?
     
-    private var buttonColor: UIColor = Styles.Colors.myFilledButtonColor()
-    private var textColor: UIColor = Styles.Colors.myFilledButtonLabelColor()
-    private var activityIndicatorColor = Styles.Colors.myActivityIndicatorColor()
-    private var borderColor: UIColor? {
+    private var buttonColor: UIColor? = Styles.Colors.base1
+    private var textColor: UIColor = Styles.Colors.base3
+    private var activityIndicatorColor = Styles.Colors.base3
+    private var borderColor: UIColor? = nil {
         didSet {
             if let borderColor = borderColor {
                 layer.borderColor = borderColor.cgColor
@@ -62,7 +75,7 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         }
     }
     
-    private var cornerRadius:CGFloat? {
+    private var cornerRadius:CGFloat?  {
         didSet {
             setNeedsLayout()
         }
@@ -83,7 +96,7 @@ class BaseTextButtonWithArrow: BaseCustomButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layer.cornerRadius = cornerRadius ?? frame.height / 2
+        layer.cornerRadius = cornerRadius ?? 0
     }
     
     override func startAction() {
@@ -205,18 +218,30 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         case .normal:
             hideActivityIndicator()
             
-            titleLabel.textColor = textColor
-            arrowIcon.tintColor = textColor
+//            titleLabel.textColor = textColor
+//            arrowIcon.tintColor = textColor
             isUserInteractionEnabled = true
             
         case .deactive:
             hideActivityIndicator()
             
-            titleLabel.textColor = textColor.withAlphaComponent(0.3)
-            arrowIcon.tintColor = textColor.withAlphaComponent(0.3)
+//            titleLabel.textColor = textColor.withAlphaComponent(0.3)
+//            arrowIcon.tintColor = textColor.withAlphaComponent(0.3)
             isUserInteractionEnabled = false
         }
         return self
+    }
+    
+    private func setColorWithAlpha(withAlpha: Bool) {
+//        titleLabel.textColor = withAlpha ? textColor.withAlphaComponent(0.5) : textColor
+        activityIndicator.color = withAlpha ? textColor.withAlphaComponent(0.5) : textColor
+        arrowIcon.tintColor = withAlpha ? textColor.withAlphaComponent(0.5) : textColor
+        if let buttonColor = buttonColor {
+            backgroundColor = withAlpha ? buttonColor.withAlphaComponent(0.5) : buttonColor
+        }
+        if let borderColor = borderColor {
+            layer.borderColor = withAlpha ? borderColor.withAlphaComponent(0.5).cgColor : borderColor.cgColor
+        }
     }
 }
 
@@ -279,7 +304,7 @@ extension BaseTextButtonWithArrow {
     }
     
     @discardableResult
-    func setBorderColor(color: UIColor) -> Self {
+    func setBorderColor(color: UIColor?) -> Self {
         self.borderColor = color
         
         return self

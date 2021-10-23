@@ -27,18 +27,18 @@ class TextFieldWithError: UIView {
     var beginEditingAction: ((TextFieldWithError)-> Void)?
     var endEditingAction: ((TextFieldWithError)-> Void)?
     
-    let textField: TextFieldWithInsets = {
+    lazy var textField: TextFieldWithInsets = {
         let tf = TextFieldWithInsets()
         tf.borderStyle = .none
-        tf.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
-        tf.layer.cornerRadius = Styles.Sizes.baseCornerRadius
+        tf.font = Styles.Fonts.bold2
+        tf.layer.cornerRadius = self.needCorners ? Styles.Sizes.baseCornerRadius : .zero
         tf.layer.borderWidth = Styles.Sizes.baseBorderWidth
         return tf
     }()
     
     lazy var customPlaceholder: UILabel = {
         let lb = UILabel()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
+        lb.font = Styles.Fonts.soyuz1
         lb.textColor = placeholderColor
         lb.text = "Placeholder"
         return lb
@@ -47,7 +47,7 @@ class TextFieldWithError: UIView {
     lazy var errorLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Error"
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeSmall).font
+        lb.font = Styles.Fonts.normal0
         lb.textColor = errorLabelColor
         lb.isHidden = true
         lb.alpha = 0
@@ -68,6 +68,7 @@ class TextFieldWithError: UIView {
     
     var maxStringLength: Int = 20
     var limitMaxLength: Bool = false
+    var needCorners: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)

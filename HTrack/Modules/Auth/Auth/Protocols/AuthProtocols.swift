@@ -7,7 +7,7 @@ import Foundation
 protocol AuthViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
-    func setState(state: AuthViewController.AuthViewControllerState)
+    func setState(state: AuthViewController.AuthViewControllerState, withError: String?)
 }
 
 protocol AuthViewOutput {

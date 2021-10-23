@@ -9,6 +9,7 @@ import UIKit
 
 extension UINavigationController {
     func setupNavigationController(image: UIImage? = nil,
+                                   selectedImage: UIImage? = nil,
                                    title: String? = nil,
                                    tag: Int? = nil,
                                    isHidden: Bool = false,
@@ -17,6 +18,7 @@ extension UINavigationController {
         if let tag = tag {
             self.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             self.tabBarItem.image = image
+            self.tabBarItem.selectedImage = selectedImage
             self.tabBarItem.tag = tag
         }
         
@@ -27,7 +29,7 @@ extension UINavigationController {
         appereance.shadowImage = UIImage()
         appereance.shadowColor = .clear
         appereance.backgroundImage = UIImage()
-        appereance.backgroundColor = Styles.Colors.myWhiteColor()
+        appereance.backgroundColor = Styles.Colors.white1
         appereance.configureWithTransparentBackground()
         
         self.navigationBar.standardAppearance = appereance

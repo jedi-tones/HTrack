@@ -8,8 +8,10 @@
 import UIKit
 
 extension Styles.Images  {
-    static let tabBarUser: UIImage = #imageLiteral(resourceName: "tabBar_user")
-    static let tabBarFriends: UIImage = #imageLiteral(resourceName: "tabBar_group")
+    static let tabBarMainOn: UIImage = #imageLiteral(resourceName: "tabBarMainOn")
+    static let tabBarMainOff: UIImage = #imageLiteral(resourceName: "tabBarMainOff")
+    static let tabBarFriendsOn: UIImage = #imageLiteral(resourceName: "tabBarFrindsOn")
+    static let tabBarFriendsOff: UIImage = #imageLiteral(resourceName: "tabBarFrindsOff")
     
     static let buttonLeftArrow: UIImage = #imageLiteral(resourceName: "ArrowLeft")
     static let buttonRightArrow: UIImage = #imageLiteral(resourceName: "ArrowRight")
@@ -19,10 +21,7 @@ extension Styles.Images  {
     static let settingButtonImage: UIImage = #imageLiteral(resourceName: "Settings")
     static let addUserButtonImage: UIImage = #imageLiteral(resourceName: "AddUser")
     
-    static let testImage1: UIImage = #imageLiteral(resourceName: "image1")
-    static let testImage2: UIImage = #imageLiteral(resourceName: "image2")
-    static let testImage3: UIImage = #imageLiteral(resourceName: "image3")
-    static let testImage4: UIImage = #imageLiteral(resourceName: "image4")
+    static let mainLogo: UIImage = #imageLiteral(resourceName: "MainLogo")
     
     static let mainScreenNoise: UIImage =  #imageLiteral(resourceName: "MainScreenNoise")
     static let authScreenNoise: UIImage = #imageLiteral(resourceName: "AuthScreenNoise")

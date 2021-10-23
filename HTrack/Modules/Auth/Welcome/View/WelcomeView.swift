@@ -11,19 +11,18 @@ import TinyConstraints
 
 class WelcomeView: UIView {
     
-    let noiseImage: UIImageView = {
+    let containerView = UIView()
+    let mainLogo: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = Styles.Images.authScreenNoise
-        imageView.contentMode = .scaleAspectFill
+        imageView.image = Styles.Images.mainLogo
         return imageView
     }()
     lazy var signInWithApple: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setTitle(title: "Войти с AppleID")
-            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font)
+            .setTitleFont(font: Styles.Fonts.bold2)
             .setButtonColor(color: self.appleButtonColor)
             .setTextColor(color: self.appleButtonLabelColor)
-            .setWithArrow(withArrow: false, arrowDirection: .right)
         
         return bt
     }()
@@ -36,17 +35,18 @@ class WelcomeView: UIView {
     
     lazy var signInWithEmail: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
-        bt.setTitle(title: "Войти с Email")
-            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font)
+        bt.setTitle(title: "войду с e-mail")
+            .setTitleFont(font: Styles.Fonts.soyuz1)
             .setButtonColor(color: self.emailButtonColor)
             .setTextColor(color: self.emailButtonLabelColor)
+            .setBorderColor(color: nil)
         return bt
     }()
     
     lazy var orLabel: UILabel = {
         let lb = UILabel()
         lb.text = "ИЛИ"
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeMedium).font
+        lb.font = Styles.Fonts.normal1
         lb.textColor = Styles.Colors.mySecondaryLabelColor()
         return lb
     }()
@@ -85,7 +85,7 @@ class WelcomeView: UIView {
         let fullString = "Выполняя вход, ты соглашаешься с нашими \n \(termsAndConditionsText) \n и \n \(privacyPolicyText)"
         let attributes: [NSAttributedString.Key : Any] = [
             .foregroundColor: privacyLabelColor,
-            .font: Styles.Fonts.AvenirFonts.AvenirNextUltraLight(size: Styles.Sizes.fontSizeSmall).font,
+            .font: Styles.Fonts.normal0,
             .paragraphStyle: paragraphStyle,
         ]
         let attributedString = NSMutableAttributedString(string: fullString, attributes: attributes)
@@ -109,69 +109,65 @@ class WelcomeView: UIView {
     }
     
     private func setupConstraints() {
-        addSubview(noiseImage)
+        addSubview(containerView)
+        containerView.addSubview(mainLogo)
         addSubview(signInWithApple)
         addSubview(orLabel)
         addSubview(signInWithEmail)
         addSubview(privacyLabel)
         
-        noiseImage.translatesAutoresizingMaskIntoConstraints = false
-        signInWithApple.translatesAutoresizingMaskIntoConstraints = false
-        orLabel.translatesAutoresizingMaskIntoConstraints = false
-        signInWithEmail.translatesAutoresizingMaskIntoConstraints = false
-        privacyLabel.translatesAutoresizingMaskIntoConstraints = false
+        privacyLabel.edgesToSuperview(excluding: .top,
+                                      insets: TinyEdgeInsets(top: .zero,
+                                                             left: Styles.Sizes.baseHInset,
+                                                             bottom: Styles.Sizes.stadartVInset,
+                                                             right: Styles.Sizes.baseHInset),
+                                      usingSafeArea: true)
+        privacyLabel.height(100)
         
-        NSLayoutConstraint.activate([
-            noiseImage.topAnchor.constraint(equalTo: topAnchor),
-            noiseImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Styles.Sizes.baseHInset),
-            noiseImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Styles.Sizes.baseHInset),
-            noiseImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            
-            privacyLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Styles.Sizes.stadartVInset),
-            privacyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Styles.Sizes.baseHInset),
-            privacyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Styles.Sizes.baseHInset),
-            privacyLabel.heightAnchor.constraint(equalToConstant: 100),
-            
-            signInWithEmail.bottomAnchor.constraint(equalTo: privacyLabel.topAnchor, constant: -Styles.Sizes.stadartVInset),
-            signInWithEmail.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            orLabel.bottomAnchor.constraint(equalTo: signInWithEmail.topAnchor, constant: -Styles.Sizes.stadartVInset),
-            orLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            signInWithApple.bottomAnchor.constraint(equalTo: orLabel.topAnchor, constant: -Styles.Sizes.stadartVInset),
-            signInWithApple.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Styles.Sizes.standartHInset),
-            signInWithApple.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            signInWithApple.heightAnchor.constraint(equalToConstant: Styles.Sizes.baseButtonHeight)
-        ])
+        signInWithEmail.bottomToTop(of: privacyLabel, offset: -Styles.Sizes.stadartVInset)
+        signInWithEmail.centerX(to: self)
+        
+        orLabel.bottomToTop(of: signInWithEmail, offset: -Styles.Sizes.stadartVInset)
+        orLabel.centerX(to: self)
+        
+        signInWithApple.bottomToTop(of: orLabel, offset: -Styles.Sizes.stadartVInset)
+        signInWithApple.leftToSuperview(offset: Styles.Sizes.standartHInset)
+        signInWithApple.rightToSuperview(offset: -Styles.Sizes.standartHInset)
+        signInWithApple.height(Styles.Sizes.appleButtonHeight)
+        
+        containerView.edgesToSuperview(excluding: .bottom)
+        containerView.bottomToTop(of: signInWithApple)
+        
+        mainLogo.centerInSuperview()
     }
 }
 
 extension WelcomeView {
     var backColor: UIColor {
-        Styles.Colors.myBackgroundColor()
+        Styles.Colors.base1
     }
     
     var appleButtonColor: UIColor {
-        Styles.Colors.myFilledButtonColor()
+        Styles.Colors.base1
     }
     
     var appleButtonLabelColor: UIColor {
-        Styles.Colors.myFilledButtonLabelColor()
+        Styles.Colors.base3
     }
     
     var emailButtonColor: UIColor {
-        Styles.Colors.onlyTextButtonColor()
+        Styles.Colors.base1
     }
     
     var emailButtonLabelColor: UIColor {
-        Styles.Colors.onlyTextButtonLabelColor()
+        Styles.Colors.base3
     }
     
     var privacyLabelColor: UIColor {
-        Styles.Colors.mySecondaryLabelColor()
+        Styles.Colors.base3.withAlphaComponent(0.5)
     }
     
     var privacyLinkColor: UIColor {
-        Styles.Colors.myLabelLinkColor()
+        Styles.Colors.base3
     }
 }

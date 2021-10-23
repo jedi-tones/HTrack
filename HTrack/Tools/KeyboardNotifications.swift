@@ -93,7 +93,10 @@ extension KeyboardNotifications {
 
 extension KeyboardNotifications {
     private func addObserver(_ keyboardNotificationsType: KeyboardNotificationsType) {
-        NotificationCenter.default.addObserver(self, selector: keyboardNotificationsType.selector, name: keyboardNotificationsType.notificationName, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: keyboardNotificationsType.selector,
+                                               name: keyboardNotificationsType.notificationName,
+                                               object: nil)
         
         Logger.show(title: "Keyboard",
                     text: "\(type(of: self)) - \(#function) addObserver - \(keyboardNotificationsType.notificationName.rawValue)")

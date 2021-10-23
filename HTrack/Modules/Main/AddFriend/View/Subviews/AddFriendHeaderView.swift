@@ -32,7 +32,6 @@ class AddFriendHeaderView: UIView {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: addButtonCollor)
             .setTitle(title: "Добавить")
-            .setCornerRadius(radius: Styles.Sizes.baseCornerRadius)
             .setTextColor(color: addButtonTitleCollor)
         
         bt.action = { [weak self] in
@@ -74,7 +73,7 @@ class AddFriendHeaderView: UIView {
                                                               left: Styles.Sizes.standartHInset,
                                                               bottom: Styles.Sizes.stadartVInset * 3,
                                                               right: Styles.Sizes.standartHInset))
-        addFriendButton.topToBottom(of: addFriendInput, offset: Styles.Sizes.stadartVInset * 3)
+        addFriendButton.topToBottom(of: addFriendInput, offset: Styles.Sizes.standartV2Inset)
     }
     
     func updateState(to state: AddFriendHeaderState) {

@@ -8,12 +8,72 @@
 import UIKit
 
 extension Styles.Colors  {
+    enum DaysColorsPeriod: Int {
+        case first = 100
+        case second = 150
+        case third = 366
+        
+        var prevValue: Int {
+            switch self {
+            case .first:
+                return 0
+            case .second:
+                return DaysColorsPeriod.first.rawValue
+            case .third:
+                return DaysColorsPeriod.second.rawValue
+            }
+        }
+        
+        var daysInPeriod: Int {
+            return self.rawValue - prevValue
+        }
+    }
     static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
         guard #available(iOS 13.0, *) else { return light }
         return UIColor  { $0.userInterfaceStyle == .dark ? dark : light  }
     }
     
+    static func progressedColor(days: Int) -> UIColor {
+        func calculatePercent(period: DaysColorsPeriod, daysCount: Int, inverted: Bool = true) -> CGFloat {
+            let daysFromPrevPeriod = daysCount - period.prevValue
+            let onePercent: CGFloat = CGFloat(period.daysInPeriod) / 100
+            let completePercent = CGFloat(daysFromPrevPeriod) / onePercent
+            if inverted {
+                let invertedPercent = (100 - completePercent) / 100
+                return invertedPercent
+            } else {
+                return completePercent / 100
+            }
+        }
+        
+        switch days {
+        case let dayCount where dayCount <= DaysColorsPeriod.first.rawValue:
+            let percent = calculatePercent(period: .first, daysCount: days, inverted: true)
+            Logger.show(title: "Percent period \(DaysColorsPeriod.first)", text: " \(percent)")
+            //затемняем 2 цвет до черного
+            return base2.darker(by: percent)
+        case let dayCount where dayCount <= DaysColorsPeriod.second.rawValue:
+            let percent = calculatePercent(period: .second, daysCount: days, inverted: false)
+            Logger.show(title: "Percent period \(DaysColorsPeriod.second)", text: " \(percent)")
+            //осветляем 2 цвет до белого
+            return base2.lighter(by: percent)
+        case let dayCount where dayCount <= DaysColorsPeriod.third.rawValue:
+            let percent = calculatePercent(period: .third, daysCount: days, inverted: true)
+            Logger.show(title: "Percent period \(DaysColorsPeriod.third)", text: " \(percent)")
+            //осветляем 4 цвет до белого
+            return base4.lighter(by: percent)
+        default:
+            return base4
+        }
+    }
+    
     //MARK: base colors
+    static let base1 = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    static let base2 = #colorLiteral(red: 0.9561141133, green: 0.9579541087, blue: 0.9149253964, alpha: 1)
+    static let base3 = #colorLiteral(red: 0.9925743937, green: 1, blue: 0.9658847451, alpha: 1)
+    static let base4 = #colorLiteral(red: 0.9176470588, green: 0.9607843137, blue: 0.3333333333, alpha: 1)
+    
+    
     static let black1 = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     static let black2 = black1.withAlphaComponent(0.5)
     
@@ -111,27 +171,4 @@ extension Styles.Colors  {
     static func badgeColor() -> UIColor {
         dynamicColor(light: black2, dark: white2)
     }
-    
-
-    ///not in use
-    static func myGrayColor() -> UIColor {
-        
-        dynamicColor(light: #colorLiteral(red: 0.3098039216, green: 0.337254902, blue: 0.3725490196, alpha: 1), dark: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-    }
-    
-    static func myLightGrayColor() -> UIColor {
-        
-        dynamicColor(light: #colorLiteral(red: 0.9379875064, green: 0.9324114919, blue: 0.942273736, alpha: 1), dark: #colorLiteral(red: 0.2514118254, green: 0.2546254992, blue: 0.254514575, alpha: 1))
-    }
-    
-    static func mySuperLightGrayColor() -> UIColor {
-        
-        dynamicColor(light: #colorLiteral(red: 0.9750242829, green: 0.9692278504, blue: 0.9794797301, alpha: 1), dark: #colorLiteral(red: 0.1639038324, green: 0.168120265, blue: 0.1680073738, alpha: 1))
-    }
-    
-    static func myWhiteColor() -> UIColor {
-        
-        dynamicColor(light: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), dark: #colorLiteral(red: 0.1518749893, green: 0.1509793401, blue: 0.1525681615, alpha: 1))
-    }
-    
 }

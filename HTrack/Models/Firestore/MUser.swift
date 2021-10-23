@@ -98,6 +98,28 @@ struct MUser: Codable, Hashable {
         photo = try? container.decode(String.self, forKey: .photo)
     }
     
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(userID, forKey: .userID)
+        try? container.encode(name, forKey: .name)
+        try? container.encode(mail, forKey: .mail)
+        try? container.encode(authType, forKey: .authType)
+        if let startDate = startDate {
+            let unixDate = startDate.toUNIXTime()
+            try container.encode(unixDate, forKey: .startDate)
+        }
+        try? container.encode(fcmKey, forKey: .fcmKey)
+        try? container.encode(isAdmin, forKey: .isAdmin)
+        try? container.encode(isPremiumUser, forKey: .isPremiumUser)
+        try? container.encode(isActive, forKey: .isActive)
+        if let drinkDays = drinkDays {
+            let unixDrinkDays = drinkDays.map({$0.toUNIXTime()})
+            try container.encode(unixDrinkDays, forKey: .drinkDays)
+        }
+        try? container.encode(reportList, forKey: .reportList)
+        try? container.encode(photo, forKey: .photo)
+    }
     
     //MARK: documentSnapshot
     // for get document from Firestore
