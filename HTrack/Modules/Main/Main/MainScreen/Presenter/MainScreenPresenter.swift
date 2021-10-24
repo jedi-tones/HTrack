@@ -36,7 +36,11 @@ extension MainScreenPresenter: MainScreenInteractorOutput {
                     text: "\(type(of: self)) - \(#function)")
         
         let count = String(user?.startDate?.getDayCount() ?? 0)
-        let infoVM = MainScreenInfoViewModel(title: "Дней без алкоголя:",
+        let infoVM = MainScreenInfoViewModel(title: """
+                                                    дней
+                                                    без
+                                                    алкоголя
+                                                    """,
                                              count: count)
         
         view.update(vm: infoVM)

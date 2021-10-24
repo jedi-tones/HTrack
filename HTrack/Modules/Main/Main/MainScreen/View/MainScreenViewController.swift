@@ -9,11 +9,6 @@ class MainScreenViewController: UIViewController {
     var output: MainScreenViewOutput!
 
     lazy var infoView = MainScreenInfoView()
-    lazy var backNoiseImageView: UIImageView = {
-        let iv = UIImageView(image: Styles.Images.mainScreenNoise)
-        
-        return iv
-    }()
     
     // MARK: Life cycle
     override func loadView() {
@@ -69,9 +64,7 @@ extension MainScreenViewController {
 
     func setupConstraints() {
         view.addSubview(infoView)
-        view.addSubview(backNoiseImageView)
-        infoView.centerInSuperview()
-        backNoiseImageView.edgesToSuperview(excluding: .bottom)
+        infoView.edgesToSuperview(usingSafeArea: true)
     }
 }
 

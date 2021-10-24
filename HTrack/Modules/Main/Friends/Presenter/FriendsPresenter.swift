@@ -103,7 +103,6 @@ extension FriendsPresenter: FriendsInteractorOutput {
                     text: "\(type(of: self)) - \(#function)")
         
         var newViewModel = viewModel
-        
         let sectionName = FriendsScreenSection.friends.rawValue
         
         guard let sectionIndex = newViewModel.firstIndex(where: {$0.section == sectionName})

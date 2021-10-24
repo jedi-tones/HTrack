@@ -184,6 +184,7 @@
 		DD94E7CD2724390B00678AED /* Fonts+SoyuzGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */; };
 		DD94E7CE27243BDC00678AED /* SoyuzGrotesk.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD94E7CA2724382D00678AED /* SoyuzGrotesk.otf */; };
 		DD94E7D0272447C000678AED /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7CF272447C000678AED /* UIColor.swift */; };
+		DD94E7D22725801900678AED /* FriendsInteractor+AuthListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7D12725801900678AED /* FriendsInteractor+AuthListner.swift */; };
 		DD9EAD0F2698CD8D0032B3D7 /* EmptyHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD0E2698CD8D0032B3D7 /* EmptyHeaderCell.swift */; };
 		DD9EAD112698D01D0032B3D7 /* EmptyHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD102698D01D0032B3D7 /* EmptyHeaderViewModel.swift */; };
 		DD9EAD132699BE2F0032B3D7 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD122699BE2F0032B3D7 /* NetworkServiceProtocol.swift */; };
@@ -421,6 +422,7 @@
 		DD94E7CA2724382D00678AED /* SoyuzGrotesk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoyuzGrotesk.otf; sourceTree = "<group>"; };
 		DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+SoyuzGrotesk.swift"; sourceTree = "<group>"; };
 		DD94E7CF272447C000678AED /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		DD94E7D12725801900678AED /* FriendsInteractor+AuthListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsInteractor+AuthListner.swift"; sourceTree = "<group>"; };
 		DD9EAD0E2698CD8D0032B3D7 /* EmptyHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHeaderCell.swift; sourceTree = "<group>"; };
 		DD9EAD102698D01D0032B3D7 /* EmptyHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHeaderViewModel.swift; sourceTree = "<group>"; };
 		DD9EAD122699BE2F0032B3D7 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 			children = (
 				D41F2478D71E2C833D9EC1B8 /* FriendsInteractor.swift */,
 				DD1E54DC26F7F09800CB4903 /* FriendsInteractor+UserListner.swift */,
+				DD94E7D12725801900678AED /* FriendsInteractor+AuthListner.swift */,
 				DD3FBCCC26EE167C002591A6 /* Models */,
 			);
 			path = Interactor;
@@ -1941,6 +1944,7 @@
 				DD65E09726B89C94002BBF80 /* TextFieldWithInsets.swift in Sources */,
 				DD92152E2677E93000A3623E /* Images.swift in Sources */,
 				3D2033EF6E0A6448AD82F9DF /* RegisterProtocols.swift in Sources */,
+				DD94E7D22725801900678AED /* FriendsInteractor+AuthListner.swift in Sources */,
 				C664C103B203C42BF39BAC78 /* RegisterModule.swift in Sources */,
 				DD9F614B26E51B44009E3D39 /* TextCollectionCellViewModel.swift in Sources */,
 				1C5F427021A242DAB0196C2F /* MainScreenViewController.swift in Sources */,
@@ -2164,6 +2168,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = HTrack/HTrack.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -2190,6 +2195,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = HTrack/HTrack.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;

@@ -6,6 +6,7 @@ class FriendsInteractor {
 
     var friendsManager = FriendsManager.shared
     var userManager = UserManager.shared
+    var authManager = FirebaseAuthManager.shared
     
     deinit {
         Logger.show(title: "Module",
@@ -14,6 +15,7 @@ class FriendsInteractor {
         friendsManager.friendsNotifier.unsubscribe(self)
         friendsManager.inputRequestsNotifier.unsubscribe(self)
         userManager.notifier.unsubscribe(self)
+        authManager.notifier.unsubscribe(self)
     }
 }
 

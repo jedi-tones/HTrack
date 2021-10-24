@@ -2,6 +2,7 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import UIKit
+import TinyConstraints
 
 class RegisterViewController: UIViewController {
     // MARK: Properties
@@ -17,21 +18,14 @@ class RegisterViewController: UIViewController {
     fileprivate var _state: RegisterViewControllerState = .notChecked
     var nicknameInputCenterConstraint: NSLayoutConstraint?
     
-    lazy var nicknameTitle: UILabel = {
-        let lb = UILabel()
-        lb.text = "Выбери никнейм"
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
-        lb.textColor = niknameTitleColor
-        lb.textAlignment = .center
-        return lb
-    }()
-    
     lazy var nicknameInput: TextFieldWithError = {
         let tf = TextFieldWithError()
-            .setPlacehodler("введи имя")
+            .setPlacehodler("никнейм")
             .setRules([.isNotEmpty, .isNickname])
         tf.changeTextDelegate = { [weak self] _, text in
-            self?.setupState(state: .notChecked)
+            if self?._state != .notChecked {
+                self?.setupState(state: .notChecked)
+            }
         }
         return tf
     }()
@@ -48,7 +42,7 @@ class RegisterViewController: UIViewController {
             case .notChecked:
                 self?.checkNickname()
             case .nicknameNotExist:
-                self?.saveNickname()
+                self?.checkNickname()
             case .nicknameExist:
                 self?.checkNickname()
             case .load:
@@ -58,6 +52,11 @@ class RegisterViewController: UIViewController {
             }
         }
         return bt
+    }()
+    
+    fileprivate lazy var keyboardNotification: KeyboardNotifications = {
+        let kn = KeyboardNotifications(notifications: [.willShow, .didHide], delegate: self)
+        return kn
     }()
     
     fileprivate var validator: Validator?
@@ -100,6 +99,8 @@ class RegisterViewController: UIViewController {
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+        
+        keyboardNotification.isEnabled = false
     }
 }
 
@@ -108,6 +109,7 @@ extension RegisterViewController {
     func setupViews() {
         validator = Validator(inputs: [nicknameInput], buttons: [nextButton])
         
+        keyboardNotification.isEnabled = true
         configureNavigationBar()
         view.backgroundColor = backColor
         setupConstraints()
@@ -132,30 +134,16 @@ extension RegisterViewController {
     }
 
     func setupConstraints() {
-        view.addSubview(nicknameTitle)
         view.addSubview(nicknameInput)
         view.addSubview(nextButton)
         
-        nicknameTitle.translatesAutoresizingMaskIntoConstraints = false
-        nicknameInput.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nicknameInput.leftToSuperview(offset: Styles.Sizes.standartHInset)
+        nicknameInput.rightToSuperview(offset: -Styles.Sizes.standartHInset)
+        nicknameInputCenterConstraint = nicknameInput.centerYToSuperview()
         
-        NSLayoutConstraint.activate([
-            nicknameTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Styles.Sizes.bigVInset),
-            nicknameTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Styles.Sizes.standartHInset),
-            nicknameTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            
-            nicknameInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Styles.Sizes.standartHInset),
-            nicknameInput.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Styles.Sizes.stadartVInset * 4),
-            nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Styles.Sizes.standartHInset),
-            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Styles.Sizes.standartHInset),
-            nextButton.heightAnchor.constraint(equalToConstant: Styles.Sizes.baseButtonHeight)
-        ])
-        
-        nicknameInputCenterConstraint = nicknameInput.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        nicknameInputCenterConstraint?.isActive = true
+        nextButton.left(to: nicknameInput)
+        nextButton.right(to: nicknameInput)
+        nextButton.topToBottom(of: nicknameInput, offset: Styles.Sizes.standartV2Inset)
     }
     
     fileprivate func updateLayoutToState(state: RegisterViewControllerState) {
@@ -164,24 +152,46 @@ extension RegisterViewController {
         case .notChecked:
             nicknameInput.isUserInteractionEnabled = true
             nextButton.setStatus(.normal)
-            nextButton.setTitle(title: "Проверить", animated: true)
             
         case .nicknameNotExist:
             nicknameInput.isUserInteractionEnabled = true
             nicknameInput.infoLabel = "Никнейм свободен"
             nextButton.setStatus(.normal)
-            nextButton.setTitle(title: "Сохранить", animated: true)
             
         case .nicknameExist:
             nicknameInput.isUserInteractionEnabled = true
             nicknameInput.error = "Никнейм занят"
             nextButton.setStatus(.normal)
-            nextButton.setTitle(title: "Проверить", animated: true)
             
         case .load:
             nicknameInput.isUserInteractionEnabled = false
             nextButton.setStatus(.busy)
         }
+    }
+    
+    fileprivate func updateConstraints(keyboardY: CGFloat?) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        if let keyboardY = keyboardY {
+            if nextButton.frame.maxY  > keyboardY {
+                let addY = (nextButton.frame.maxY - keyboardY) + Styles.Sizes.standartV2Inset
+                nicknameInputCenterConstraint?.constant = -addY
+                UIView.animate(withDuration: Styles.Constants.animationDuarationBase) {[weak self] in
+                    self?.view.layoutIfNeeded()
+                }
+            }
+        } else {
+            nicknameInputCenterConstraint?.constant = 0
+            UIView.animate(withDuration: Styles.Constants.animationDuarationBase) {[weak self] in
+                self?.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
 }
 
@@ -203,20 +213,31 @@ extension RegisterViewController: RegisterViewInput {
     }
 }
 
-extension RegisterViewController {
-    var backColor: UIColor {
-        Styles.Colors.myBackgroundColor()
+extension RegisterViewController: KeyboardNotificationsDelegate {
+    func keyboardWillShow(notification: NSNotification) {
+        let keyboardInfo = KeyboardPayload(notification)
+        
+        guard keyboardInfo?.frameEnd.size.height ?? 0 > .zero else { return }
+        if let keyboardY = keyboardInfo?.frameEnd.origin.y {
+            updateConstraints(keyboardY: keyboardY)
+        }
     }
     
-    var niknameTitleColor: UIColor {
-        Styles.Colors.myLabelColor()
+    func keyboardDidHide(notification: NSNotification) {
+        updateConstraints(keyboardY: nil)
+    }
+}
+
+extension RegisterViewController {
+    var backColor: UIColor {
+        Styles.Colors.base1
     }
     
     var nextButtonCollor: UIColor {
-        Styles.Colors.myFilledButtonColor()
+        Styles.Colors.base3
     }
     
     var nextButtonTitleCollor: UIColor {
-        Styles.Colors.myFilledButtonLabelColor()
+        Styles.Colors.base1
     }
 }

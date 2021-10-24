@@ -89,6 +89,13 @@ class BaseTextButtonWithArrow: BaseCustomButton {
         setupViews()
     }
     
+    init(insets: UIEdgeInsets) {
+        super.init(frame: .zero)
+        
+        self.insets = insets
+        setupViews()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

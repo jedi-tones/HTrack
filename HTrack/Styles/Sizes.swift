@@ -24,6 +24,7 @@ extension Styles.Sizes  {
     static let standartHInset: CGFloat = 16
     
     static let standartV2Inset: CGFloat = 24
+    static let standartH2Inset: CGFloat = 32
     
     static let bigVInset: CGFloat = 44
     static let bigHInset: CGFloat = 22
@@ -34,6 +35,10 @@ extension Styles.Sizes  {
                                                              left: 10,
                                                              bottom: 10,
                                                              right: 10)
+    static let mainScreenButtonInsets: UIEdgeInsets = UIEdgeInsets(top: 10,
+                                                             left: 20,
+                                                             bottom: 10,
+                                                             right: 20)
     
     static let smallButtonHeight: CGFloat = 22
     static let baseButtonHeight: CGFloat = 54

@@ -27,7 +27,12 @@ extension RegisterInteractor: RegisterInteractorInput {
             switch result {
                 
             case .success(let isExist):
-                self?.output.nicknameState(isExist: isExist)
+                if isExist {
+                    self?.output.nicknameState(isExist: isExist)
+                } else {
+                    self?.saveNickname(name: name)
+                }
+                
             case .failure(let error):
                 Logger.show(title: "Module ERROR",
                             text: "\(type(of: self)) - \(#function) : \(error)")
