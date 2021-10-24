@@ -36,13 +36,15 @@ extension Styles.Sizes  {
                                                              bottom: 10,
                                                              right: 10)
     static let mainScreenButtonInsets: UIEdgeInsets = UIEdgeInsets(top: 10,
-                                                             left: 20,
+                                                             left: 35,
                                                              bottom: 10,
-                                                             right: 20)
+                                                             right: 35)
     
     static let smallButtonHeight: CGFloat = 22
     static let baseButtonHeight: CGFloat = 54
     static let appleButtonHeight: CGFloat = 54
+    
+    static let baseAvatarHeight: CGFloat = 64
     
     static let smallCornerRadius: CGFloat = 5
     static let baseCornerRadius: CGFloat = 20

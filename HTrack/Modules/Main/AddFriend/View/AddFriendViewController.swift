@@ -11,11 +11,13 @@ class AddFriendViewController: UIViewController {
     var layout: UICollectionViewLayout?
     var outputRequestsCollectionView: OutputRequestCollectionView?
     var drawerView = DrawerView()
+    var keyboardHeight: CGFloat = .zero
     
     lazy var drawerHeaderView: DrawerTextHeaderView = {
         let header = DrawerTextHeaderView()
-        header.setTitle(title: "Добавить друга")
+        header.setTitle(title: "добавить друга")
         header.onClose = { [weak self] in
+            _ = self?.addFriendHeaderView.addFriendInput.resignFirstResponder()
             self?.drawerView.setDrawerPosition(.dismissed,
                                          animated: true,
                                          fastUpdate: false) {}
@@ -30,6 +32,11 @@ class AddFriendViewController: UIViewController {
             self?.output?.addFriendAction(name: friendName)
         }
         return hv
+    }()
+    
+    fileprivate lazy var keyboardNotification: KeyboardNotifications = {
+        let kn = KeyboardNotifications(notifications: [.willShow, .didHide], delegate: self)
+        return kn
     }()
     
     // MARK: Life cycle
@@ -70,12 +77,16 @@ class AddFriendViewController: UIViewController {
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+        
+        keyboardNotification.isEnabled = false
     }
 }
 
 extension AddFriendViewController {
     // MARK: Methods
     func setupViews() {
+        
+        keyboardNotification.isEnabled = true
         setupCollectionView()
         setupConstraints()
         setupDrawerView()
@@ -130,7 +141,7 @@ extension AddFriendViewController: AddFriendViewInput {
                                   animatingDifferences: true,
                                   completion: {[weak self] in
             let contentSize = self?.outputRequestsCollectionView?.contentSize ?? .zero
-            self?.outputRequestsCollectionView?.didChangeContentSize?(contentSize)
+            self?.outputRequestsCollectionView?.didChangeContentSize?(contentSize, self?.keyboardHeight ?? .zero)
         })
     }
     
@@ -141,5 +152,24 @@ extension AddFriendViewController: AddFriendViewInput {
         drawerView.setDrawerPosition(.dismissed) { [weak self] in
             self?.output?.closeModule()
         }
+    }
+}
+
+extension AddFriendViewController: KeyboardNotificationsDelegate {
+    func keyboardWillShow(notification: NSNotification) {
+        let keyboardInfo = KeyboardPayload(notification)
+        
+        guard keyboardInfo?.frameEnd.size.height ?? 0 > .zero else { return }
+        if let keyboardH = keyboardInfo?.frameEnd.size.height {
+            keyboardHeight = keyboardH
+            let contentSize = outputRequestsCollectionView?.contentSize ?? .zero
+            outputRequestsCollectionView?.didChangeContentSize?(contentSize, keyboardHeight)
+        }
+    }
+    
+    func keyboardDidHide(notification: NSNotification) {
+        keyboardHeight = .zero
+        let contentSize = outputRequestsCollectionView?.contentSize ?? .zero
+        outputRequestsCollectionView?.didChangeContentSize?(contentSize, keyboardHeight)
     }
 }

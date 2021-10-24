@@ -70,6 +70,12 @@ class TextFieldWithError: UIView {
     var limitMaxLength: Bool = false
     var needCorners: Bool = false
     
+    var _placeholderColor: UIColor?
+    var _borderColor: UIColor?
+    var _textfieldTextColor: UIColor?
+    var _errorLabelColor: UIColor?
+    var _infoLabelColor: UIColor?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -169,12 +175,12 @@ extension TextFieldWithError {
         switch textFieldState {
         
         case .active:
-            return Styles.Colors.myLabelColor()
+            return _placeholderColor ?? Styles.Colors.myLabelColor()
         case .inActive:
             if isEmpty {
-                return Styles.Colors.myPlaceholderColor()
+                return _placeholderColor?.withAlphaComponent(0.5) ?? Styles.Colors.myPlaceholderColor()
             } else {
-                return Styles.Colors.myLabelColor()
+                return _placeholderColor ?? Styles.Colors.myLabelColor()
             }
         }
     }
@@ -183,26 +189,26 @@ extension TextFieldWithError {
         switch textFieldState {
         
         case .active:
-            return Styles.Colors.myLabelColor()
+            return _borderColor ?? Styles.Colors.myLabelColor()
         case .inActive:
             if isEmpty {
-                return Styles.Colors.myPlaceholderColor()
+                return _borderColor?.withAlphaComponent(0.5) ?? Styles.Colors.myPlaceholderColor()
             } else {
-                return Styles.Colors.myLabelColor()
+                return _borderColor ?? Styles.Colors.myLabelColor()
             }
         }
     }
     
     var textfieldTextColor: UIColor {
-        return Styles.Colors.myLabelColor()
+        return _textfieldTextColor ?? Styles.Colors.myLabelColor()
     }
     
     var errorLabelColor: UIColor {
-        return Styles.Colors.myErrorLabelColor()
+        return _errorLabelColor ?? Styles.Colors.myErrorLabelColor()
     }
     
     var infoLabelColor: UIColor {
-        return Styles.Colors.myInfoLabelColor()
+        return _infoLabelColor ?? Styles.Colors.myInfoLabelColor()
     }
 }
 

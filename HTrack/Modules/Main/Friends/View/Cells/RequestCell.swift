@@ -18,15 +18,15 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
     lazy var nameLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = nameLabelColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBig).font
+        lb.font = Styles.Fonts.bold2
         lb.text = "Name"
         return lb
     }()
     
     lazy var acceptButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
-        bt.setTitle(title: "Принять")
-            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeMedium).font)
+        bt.setTitle(title: "принять")
+            .setTitleFont(font: Styles.Fonts.normal1)
             .setButtonColor(color: self.acceptButtonColor)
             .setTextColor(color: self.acceptButtonLabelColor)
         bt.action = { [weak self] in
@@ -37,8 +37,8 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
     
     lazy var cancelButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
-        bt.setTitle(title: "Отклонить")
-            .setTitleFont(font: Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeMedium).font)
+        bt.setTitle(title: "отклонить")
+            .setTitleFont(font: Styles.Fonts.normal1)
             .setButtonColor(color: self.cancelButtonColor)
             .setTextColor(color: self.cancelButtonLabelColor)
         bt.action = { [weak self] in
@@ -89,7 +89,6 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
     
     private func setupView() {
         backgroundColor = backColor
-        layer.cornerRadius = Styles.Sizes.baseCornerRadius
     }
     
     func setupConstraints() {

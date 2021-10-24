@@ -16,7 +16,7 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
     lazy var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = titleColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextRegular(size: Styles.Sizes.fontSizeBase).font
+        lb.font = Styles.Fonts.normal1
         return lb
     }()
     
@@ -24,7 +24,7 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
         let lb = UILabel()
         lb.text = ""
         lb.textColor = titleColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextRegular(size: Styles.Sizes.fontSizeBase).font
+        lb.font = Styles.Fonts.normal1
         lb.isHidden = true
         return lb
     }()

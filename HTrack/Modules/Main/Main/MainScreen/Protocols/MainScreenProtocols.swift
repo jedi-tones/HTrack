@@ -13,12 +13,14 @@ protocol MainScreenViewInput: AnyObject {
 protocol MainScreenViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
+    func drinkButtonTapped()
 }
 
 // MARK: - Interactor
 protocol MainScreenInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getUser() -> MUser?
+    func resetDrinkDate()
 }
 
 protocol MainScreenInteractorOutput: AnyObject {

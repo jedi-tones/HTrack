@@ -108,6 +108,20 @@ extension Date {
         }
     }
     
+    func getDaysString() -> String {
+        let calendar = Calendar.current
+        let timePeriod = calendar.dateComponents([.day], from: self, to: Date())
+        let day = timePeriod.day ?? 0
+        switch day {
+        case let currentDay where (day % 10 == 1) && (day != 11):
+            return String("\(currentDay) день")
+        case let currentDay where (day % 10 >= 2) && (day % 10 <= 4) && (( day < 12) || (day > 14)):
+            return String("\(currentDay) дня")
+        default:
+            return String("\(day) дней")
+        }
+    }
+    
     func getDayCount() -> Int {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: self, to: Date())

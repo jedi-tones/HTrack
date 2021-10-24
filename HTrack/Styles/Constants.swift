@@ -10,5 +10,6 @@ import UIKit
 extension Styles.Constants  {
     static let animationDuarationButton = 0.3
     static let animationDuarationBase = 0.3
-    static let animationDamping: CGFloat = 0.8
+    static let animationDuarationMedium = 0.5
+    static let animationDamping: CGFloat = 1
 }

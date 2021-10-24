@@ -1,6 +1,8 @@
 //  Created by Denis Shchigolev on 15/06/2021.
 //  Copyright © 2021 HTrack. All rights reserved.
 
+import Foundation
+
 class MainScreenInteractor {
     weak var output: MainScreenInteractorOutput!
 
@@ -30,5 +32,19 @@ extension MainScreenInteractor: MainScreenInteractorInput {
         } else {
             return nil
         }
+    }
+    
+    func resetDrinkDate() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let firUser = userManager.firUser,
+              let id = firUser.email else { return }
+        let unixTimeStamp = Date().toUNIXTime()
+        let dic: [MUser.CodingKeys : Any ] = [.startDate : unixTimeStamp]
+        
+        userManager.updateUser(userID: id,
+                               dic: dic,
+                               complition: nil)
     }
 }

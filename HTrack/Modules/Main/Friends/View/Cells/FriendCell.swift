@@ -18,7 +18,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
     lazy var nameLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = labelColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBig).font
+        lb.font = Styles.Fonts.bold2
         lb.text = "Name"
         return lb
     }()
@@ -26,11 +26,26 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
     lazy var countLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = labelColor
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextRegular(size: Styles.Sizes.fontSizeMedium).font
+        lb.font = Styles.Fonts.normal1
         lb.text = "0 Дней"
         return lb
     }()
     
+    var imageView: UIImageView = {
+       let iv = UIImageView()
+        iv.backgroundColor = Styles.Colors.base1
+        iv.setCornerRadius(radius: Styles.Sizes.baseAvatarHeight / 2)
+        return iv
+    }()
+    
+    lazy var stackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .vertical
+        sv.spacing = .zero
+        sv.distribution = .equalSpacing
+        sv.alignment = .leading
+        return sv
+    }()
     var viewModel: FriendViewModel?
     
     override init(frame: CGRect) {
@@ -44,6 +59,11 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
+    
     func configure(viewModel: CellViewModel?) {
         guard let viewModel = viewModel as? FriendViewModel else { return }
         
@@ -54,7 +74,6 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
     
     func setupView() {
         backgroundColor = backColor
-        layer.cornerRadius = Styles.Sizes.baseCornerRadius
     }
     
     func setup() {
@@ -63,24 +82,34 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
         DispatchQueue.main.async {[weak self] in
             self?.nameLabel.text = "@\(viewModel.name.uppercased())"
             self?.countLabel.text = viewModel.count
+            self?.imageView.backgroundColor = Styles.Colors.progressedColor(days: Int(viewModel.daysCount))
+            if viewModel.daysCount < 2 {
+                self?.imageView.layer.borderWidth = Styles.Sizes.baseBorderWidth
+                self?.imageView.layer.borderColor = Styles.Colors.base2.cgColor
+            } else {
+                self?.imageView.layer.borderWidth = .zero
+                self?.imageView.layer.borderColor = nil
+            }
         }
     }
     
     func setupConstraints() {
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(countLabel)
+        contentView.addSubview(imageView)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(nameLabel)
+        stackView.addArrangedSubview(countLabel)
         
-        nameLabel.edgesToSuperview(excluding: .bottom, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
-                                                                              left: Styles.Sizes.standartHInset,
-                                                                              bottom: .zero,
-                                                                              right: Styles.Sizes.standartHInset))
-        countLabel.edgesToSuperview(excluding: [.top, .bottom], insets: TinyEdgeInsets(top: .zero,
-                                                                               left: Styles.Sizes.standartHInset,
-                                                                               bottom: Styles.Sizes.standartHInset,
-                                                                               right: Styles.Sizes.standartHInset))
-        countLabel.topToBottom(of: nameLabel)
-        countLabel.bottomToSuperview(offset: -Styles.Sizes.stadartVInset, priority: .defaultHigh)
+        imageView.edgesToSuperview(excluding: .right,
+                                   insets: TinyEdgeInsets(top: Styles.Sizes.stadartVInset,
+                                                          left: Styles.Sizes.standartHInset,
+                                                          bottom: Styles.Sizes.stadartVInset,
+                                                          right: .zero),
+                                   priority: .defaultHigh)
+        imageView.height(Styles.Sizes.baseAvatarHeight)
+        imageView.widthToHeight(of: imageView)
         
+        stackView.leftToRight(of: imageView, offset: Styles.Sizes.standartHInset)
+        stackView.centerYToSuperview()
         nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
@@ -88,7 +117,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
 
 extension FriendCell {
     var backColor: UIColor {
-        Styles.Colors.mySecondBackgroundColor()
+        .clear
     }
     
     var labelColor: UIColor {

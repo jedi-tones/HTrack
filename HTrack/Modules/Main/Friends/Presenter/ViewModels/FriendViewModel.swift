@@ -24,7 +24,11 @@ class FriendViewModel: CellViewModel {
         friend?.name ?? "Name"
     }
     var count: String {
-        friend?.startDate?.getPeriod() ?? Date().getPeriod()
+        friend?.startDate?.getDaysString() ?? Date().getDaysString()
+    }
+    
+    var daysCount: Int {
+        friend?.startDate?.getDayCount() ?? 0
     }
 
     func tapFriend() {

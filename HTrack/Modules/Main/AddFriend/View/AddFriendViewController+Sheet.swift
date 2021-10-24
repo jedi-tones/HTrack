@@ -29,10 +29,10 @@ extension AddFriendViewController {
         let startDrawerSize = startContentSize.height + contentInset.top + Styles.Sizes.safeAreaInsets.bottom
         drawerView.setDrawerPosition(.custom(height: startDrawerSize), animated: true) {}
         
-        outputRequestsCollectionView?.didChangeContentSize = {[weak self] size in
+        outputRequestsCollectionView?.didChangeContentSize = {[weak self] size, keyboardHeight in
             guard let self = self else { return }
             
-            var h = size.height + contentInset.top + Styles.Sizes.safeAreaInsets.bottom
+            var h = size.height + contentInset.top + Styles.Sizes.safeAreaInsets.bottom + keyboardHeight
             
             let minHeight = Styles.Sizes.minHeightDrawerView + Styles.Sizes.safeAreaInsets.bottom
             if h < minHeight {
@@ -46,7 +46,8 @@ extension AddFriendViewController {
                 h = self.drawerView.maxHeight
             }
             
-            self.drawerView.setDrawerPosition(.custom(height: h), animated: true) {}
+            let isSlowAnimate = keyboardHeight > .zero
+            self.drawerView.setDrawerPosition(.custom(height: h), animated: true, slowAnimate: isSlowAnimate) {}
         }
         
 //        drawerView.maxDrawerPosition = headerHeight

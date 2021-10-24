@@ -13,8 +13,8 @@ class DrawerTextHeaderView: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = Styles.Fonts.baseBoldFont(size: 17)
-        label.numberOfLines = 0
+        label.font = Styles.Fonts.soyuz1
+        label.numberOfLines = 1
         return label
     }()
     

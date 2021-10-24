@@ -28,7 +28,6 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
         let hitInset: CGFloat = 12
         button.hitTestInset = UIEdgeInsets(top: hitInset, left: hitInset, bottom: hitInset, right: hitInset)
         button.setImage(Styles.Images.closeCross.withRenderingMode(.alwaysOriginal), for: .normal)
-//        button.adjustsImageWhenHighlighted = false
         button.startAction = { [weak self] in
             self?.viewModel?.tapCancel()
         }
@@ -58,7 +57,6 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
     
     func setupView() {
         backgroundColor = backColor
-        layer.cornerRadius = Styles.Sizes.baseCornerRadius
     }
     
     func setup() {
@@ -78,13 +76,16 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
                                                                              bottom: Styles.Sizes.standartHInset,
                                                                              right: Styles.Sizes.standartHInset))
         closeButton.edgesToSuperview(excluding: .left, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
-                                                                              left: Styles.Sizes.standartHInset,
+                                                                              left: .zero,
                                                                               bottom: Styles.Sizes.standartHInset,
                                                                               right: Styles.Sizes.standartHInset))
         closeButton.height(Styles.Sizes.smallButtonHeight)
         closeButton.widthToHeight(of: closeButton)
         nameLabel.rightToLeft(of: closeButton,offset: Styles.Sizes.standartHInset, relation: .equalOrLess)
         nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        
+        //contentView.height(Styles.Sizes.baseButtonHeight, relation: .equalOrGreater)
     }
 }
 

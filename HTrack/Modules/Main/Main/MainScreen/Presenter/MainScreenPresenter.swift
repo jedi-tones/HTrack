@@ -27,6 +27,12 @@ extension MainScreenPresenter: MainScreenViewOutput {
         let user = interactor.getUser()
         updateUserStat(user: user)
     }
+    
+    func drinkButtonTapped() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        interactor?.resetDrinkDate()
+    }
 }
 
 // MARK: - MainScreenInteractorOutput

@@ -112,13 +112,13 @@ extension UserManager {
         }
         
         if isCurrentUser(id: userID) {
-            //if current user load from firestore
+            //если ранее уже загрузили текущего юзера просто обновляем в фаерсторе и локально
             if let currentUser = currentUser{
                 userRequestManager.updateUser(userID: currentUser.userID,
                                               dic: dic,
                                               complition: complitCurrentUserMerge)
             } else {
-                //if current not load erly from firestore, load first then change
+                //если еще не получали текущего юзера, предварительно его запрашиваем, потом обновляем
                 getCurrentUser {[weak self] result in
                     switch result {
                     

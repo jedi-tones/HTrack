@@ -22,7 +22,6 @@ class MainScreenViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = true
         output.viewIsReady()
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +59,9 @@ extension MainScreenViewController {
     func setupViews() {
         
         setupConstraints()
+        infoView.drinkButton.action = { [weak self] in
+            self?.output?.drinkButtonTapped()
+        }
     }
 
     func setupConstraints() {

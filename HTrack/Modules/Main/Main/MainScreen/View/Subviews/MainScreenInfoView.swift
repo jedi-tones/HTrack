@@ -32,7 +32,7 @@ class MainScreenInfoView: UIView {
         return lb
     }()
     
-    fileprivate lazy var drinkButton: BaseTextButtonWithArrow = {
+    lazy var drinkButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow(insets: Styles.Sizes.mainScreenButtonInsets)
         bt.setTitle(title: "я выпил")
             .setTitleFont(font: Styles.Fonts.soyuz1)
@@ -40,9 +40,6 @@ class MainScreenInfoView: UIView {
             .setTextColor(color: self.drinkButtonLabelColor)
             .setBorderColor(color: self.drinkButtonLabelColor)
     
-        bt.action = { [weak self] in
-            
-        }
         return bt
     }()
     

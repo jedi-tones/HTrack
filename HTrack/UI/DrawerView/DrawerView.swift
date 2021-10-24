@@ -29,6 +29,7 @@ class DrawerView : UIView {
     
     let animationDamping: CGFloat = Styles.Constants.animationDamping
     let animationDuration  = Styles.Constants.animationDuarationBase
+    let animationDurationMedium  = Styles.Constants.animationDuarationMedium
     let maxHeight: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height
     var maxDrawerPosition: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height {
         didSet {
@@ -164,6 +165,7 @@ class DrawerView : UIView {
     
     func setDrawerPosition(_ position: State,
                            animated: Bool = true,
+                           slowAnimate: Bool = false,
                            fastUpdate: Bool = false,
                            delay: TimeInterval = 0.0,
                            completion: @escaping () -> Void) {
@@ -189,7 +191,7 @@ class DrawerView : UIView {
                                          size: newSize)
             
             if animated {
-                UIView.animate(withDuration: animationDuration,
+                UIView.animate(withDuration: slowAnimate ? animationDuration : animationDurationMedium,
                                delay: delay,
                                usingSpringWithDamping: animationDamping,
                                initialSpringVelocity: 0,

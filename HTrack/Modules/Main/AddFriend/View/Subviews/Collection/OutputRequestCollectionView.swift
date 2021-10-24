@@ -8,7 +8,7 @@
 import UIKit
 
 class OutputRequestCollectionView: UICollectionView, ScrollableContent {
-    var didChangeContentSize: ((_ size: CGSize) -> ())?
+    var didChangeContentSize: ((_ size: CGSize, _ keyboardHeight: CGFloat) -> ())?
     var scrollViewDelegate: UIScrollViewDelegate?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {

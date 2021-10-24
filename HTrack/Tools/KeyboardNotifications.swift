@@ -141,7 +141,7 @@ struct KeyboardPayload {
     
     init?(_ notification: NSNotification) {
 //        guard notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification else { return nil }
-        let u = notification.userInfo!
+        guard let u = notification.userInfo else { return nil }
         
         animationCurve = UIView.AnimationCurve(rawValue: u[UIWindow.keyboardAnimationCurveUserInfoKey] as! Int)!
         animationDuration = u[UIWindow.keyboardAnimationDurationUserInfoKey] as! Double
