@@ -8,6 +8,7 @@ protocol FriendDetailViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
     func setData(viewModel: FriendDetailViewModel)
+    func setRequestData(viewModel: FriendRequestViewModel)
     func dismissDrawerView()
 }
 
@@ -25,12 +26,16 @@ protocol FriendDetailInteractorInput {
     var friendName: String { get }
     func getModuleElements()
     func setFriend(friend: MUser)
+    func setRequest(request: MRequestUser)
     func removeFriend()
+    func acceptRequest()
+    func rejectRequest()
 }
 
 protocol FriendDetailInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupModule(elements: [FriendsDetailElement])
+    func setupRequestModule(elements: [FriendsInputRequestElement])
     func needCloseModule()
 }
 
@@ -47,6 +52,7 @@ protocol FriendDetailModuleInput: AnyObject {
     // MARK: IN -> PRESENTER
     func configure(friend: MUser)
     func configure(output: FriendDetailModuleOutput)
+    func configure(request: MRequestUser)
 }
 
 protocol FriendDetailModuleOutput: AnyObject  {

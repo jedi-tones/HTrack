@@ -64,4 +64,8 @@ class FriendsRequestManager {
     func removeFriend(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
         firestoreManager.removeFriend(userID: userID, complition: complition)
     }
+    
+    func updateStartDateInFriends(friendsIDs: [String], startDay: Double, complition: @escaping(Result<Bool, Error>) -> Void) {
+        firestoreManager.updateStartDateInFriends(friendsIDs: friendsIDs, startDay: startDay, complition: complition)
+    }
 }

@@ -37,6 +37,12 @@ class FriendsRouter: FriendsRouterInput {
         
         guard let friendsScreenCoordinator = coordinator as? FriendsCoordinatorFlow else { return }
         
-        friendsScreenCoordinator.open(screen: .friendDetail(friend: user), animated: false)
+        friendsScreenCoordinator.open(screen: .friendDetail(friend: user, inputRequest: nil), animated: false)
+    }
+    
+    func showInputRequestDetailScreen(inputRequest: MRequestUser) {
+        guard let friendsScreenCoordinator = coordinator as? FriendsCoordinatorFlow else { return }
+        
+        friendsScreenCoordinator.open(screen: .friendDetail(friend: nil, inputRequest: inputRequest), animated: false)
     }
 }

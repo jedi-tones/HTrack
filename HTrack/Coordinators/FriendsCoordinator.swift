@@ -24,7 +24,7 @@ class FriendsCoordinator: CoordinatorProtocol {
         case friends
         case settings
         case addFriend
-        case friendDetail(friend: MUser)
+        case friendDetail(friend: MUser?, inputRequest: MRequestUser?)
     }
     
     init(modulePresenter: Presentable) {
@@ -63,8 +63,10 @@ extension FriendsCoordinator: FriendsCoordinatorFlow {
             showProfileSettings(animated: animated)
         case .addFriend:
             showAddFriendScreen(animated: animated)
-        case .friendDetail(let friend):
-            showFriendDetailScreen(friend: friend, animated: animated)
+        case .friendDetail(let friend, let inputRequest):
+            showFriendDetailScreen(friend: friend,
+                                   inputRequest: inputRequest,
+                                   animated: animated)
         }
     }
     
@@ -108,12 +110,16 @@ extension FriendsCoordinator: FriendsCoordinatorFlow {
                                        animated: animated)
     }
     
-    func showFriendDetailScreen(friend: MUser, animated: Bool) {
+    func showFriendDetailScreen(friend: MUser?, inputRequest: MRequestUser?, animated: Bool) {
         Logger.show(title: "Coordinator",
                     text: "\(type(of: self)) - \(#function)")
         
         let module = FriendDetailModule(coordinator: self) { input in
-            input.configure(friend: friend)
+            if let friend = friend {
+                input.configure(friend: friend)
+            } else if let inputRequest = inputRequest {
+                input.configure(request: inputRequest)
+            }
         }
         modulePresenter?.presentModule(with: module.controller,
                                        presentationStyle: .overFullScreen,

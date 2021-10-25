@@ -23,39 +23,15 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
         return lb
     }()
     
-    lazy var acceptButton: BaseTextButtonWithArrow = {
-        let bt = BaseTextButtonWithArrow()
-        bt.setTitle(title: "принять")
-            .setTitleFont(font: Styles.Fonts.normal1)
-            .setButtonColor(color: self.acceptButtonColor)
-            .setTextColor(color: self.acceptButtonLabelColor)
-        bt.action = { [weak self] in
-            self?.viewModel?.acceptUser()
+    lazy var detailButton: UIButtonWithHitTestInset = {
+        let button = UIButtonWithHitTestInset(type: .custom)
+        let hitInset: CGFloat = 12
+        button.hitTestInset = UIEdgeInsets(top: hitInset, left: hitInset, bottom: hitInset, right: hitInset)
+        button.setImage(Styles.Images.detailButton.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.startAction = { [weak self] in
+            self?.viewModel?.tapInputRequestIcon()
         }
-        return bt
-    }()
-    
-    lazy var cancelButton: BaseTextButtonWithArrow = {
-        let bt = BaseTextButtonWithArrow()
-        bt.setTitle(title: "отклонить")
-            .setTitleFont(font: Styles.Fonts.normal1)
-            .setButtonColor(color: self.cancelButtonColor)
-            .setTextColor(color: self.cancelButtonLabelColor)
-        bt.action = { [weak self] in
-            self?.viewModel?.cancelUser()
-        }
-        return bt
-    }()
-    
-    lazy var stackView: UIStackView = {
-       let stack = UIStackView()
-        stack.addArrangedSubview(self.acceptButton)
-        stack.addArrangedSubview(self.cancelButton)
-        stack.alignment = .center
-        stack.axis = .horizontal
-        stack.distribution = .fillEqually
-        stack.spacing = Styles.Sizes.standartHInset
-        return stack
+        return button
     }()
     
     var viewModel: FriendInputRequestViewModel?
@@ -93,42 +69,27 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
     
     func setupConstraints() {
         contentView.addSubview(nameLabel)
-        contentView.addSubview(stackView)
+        contentView.addSubview(detailButton)
         
-        nameLabel.edgesToSuperview(excluding: .bottom, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
-                                                                              left: Styles.Sizes.standartHInset,
-                                                                              bottom: .zero,
-                                                                              right: Styles.Sizes.standartHInset))
-        stackView.edgesToSuperview(excluding: .top, insets: TinyEdgeInsets(top: .zero,
-                                                                              left: Styles.Sizes.standartHInset,
-                                                                              bottom: Styles.Sizes.standartHInset,
-                                                                              right: Styles.Sizes.standartHInset))
-        stackView.topToBottom(of: nameLabel, offset: Styles.Sizes.standartHInset)
+        nameLabel.edgesToSuperview(excluding: .right,
+                                   insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
+                                                          left: Styles.Sizes.standartHInset,
+                                                          bottom: Styles.Sizes.standartHInset,
+                                                          right: .zero))
+        detailButton.centerYToSuperview()
+        detailButton.height(Styles.Sizes.smallButtonHeight)
+        detailButton.widthToHeight(of: detailButton)
+        detailButton.rightToSuperview(offset: -Styles.Sizes.standartHInset)
+        detailButton.leftToRight(of: nameLabel)
     }
 }
 
 extension RequestCell {
     var backColor: UIColor {
-        Styles.Colors.mySecondBackgroundColor()
-    }
-    
-    var acceptButtonColor: UIColor {
-        Styles.Colors.myFilledButtonColor()
-    }
-    
-    var acceptButtonLabelColor: UIColor {
-        Styles.Colors.myFilledButtonLabelColor()
-    }
-    
-    var cancelButtonColor: UIColor {
-        Styles.Colors.myFilledDisableButtonColor()
-    }
-    
-    var cancelButtonLabelColor: UIColor {
-        Styles.Colors.myFilledButtonLabelColor()
+        .clear
     }
     
     var nameLabelColor: UIColor {
-        Styles.Colors.myLabelColor()
+        Styles.Colors.base3
     }
 }

@@ -15,7 +15,8 @@ class AddFriendViewController: UIViewController {
     
     lazy var drawerHeaderView: DrawerTextHeaderView = {
         let header = DrawerTextHeaderView()
-        header.setTitle(title: "добавить друга")
+        header.setTitle(title: "добавить друга".uppercased())
+        header.setFont(font: Styles.Fonts.bold2)
         header.onClose = { [weak self] in
             _ = self?.addFriendHeaderView.addFriendInput.resignFirstResponder()
             self?.drawerView.setDrawerPosition(.dismissed,
@@ -89,7 +90,10 @@ extension AddFriendViewController {
         keyboardNotification.isEnabled = true
         setupCollectionView()
         setupConstraints()
-        setupDrawerView()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + Styles.Constants.animationDuarationBase) { [weak self] in
+            self?.setupDrawerView()
+        }
     }
 
     func setupConstraints() {

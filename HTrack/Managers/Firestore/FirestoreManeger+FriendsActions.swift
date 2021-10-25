@@ -333,6 +333,35 @@ extension FirestoreManager {
          }
     }
     
+    ///обновляем дату старта у друзей, в их списке друзей
+    func updateStartDateInFriends(friendsIDs: [String], startDay: Double, complition: @escaping(Result<Bool, Error>) -> Void) {
+        guard let currentUser = authFirestoreManager.getCurrentUser() else {
+            complition(.failure(AuthError.userError))
+            return
+        }
+        guard let currentUserID = currentUser.email else {
+            complition(.failure(AuthError.userEmailNil))
+            return
+        }
+        
+        let batch = firestore.batch()
+        friendsIDs.forEach { friendID in
+            if let userInFriendRef = FirestoreEndPoint.friends(userID: friendID).collectionRef?.document(currentUserID) {
+                batch.setData([MUser.CodingKeys.startDate.rawValue : startDay],
+                              forDocument: userInFriendRef,
+                              merge: true)
+            }
+        }
+        
+        batch.commit { error in
+            if let error = error {
+                complition(.failure(error))
+            } else {
+                complition(.success(true))
+            }
+        }
+    }
+    
     func sendNotificationToFriend(userToken: String?, text: String) {
         //тут нужно отправлять пуш другу с текстом
         

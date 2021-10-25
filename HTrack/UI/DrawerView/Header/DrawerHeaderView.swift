@@ -39,11 +39,11 @@ class DrawerHeaderView: UIView {
         let sv = UIStackView()
         sv.alignment = .fill
         sv.axis = .vertical
-        sv.spacing = Styles.Sizes.mediumVInset
+        sv.spacing = Styles.Sizes.standartV2Inset
         return sv
     }()
     
-    private var _dragAccessorySize = CGSize(width: 36, height: 5)
+    private var _dragAccessorySize = CGSize(width: 64, height: 5)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,11 +62,11 @@ class DrawerHeaderView: UIView {
         addSubview(_dragAccessoryView)
         _dragAccessoryView.size(_dragAccessorySize)
         _dragAccessoryView.centerXToSuperview()
-        _dragAccessoryView.topToSuperview(offset: Styles.Sizes.mediumVInset)
+        _dragAccessoryView.bottomToTop(of: self, offset: -Styles.Sizes.mediumVInset)
         
         addSubview(_stackView)
         
-        _stackView.topToBottom(of: _dragAccessoryView)
+        _stackView.topToSuperview(offset: Styles.Sizes.standartV2Inset)
         _stackView.leftToSuperview()
         _stackView.rightToSuperview()
         _stackView.bottomToSuperview()

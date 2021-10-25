@@ -8,7 +8,7 @@ class FriendsPresenter {
     weak var view: FriendsViewInput!
     var router: FriendsRouterInput!
     var interactor: FriendsInteractorInput!
-
+    var serialQ = DispatchQueue(label: "serial")
     var viewModel: [SectionViewModel] = []
     
     deinit {
@@ -99,102 +99,106 @@ extension FriendsPresenter: FriendsInteractorOutput {
     }
     
     func updateFriendsData(friends: [MUser]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
         
-        var newViewModel = viewModel
-        let sectionName = FriendsScreenSection.friends.rawValue
-        
-        guard let sectionIndex = newViewModel.firstIndex(where: {$0.section == sectionName})
-        else { return }
-        
-        var sectionVM = SectionViewModel(section: sectionName,
-                                         header: nil,
-                                         footer: nil,
-                                         items: [])
-        
-        for friend in friends {
-            let friendVM = FriendViewModel()
-            friendVM.friend = friend
-            friendVM.delegate = self
-            sectionVM.items.append(friendVM)
+        serialQ.async {
+            updateData()
         }
         
-        if sectionVM.items.isNotEmpty {
-            let header = TextHeaderWithCounterViewModel()
-            header.title = sectionName
-            header.count = sectionVM.items.count
-            sectionVM.header = header
-        } else {
-            let header = EmptyHeaderViewModel()
-            sectionVM.header = header
+        func updateData() {
+            Logger.show(title: "Module",
+                        text: "\(type(of: self)) - \(#function)")
+            
+            var newViewModel = viewModel
+            let sectionName = FriendsScreenSection.friends.rawValue
+            
+            guard let sectionIndex = newViewModel.firstIndex(where: {$0.section == sectionName})
+            else { return }
+            
+            var sectionVM = SectionViewModel(section: sectionName,
+                                             header: nil,
+                                             footer: nil,
+                                             items: [])
+            
+            for friend in friends {
+                let friendVM = FriendViewModel()
+                friendVM.friend = friend
+                friendVM.delegate = self
+                sectionVM.items.append(friendVM)
+            }
+            
+            if sectionVM.items.isNotEmpty {
+                let header = TextHeaderWithCounterViewModel()
+                header.title = sectionName
+                header.count = sectionVM.items.count
+                sectionVM.header = header
+                sectionVM.headerCounter = sectionVM.items.count
+            } else {
+                let header = EmptyHeaderViewModel()
+                sectionVM.header = header
+                sectionVM.headerCounter = 0
+            }
+            
+            newViewModel[sectionIndex] = sectionVM
+            
+            viewModel = newViewModel
+            view.setupData(newData: viewModel)
         }
-        
-        newViewModel[sectionIndex] = sectionVM
-        
-        viewModel = newViewModel
-        view.setupData(newData: viewModel)
     }
     
     func updateRequestData(requests: [MRequestUser]) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        var newViewModel = viewModel
-        let sectionName = FriendsScreenSection.inputRequest.rawValue
-        
-        guard let _ = newViewModel.firstIndex(where: {$0.section == sectionName})
-        else { return }
-        
-        var sectionVM = SectionViewModel(section: sectionName,
-                                         header: nil,
-                                         footer: nil,
-                                         items: [])
-        
-        for requestUser in requests {
-            let friendVM = FriendInputRequestViewModel()
-            friendVM.requestUser = requestUser
-            friendVM.delegate = self
-            sectionVM.items.append(friendVM)
+        serialQ.async {
+            updateData()
         }
         
-        if sectionVM.items.isNotEmpty {
-            let header = TextHeaderWithCounterViewModel()
-            header.title = sectionName
-            header.count = sectionVM.items.count
-            sectionVM.header = header
-        } else {
-            let header = EmptyHeaderViewModel()
-            sectionVM.header = header
+        func updateData() {
+            var newViewModel = viewModel
+            let sectionName = FriendsScreenSection.inputRequest.rawValue
+            
+            guard let _ = newViewModel.firstIndex(where: {$0.section == sectionName})
+            else { return }
+            
+            var sectionVM = SectionViewModel(section: sectionName,
+                                             header: nil,
+                                             footer: nil,
+                                             items: [])
+            
+            for requestUser in requests {
+                let friendVM = FriendInputRequestViewModel()
+                friendVM.requestUser = requestUser
+                friendVM.delegate = self
+                sectionVM.items.append(friendVM)
+            }
+            
+            if sectionVM.items.isNotEmpty {
+                let header = TextHeaderWithCounterViewModel()
+                header.title = sectionName
+                header.count = sectionVM.items.count
+                sectionVM.header = header
+                sectionVM.headerCounter = sectionVM.items.count
+            } else {
+                let header = EmptyHeaderViewModel()
+                sectionVM.header = header
+                sectionVM.headerCounter = 0
+            }
+            
+            newViewModel.removeAll(where: {$0.section == sectionName})
+            newViewModel.insert(sectionVM, at: 0)
+            
+            viewModel = newViewModel
+            view.setupData(newData: viewModel)
         }
-        
-        newViewModel.removeAll(where: {$0.section == sectionName})
-        newViewModel.insert(sectionVM, at: 0)
-        
-        viewModel = newViewModel
-        view.setupData(newData: viewModel)
     }
 }
 
 extension FriendsPresenter: FriendInputRequestViewModelDelegate {
-    func acceptUser(user: MRequestUser) {
+    func tapInputRequest(user: MRequestUser) {
         Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) user: \(user)")
+                    text: "\(type(of: self)) - \(#function) request: \(user)")
         
-        interactor.accepUserRequest(id: user.userID)
-    }
-    
-    func cancelUser(user: MRequestUser) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) user: \(user)")
-        
-        interactor.cancelUserRequest(id: user.userID)
-    }
-    
-    func blockUser(user: MRequestUser) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) user: \(user)")
-        
+        router.showInputRequestDetailScreen(inputRequest: user)
     }
 }
 

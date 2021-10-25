@@ -6,8 +6,9 @@ import Foundation
 class SettingsInteractor {
     weak var output: SettingsInteractorOutput!
 
-    var appManager = AppManager.shared
-    var userManager = UserManager.shared
+    let appManager = AppManager.shared
+    let userManager = UserManager.shared
+    let friendsManager = FriendsManager.shared
     
     deinit {
         Logger.show(title: "Module",
@@ -80,7 +81,18 @@ extension SettingsInteractor: SettingsInteractorInput {
         let dic: [MUser.CodingKeys : Any ] = [.startDate : unixTimeStamp]
         
         userManager.updateUser(userID: id,
-                               dic: dic,
-                               complition: nil)
+                               dic: dic) { result in
+            switch result {
+            case .success(_):
+                updateStartDateOnFriends(startDate: unixTimeStamp)
+            case .failure(_):
+                break
+            }
+        }
+        
+        func updateStartDateOnFriends(startDate: Double) {
+            let friendsIds = friendsManager.friends.compactMap({$0.userID})
+            friendsManager.updateStartDateInFriends(friendsIDs: friendsIds, startDay: startDate) { _ in}
+        }
     }
 }

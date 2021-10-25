@@ -8,6 +8,11 @@ class FriendsInteractor {
     var userManager = UserManager.shared
     var authManager = FirebaseAuthManager.shared
     
+    let sections: [FriendsScreenSection] = [.inputRequest, .friends]
+    init() {
+        
+    }
+    
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -34,7 +39,6 @@ extension FriendsInteractor: FriendsInteractorInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        let sections: [FriendsScreenSection] = [.inputRequest, .friends]
         output.setupSections(sections: sections)
     }
     

@@ -103,7 +103,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
                                    insets: TinyEdgeInsets(top: Styles.Sizes.stadartVInset,
                                                           left: Styles.Sizes.standartHInset,
                                                           bottom: Styles.Sizes.stadartVInset,
-                                                          right: .zero),
+                                                          right: Styles.Sizes.standartHInset),
                                    priority: .defaultHigh)
         imageView.height(Styles.Sizes.baseAvatarHeight)
         imageView.widthToHeight(of: imageView)

@@ -46,4 +46,8 @@ extension FriendsManager {
     func removeFriend(userID: String, complition:((Result<MUser,Error>) -> Void)?) {
         friendsRequestManager.removeFriend(userID: userID, complition: complition)
     }
+    
+    func updateStartDateInFriends(friendsIDs: [String], startDay: Double, complition: @escaping(Result<Bool, Error>) -> Void) {
+        friendsRequestManager.updateStartDateInFriends(friendsIDs: friendsIDs, startDay: startDay, complition: complition)
+    }
 }

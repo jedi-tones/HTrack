@@ -24,4 +24,5 @@ extension Styles.Images  {
     static let mainLogo: UIImage = #imageLiteral(resourceName: "MainLogo")
     
     static let closeCross: UIImage = #imageLiteral(resourceName: "closeCross")
+    static let detailButton: UIImage = #imageLiteral(resourceName: "Detail")
 }

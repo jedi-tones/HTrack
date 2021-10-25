@@ -8,7 +8,7 @@ class FriendDetailViewController: UIViewController {
     // MARK: Properties
     var output: FriendDetailViewOutput!
 
-    var friendDetailContentView = FriendDetailContentView()
+    var friendDetailContentView = DetailContentView()
     var drawerView = DrawerView()
     lazy var drawerHeaderView: DrawerTextHeaderView = {
         let header = DrawerTextHeaderView()
@@ -89,6 +89,13 @@ extension FriendDetailViewController: FriendDetailViewInput {
                     text: "\(type(of: self)) - \(#function)")
         let headerTitle = "@\(viewModel.sheetHeaderTitle.uppercased())"
         drawerHeaderView.setTitle(title: headerTitle)
+        friendDetailContentView.setData(viewModel)
+    }
+    
+    func setRequestData(viewModel: FriendRequestViewModel) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
         friendDetailContentView.setData(viewModel)
     }
     

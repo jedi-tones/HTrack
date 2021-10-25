@@ -63,6 +63,33 @@ extension FriendDetailPresenter: FriendDetailInteractorOutput {
         view.setData(viewModel: viewModel)
     }
     
+    func setupRequestModule(elements: [FriendsInputRequestElement]) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        let viewModel = FriendRequestViewModel()
+        var blocks: [FriendRequestViewModel.ViewBlock] = []
+        
+        
+        elements.forEach { element in
+            switch element {
+            case .name:
+                let block = FriendRequestViewModel.ViewBlock.name(title: interactor.friendName)
+                blocks.append(block)
+            case .acceptButton:
+                let block = FriendRequestViewModel.ViewBlock.acceptButton(title: "принять")
+                blocks.append(block)
+            case .rejectButton:
+                let block = FriendRequestViewModel.ViewBlock.rejectButton(title: "отклонить")
+                blocks.append(block)
+            }
+        }
+        
+        viewModel.configure(viewBlocks: blocks)
+        viewModel.delegate = self
+        
+        view.setRequestData(viewModel: viewModel)
+    }
+    
     func needCloseModule() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -80,6 +107,22 @@ extension FriendDetailPresenter: FriendDetailViewModelDelegate{
     }
 }
 
+extension FriendDetailPresenter: FriendRequestViewModelDelegate {
+    func acceptButtonTapped() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        interactor.acceptRequest()
+    }
+    
+    func rejectButtonTapped() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        interactor.rejectRequest()
+    }
+}
+
 // MARK: - FriendDetailModuleInput
 extension FriendDetailPresenter: FriendDetailModuleInput {
     func configure(output: FriendDetailModuleOutput) {
@@ -93,5 +136,12 @@ extension FriendDetailPresenter: FriendDetailModuleInput {
                     text: "\(type(of: self)) - \(#function)")
         
         interactor.setFriend(friend: friend)
+    }
+    
+    func configure(request: MRequestUser) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        interactor.setRequest(request: request)
     }
 }

@@ -64,14 +64,14 @@ class AddFriendHeaderView: UIView {
         addSubview(addFriendButton)
         
         addFriendInput.edgesToSuperview(excluding: .bottom,
-                                        insets: UIEdgeInsets(top: Styles.Sizes.stadartVInset * 3,
+                                        insets: UIEdgeInsets(top: .zero,
                                                              left: Styles.Sizes.standartHInset,
                                                              bottom: .zero,
                                                              right: Styles.Sizes.standartHInset))
         addFriendButton.edgesToSuperview(excluding: .top,
                                          insets: UIEdgeInsets(top: .zero,
                                                               left: Styles.Sizes.standartHInset,
-                                                              bottom: Styles.Sizes.stadartVInset * 3,
+                                                              bottom: Styles.Sizes.stadartVInset,
                                                               right: Styles.Sizes.standartHInset))
         addFriendButton.topToBottom(of: addFriendInput, offset: Styles.Sizes.standartV2Inset)
     }
@@ -104,18 +104,18 @@ extension AddFriendHeaderView {
     }
     
     var backColor: UIColor {
-        Styles.Colors.myBackgroundColor()
+        Styles.Colors.base1
     }
     
     var niknameTitleColor: UIColor {
-        Styles.Colors.myLabelColor()
+        Styles.Colors.base3
     }
     
     var addButtonCollor: UIColor {
-        Styles.Colors.myFilledButtonColor()
+        Styles.Colors.base3
     }
     
     var addButtonTitleCollor: UIColor {
-        Styles.Colors.myFilledButtonLabelColor()
+        Styles.Colors.base1
     }
 }

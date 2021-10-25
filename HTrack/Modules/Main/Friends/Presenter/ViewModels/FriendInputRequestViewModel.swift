@@ -8,9 +8,7 @@
 import Foundation
 
 protocol FriendInputRequestViewModelDelegate: AnyObject  {
-    func acceptUser(user: MRequestUser)
-    func cancelUser(user: MRequestUser)
-    func blockUser(user: MRequestUser)
+    func tapInputRequest(user: MRequestUser)
 }
 
 class FriendInputRequestViewModel: CellViewModel {
@@ -29,28 +27,23 @@ class FriendInputRequestViewModel: CellViewModel {
         requestUser?.userID ?? "id"
     }
 
-    func acceptUser() {
+    func tapInputRequestIcon() {
         guard let requestUser = requestUser else { return }
-        delegate?.acceptUser(user: requestUser)
+        delegate?.tapInputRequest(user: requestUser)
     }
     
-    func cancelUser() {
+    func tapInputRequestCell() {
         guard let requestUser = requestUser else { return }
-        delegate?.cancelUser(user: requestUser)
-    }
-    
-    func blockUser() {
-        guard let requestUser = requestUser else { return }
-        delegate?.blockUser(user: requestUser)
+        delegate?.tapInputRequest(user: requestUser)
     }
 }
 
 extension FriendInputRequestViewModel: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(requestUser)
+        hasher.combine(name)
     }
     
     static func == (lhs: FriendInputRequestViewModel, rhs: FriendInputRequestViewModel) -> Bool {
-        lhs.requestUser == rhs.requestUser
+        lhs.name == rhs.name
     }
 }

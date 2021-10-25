@@ -11,6 +11,7 @@ import UIKit
 struct SectionViewModel {
     var section: String
     var id = UUID()
+    var headerCounter: Int = 0
     var header: CellViewModel?
     var footer: CellViewModel?
     var items: [CellViewModel]
@@ -19,14 +20,14 @@ struct SectionViewModel {
 extension SectionViewModel: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(section)
-        hasher.combine(id)
+        hasher.combine(headerCounter)
     }
     
     static func == (lhs: SectionViewModel, rhs: SectionViewModel) -> Bool {
         lhs.section == rhs.section &&
         lhs.header?.cell.reuseID == rhs.header?.cell.reuseID &&
         lhs.footer?.cell.reuseID == rhs.footer?.cell.reuseID &&
-        lhs.id == rhs.id
+        lhs.headerCounter == rhs.headerCounter
     }
 }
  

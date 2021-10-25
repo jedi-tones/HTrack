@@ -73,7 +73,7 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
         countLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Styles.Sizes.standartHInset),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Styles.Sizes.mediumHInset),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Styles.Sizes.baseVInset),
             titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.baseVInset),
             

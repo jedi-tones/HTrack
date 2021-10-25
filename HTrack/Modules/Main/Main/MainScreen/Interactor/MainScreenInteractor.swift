@@ -7,6 +7,7 @@ class MainScreenInteractor {
     weak var output: MainScreenInteractorOutput!
 
     let userManager = UserManager.shared
+    let friendsManager = FriendsManager.shared
     let authManager = FirebaseAuthManager.shared
     
     deinit {
@@ -44,7 +45,19 @@ extension MainScreenInteractor: MainScreenInteractorInput {
         let dic: [MUser.CodingKeys : Any ] = [.startDate : unixTimeStamp]
         
         userManager.updateUser(userID: id,
-                               dic: dic,
-                               complition: nil)
+                               dic: dic) { result in
+            switch result {
+                
+            case .success(_):
+                updateStartDateOnFriends(startDate: unixTimeStamp)
+            case .failure(_):
+                break
+            }
+        }
+        
+        func updateStartDateOnFriends(startDate: Double) {
+            let friendsIds = friendsManager.friends.compactMap({$0.userID})
+            friendsManager.updateStartDateInFriends(friendsIDs: friendsIds, startDay: startDate) { _ in}
+        }
     }
 }

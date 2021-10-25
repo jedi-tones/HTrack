@@ -72,7 +72,7 @@ extension Styles.Colors  {
     static let base2 = #colorLiteral(red: 0.9561141133, green: 0.9579541087, blue: 0.9149253964, alpha: 1)
     static let base3 = #colorLiteral(red: 0.9925743937, green: 1, blue: 0.9658847451, alpha: 1)
     static let base4 = #colorLiteral(red: 0.9176470588, green: 0.9607843137, blue: 0.3333333333, alpha: 1)
-    
+    static let base5 = #colorLiteral(red: 0.8509803922, green: 0, blue: 0, alpha: 1)
     
     static let black1 = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     static let black2 = black1.withAlphaComponent(0.5)
@@ -83,7 +83,7 @@ extension Styles.Colors  {
     static let white2 = white1.withAlphaComponent(0.5)
     static let white3 = #colorLiteral(red: 0.9198400378, green: 0.9143720269, blue: 0.9240432382, alpha: 1)
     
-    static let red1 = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+    static let red1 = #colorLiteral(red: 0.8509803922, green: 0, blue: 0, alpha: 1)
     
     static let green1 = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
     

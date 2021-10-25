@@ -2,6 +2,7 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import UIKit
+import TinyConstraints
 
 class FriendsViewController: UIViewController {
     // MARK: Properties
@@ -25,6 +26,18 @@ class FriendsViewController: UIViewController {
                                    target: self,
                                    action: #selector(addFriendButtonTapped(sender:)))
         return item
+    }()
+    
+    lazy var addFriendButton: BaseTextButtonWithArrow = {
+        let bt = BaseTextButtonWithArrow()
+        bt.setButtonColor(color: addButtonCollor)
+            .setTitle(title: "добавить друга")
+            .setTextColor(color: addButtonTitleCollor)
+        
+        bt.action = { [weak self] in
+            self?.output.addFriendButtonTapped()
+        }
+        return bt
     }()
     
     var customNavView = FriendsCustomNavigationView()
@@ -96,14 +109,16 @@ extension FriendsViewController {
     func setupConstraints() {
         guard let collectionView = collectionView else { return }
         view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(addFriendButton)
         
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+        addFriendButton.topToSuperview(offset: Styles.Sizes.stadartVInset * 2, usingSafeArea: true)
+        addFriendButton.leadingToSuperview(offset: Styles.Sizes.standartHInset)
+        addFriendButton.trailingToSuperview(offset: Styles.Sizes.standartHInset)
+        addFriendButton.height(Styles.Sizes.baseButtonHeight)
+        
+        collectionView.topToBottom(of: addFriendButton, offset: Styles.Sizes.stadartVInset * 2)
+        collectionView.edgesToSuperview(excluding: .top,
+                                        usingSafeArea: true)
     }
 }
 
@@ -157,6 +172,14 @@ extension FriendsViewController: FriendsViewInput {
 
 extension FriendsViewController {
     var backColor: UIColor {
-        Styles.Colors.myBackgroundColor()
+        Styles.Colors.base1
+    }
+    
+    var addButtonCollor: UIColor {
+        Styles.Colors.base3
+    }
+    
+    var addButtonTitleCollor: UIColor {
+        Styles.Colors.base1
     }
 }

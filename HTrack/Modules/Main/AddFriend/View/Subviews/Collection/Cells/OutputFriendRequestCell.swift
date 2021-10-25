@@ -72,13 +72,13 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
         contentView.addSubview(closeButton)
         
         nameLabel.edgesToSuperview(excluding: .right, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
-                                                                             left: Styles.Sizes.standartHInset,
+                                                                             left: Styles.Sizes.mediumHInset,
                                                                              bottom: Styles.Sizes.standartHInset,
-                                                                             right: Styles.Sizes.standartHInset))
+                                                                             right: .zero))
         closeButton.edgesToSuperview(excluding: .left, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
                                                                               left: .zero,
                                                                               bottom: Styles.Sizes.standartHInset,
-                                                                              right: Styles.Sizes.standartHInset))
+                                                                              right: Styles.Sizes.mediumHInset))
         closeButton.height(Styles.Sizes.smallButtonHeight)
         closeButton.widthToHeight(of: closeButton)
         nameLabel.rightToLeft(of: closeButton,offset: Styles.Sizes.standartHInset, relation: .equalOrLess)
@@ -91,7 +91,7 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
 
 extension OutputFriendRequestCell {
     var backColor: UIColor {
-        Styles.Colors.mySecondBackgroundColor()
+        .clear
     }
     
     var labelColor: UIColor {

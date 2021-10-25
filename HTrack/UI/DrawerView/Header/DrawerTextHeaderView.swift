@@ -13,7 +13,7 @@ class DrawerTextHeaderView: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = Styles.Fonts.soyuz1
+        label.font = Styles.Fonts.bold2
         label.numberOfLines = 1
         return label
     }()
@@ -79,6 +79,10 @@ class DrawerTextHeaderView: UIView {
 extension DrawerTextHeaderView {
     func setTitle(title: String) {
         titleLabel.text = title
+    }
+    
+    func setFont(font: UIFont) {
+        titleLabel.font = font
     }
 }
 

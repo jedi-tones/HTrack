@@ -10,24 +10,24 @@ import UIKit
 extension AddFriendViewController {
     func setupDrawerView() {
         drawerView.enabledState = [.dismissed, .top]
-        drawerView.setHeader(view: drawerHeaderView)
+//        drawerView.setHeader(view: drawerHeaderView)
         drawerView.setHeader(view: addFriendHeaderView)
         drawerView.drawerContentView = outputRequestsCollectionView
         drawerView.scrollableContent = outputRequestsCollectionView
         drawerView.addListener(self)
         
         let headerHeight = drawerView.headerHeight +
-                drawerHeaderView.calculatedSize.height +
-                addFriendHeaderView.smallestCalculatedConstraintsSize.height +
-                Styles.Sizes.stadartVInset
+//                drawerHeaderView.calculatedSize.height +
+                addFriendHeaderView.smallestCalculatedConstraintsSize.height
         
         var contentInset = outputRequestsCollectionView?.contentInset ?? .zero
-        contentInset.top = headerHeight + Styles.Sizes.stadartVInset
+        contentInset.top = headerHeight + Styles.Sizes.standartV2Inset
         outputRequestsCollectionView?.contentInset = contentInset
         
         let startContentSize = outputRequestsCollectionView?.contentSize ?? .zero
         let startDrawerSize = startContentSize.height + contentInset.top + Styles.Sizes.safeAreaInsets.bottom
         drawerView.setDrawerPosition(.custom(height: startDrawerSize), animated: true) {}
+        drawerView.maxDrawerPosition = startDrawerSize
         
         outputRequestsCollectionView?.didChangeContentSize = {[weak self] size, keyboardHeight in
             guard let self = self else { return }

@@ -8,7 +8,7 @@
 import UIKit
 import TinyConstraints
 
-class FriendDetailContentView: UIScrollView, ScrollableContent {
+class DetailContentView: UIScrollView, ScrollableContent {
     var scrollViewDelegate: UIScrollViewDelegate?
     var didChangeContentSize: ((_ size: CGSize) -> ())?
     
@@ -24,6 +24,8 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
     }
     
     var viewModel: FriendDetailViewModel?
+    var requestViewModel: FriendRequestViewModel?
+    
     var viewBlocks: [UIView] = []
     
     lazy var mainStackView: UIStackView = {
@@ -34,20 +36,20 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fill
         stackView.contentMode = .scaleAspectFit
-        stackView.spacing = .zero
-        stackView.setCustomSpacing(Styles.Sizes.stadartVInset, after: counter)
+        stackView.spacing = Styles.Sizes.standartV2Inset
         stackView.width(Styles.Sizes.screenSize.width - insets.left - insets.right)
         addSubview(stackView)
         stackView.edgesToSuperview(insets: insets)
         return stackView
     }()
     
+    //MARK: Friends detail
     lazy var title: UILabel = {
         let t = UILabel()
-        t.text = "Friend"
-        t.font = Styles.Fonts.baseBoldFont(size: 17)
+        t.text = "дней без алкоголя"
+        t.font = Styles.Fonts.soyuz1
         t.textColor = titleColor
         t.textAlignment = .center
         return t
@@ -57,14 +59,14 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
         let c = UILabel()
         c.text = "0"
         c.textColor = counterColor
-        c.font = Styles.Fonts.baseBoldFont(size: 144)
+        c.font = Styles.Fonts.soyuz3
         c.textAlignment = .center
         return c
     }()
     
     lazy var removeButton: BaseTextButtonWithArrow = {
         let button = BaseTextButtonWithArrow()
-        button.setTitle(title: "Удалить")
+        button.setTitle(title: "удалить")
         button.setTextColor(color: self.removeButtonTextColor)
         button.setButtonColor(color: self.removeButtonBackColor)
         button.setBorderColor(color: self.removeButtonColor)
@@ -74,7 +76,43 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
         return button
     }()
     
+    //MARK: Friends input request detail
+    lazy var inputRequestName: UILabel = {
+        let t = UILabel()
+        t.text = "nickname"
+        t.font = Styles.Fonts.bold3
+        t.textColor = requestNameColor
+        t.textAlignment = .center
+        return t
+    }()
+    
+    lazy var acceptButton: BaseTextButtonWithArrow = {
+        let button = BaseTextButtonWithArrow()
+        button.setTitle(title: "принять")
+        button.setTextColor(color: self.acceptButtonTextColor)
+        button.setButtonColor(color: self.acceptButtonBackColor)
+        button.setBorderColor(color: self.acceptButtonColor)
+        button.action = {[weak self] in
+            self?.requestViewModel?.tapAcceptButton()
+        }
+        return button
+    }()
+    
+    lazy var rejectButton: BaseTextButtonWithArrow = {
+        let button = BaseTextButtonWithArrow()
+        button.setTitle(title: "отклонить")
+        button.setTextColor(color: self.rejectButtonTextColor)
+        button.setButtonColor(color: self.rejectButtonBackColor)
+        button.setBorderColor(color: self.rejectButtonColor)
+        button.action = {[weak self] in
+            self?.requestViewModel?.tapRejectButton()
+        }
+        return button
+    }()
+    
+    //friend detail
     func setData(_ data: FriendDetailViewModel) {
+        self.viewBlocks.removeAll()
         self.viewModel = data
         
         data.viewBlocks.forEach { (viewBlock) in
@@ -96,6 +134,29 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
         setupViews()
     }
     
+    //input request detail
+    func setData(_ data: FriendRequestViewModel) {
+        self.viewBlocks.removeAll()
+        self.requestViewModel = data
+        
+        data.viewBlocks.forEach { (viewBlock) in
+            switch viewBlock {
+            case .name(title: let title):
+                self.inputRequestName.text = title
+                self.viewBlocks.append(self.inputRequestName)
+                
+            case .acceptButton(title: let title):
+                self.acceptButton.setTitle(title: title)
+                self.viewBlocks.append(self.acceptButton)
+                
+            case .rejectButton(title: let title):
+                self.rejectButton.setTitle(title: title)
+                self.viewBlocks.append(self.rejectButton)
+            }
+        }
+        setupViews()
+    }
+    
     func setupViews() {
         addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
@@ -104,6 +165,8 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
         viewBlocks.forEach { view in
             mainStackView.addArrangedSubview(view)
         }
+        
+        mainStackView.setCustomSpacing(Styles.Sizes.stadartVInset, after: acceptButton)
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -115,29 +178,58 @@ class FriendDetailContentView: UIScrollView, ScrollableContent {
     }
 }
 
-extension FriendDetailContentView {
+extension DetailContentView {
     var titleColor: UIColor {
-        Styles.Colors.myLabelColor()
+        Styles.Colors.base3
     }
     
     var counterColor: UIColor {
-        Styles.Colors.myLabelColor()
+        Styles.Colors.base3
     }
     
     var removeButtonColor: UIColor {
-        Styles.Colors.myErrorLabelColor()
+        Styles.Colors.base5
     }
     
     var removeButtonTextColor: UIColor {
-        Styles.Colors.myErrorLabelColor()
+        Styles.Colors.base5
     }
     
     var removeButtonBackColor: UIColor {
         .clear
     }
+    
+    //request detail
+    var requestNameColor: UIColor {
+        Styles.Colors.base3
+    }
+    
+    var acceptButtonColor: UIColor {
+        Styles.Colors.base3
+    }
+    
+    var acceptButtonTextColor: UIColor {
+        Styles.Colors.base3
+    }
+    
+    var acceptButtonBackColor: UIColor {
+        .clear
+    }
+    
+    var rejectButtonColor: UIColor {
+        Styles.Colors.base5
+    }
+    
+    var rejectButtonTextColor: UIColor {
+        Styles.Colors.base5
+    }
+    
+    var rejectButtonBackColor: UIColor {
+        .clear
+    }
 }
 
-extension FriendDetailContentView: UIScrollViewDelegate {
+extension DetailContentView: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         scrollViewDelegate?.scrollViewWillBeginDragging?(scrollView)
     }

@@ -31,7 +31,7 @@ class DrawerView : UIView {
     let animationDuration  = Styles.Constants.animationDuarationBase
     let animationDurationMedium  = Styles.Constants.animationDuarationMedium
     let maxHeight: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height
-    var maxDrawerPosition: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height {
+    var maxDrawerPosition: CGFloat = Styles.Sizes.screenSize.height - Styles.Sizes.statusBar.height - (Styles.Sizes.standartV2Inset * 6) {
         didSet {
             midDrawerPosition = maxDrawerPosition/2
         }
@@ -66,10 +66,10 @@ class DrawerView : UIView {
         }
     }
     
-    var containerView: UIView = {
-        let view = UIView()
+    var containerView: ViewWithCustomTouchArea = {
+        let view = ViewWithCustomTouchArea()
         view.isHidden = true
-        
+        view.touchAreaInsets = UIEdgeInsets(top: 15, left: .zero, bottom: .zero, right: .zero)
         view.addShadow(offset: CGSize(width: 0, height: 10),
                        color: Styles.Colors.myShadowColor().withAlphaComponent(0.2),
                        radius: 30,
@@ -87,11 +87,13 @@ class DrawerView : UIView {
         set {
             let cornerRadius: CGFloat
             let maskedCorners: CACornerMask
-            
+            let mask: Bool
             if newValue > 0 {
+                mask = true
                 cornerRadius = newValue
                 maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             } else {
+                mask = false
                 cornerRadius = 0
                 maskedCorners = []
             }
@@ -99,11 +101,11 @@ class DrawerView : UIView {
             containerView.layer.cornerRadius = cornerRadius
             containerView.layer.maskedCorners = maskedCorners
             
-            headerView.layer.masksToBounds = true
+            headerView.layer.masksToBounds = mask
             headerView.layer.cornerRadius = cornerRadius
             headerView.layer.maskedCorners = maskedCorners
             
-            drawerContentView?.layer.masksToBounds = true
+            drawerContentView?.layer.masksToBounds = mask
             drawerContentView?.layer.cornerRadius = cornerRadius
             drawerContentView?.layer.maskedCorners = maskedCorners
             
@@ -135,9 +137,11 @@ class DrawerView : UIView {
             
             drawerContentView.edgesToSuperview()
             
-            drawerContentView.layer.masksToBounds = true
-            drawerContentView.layer.cornerRadius = containerView.layer.cornerRadius
-            drawerContentView.layer.maskedCorners = containerView.layer.maskedCorners
+            if containerView.layer.cornerRadius > 0 {
+                drawerContentView.layer.masksToBounds = true
+                drawerContentView.layer.cornerRadius = containerView.layer.cornerRadius
+                drawerContentView.layer.maskedCorners = containerView.layer.maskedCorners
+            }
         }
     }
     
@@ -281,7 +285,7 @@ class DrawerView : UIView {
         setupGestureRecognizer()
         setupConstraints()
         
-        cornerRadius = Styles.Sizes.baseCornerRadius
+        cornerRadius = 0
         
         updateViewColor()
     }
@@ -355,6 +359,6 @@ extension DrawerView {
         containerView.backgroundColor  = .clear
         blurBackgroundView.setCustomBlurColor(color: Styles.Colors.myBackgroundColor(),
                                               blurEffectStyle: .systemMaterial)
-        backgroundView.backgroundColor = Styles.Colors.gray1.withAlphaComponent(0.2)
+        backgroundView.backgroundColor = Styles.Colors.base2.withAlphaComponent(0.2)
     }
 }

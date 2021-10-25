@@ -26,6 +26,8 @@ class FriendsBuilder {
 
 			self.router.controller = self.view
             self.router.coordinator = coordinator
+            
+            self.view.loadViewIfNeeded()
 		}
 	}
 

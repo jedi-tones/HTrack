@@ -12,11 +12,11 @@ extension FriendDetailViewController {
         drawerView.drawerContentView = friendDetailContentView
         drawerView.scrollableContent = friendDetailContentView
         drawerView.enabledState = [.dismissed]
-        drawerView.setHeader(view: drawerHeaderView)
+//        drawerView.setHeader(view: drawerHeaderView)
         drawerView.addListener(self)
         
         var contentInset = friendDetailContentView.contentInset
-        contentInset.top = drawerView.headerHeight + drawerHeaderView.calculatedSize.height + Styles.Sizes.stadartVInset
+        contentInset.top = Styles.Sizes.standartV2Inset
         
         friendDetailContentView.contentInset = contentInset
         

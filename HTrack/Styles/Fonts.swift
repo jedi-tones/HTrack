@@ -38,6 +38,12 @@ extension Styles.Fonts  {
     static var bold2: UIFont {
         baseBoldFont(size: 17)
     }
+    static var bold3: UIFont {
+        baseBoldFont(size: 28)
+    }
+    static var bold4: UIFont {
+        baseBoldFont(size: 144)
+    }
     
     static var soyuz1: UIFont {
         soyuzFont(size: 17)

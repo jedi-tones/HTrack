@@ -39,10 +39,11 @@ class FriendViewModel: CellViewModel {
 
 extension FriendViewModel: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(friend)
+        hasher.combine(name)
     }
     
     static func == (lhs: FriendViewModel, rhs: FriendViewModel) -> Bool {
-        lhs.friend == rhs.friend
+        lhs.name == rhs.name &&
+        lhs.daysCount == rhs.daysCount
     }
 }
