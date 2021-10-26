@@ -144,10 +144,23 @@
 		DD5F63F9267FB8D2002131FD /* MainScreenSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63F8267FB8D2002131FD /* MainScreenSection.swift */; };
 		DD65E09526B89511002BBF80 /* TextFieldWithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65E09426B89511002BBF80 /* TextFieldWithError.swift */; };
 		DD65E09726B89C94002BBF80 /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */; };
+		DD68697527287EF200C0A590 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68697427287EF200C0A590 /* UserDefault.swift */; };
+		DD68697727287F8C00C0A590 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68697627287F8C00C0A590 /* UserDefaultKey.swift */; };
+		DD68697A2728818A00C0A590 /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6869792728818A00C0A590 /* SettingsStorage.swift */; };
+		DD68697C2728845800C0A590 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68697B2728845800C0A590 /* PushNotificationManager.swift */; };
+		DD68697E272884A500C0A590 /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68697D272884A500C0A590 /* DeeplinkManager.swift */; };
+		DD6869802728854100C0A590 /* DeeplinkNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68697F2728854100C0A590 /* DeeplinkNavigator.swift */; };
+		DD686985272887F600C0A590 /* MAps.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD686984272887F600C0A590 /* MAps.swift */; };
+		DD6869872728881A00C0A590 /* MNotificationActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6869862728881A00C0A590 /* MNotificationActionType.swift */; };
+		DD68698A2728887A00C0A590 /* MFCMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6869892728887A00C0A590 /* MFCMessage.swift */; };
+		DD68698C272889D900C0A590 /* MGradusNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68698B272889D900C0A590 /* MGradusNotification.swift */; };
+		DD68698E27288FD700C0A590 /* UNNotificationAttachment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68698D27288FD700C0A590 /* UNNotificationAttachment+Extension.swift */; };
+		DD686990272890BA00C0A590 /* MDeeplinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68698F272890BA00C0A590 /* MDeeplinkType.swift */; };
+		DD68699227289F0100C0A590 /* PushFCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68699127289F0100C0A590 /* PushFCMManager.swift */; };
+		DD6869952728A1DE00C0A590 /* FCMTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6869942728A1DE00C0A590 /* FCMTopic.swift */; };
 		DD6BD6B426F8EC9E006369BB /* FriendsCustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */; };
 		DD6BD6B726F8EE89006369BB /* FriendsViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */; };
 		DD6BD70E26F90981006369BB /* PopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD70D26F90981006369BB /* PopUpManager.swift */; };
-		DD870D6326D3B3ED000F59AE /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6226D3B3ED000F59AE /* PushNotificationManager.swift */; };
 		DD870D6526D7DBF3000F59AE /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6426D7DBF3000F59AE /* UserManager.swift */; };
 		DD870D6726D7DCE8000F59AE /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6626D7DCE8000F59AE /* FirestoreManager.swift */; };
 		DD870D6926D7E0BE000F59AE /* UserRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6826D7E0BE000F59AE /* UserRequestManager.swift */; };
@@ -382,10 +395,23 @@
 		DD5F63F8267FB8D2002131FD /* MainScreenSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSection.swift; sourceTree = "<group>"; };
 		DD65E09426B89511002BBF80 /* TextFieldWithError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithError.swift; sourceTree = "<group>"; };
 		DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
+		DD68697427287EF200C0A590 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		DD68697627287F8C00C0A590 /* UserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
+		DD6869792728818A00C0A590 /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
+		DD68697B2728845800C0A590 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		DD68697D272884A500C0A590 /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
+		DD68697F2728854100C0A590 /* DeeplinkNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkNavigator.swift; sourceTree = "<group>"; };
+		DD686984272887F600C0A590 /* MAps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAps.swift; sourceTree = "<group>"; };
+		DD6869862728881A00C0A590 /* MNotificationActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNotificationActionType.swift; sourceTree = "<group>"; };
+		DD6869892728887A00C0A590 /* MFCMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFCMessage.swift; sourceTree = "<group>"; };
+		DD68698B272889D900C0A590 /* MGradusNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGradusNotification.swift; sourceTree = "<group>"; };
+		DD68698D27288FD700C0A590 /* UNNotificationAttachment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationAttachment+Extension.swift"; sourceTree = "<group>"; };
+		DD68698F272890BA00C0A590 /* MDeeplinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDeeplinkType.swift; sourceTree = "<group>"; };
+		DD68699127289F0100C0A590 /* PushFCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushFCMManager.swift; sourceTree = "<group>"; };
+		DD6869942728A1DE00C0A590 /* FCMTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTopic.swift; sourceTree = "<group>"; };
 		DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCustomNavigationView.swift; sourceTree = "<group>"; };
 		DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		DD6BD70D26F90981006369BB /* PopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpManager.swift; sourceTree = "<group>"; };
-		DD870D6226D3B3ED000F59AE /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		DD870D6426D7DBF3000F59AE /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		DD870D6626D7DCE8000F59AE /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		DD870D6826D7E0BE000F59AE /* UserRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestManager.swift; sourceTree = "<group>"; };
@@ -1226,6 +1252,7 @@
 				DD5F63EB267FA773002131FD /* SectionViewModel.swift */,
 				DD5F63EE267FA85B002131FD /* CellViewModel.swift */,
 				DD5F63F0267FAC41002131FD /* BaseCellProtocol.swift */,
+				DD6869882728882800C0A590 /* UserNotification */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1265,6 +1292,46 @@
 				DD65E09626B89C94002BBF80 /* TextFieldWithInsets.swift */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		DD68697827287F9D00C0A590 /* UserDefault */ = {
+			isa = PBXGroup;
+			children = (
+				DD68697427287EF200C0A590 /* UserDefault.swift */,
+				DD68697627287F8C00C0A590 /* UserDefaultKey.swift */,
+			);
+			path = UserDefault;
+			sourceTree = "<group>";
+		};
+		DD6869812728859F00C0A590 /* DeeplinkManager */ = {
+			isa = PBXGroup;
+			children = (
+				DD68697D272884A500C0A590 /* DeeplinkManager.swift */,
+				DD68697F2728854100C0A590 /* DeeplinkNavigator.swift */,
+			);
+			path = DeeplinkManager;
+			sourceTree = "<group>";
+		};
+		DD6869882728882800C0A590 /* UserNotification */ = {
+			isa = PBXGroup;
+			children = (
+				DD686984272887F600C0A590 /* MAps.swift */,
+				DD6869862728881A00C0A590 /* MNotificationActionType.swift */,
+				DD6869892728887A00C0A590 /* MFCMessage.swift */,
+				DD6869942728A1DE00C0A590 /* FCMTopic.swift */,
+				DD68698B272889D900C0A590 /* MGradusNotification.swift */,
+				DD68698F272890BA00C0A590 /* MDeeplinkType.swift */,
+			);
+			path = UserNotification;
+			sourceTree = "<group>";
+		};
+		DD6869932728A12300C0A590 /* PushNotification */ = {
+			isa = PBXGroup;
+			children = (
+				DD68697B2728845800C0A590 /* PushNotificationManager.swift */,
+				DD68699127289F0100C0A590 /* PushFCMManager.swift */,
+			);
+			path = PushNotification;
 			sourceTree = "<group>";
 		};
 		DD6BD6B526F8ECA1006369BB /* Subviews */ = {
@@ -1367,6 +1434,7 @@
 				FBDCF1FA2711F951006188E8 /* Encodable+Extension.swift */,
 				FBDCF1FE2711FA82006188E8 /* JSONEncoder+Extension.swift */,
 				FBDCF2002711FB97006188E8 /* Dictionary+ToObject.swift */,
+				DD68698D27288FD700C0A590 /* UNNotificationAttachment+Extension.swift */,
 				DD9215202677D6EE00A3623E /* UIKit */,
 			);
 			path = Extensions;
@@ -1485,9 +1553,12 @@
 				DD59F75D26B6F1D200CA8179 /* Auth */,
 				DD59F75626B60A1F00CA8179 /* App */,
 				DD9EAD162699BE530032B3D7 /* Networking */,
-				FBAF501427131D8D003CF510 /* Notification */,
 				FBAF501327131D84003CF510 /* Firestore */,
 				DD6BD70D26F90981006369BB /* PopUpManager.swift */,
+				DD6869792728818A00C0A590 /* SettingsStorage.swift */,
+				DD6869932728A12300C0A590 /* PushNotification */,
+				DD6869812728859F00C0A590 /* DeeplinkManager */,
+				DD68697827287F9D00C0A590 /* UserDefault */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1675,14 +1746,6 @@
 			path = Firestore;
 			sourceTree = "<group>";
 		};
-		FBAF501427131D8D003CF510 /* Notification */ = {
-			isa = PBXGroup;
-			children = (
-				DD870D6226D3B3ED000F59AE /* PushNotificationManager.swift */,
-			);
-			path = Notification;
-			sourceTree = "<group>";
-		};
 		FBDCF1F02711D734006188E8 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1806,12 +1869,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD68697527287EF200C0A590 /* UserDefault.swift in Sources */,
 				DD59F74126B5AB9200CA8179 /* UIEdges+Extension.swift in Sources */,
 				DD92150426763EC300A3623E /* Logger.swift in Sources */,
 				DD5F63F9267FB8D2002131FD /* MainScreenSection.swift in Sources */,
 				DD9F614826E51A7A009E3D39 /* TextCollectionCell.swift in Sources */,
 				FBAF501A27137DE5003CF510 /* Double+Extension.swift in Sources */,
 				DD9F615626E6444E009E3D39 /* SettingsButtonViewModel.swift in Sources */,
+				DD68697C2728845800C0A590 /* PushNotificationManager.swift in Sources */,
 				DD9215222677D7C800A3623E /* Colors.swift in Sources */,
 				DD59F76C26B734C000CA8179 /* MUser.swift in Sources */,
 				DD9EAD192699BE8B0032B3D7 /* NetworkService.swift in Sources */,
@@ -1824,6 +1889,7 @@
 				DD59F76326B6F2BC00CA8179 /* FirebaseAuthManager.swift in Sources */,
 				DD2FA0A12708959700FC0382 /* DrawerHeaderView.swift in Sources */,
 				DD92150D2676577800A3623E /* UIApplication+Extension.swift in Sources */,
+				DD68699227289F0100C0A590 /* PushFCMManager.swift in Sources */,
 				FBDCF1F22711D970006188E8 /* AddFriendViewController+CollectionView.swift in Sources */,
 				DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */,
 				DD6BD70E26F90981006369BB /* PopUpManager.swift in Sources */,
@@ -1847,6 +1913,7 @@
 				DD2FA09A27088D2300FC0382 /* DrawerView+Gesture.swift in Sources */,
 				DD59F73826B5A95800CA8179 /* WelcomeView.swift in Sources */,
 				DD9EAD1B2699BEBD0032B3D7 /* HTTPMethod.swift in Sources */,
+				DD6869872728881A00C0A590 /* MNotificationActionType.swift in Sources */,
 				DD92150626763ED800A3623E /* Date+Extension.swift in Sources */,
 				DD9F613526E0E823009E3D39 /* UserManager+Get.swift in Sources */,
 				DD9F616026E657B0009E3D39 /* UICollectionReusableView+Extension.swift in Sources */,
@@ -1854,6 +1921,7 @@
 				DD59F75A26B60A4200CA8179 /* AppManager+ViewControllers.swift in Sources */,
 				DD94E7CD2724390B00678AED /* Fonts+SoyuzGrotesk.swift in Sources */,
 				DD2FA09827088BE500FC0382 /* DrawerView.swift in Sources */,
+				DD686990272890BA00C0A590 /* MDeeplinkType.swift in Sources */,
 				DD92150B26764CC500A3623E /* Presentable.swift in Sources */,
 				93CD55BB6E8F90E075C4F98C /* MainTabBarPresenter.swift in Sources */,
 				7905043EDAE76365ABC4D5B6 /* MainTabBarInteractor.swift in Sources */,
@@ -1871,6 +1939,7 @@
 				DD59F76126B6F22900CA8179 /* CryptoService.swift in Sources */,
 				DD1E54DD26F7F09800CB4903 /* FriendsInteractor+UserListner.swift in Sources */,
 				342DB05EC0B1B182E17780B1 /* MainTabBarBuilder.swift in Sources */,
+				DD68698E27288FD700C0A590 /* UNNotificationAttachment+Extension.swift in Sources */,
 				DD9215172677910300A3623E /* AuthCoordinator.swift in Sources */,
 				DD5F63F6267FB246002131FD /* MainScreenInfoViewModel.swift in Sources */,
 				430D5062EE00F28F8DEC3956 /* MainTabBarProtocols.swift in Sources */,
@@ -1934,6 +2003,7 @@
 				DD9EAD0F2698CD8D0032B3D7 /* EmptyHeaderCell.swift in Sources */,
 				DD59F74926B5B01400CA8179 /* Constants.swift in Sources */,
 				B06A853378EBB9583F7B1F15 /* RegisterViewController.swift in Sources */,
+				DD68697727287F8C00C0A590 /* UserDefaultKey.swift in Sources */,
 				8C40A0692AE914BC371FE056 /* RegisterPresenter.swift in Sources */,
 				FBAF501827133C4C003CF510 /* FirestoreManeger+FriendsActions.swift in Sources */,
 				DD2FA09F270892F100FC0382 /* BlurBackView.swift in Sources */,
@@ -1944,6 +2014,8 @@
 				DD5F63EF267FA85B002131FD /* CellViewModel.swift in Sources */,
 				DD92151B2677B48D00A3623E /* FriendsCoordinator.swift in Sources */,
 				FBDCF1F92711F249006188E8 /* MReports.swift in Sources */,
+				DD68697A2728818A00C0A590 /* SettingsStorage.swift in Sources */,
+				DD6869952728A1DE00C0A590 /* FCMTopic.swift in Sources */,
 				DD3FBCC926EE0999002591A6 /* RequestCell.swift in Sources */,
 				6225EF4BD962064B9F8D11C9 /* RegisterBuilder.swift in Sources */,
 				DD9F616F26E7E816009E3D39 /* DatePickerCellViewModel.swift in Sources */,
@@ -1965,6 +2037,7 @@
 				9CDF368FF81A13B82F0A35AB /* MainScreenProtocols.swift in Sources */,
 				FB6B9D5726BB0E210050690F /* TextFieldWithError+ValidateInput.swift in Sources */,
 				531722F56884B0B21760A9CE /* MainScreenModule.swift in Sources */,
+				DD68697E272884A500C0A590 /* DeeplinkManager.swift in Sources */,
 				DD3FBCD926EE3D9D002591A6 /* FriendsRequestManager.swift in Sources */,
 				DD2FA09627088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift in Sources */,
 				EFB394C10363780861596021 /* FriendsViewController.swift in Sources */,
@@ -1981,6 +2054,8 @@
 				C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */,
 				DD59F74D26B5B8AB00CA8179 /* BaseTextButtonWithArrow.swift in Sources */,
 				C09BA41CCA8B6E0DADE6067C /* FriendsProtocols.swift in Sources */,
+				DD68698A2728887A00C0A590 /* MFCMessage.swift in Sources */,
+				DD686985272887F600C0A590 /* MAps.swift in Sources */,
 				DD2FA0A32708983B00FC0382 /* UIView+Size.swift in Sources */,
 				D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */,
 				FBDCF1F42711DE87006188E8 /* AddFriendViewController+DataSource.swift in Sources */,
@@ -1995,10 +2070,10 @@
 				FBDCF1FB2711F951006188E8 /* Encodable+Extension.swift in Sources */,
 				DD870D7526D93EDE000F59AE /* FirestoreError.swift in Sources */,
 				DD9F616926E67F84009E3D39 /* MainScreenInteractor+UserListner.swift in Sources */,
-				DD870D6326D3B3ED000F59AE /* PushNotificationManager.swift in Sources */,
 				FB6B9D5226BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift in Sources */,
 				DD2FA0B92708E5DE00FC0382 /* OutputFriendRequestCell.swift in Sources */,
 				DD59F75526B5FD6000CA8179 /* LinkTextFormatter.swift in Sources */,
+				DD6869802728854100C0A590 /* DeeplinkNavigator.swift in Sources */,
 				DD3FBCCB26EE1670002591A6 /* FriendsScreenSection.swift in Sources */,
 				DD9F615026E523C8009E3D39 /* BaseCell.swift in Sources */,
 				DD9F613326E0BD1E009E3D39 /* UserError.swift in Sources */,
@@ -2020,6 +2095,7 @@
 				DD3FBCB926EE023E002591A6 /* FriendsViewController+CollectionView.swift in Sources */,
 				DD2FA0AE2708B51800FC0382 /* DetailContentView.swift in Sources */,
 				BCF481F2B8C995589F90BCBB /* AddFriendViewController.swift in Sources */,
+				DD68698C272889D900C0A590 /* MGradusNotification.swift in Sources */,
 				162EDA55240A0170EB05C2D1 /* AddFriendPresenter.swift in Sources */,
 				1E3BE55087AE90D1FD12BCBA /* AddFriendInteractor.swift in Sources */,
 				56F772EEAB8991C581444995 /* AddFriendRouter.swift in Sources */,

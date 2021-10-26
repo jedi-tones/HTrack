@@ -14,6 +14,7 @@ class AppManager {
     let appleAuthService = AppleAuthService.shared
     let firebaseAuthService =  FirebaseAuthManager.shared
     let userManager = UserManager.shared
+    let settingsStorage = SettingsStorage.shared
     
     var needAutoCheckProfileFullFilled = true
 }

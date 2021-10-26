@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-
+        PushNotificationManager.shared.requestNotificationAuth()
+        PushFCMManager.shared.registerDelegate()
         return true
     }
 
@@ -33,6 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.map { String(format: "%02x", $0) }.joined()
+        Logger.show(title: "APNs Token", text: deviceTokenString)
+        
+//        PushFCMManager.shared.updateAPNsTokenInFirebase(token: deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        Logger.show(title: "Failed to register for remote notifications", text: error.localizedDescription)
+    }
 }
 
