@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension FriendsViewController {
+extension InputRequestsViewController {
     func setupDataSource() {
         guard let collectionView = collectionView else { return }
         

@@ -9,7 +9,7 @@ import Foundation
 
 import UIKit
 
-extension FriendsViewController: UICollectionViewDelegate {
+extension FriendsCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }

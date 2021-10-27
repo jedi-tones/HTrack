@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension FriendsViewController {
+extension FriendsCollectionViewController {
     func setupCollectionView() {
         let collectionLayout = setupLayout()
         self.layout = collectionLayout
@@ -51,10 +51,6 @@ extension FriendsViewController {
             else { return nil }
             
             switch section {
-            
-            case .inputRequest:
-                return self?.setupFriendsSection()
-            
             case .friends:
                 return self?.setupFriendsSection()
             }

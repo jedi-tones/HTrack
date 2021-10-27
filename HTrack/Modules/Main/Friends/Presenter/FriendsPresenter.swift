@@ -5,15 +5,43 @@ import UIKit
 
 class FriendsPresenter {
     weak var output: FriendsModuleOutput?
-    weak var view: FriendsViewInput!
+    weak var view: FriendsViewInput?
     var router: FriendsRouterInput!
     var interactor: FriendsInteractorInput!
-    var serialQ = DispatchQueue(label: "serial")
-    var viewModel: [SectionViewModel] = []
+    var _currentPage: FriendsPage = .friendsCollection {
+        didSet {
+            view?.selectPage(page: _currentPage)
+        }
+    }
+    var pages: [FriendsPage] = []
     
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
+    }
+    
+    private func setupSubModule() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        pages = interactor.getPages()
+        pages.forEach {[weak self] submoduleTab in
+            self?.router.addSubmodule(page: submoduleTab,
+                                      friendsOutput: nil,
+                                      requestOutput: nil)
+        }
+        
+        if let firstPage = self.pages.first {
+            selectPage(firstPage, force: true)
+        }
+    }
+    
+    func selectPage(_ page: FriendsPage, force: Bool = false) {
+        DispatchQueue.main.async { [weak self] in
+            if self?._currentPage != page || force {
+                self?._currentPage = page
+            }
+        }
     }
 }
 
@@ -23,16 +51,33 @@ extension FriendsPresenter: FriendsViewOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
 
-        view.setupInitialState()
+        view?.setupInitialState()
         interactor.subscribeUserListner()
-        interactor.getSections()
+        setupSubModule()
     }
     
-    func addFriendButtonTapped() {
+    func getSubmoduleController(page: FriendsPage) -> UIViewController? {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        return router.getSubmoduleController(page: page)
+    }
+    
+    func addFriendButtonTapped() {
         router.showAddFriendScreen()
+    }
+    
+    func testButtonTapped() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        switch _currentPage {
+            
+        case .friendsCollection:
+            selectPage(.inputRequestCollection)
+        case .inputRequestCollection:
+            selectPage(.friendsCollection)
+        }
     }
     
     func settingsButtonTapped() {
@@ -49,165 +94,7 @@ extension FriendsPresenter: FriendsInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        view.updateNickname(nickName: user.name ?? "")
-    }
-    
-    func setupSections(sections: [FriendsScreenSection]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        var newViewModel: [SectionViewModel] = []
-        
-        sections.forEach { section in
-            switch section {
-            
-            case .inputRequest:
-                var sectionVM = SectionViewModel(section: section.rawValue,
-                                                 header: nil,
-                                                 footer: nil,
-                                                 items: [])
-                
-                
-                let header = EmptyHeaderViewModel()
-                sectionVM.header = header
-                newViewModel.append(sectionVM)
-            
-            case .friends:
-                let sectionVM = SectionViewModel(section: section.rawValue,
-                                                 header: nil,
-                                                 footer: nil,
-                                                 items: [])
-                
-//                for _ in 1...10 {
-//                    let friendVM = FriendViewModel()
-//                    friendVM.delegate = self
-//                    sectionVM.items.append(friendVM)
-//                }
-//                
-//                let header = TextHeaderWithCounterViewModel()
-//                header.title = section.rawValue
-//                
-//                sectionVM.header = header
-                newViewModel.append(sectionVM)
-            }
-        }
-        
-        self.viewModel = newViewModel
-        view.setupData(newData: viewModel)
-        
-        sections.forEach({interactor.addDataListnerFor(section: $0)})
-    }
-    
-    func updateFriendsData(friends: [MUser]) {
-        
-        serialQ.async {
-            updateData()
-        }
-        
-        func updateData() {
-            Logger.show(title: "Module",
-                        text: "\(type(of: self)) - \(#function)")
-            
-            var newViewModel = viewModel
-            let sectionName = FriendsScreenSection.friends.rawValue
-            
-            guard let sectionIndex = newViewModel.firstIndex(where: {$0.section == sectionName})
-            else { return }
-            
-            var sectionVM = SectionViewModel(section: sectionName,
-                                             header: nil,
-                                             footer: nil,
-                                             items: [])
-            
-            for friend in friends {
-                let friendVM = FriendViewModel()
-                friendVM.friend = friend
-                friendVM.delegate = self
-                sectionVM.items.append(friendVM)
-            }
-            
-            if sectionVM.items.isNotEmpty {
-                let header = TextHeaderWithCounterViewModel()
-                header.title = sectionName
-                header.count = sectionVM.items.count
-                sectionVM.header = header
-                sectionVM.headerCounter = sectionVM.items.count
-            } else {
-                let header = EmptyHeaderViewModel()
-                sectionVM.header = header
-                sectionVM.headerCounter = 0
-            }
-            
-            newViewModel[sectionIndex] = sectionVM
-            
-            viewModel = newViewModel
-            view.setupData(newData: viewModel)
-        }
-    }
-    
-    func updateRequestData(requests: [MRequestUser]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        serialQ.async {
-            updateData()
-        }
-        
-        func updateData() {
-            var newViewModel = viewModel
-            let sectionName = FriendsScreenSection.inputRequest.rawValue
-            
-            guard let _ = newViewModel.firstIndex(where: {$0.section == sectionName})
-            else { return }
-            
-            var sectionVM = SectionViewModel(section: sectionName,
-                                             header: nil,
-                                             footer: nil,
-                                             items: [])
-            
-            for requestUser in requests {
-                let friendVM = FriendInputRequestViewModel()
-                friendVM.requestUser = requestUser
-                friendVM.delegate = self
-                sectionVM.items.append(friendVM)
-            }
-            
-            if sectionVM.items.isNotEmpty {
-                let header = TextHeaderWithCounterViewModel()
-                header.title = sectionName
-                header.count = sectionVM.items.count
-                sectionVM.header = header
-                sectionVM.headerCounter = sectionVM.items.count
-            } else {
-                let header = EmptyHeaderViewModel()
-                sectionVM.header = header
-                sectionVM.headerCounter = 0
-            }
-            
-            newViewModel.removeAll(where: {$0.section == sectionName})
-            newViewModel.insert(sectionVM, at: 0)
-            
-            viewModel = newViewModel
-            view.setupData(newData: viewModel)
-        }
-    }
-}
-
-extension FriendsPresenter: FriendInputRequestViewModelDelegate {
-    func tapInputRequest(user: MRequestUser) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) request: \(user)")
-        
-        router.showInputRequestDetailScreen(inputRequest: user)
-    }
-}
-
-extension FriendsPresenter: FriendViewModelDelegate {
-    func didTapFriend(friend: MUser) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) friend: \(friend)")
-        
-        router.showFriendDetailScreen(user: friend)
+        view?.updateNickname(nickName: user.name ?? "")
     }
 }
 

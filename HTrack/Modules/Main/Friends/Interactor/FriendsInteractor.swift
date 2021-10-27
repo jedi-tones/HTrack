@@ -8,17 +8,12 @@ class FriendsInteractor {
     var userManager = UserManager.shared
     var authManager = FirebaseAuthManager.shared
     
-    let sections: [FriendsScreenSection] = [.inputRequest, .friends]
-    init() {
-        
-    }
+    init() {}
     
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        friendsManager.friendsNotifier.unsubscribe(self)
-        friendsManager.inputRequestsNotifier.unsubscribe(self)
         userManager.notifier.unsubscribe(self)
         authManager.notifier.unsubscribe(self)
     }
@@ -35,33 +30,8 @@ extension FriendsInteractor: FriendsInteractorInput {
         output.userUpdated(user: user)
     }
     
-    func getSections() {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        output.setupSections(sections: sections)
-    }
-    
-    func addDataListnerFor(section: FriendsScreenSection) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        switch section {
-        
-        case .inputRequest:
-            friendsManager.inputRequestsNotifier.subscribe(self)
-            let inputRequests = friendsManager.inputRequests
-            
-            guard inputRequests.isNotEmpty else { return }
-            
-            output.updateRequestData(requests: inputRequests)
-        case .friends:
-            friendsManager.friendsNotifier.subscribe(self)
-            let friends = friendsManager.friends
-            
-            guard friends.isNotEmpty else { return }
-            output.updateFriendsData(friends: friends)
-        }
+    func getPages() -> [FriendsPage] {
+        return FriendsPage.allCases
     }
     
     func cancelUserRequest(id: String) {
@@ -94,23 +64,5 @@ extension FriendsInteractor: FriendsInteractorInput {
                             text: "\(type(of: self)) - \(#function) error - \(error)")
             }
         }
-    }
-}
-
-extension FriendsInteractor: FriendsManagerFriendsListner {
-    func friendsUpdated(friends: [MUser]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) friends: \(friends)")
-        
-        output.updateFriendsData(friends: friends)
-    }
-}
-
-extension FriendsInteractor: FriendsManagerInputRequestsListner {
-    func inputRequestsUpdated(request: [MRequestUser]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) requests: \(request)")
-        
-        output.updateRequestData(requests: request)
     }
 }

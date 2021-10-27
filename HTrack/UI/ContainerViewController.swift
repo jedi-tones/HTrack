@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import TinyConstraints
 
-class BaseContainerViewContoller: UIViewController {
+class ContainerViewContoller: UIViewController {
     var currentVC: UIViewController?
     
     var containerView: UIView = {
@@ -57,14 +58,6 @@ class BaseContainerViewContoller: UIViewController {
     private func addSubview(subView: UIView, toView parentView: UIView) {
         self.view.layoutIfNeeded()
         parentView.addSubview(subView)
-        
-        subView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            subView.topAnchor.constraint(equalTo: parentView.topAnchor),
-            subView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor),
-            subView.leadingAnchor.constraint(equalTo: parentView.leadingAnchor),
-            subView.trailingAnchor.constraint(equalTo: parentView.trailingAnchor)
-        ])
+        subView.edgesToSuperview()
     }
 }

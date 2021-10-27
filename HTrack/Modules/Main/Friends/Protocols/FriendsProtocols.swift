@@ -7,8 +7,8 @@ import UIKit
 protocol FriendsViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
-    func setupData(newData: [SectionViewModel])
     func updateNickname(nickName: String)
+    func selectPage(page: FriendsPage)
 }
 
 protocol FriendsViewOutput {
@@ -16,24 +16,20 @@ protocol FriendsViewOutput {
     func viewIsReady()
     func addFriendButtonTapped()
     func settingsButtonTapped()
+    func testButtonTapped()
+    func getSubmoduleController(page: FriendsPage) -> UIViewController?
 }
 
 
 // MARK: - Interactor
 protocol FriendsInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
-    func getSections()
+    func getPages() -> [FriendsPage]
     func subscribeUserListner()
-    func addDataListnerFor(section: FriendsScreenSection)
-    func cancelUserRequest(id: String)
-    func accepUserRequest(id: String)
 }
 
 protocol FriendsInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
-    func setupSections(sections: [FriendsScreenSection])
-    func updateFriendsData(friends: [MUser])
-    func updateRequestData(requests: [MRequestUser])
     func userUpdated(user: MUser)
 }
 
@@ -43,8 +39,9 @@ protocol FriendsRouterInput {
     // MARK: PRESENTER -> ROUTER
     func showSettinsScreen()
     func showAddFriendScreen()
-    func showFriendDetailScreen(user: MUser)
-    func showInputRequestDetailScreen(inputRequest: MRequestUser)
+
+    func addSubmodule(page: FriendsPage, friendsOutput: FriendsCollectionModuleOutput?, requestOutput: InputRequestsModuleOutput?)
+    func getSubmoduleController(page: FriendsPage) -> UIViewController?
 }
 
 

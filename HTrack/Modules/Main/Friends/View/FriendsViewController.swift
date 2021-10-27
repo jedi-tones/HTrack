@@ -4,13 +4,9 @@
 import UIKit
 import TinyConstraints
 
-class FriendsViewController: UIViewController {
+class FriendsViewController: ContainerViewContoller {
     // MARK: Properties
     var output: FriendsViewOutput!
-    
-    var collectionView: UICollectionView?
-    var layout: UICollectionViewLayout?
-    var dataSource: UICollectionViewDiffableDataSource<SectionViewModel, AnyHashable>?
     
     lazy var rightSettingsButton: UIBarButtonItem = {
         let item = UIBarButtonItem(image: Styles.Images.settingButtonImage,
@@ -92,7 +88,7 @@ class FriendsViewController: UIViewController {
     }
     
     @objc private func addFriendButtonTapped(sender: UIBarButtonItem) {
-        output.addFriendButtonTapped()
+        output.testButtonTapped()
     }
 }
 
@@ -102,23 +98,21 @@ extension FriendsViewController {
         view.backgroundColor = backColor
         
         setupNavBar()
-        setupCollectionView()
         setupConstraints()
     }
 
     func setupConstraints() {
-        guard let collectionView = collectionView else { return }
-        view.addSubview(collectionView)
         view.addSubview(addFriendButton)
+        //контейнер для View сабмодулей
+        view.addSubview(containerView)
         
         addFriendButton.topToSuperview(offset: Styles.Sizes.stadartVInset * 2, usingSafeArea: true)
         addFriendButton.leadingToSuperview(offset: Styles.Sizes.standartHInset)
         addFriendButton.trailingToSuperview(offset: Styles.Sizes.standartHInset)
         addFriendButton.height(Styles.Sizes.baseButtonHeight)
         
-        collectionView.topToBottom(of: addFriendButton, offset: Styles.Sizes.stadartVInset * 2)
-        collectionView.edgesToSuperview(excluding: .top,
-                                        usingSafeArea: true)
+        containerView.topToBottom(of: addFriendButton, offset: Styles.Sizes.standartV2Inset)
+        containerView.edgesToSuperview(excluding: .top, usingSafeArea: true)
     }
 }
 
@@ -131,35 +125,6 @@ extension FriendsViewController: FriendsViewInput {
         setupViews()
     }
     
-    func setupData(newData: [SectionViewModel]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) \(newData)")
-        
-        var snapshot = NSDiffableDataSourceSnapshot<SectionViewModel, AnyHashable>()
-        
-        newData.forEach { sectionVM in
-            var vms: [AnyHashable] = []
-            sectionVM.items.forEach { cellViewModel in
-                
-                switch cellViewModel {
-                case let vm as FriendViewModel:
-                    vms.append(vm)
-                    
-                case let vm as FriendInputRequestViewModel:
-                    vms.append(vm)
-                default:
-                    break
-                }
-            }
-            
-            snapshot.appendSections([sectionVM])
-            snapshot.appendItems(vms, toSection: sectionVM)
-        }
-        DispatchQueue.main.async { [weak self] in
-            self?.dataSource?.apply(snapshot)
-        }
-    }
-    
     func updateNickname(nickName: String) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -167,6 +132,13 @@ extension FriendsViewController: FriendsViewInput {
         DispatchQueue.main.async {[weak self] in
             self?.customNavView.updateTitle(title: nickName)
         }
+    }
+    
+    func selectPage(page: FriendsPage) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        transitionToSubmodule(page: page)
     }
 }
 

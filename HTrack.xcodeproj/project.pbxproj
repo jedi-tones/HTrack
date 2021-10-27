@@ -15,24 +15,30 @@
 		162EDA55240A0170EB05C2D1 /* AddFriendPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016496450D5EEF0BCF61F00 /* AddFriendPresenter.swift */; };
 		17ACBEE20335308B1DA12F93 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987707F1B054E8F815A9B342 /* AuthViewController.swift */; };
 		1C5F427021A242DAB0196C2F /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991869064D01F27107F1944C /* MainScreenViewController.swift */; };
+		1E1C515B719539E585471022 /* InputRequestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6AE8BE8B07DEAA670838 /* InputRequestsBuilder.swift */; };
 		1E3BE55087AE90D1FD12BCBA /* AddFriendInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89081A75CA82A6C22D02DAC7 /* AddFriendInteractor.swift */; };
 		1E59D486271C092536D82ED8 /* FriendsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41F2478D71E2C833D9EC1B8 /* FriendsInteractor.swift */; };
 		1FE44880DAC40890D3C84F48 /* MainTabBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530BF96EA13DA10118717E42 /* MainTabBarModule.swift */; };
 		2089B038C856887E459DA17C /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EAA18178898B4E896D6775 /* AuthRouter.swift */; };
 		2A0D1CCA1F00B2A1011E4EBC /* AddFriendProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF86927F633D48CB7904400 /* AddFriendProtocols.swift */; };
+		2A58348392E6877252810015 /* InputRequestsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08BE99F473F6CCE7F0E1165 /* InputRequestsInteractor.swift */; };
 		2B356FC45A82196D554AC8AA /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C439913315BC02EBFCA0B627 /* MainTabBarViewController.swift */; };
 		2C19B5F9326D23F198B1CE85 /* FriendDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D245121FE9E11A5E5434C0 /* FriendDetailBuilder.swift */; };
 		342DB05EC0B1B182E17780B1 /* MainTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFBC17BE46551737D5650F2 /* MainTabBarBuilder.swift */; };
 		38866CBA5AD78DA7754FD72A /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2F5967AA878A68881E09A7 /* MainScreenRouter.swift */; };
+		39D78364A0DD557E55699FFB /* FriendsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DB07B3F2E9152401E7C078 /* FriendsCollectionViewController.swift */; };
 		3D2033EF6E0A6448AD82F9DF /* RegisterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68752187E3C991A11BDDAD94 /* RegisterProtocols.swift */; };
 		406706AE7C4F63F60FB90CC9 /* AddFriendModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB619CBD2E4946B049A33B4 /* AddFriendModule.swift */; };
+		40F818AD312406F5E44C1AC8 /* FriendsCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9783069E05D72963588FDCC /* FriendsCollectionPresenter.swift */; };
 		430D5062EE00F28F8DEC3956 /* MainTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BB453587A409493F8FE0E /* MainTabBarProtocols.swift */; };
 		431E45FCFB31AF7DF9941F3E /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B32AA56309EA41FEA4A619 /* SettingsPresenter.swift */; };
 		49E2B842581A1C3D0F65DC11 /* AuthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9118ABF000B22BB3893F647 /* AuthModule.swift */; };
 		509A7B54583ABC5E21750DA0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAA25128629A6A1030457A /* WelcomeViewController.swift */; };
 		531722F56884B0B21760A9CE /* MainScreenModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FCA259D976F92108F48620 /* MainScreenModule.swift */; };
+		54BDD9D1582BB1F14C9A597D /* FriendsCollectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA5C78B205A9D42CAB68FE /* FriendsCollectionProtocols.swift */; };
 		56F772EEAB8991C581444995 /* AddFriendRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A92C9FF194FF621C45A06D0 /* AddFriendRouter.swift */; };
 		5E0CB0BFEEEC69017C7C7B41 /* FriendDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B764858B3582A69D1D75719 /* FriendDetailInteractor.swift */; };
+		609A54F4736D869028EEEE11 /* InputRequestsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6DB008B893D939541DB46 /* InputRequestsRouter.swift */; };
 		6225EF4BD962064B9F8D11C9 /* RegisterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A211567DA352287653D6C3F /* RegisterBuilder.swift */; };
 		639E4D30DFF9E5EA844D4CB8 /* AddFriendBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0B726C0F434BC3DFDE75D /* AddFriendBuilder.swift */; };
 		69B458BC169C4D34045BDC59 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF7355EF3EBC57DA24544F /* AuthInteractor.swift */; };
@@ -48,21 +54,28 @@
 		88F448F132351CB3306678F7 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */; };
 		8C40A0692AE914BC371FE056 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB281C1EBC21F4F34D4BAED0 /* RegisterPresenter.swift */; };
 		93CD55BB6E8F90E075C4F98C /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92796598EC5515A195BC1F76 /* MainTabBarPresenter.swift */; };
+		9684E2E5FCD1C99A235565CD /* FriendsCollectionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF061DACCF8D44B79A861983 /* FriendsCollectionModule.swift */; };
 		96C11A65E1AB366D19DC94EA /* FriendDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12350D3ADE17D1BF21DC4FF /* FriendDetailPresenter.swift */; };
 		9975FF05D6047FCCE7376B97 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349B702130200F9A6294301 /* SettingsViewController.swift */; };
 		9B856B71AD5236F0BF227766 /* FriendsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B2A3CD602E7E003279269 /* FriendsRouter.swift */; };
 		9CDF368FF81A13B82F0A35AB /* MainScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F19602C1EE60937B0D0C85C /* MainScreenProtocols.swift */; };
 		9DA4C5F02320430EEBB2A568 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBE06AA19D4CB916934DF28 /* WelcomePresenter.swift */; };
+		A6D3B1657D801EA6F737AA44 /* InputRequestsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B51CAD29E1778B99F99506F /* InputRequestsProtocols.swift */; };
 		AF127BC8E928D8FE8A2492AB /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C16AFDB9E5E973C90C7794 /* AuthProtocols.swift */; };
+		B03802C4F3E7838A60ACB05E /* InputRequestsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF415600A2468D92D7E3D46 /* InputRequestsModule.swift */; };
 		B04211D04219911B7D51F57C /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A61B787379AEE742DCAA7 /* SettingsModule.swift */; };
 		B06A853378EBB9583F7B1F15 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA805F767B093B4A99C63449 /* RegisterViewController.swift */; };
 		B59C60C49C97C4E94BC904AF /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE809CA9CD0597ADD36E0F25 /* RegisterInteractor.swift */; };
+		BC1B7DB02A082E8070F9230C /* FriendsCollectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358927B30338908AE18B1EB3 /* FriendsCollectionRouter.swift */; };
 		BCF481F2B8C995589F90BCBB /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20688646606355E5F45E33D /* AddFriendViewController.swift */; };
 		C09BA41CCA8B6E0DADE6067C /* FriendsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF3284BA7263179D23C6C44 /* FriendsProtocols.swift */; };
 		C27C8ADF0CC8C27D309ED1DA /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6984F77B768DE1487D5189 /* SettingsInteractor.swift */; };
 		C4B5070947E0A065A2CDE227 /* FriendsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864CB516A53B7925E96F9979 /* FriendsBuilder.swift */; };
 		C664C103B203C42BF39BAC78 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E276971BE5A082113B303 /* RegisterModule.swift */; };
+		D840B75EB5CDF5C16834555F /* FriendsCollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3CC3A8C9A9F142DACC4D0C /* FriendsCollectionInteractor.swift */; };
 		D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39209731F0D8310142B377F9 /* FriendsModule.swift */; };
+		DB2EDA1949D630D47C1CF97C /* InputRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B08394DD26CEF2C22D5DAAF /* InputRequestsViewController.swift */; };
+		DB7B54F6004695CFA6A80B57 /* FriendsCollectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31ED7EC1DFBD597E86ABB41 /* FriendsCollectionBuilder.swift */; };
 		DD1C00D227178BB900E4BBBF /* COperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D127178BB900E4BBBF /* COperationQueue.swift */; };
 		DD1C00D427178BCF00E4BBBF /* COperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D327178BCF00E4BBBF /* COperation.swift */; };
 		DD1C00D727178CA600E4BBBF /* AsyncCOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */; };
@@ -98,9 +111,9 @@
 		DD2FA0C32709012100FC0382 /* FriendDetailViewController+Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C22709012100FC0382 /* FriendDetailViewController+Sheet.swift */; };
 		DD2FA0C52709065700FC0382 /* FriendsCell+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */; };
 		DD2FA0C72709C64C00FC0382 /* AddFriendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0C62709C64C00FC0382 /* AddFriendHeaderView.swift */; };
-		DD3FBCB926EE023E002591A6 /* FriendsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */; };
-		DD3FBCBB26EE027C002591A6 /* FriendsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */; };
-		DD3FBCBD26EE029E002591A6 /* FriendsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */; };
+		DD3FBCB926EE023E002591A6 /* FriendsCollectionViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCB826EE023E002591A6 /* FriendsCollectionViewController+CollectionView.swift */; };
+		DD3FBCBB26EE027C002591A6 /* FriendsCollectionViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBA26EE027C002591A6 /* FriendsCollectionViewController+Delegate.swift */; };
+		DD3FBCBD26EE029E002591A6 /* FriendsCollectionViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBC26EE029E002591A6 /* FriendsCollectionViewController+DataSource.swift */; };
 		DD3FBCBF26EE0434002591A6 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCBE26EE0434002591A6 /* FriendCell.swift */; };
 		DD3FBCC126EE061B002591A6 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCC026EE061B002591A6 /* FriendViewModel.swift */; };
 		DD3FBCC526EE07EE002591A6 /* FriendInputRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCC426EE07EE002591A6 /* FriendInputRequestViewModel.swift */; };
@@ -158,6 +171,12 @@
 		DD686990272890BA00C0A590 /* MDeeplinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68698F272890BA00C0A590 /* MDeeplinkType.swift */; };
 		DD68699227289F0100C0A590 /* PushFCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68699127289F0100C0A590 /* PushFCMManager.swift */; };
 		DD6869952728A1DE00C0A590 /* FCMTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6869942728A1DE00C0A590 /* FCMTopic.swift */; };
+		DD68699927299CF600C0A590 /* FriendsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68699827299CF600C0A590 /* FriendsPage.swift */; };
+		DD68699C2729A29500C0A590 /* InputRequestSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68699B2729A29500C0A590 /* InputRequestSection.swift */; };
+		DD68699E2729AF7100C0A590 /* InputRequestsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68699D2729AF7100C0A590 /* InputRequestsViewController+CollectionView.swift */; };
+		DD6869A02729AFDA00C0A590 /* InputRequestsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68699F2729AFDA00C0A590 /* InputRequestsViewController+Delegate.swift */; };
+		DD6869A22729B02D00C0A590 /* InputRequestsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6869A12729B02D00C0A590 /* InputRequestsViewController+DataSource.swift */; };
+		DD6869A72729B75800C0A590 /* FriendsViewController+Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6869A62729B75800C0A590 /* FriendsViewController+Transition.swift */; };
 		DD6BD6B426F8EC9E006369BB /* FriendsCustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */; };
 		DD6BD6B726F8EE89006369BB /* FriendsViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */; };
 		DD6BD70E26F90981006369BB /* PopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD70D26F90981006369BB /* PopUpManager.swift */; };
@@ -172,7 +191,6 @@
 		DD870D7926DEC1FB000F59AE /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D7826DEC1FB000F59AE /* Notifier.swift */; };
 		DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214EC26763DFB00A3623E /* AppDelegate.swift */; };
 		DD9214EF26763DFB00A3623E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214EE26763DFB00A3623E /* SceneDelegate.swift */; };
-		DD9214F126763DFB00A3623E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214F026763DFB00A3623E /* ViewController.swift */; };
 		DD9214F626763DFD00A3623E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9214F526763DFD00A3623E /* Assets.xcassets */; };
 		DD9214F926763DFD00A3623E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9214F726763DFD00A3623E /* LaunchScreen.storyboard */; };
 		DD92150126763E8F00A3623E /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92150026763E8F00A3623E /* CoordinatorProtocol.swift */; };
@@ -235,13 +253,13 @@
 		DDBEFEC527274019006276F3 /* FriendsInputRequestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBEFEC427274019006276F3 /* FriendsInputRequestElement.swift */; };
 		DDBEFEC7272740FD006276F3 /* FriendRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBEFEC6272740FD006276F3 /* FriendRequestViewModel.swift */; };
 		DDE003712720B2AF00EED493 /* FriendsManager+FriendsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE003702720B2AF00EED493 /* FriendsManager+FriendsRequests.swift */; };
+		E14B64B9A2AFB6AD64291F1D /* InputRequestsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11ABB6D0F7BB0AEFC622 /* InputRequestsPresenter.swift */; };
 		E1560B40513E728EEAD06A5B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931C55A79037676521FC968 /* SettingsRouter.swift */; };
 		E791506092A3252CB263145A /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F339803F883491C41641E /* MainScreenInteractor.swift */; };
 		EFB394C10363780861596021 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BAAB1C1AD8223E12C698BD /* FriendsViewController.swift */; };
 		F172449F63A9506E7070F9CE /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EA5EAE71EDBCF6A6E1B91 /* RegisterRouter.swift */; };
 		F5D22FF44227FD89348873D9 /* AuthBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399D9E40E81AAE5B947BE8B /* AuthBuilder.swift */; };
 		F9355AEF5E29281EAE777E3F /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C708CC776B30491E4DAD2 /* MainScreenBuilder.swift */; };
-		FB5F02C326FA561D00A23DAB /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F02C226FA561D00A23DAB /* TabBar.swift */; };
 		FB6B9D3F26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */; };
 		FB6B9D4126B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4026B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift */; };
 		FB6B9D4326B96E6A0050690F /* TextFiledWithError+Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B9D4226B96E6A0050690F /* TextFiledWithError+Set.swift */; };
@@ -268,6 +286,8 @@
 
 /* Begin PBXFileReference section */
 		00E3A3EE2C52C04ECFA0ED44 /* FriendDetailModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailModule.swift; sourceTree = "<group>"; };
+		05BA5C78B205A9D42CAB68FE /* FriendsCollectionProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsCollectionProtocols.swift; sourceTree = "<group>"; };
+		0B51CAD29E1778B99F99506F /* InputRequestsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsProtocols.swift; sourceTree = "<group>"; };
 		126E276971BE5A082113B303 /* RegisterModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterModule.swift; sourceTree = "<group>"; };
 		1C2F5967AA878A68881E09A7 /* MainScreenRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		1C6F33ACCCDEBBB1544B50C3 /* SettingsBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
@@ -276,13 +296,16 @@
 		2A2F339803F883491C41641E /* MainScreenInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
 		2AB619CBD2E4946B049A33B4 /* AddFriendModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendModule.swift; sourceTree = "<group>"; };
 		31E19424A05B1256BC557218 /* WelcomeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeBuilder.swift; sourceTree = "<group>"; };
+		358927B30338908AE18B1EB3 /* FriendsCollectionRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsCollectionRouter.swift; sourceTree = "<group>"; };
 		36E107C4322513D027960E63 /* FriendDetailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailRouter.swift; sourceTree = "<group>"; };
 		39209731F0D8310142B377F9 /* FriendsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsModule.swift; sourceTree = "<group>"; };
+		3B08394DD26CEF2C22D5DAAF /* InputRequestsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsViewController.swift; sourceTree = "<group>"; };
 		3D92037C1CF235F29E4A623E /* MainTabBarRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
 		505A61B787379AEE742DCAA7 /* SettingsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
 		530BF96EA13DA10118717E42 /* MainTabBarModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarModule.swift; sourceTree = "<group>"; };
 		5BDF17D914EDB53580BEC7FB /* WelcomeProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeProtocols.swift; sourceTree = "<group>"; };
 		5ECAA25128629A6A1030457A /* WelcomeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		630B11ABB6D0F7BB0AEFC622 /* InputRequestsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsPresenter.swift; sourceTree = "<group>"; };
 		68752187E3C991A11BDDAD94 /* RegisterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterProtocols.swift; sourceTree = "<group>"; };
 		6A211567DA352287653D6C3F /* RegisterBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterBuilder.swift; sourceTree = "<group>"; };
 		6B712E5A0C1761D35B298978 /* FriendDetailProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailProtocols.swift; sourceTree = "<group>"; };
@@ -295,6 +318,7 @@
 		8A92C9FF194FF621C45A06D0 /* AddFriendRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendRouter.swift; sourceTree = "<group>"; };
 		8B764858B3582A69D1D75719 /* FriendDetailInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailInteractor.swift; sourceTree = "<group>"; };
 		90E0B726C0F434BC3DFDE75D /* AddFriendBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendBuilder.swift; sourceTree = "<group>"; };
+		913F6AE8BE8B07DEAA670838 /* InputRequestsBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsBuilder.swift; sourceTree = "<group>"; };
 		92796598EC5515A195BC1F76 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		9399D9E40E81AAE5B947BE8B /* AuthBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthBuilder.swift; sourceTree = "<group>"; };
 		947C708CC776B30491E4DAD2 /* MainScreenBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenBuilder.swift; sourceTree = "<group>"; };
@@ -302,25 +326,32 @@
 		991869064D01F27107F1944C /* MainScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		9EFBC17BE46551737D5650F2 /* MainTabBarBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarBuilder.swift; sourceTree = "<group>"; };
 		A12350D3ADE17D1BF21DC4FF /* FriendDetailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailPresenter.swift; sourceTree = "<group>"; };
+		A2DB07B3F2E9152401E7C078 /* FriendsCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewController.swift; sourceTree = "<group>"; };
 		A349B702130200F9A6294301 /* SettingsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A9783069E05D72963588FDCC /* FriendsCollectionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsCollectionPresenter.swift; sourceTree = "<group>"; };
 		AB7BB453587A409493F8FE0E /* MainTabBarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarProtocols.swift; sourceTree = "<group>"; };
 		AC6984F77B768DE1487D5189 /* SettingsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		AE809CA9CD0597ADD36E0F25 /* RegisterInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		B016496450D5EEF0BCF61F00 /* AddFriendPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendPresenter.swift; sourceTree = "<group>"; };
+		B31ED7EC1DFBD597E86ABB41 /* FriendsCollectionBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsCollectionBuilder.swift; sourceTree = "<group>"; };
 		B6EAA18178898B4E896D6775 /* AuthRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		B8C16AFDB9E5E973C90C7794 /* AuthProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
 		B931C55A79037676521FC968 /* SettingsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		BB281C1EBC21F4F34D4BAED0 /* RegisterPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
+		BEF415600A2468D92D7E3D46 /* InputRequestsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsModule.swift; sourceTree = "<group>"; };
+		C08BE99F473F6CCE7F0E1165 /* InputRequestsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsInteractor.swift; sourceTree = "<group>"; };
 		C2D245121FE9E11A5E5434C0 /* FriendDetailBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailBuilder.swift; sourceTree = "<group>"; };
 		C439913315BC02EBFCA0B627 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		C4FCA259D976F92108F48620 /* MainScreenModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenModule.swift; sourceTree = "<group>"; };
 		CBFDDDB8EF8CE744A8417A73 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
+		CF061DACCF8D44B79A861983 /* FriendsCollectionModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsCollectionModule.swift; sourceTree = "<group>"; };
 		D17B2A3CD602E7E003279269 /* FriendsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsRouter.swift; sourceTree = "<group>"; };
 		D234FCB8B48967628C9E9841 /* AuthPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		D41F2478D71E2C833D9EC1B8 /* FriendsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsInteractor.swift; sourceTree = "<group>"; };
 		D9118ABF000B22BB3893F647 /* AuthModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthModule.swift; sourceTree = "<group>"; };
 		D997B8B684C982B2BB36FF03 /* WelcomeModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeModule.swift; sourceTree = "<group>"; };
 		DA805F767B093B4A99C63449 /* RegisterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DAF6DB008B893D939541DB46 /* InputRequestsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsRouter.swift; sourceTree = "<group>"; };
 		DD1C00D127178BB900E4BBBF /* COperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperationQueue.swift; sourceTree = "<group>"; };
 		DD1C00D327178BCF00E4BBBF /* COperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperation.swift; sourceTree = "<group>"; };
 		DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCOperation.swift; sourceTree = "<group>"; };
@@ -348,9 +379,9 @@
 		DD2FA0C22709012100FC0382 /* FriendDetailViewController+Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendDetailViewController+Sheet.swift"; sourceTree = "<group>"; };
 		DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsCell+Touches.swift"; sourceTree = "<group>"; };
 		DD2FA0C62709C64C00FC0382 /* AddFriendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendHeaderView.swift; sourceTree = "<group>"; };
-		DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+CollectionView.swift"; sourceTree = "<group>"; };
-		DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+Delegate.swift"; sourceTree = "<group>"; };
-		DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+DataSource.swift"; sourceTree = "<group>"; };
+		DD3FBCB826EE023E002591A6 /* FriendsCollectionViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsCollectionViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		DD3FBCBA26EE027C002591A6 /* FriendsCollectionViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsCollectionViewController+Delegate.swift"; sourceTree = "<group>"; };
+		DD3FBCBC26EE029E002591A6 /* FriendsCollectionViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsCollectionViewController+DataSource.swift"; sourceTree = "<group>"; };
 		DD3FBCBE26EE0434002591A6 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		DD3FBCC026EE061B002591A6 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
 		DD3FBCC426EE07EE002591A6 /* FriendInputRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInputRequestViewModel.swift; sourceTree = "<group>"; };
@@ -409,6 +440,12 @@
 		DD68698F272890BA00C0A590 /* MDeeplinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDeeplinkType.swift; sourceTree = "<group>"; };
 		DD68699127289F0100C0A590 /* PushFCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushFCMManager.swift; sourceTree = "<group>"; };
 		DD6869942728A1DE00C0A590 /* FCMTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTopic.swift; sourceTree = "<group>"; };
+		DD68699827299CF600C0A590 /* FriendsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPage.swift; sourceTree = "<group>"; };
+		DD68699B2729A29500C0A590 /* InputRequestSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRequestSection.swift; sourceTree = "<group>"; };
+		DD68699D2729AF7100C0A590 /* InputRequestsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputRequestsViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		DD68699F2729AFDA00C0A590 /* InputRequestsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputRequestsViewController+Delegate.swift"; sourceTree = "<group>"; };
+		DD6869A12729B02D00C0A590 /* InputRequestsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputRequestsViewController+DataSource.swift"; sourceTree = "<group>"; };
+		DD6869A62729B75800C0A590 /* FriendsViewController+Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+Transition.swift"; sourceTree = "<group>"; };
 		DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCustomNavigationView.swift; sourceTree = "<group>"; };
 		DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		DD6BD70D26F90981006369BB /* PopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpManager.swift; sourceTree = "<group>"; };
@@ -424,7 +461,6 @@
 		DD9214E926763DFB00A3623E /* HTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9214EC26763DFB00A3623E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD9214EE26763DFB00A3623E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD9214F026763DFB00A3623E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD9214F526763DFD00A3623E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD9214F826763DFD00A3623E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD9214FA26763DFD00A3623E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -491,11 +527,11 @@
 		E2DF7355EF3EBC57DA24544F /* AuthInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
 		ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
+		EE3CC3A8C9A9F142DACC4D0C /* FriendsCollectionInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsCollectionInteractor.swift; sourceTree = "<group>"; };
 		EFF3284BA7263179D23C6C44 /* FriendsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendsProtocols.swift; sourceTree = "<group>"; };
 		F20688646606355E5F45E33D /* AddFriendViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		F43EA5EAE71EDBCF6A6E1B91 /* RegisterRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		F4B32AA56309EA41FEA4A619 /* SettingsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
-		FB5F02C226FA561D00A23DAB /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		FB6B9D3E26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+BaseTextFieldProtocol.swift"; sourceTree = "<group>"; };
 		FB6B9D4026B96C7E0050690F /* TextFieldWithError+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldWithError+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		FB6B9D4226B96E6A0050690F /* TextFiledWithError+Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFiledWithError+Set.swift"; sourceTree = "<group>"; };
@@ -546,6 +582,14 @@
 				DA805F767B093B4A99C63449 /* RegisterViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		030F22CA2994E090EF96D1A3 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				358927B30338908AE18B1EB3 /* FriendsCollectionRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		07F93B0FAFD19EC9FF2FF4E3 /* Builder */ = {
@@ -686,6 +730,15 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		3C139D3875EA1ACE9CC464B9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				EE3CC3A8C9A9F142DACC4D0C /* FriendsCollectionInteractor.swift */,
+				DD68699A2729A21900C0A590 /* Models */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		43C03B5E76B1208B5C73D9B7 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +765,20 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		51C5E3A4641BBB108E3342D0 /* FriendsCollection */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF50EB796C7BF2610E08A0 /* View */,
+				58582F652F901E265FE2A8A7 /* Presenter */,
+				3C139D3875EA1ACE9CC464B9 /* Interactor */,
+				030F22CA2994E090EF96D1A3 /* Router */,
+				613D50B7DD60435265938A70 /* Builder */,
+				B0318050B1AAD836B4F9931F /* Protocols */,
+				CF061DACCF8D44B79A861983 /* FriendsCollectionModule.swift */,
+			);
+			path = FriendsCollection;
+			sourceTree = "<group>";
+		};
 		55C8754BC24A43DD9C8E6073 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,12 +787,36 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		58582F652F901E265FE2A8A7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A9783069E05D72963588FDCC /* FriendsCollectionPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		5C989180D0C8BC11D1449675 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
 				90E0B726C0F434BC3DFDE75D /* AddFriendBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		613D50B7DD60435265938A70 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				B31ED7EC1DFBD597E86ABB41 /* FriendsCollectionBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		62249B424CA83B56E3E643B6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				630B11ABB6D0F7BB0AEFC622 /* InputRequestsPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		6551221B47F11EE9C672C93B /* Interactor */ = {
@@ -833,6 +924,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		948D61DECEF4524F0E7D55B5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0B51CAD29E1778B99F99506F /* InputRequestsProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		9980131BBE8D52F1D7D30E42 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -895,14 +994,19 @@
 			isa = PBXGroup;
 			children = (
 				72BAAB1C1AD8223E12C698BD /* FriendsViewController.swift */,
-				DD3FBCB826EE023E002591A6 /* FriendsViewController+CollectionView.swift */,
-				DD3FBCBA26EE027C002591A6 /* FriendsViewController+Delegate.swift */,
-				DD3FBCBC26EE029E002591A6 /* FriendsViewController+DataSource.swift */,
 				DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */,
+				DD6869A62729B75800C0A590 /* FriendsViewController+Transition.swift */,
 				DD6BD6B526F8ECA1006369BB /* Subviews */,
-				DD3FBCC326EE0623002591A6 /* Cells */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B0318050B1AAD836B4F9931F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				05BA5C78B205A9D42CAB68FE /* FriendsCollectionProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B0C34F011A35881E00C4FDE9 /* Router */ = {
@@ -1121,20 +1225,10 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		DD3FBCC326EE0623002591A6 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				DD3FBCBE26EE0434002591A6 /* FriendCell.swift */,
-				DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */,
-				DD3FBCC826EE0999002591A6 /* RequestCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		DD3FBCCC26EE167C002591A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DD3FBCCA26EE1670002591A6 /* FriendsScreenSection.swift */,
+				DD68699827299CF600C0A590 /* FriendsPage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1334,6 +1428,39 @@
 			path = PushNotification;
 			sourceTree = "<group>";
 		};
+		DD68699A2729A21900C0A590 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FBCCA26EE1670002591A6 /* FriendsScreenSection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD6869A32729B06100C0A590 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FBCBE26EE0434002591A6 /* FriendCell.swift */,
+				DD2FA0C42709065700FC0382 /* FriendsCell+Touches.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DD6869A42729B06F00C0A590 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FBCC826EE0999002591A6 /* RequestCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DD6869A52729B0AE00C0A590 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD68699B2729A29500C0A590 /* InputRequestSection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DD6BD6B526F8ECA1006369BB /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1386,8 +1513,6 @@
 				DD59F76926B70C3700CA8179 /* HTrack.entitlements */,
 				DD9214EC26763DFB00A3623E /* AppDelegate.swift */,
 				DD9214EE26763DFB00A3623E /* SceneDelegate.swift */,
-				DD9214F026763DFB00A3623E /* ViewController.swift */,
-				FB5F02C226FA561D00A23DAB /* TabBar.swift */,
 				DD870D7126D7EC65000F59AE /* EndPoints */,
 				DD92151D2677B59000A3623E /* Modules */,
 				DD5F63ED267FA77B002131FD /* Models */,
@@ -1521,6 +1646,8 @@
 				BEAD88F6F65726C2A4E1BE01 /* AddFriend */,
 				DD9F616126E66A4F009E3D39 /* Main */,
 				CF2B8C29C8A7AA20ED3C404D /* Friends */,
+				51C5E3A4641BBB108E3342D0 /* FriendsCollection */,
+				F1FCC36DB13884E91F9BBE19 /* InputRequests */,
 				362C26A702B3440F8E8C1D8C /* Settings */,
 			);
 			path = Main;
@@ -1629,6 +1756,34 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		E06F00746F12380DE362E097 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DAF6DB008B893D939541DB46 /* InputRequestsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1C5BB253DBAD39C54D1210C /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				913F6AE8BE8B07DEAA670838 /* InputRequestsBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E2AA02352C0F8C9D92780592 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD6869A42729B06F00C0A590 /* Cells */,
+				3B08394DD26CEF2C22D5DAAF /* InputRequestsViewController.swift */,
+				DD68699D2729AF7100C0A590 /* InputRequestsViewController+CollectionView.swift */,
+				DD68699F2729AFDA00C0A590 /* InputRequestsViewController+Delegate.swift */,
+				DD6869A12729B02D00C0A590 /* InputRequestsViewController+DataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E3AFBEA4B2B5CC68650C343D /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1669,6 +1824,32 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		EBCF50EB796C7BF2610E08A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD6869A32729B06100C0A590 /* Cells */,
+				A2DB07B3F2E9152401E7C078 /* FriendsCollectionViewController.swift */,
+				DD3FBCB826EE023E002591A6 /* FriendsCollectionViewController+CollectionView.swift */,
+				DD3FBCBA26EE027C002591A6 /* FriendsCollectionViewController+Delegate.swift */,
+				DD3FBCBC26EE029E002591A6 /* FriendsCollectionViewController+DataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F1FCC36DB13884E91F9BBE19 /* InputRequests */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA02352C0F8C9D92780592 /* View */,
+				62249B424CA83B56E3E643B6 /* Presenter */,
+				F56512F59526957167CA074A /* Interactor */,
+				E06F00746F12380DE362E097 /* Router */,
+				E1C5BB253DBAD39C54D1210C /* Builder */,
+				948D61DECEF4524F0E7D55B5 /* Protocols */,
+				BEF415600A2468D92D7E3D46 /* InputRequestsModule.swift */,
+			);
+			path = InputRequests;
+			sourceTree = "<group>";
+		};
 		F50554374EE24C25A43B6F0B /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -1681,6 +1862,15 @@
 				D9118ABF000B22BB3893F647 /* AuthModule.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		F56512F59526957167CA074A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C08BE99F473F6CCE7F0E1165 /* InputRequestsInteractor.swift */,
+				DD6869A52729B0AE00C0A590 /* Models */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		F60C4F1AAF155F37DCAB298C /* Protocols */ = {
@@ -1882,7 +2072,6 @@
 				DD9EAD192699BE8B0032B3D7 /* NetworkService.swift in Sources */,
 				DD59F76626B6FD3400CA8179 /* AuthError.swift in Sources */,
 				DD9F613926E0E8C7009E3D39 /* UserManager+Check.swift in Sources */,
-				DD9214F126763DFB00A3623E /* ViewController.swift in Sources */,
 				DDBEFEC527274019006276F3 /* FriendsInputRequestElement.swift in Sources */,
 				FB6B9D3F26B96A930050690F /* TextFieldWithError+BaseTextFieldProtocol.swift in Sources */,
 				DD92151026777DB500A3623E /* Module.swift in Sources */,
@@ -1934,7 +2123,7 @@
 				DD59F74726B5AEEA00CA8179 /* CGRect+Extension.swift in Sources */,
 				FBDCF1F62711E197006188E8 /* OutputRequestSection.swift in Sources */,
 				01E06D4D6DEF75B5EA509DE2 /* MainTabBarRouter.swift in Sources */,
-				DD3FBCBD26EE029E002591A6 /* FriendsViewController+DataSource.swift in Sources */,
+				DD3FBCBD26EE029E002591A6 /* FriendsCollectionViewController+DataSource.swift in Sources */,
 				DD9215192677B48000A3623E /* MainScreenCoordinator.swift in Sources */,
 				DD59F76126B6F22900CA8179 /* CryptoService.swift in Sources */,
 				DD1E54DD26F7F09800CB4903 /* FriendsInteractor+UserListner.swift in Sources */,
@@ -1952,7 +2141,7 @@
 				6DE3BF25DAA64151D2059581 /* AuthPresenter.swift in Sources */,
 				69B458BC169C4D34045BDC59 /* AuthInteractor.swift in Sources */,
 				DD9F614526E2B048009E3D39 /* SettingsSection.swift in Sources */,
-				DD3FBCBB26EE027C002591A6 /* FriendsViewController+Delegate.swift in Sources */,
+				DD3FBCBB26EE027C002591A6 /* FriendsCollectionViewController+Delegate.swift in Sources */,
 				DD9EAD152699BE4D0032B3D7 /* NetworkError.swift in Sources */,
 				DD9F617526E947D8009E3D39 /* MNickname.swift in Sources */,
 				2089B038C856887E459DA17C /* AuthRouter.swift in Sources */,
@@ -1982,6 +2171,7 @@
 				FB6B9D4926BAC81C0050690F /* ValidatorRule.swift in Sources */,
 				DD1C00D927178ED700E4BBBF /* BaseAsyncOperationConstructor.swift in Sources */,
 				509A7B54583ABC5E21750DA0 /* WelcomeViewController.swift in Sources */,
+				DD68699C2729A29500C0A590 /* InputRequestSection.swift in Sources */,
 				FBDCF2012711FB97006188E8 /* Dictionary+ToObject.swift in Sources */,
 				DD9F613D26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift in Sources */,
 				DD59F74B26B5B04700CA8179 /* Styles.swift in Sources */,
@@ -2035,6 +2225,7 @@
 				38866CBA5AD78DA7754FD72A /* MainScreenRouter.swift in Sources */,
 				F9355AEF5E29281EAE777E3F /* MainScreenBuilder.swift in Sources */,
 				9CDF368FF81A13B82F0A35AB /* MainScreenProtocols.swift in Sources */,
+				DD6869A02729AFDA00C0A590 /* InputRequestsViewController+Delegate.swift in Sources */,
 				FB6B9D5726BB0E210050690F /* TextFieldWithError+ValidateInput.swift in Sources */,
 				531722F56884B0B21760A9CE /* MainScreenModule.swift in Sources */,
 				DD68697E272884A500C0A590 /* DeeplinkManager.swift in Sources */,
@@ -2046,7 +2237,6 @@
 				1E59D486271C092536D82ED8 /* FriendsInteractor.swift in Sources */,
 				DD9F614E26E51E41009E3D39 /* TextCollectionCell+Touches.swift in Sources */,
 				DD2FA0BC2708E81700FC0382 /* BaseIconButton.swift in Sources */,
-				FB5F02C326FA561D00A23DAB /* TabBar.swift in Sources */,
 				9B856B71AD5236F0BF227766 /* FriendsRouter.swift in Sources */,
 				FBAF501627133BC3003CF510 /* FirestoreManager+Ban.swift in Sources */,
 				DD9EAD132699BE2F0032B3D7 /* NetworkServiceProtocol.swift in Sources */,
@@ -2061,9 +2251,12 @@
 				FBDCF1F42711DE87006188E8 /* AddFriendViewController+DataSource.swift in Sources */,
 				DD59F75C26B6113F00CA8179 /* AppManager+Auth.swift in Sources */,
 				DD2FA0A62708A19400FC0382 /* DrawerTextHeaderView.swift in Sources */,
+				DD6869A22729B02D00C0A590 /* InputRequestsViewController+DataSource.swift in Sources */,
 				DD3FBCBF26EE0434002591A6 /* FriendCell.swift in Sources */,
 				DD2FA0AA2708A76200FC0382 /* UIButtonWithHitTestInset.swift in Sources */,
+				DD6869A72729B75800C0A590 /* FriendsViewController+Transition.swift in Sources */,
 				DD2FA0A82708A2E500FC0382 /* Fonts+Avenir.swift in Sources */,
+				DD68699E2729AF7100C0A590 /* InputRequestsViewController+CollectionView.swift in Sources */,
 				DD59F75F26B6F1E300CA8179 /* AppleAuthService.swift in Sources */,
 				DD9F617126E8035C009E3D39 /* SettingsInteractor+UserListner.swift in Sources */,
 				DD5414F426C168E000A13BE0 /* ContainerViewController.swift in Sources */,
@@ -2071,6 +2264,7 @@
 				DD870D7526D93EDE000F59AE /* FirestoreError.swift in Sources */,
 				DD9F616926E67F84009E3D39 /* MainScreenInteractor+UserListner.swift in Sources */,
 				FB6B9D5226BB04290050690F /* BaseTextButtonWithArrow+ValidatorButton.swift in Sources */,
+				DD68699927299CF600C0A590 /* FriendsPage.swift in Sources */,
 				DD2FA0B92708E5DE00FC0382 /* OutputFriendRequestCell.swift in Sources */,
 				DD59F75526B5FD6000CA8179 /* LinkTextFormatter.swift in Sources */,
 				DD6869802728854100C0A590 /* DeeplinkNavigator.swift in Sources */,
@@ -2092,7 +2286,7 @@
 				03699115068A34892C8E27E7 /* SettingsBuilder.swift in Sources */,
 				8781BA80D1FB52D90C82CE39 /* SettingsProtocols.swift in Sources */,
 				B04211D04219911B7D51F57C /* SettingsModule.swift in Sources */,
-				DD3FBCB926EE023E002591A6 /* FriendsViewController+CollectionView.swift in Sources */,
+				DD3FBCB926EE023E002591A6 /* FriendsCollectionViewController+CollectionView.swift in Sources */,
 				DD2FA0AE2708B51800FC0382 /* DetailContentView.swift in Sources */,
 				BCF481F2B8C995589F90BCBB /* AddFriendViewController.swift in Sources */,
 				DD68698C272889D900C0A590 /* MGradusNotification.swift in Sources */,
@@ -2113,6 +2307,20 @@
 				753FB3AE6C18FCB1448B68B0 /* FriendDetailProtocols.swift in Sources */,
 				6FC9E46BF3398C91FDC597BA /* FriendDetailModule.swift in Sources */,
 				DD2FA0C52709065700FC0382 /* FriendsCell+Touches.swift in Sources */,
+				39D78364A0DD557E55699FFB /* FriendsCollectionViewController.swift in Sources */,
+				40F818AD312406F5E44C1AC8 /* FriendsCollectionPresenter.swift in Sources */,
+				D840B75EB5CDF5C16834555F /* FriendsCollectionInteractor.swift in Sources */,
+				BC1B7DB02A082E8070F9230C /* FriendsCollectionRouter.swift in Sources */,
+				DB7B54F6004695CFA6A80B57 /* FriendsCollectionBuilder.swift in Sources */,
+				54BDD9D1582BB1F14C9A597D /* FriendsCollectionProtocols.swift in Sources */,
+				9684E2E5FCD1C99A235565CD /* FriendsCollectionModule.swift in Sources */,
+				DB2EDA1949D630D47C1CF97C /* InputRequestsViewController.swift in Sources */,
+				E14B64B9A2AFB6AD64291F1D /* InputRequestsPresenter.swift in Sources */,
+				2A58348392E6877252810015 /* InputRequestsInteractor.swift in Sources */,
+				609A54F4736D869028EEEE11 /* InputRequestsRouter.swift in Sources */,
+				1E1C515B719539E585471022 /* InputRequestsBuilder.swift in Sources */,
+				A6D3B1657D801EA6F737AA44 /* InputRequestsProtocols.swift in Sources */,
+				B03802C4F3E7838A60ACB05E /* InputRequestsModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

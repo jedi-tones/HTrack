@@ -1,6 +1,8 @@
 //  Created by Denis Shchigolev on 15/06/2021.
 //  Copyright © 2021 HTrack. All rights reserved.
 
+import UIKit
+
 class FriendsRouter: FriendsRouterInput {
     weak var controller: Presentable?
     weak var coordinator: CoordinatorProtocol?
@@ -31,18 +33,43 @@ class FriendsRouter: FriendsRouterInput {
         friendsScreenCoordinator.open(screen: .addFriend, animated: false)
     }
     
-    func showFriendDetailScreen(user: MUser) {
+    func addSubmodule(page: FriendsPage, friendsOutput: FriendsCollectionModuleOutput?, requestOutput: InputRequestsModuleOutput?) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        guard let friendsScreenCoordinator = coordinator as? FriendsCoordinatorFlow else { return }
-        
-        friendsScreenCoordinator.open(screen: .friendDetail(friend: user, inputRequest: nil), animated: false)
+        guard let coordinator = coordinator else { return }
+        switch page {
+        case .friendsCollection:
+            controller?.addSubmodule(moduleType: FriendsCollectionModule.self,
+                                     tag: page.controllerTag,
+                                     coordinator: coordinator,
+                                     complition: { input in
+                guard let friendsOutput = friendsOutput else {
+                    return
+                }
+
+                input.configure(output: friendsOutput)
+            })
+            
+        case .inputRequestCollection:
+            controller?.addSubmodule(moduleType: InputRequestsModule.self,
+                                     tag: page.controllerTag,
+                                     coordinator: coordinator,
+                                     complition: { input in
+                guard let requestOutput = requestOutput else {
+                    return
+                }
+
+                input.configure(output: requestOutput)
+            })
+        }
     }
     
-    func showInputRequestDetailScreen(inputRequest: MRequestUser) {
-        guard let friendsScreenCoordinator = coordinator as? FriendsCoordinatorFlow else { return }
+    func getSubmoduleController(page: FriendsPage) -> UIViewController? {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
         
-        friendsScreenCoordinator.open(screen: .friendDetail(friend: nil, inputRequest: inputRequest), animated: false)
+        let controller = controller?.subModule(by: page.controllerTag)
+        return controller
     }
 }

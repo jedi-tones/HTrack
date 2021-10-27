@@ -6,6 +6,5 @@
 //
 
 enum FriendsScreenSection: String, CaseIterable {
-    case inputRequest = "Запросы в друзья"
     case friends = "Друзья"
 }

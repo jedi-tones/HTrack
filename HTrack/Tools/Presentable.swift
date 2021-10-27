@@ -8,7 +8,7 @@
 import UIKit
 
 /// Протокол, описыващий возможные варианты переходов между контроллерами
-public protocol Presentable: AnyObject {
+protocol Presentable: AnyObject {
     /**
      Пушит контроллер
      
@@ -84,9 +84,52 @@ public protocol Presentable: AnyObject {
      Находит  контроллер который отображает текущий
      */
     func getPresentingController() -> UIViewController?
+    
+    /**
+    Добавляет контроллер как дочерний, без добавления его View на экран
+     */
+    func addSubmodule<M>(moduleType: M.Type, tag: String, coordinator: CoordinatorProtocol, complition: ((M.Input)-> Void)?) -> Void where M: Module
+    
+    /**
+    Получает все дочерние модули
+     */
+    func subModules() -> [String : UIViewController]
+    
+    /**
+    Получает сабмодуль по его тегу
+     */
+    func subModule(by tag: String) -> UIViewController?
+    
 }
 
-public extension Presentable where Self: UIViewController {
+extension Presentable where Self: UIViewController {
+    
+    func addSubmodule<M>(moduleType: M.Type, tag: String, coordinator: CoordinatorProtocol, complition: ((M.Input)-> Void)?) where M : Module {
+        let module = moduleType.init(coordinator: coordinator, complition: complition)
+        let controller = module.controller
+        controller.tag = tag
+        
+        DispatchQueue.main.async {
+            self.addChild(controller)
+        }
+    }
+    
+    func subModules() -> [String : UIViewController] {
+        var dic: [String : UIViewController] = [:]
+        
+        self.children.forEach { (vc) in
+            guard let vcTag = vc.tag, !vcTag.isEmpty else { return }
+            dic[vcTag] = vc
+        }
+        
+        return dic
+    }
+    
+    func subModule(by tag: String) -> UIViewController? {
+        let subModules = self.subModules()
+        
+        return subModules.first(where: { $0.key == tag})?.value
+    }
     
     func pushModule(with viewController: UIViewController, animated: Bool = true) {
         DispatchQueue.main.async { [weak self] in
