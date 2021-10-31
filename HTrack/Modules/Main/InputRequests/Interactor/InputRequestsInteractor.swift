@@ -31,12 +31,44 @@ extension InputRequestsInteractor: InputRequestsInteractorInput {
         switch section {
             
         case .inputRequest:
-            friendsManager.inputRequestsNotifier.subscribe(self)
             let inputRequests = friendsManager.inputRequests
+            if inputRequests.isNotEmpty {
+                output.updateRequestData(requests: inputRequests)
+            }
             
-            guard inputRequests.isNotEmpty else { return }
-            
-            output.updateRequestData(requests: inputRequests)
+            friendsManager.inputRequestsNotifier.subscribe(self)
+        }
+    }
+    
+    func acceptUser(_ user: MRequestUser) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        friendsManager.acceptInputRequest(userID: user.userID) { result in
+            switch result {
+                
+            case .success(_):
+                break
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) error: \(error)")
+            }
+        }
+    }
+    
+    func rejectUser(_ user: MRequestUser) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        friendsManager.rejectInputRequest(userID: user.userID) { result in
+            switch result {
+                
+            case .success(_):
+                break
+            case .failure(let error):
+                Logger.show(title: "Module ERROR",
+                            text: "\(type(of: self)) - \(#function) error: \(error)")
+            }
         }
     }
 }

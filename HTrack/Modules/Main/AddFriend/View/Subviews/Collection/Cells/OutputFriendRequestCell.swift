@@ -57,6 +57,8 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
     
     func setupView() {
         backgroundColor = backColor
+        layer.borderColor = borderColor.cgColor
+        layer.borderWidth = Styles.Sizes.baseBorderWidth
     }
     
     func setup() {
@@ -72,20 +74,20 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
         contentView.addSubview(closeButton)
         
         nameLabel.edgesToSuperview(excluding: .right, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
-                                                                             left: Styles.Sizes.mediumHInset,
+                                                                             left: Styles.Sizes.standartHInset,
                                                                              bottom: Styles.Sizes.standartHInset,
                                                                              right: .zero))
         closeButton.edgesToSuperview(excluding: .left, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
                                                                               left: .zero,
                                                                               bottom: Styles.Sizes.standartHInset,
-                                                                              right: Styles.Sizes.mediumHInset))
+                                                                              right: Styles.Sizes.standartHInset))
         closeButton.height(Styles.Sizes.smallButtonHeight)
         closeButton.widthToHeight(of: closeButton)
         nameLabel.rightToLeft(of: closeButton,offset: Styles.Sizes.standartHInset, relation: .equalOrLess)
         nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
-        //contentView.height(Styles.Sizes.baseButtonHeight, relation: .equalOrGreater)
+//        contentView.height(Styles.Sizes.baseButtonHeight, relation: .equalOrGreater)
     }
 }
 
@@ -94,11 +96,15 @@ extension OutputFriendRequestCell {
         .clear
     }
     
+    var borderColor: UIColor {
+        Styles.Colors.base3
+    }
+    
     var labelColor: UIColor {
-        Styles.Colors.myLabelColor()
+        Styles.Colors.base3
     }
     
     var closeButtonColor: UIColor {
-        Styles.Colors.myLabelColor()
+        Styles.Colors.base3
     }
 }

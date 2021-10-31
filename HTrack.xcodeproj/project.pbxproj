@@ -127,6 +127,8 @@
 		DD3FBCD926EE3D9D002591A6 /* FriendsRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCD826EE3D9D002591A6 /* FriendsRequestManager.swift */; };
 		DD3FBCDB26EE426E002591A6 /* FirestoreManager+FriendsListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCDA26EE426E002591A6 /* FirestoreManager+FriendsListners.swift */; };
 		DD3FBCDD26EE4983002591A6 /* FirebaseListnersError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FBCDC26EE4983002591A6 /* FirebaseListnersError.swift */; };
+		DD4E8B6F272DA53C004C13D0 /* ButtonToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E8B6E272DA53C004C13D0 /* ButtonToggle.swift */; };
+		DD4E8B71272F05E1004C13D0 /* RequestCell+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E8B70272F05E1004C13D0 /* RequestCell+Touches.swift */; };
 		DD5414F426C168E000A13BE0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5414F326C168E000A13BE0 /* ContainerViewController.swift */; };
 		DD59F73826B5A95800CA8179 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F73726B5A95800CA8179 /* WelcomeView.swift */; };
 		DD59F73C26B5AA6600CA8179 /* BaseCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F73B26B5AA6600CA8179 /* BaseCustomButton.swift */; };
@@ -395,6 +397,8 @@
 		DD3FBCD826EE3D9D002591A6 /* FriendsRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRequestManager.swift; sourceTree = "<group>"; };
 		DD3FBCDA26EE426E002591A6 /* FirestoreManager+FriendsListners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirestoreManager+FriendsListners.swift"; sourceTree = "<group>"; };
 		DD3FBCDC26EE4983002591A6 /* FirebaseListnersError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseListnersError.swift; sourceTree = "<group>"; };
+		DD4E8B6E272DA53C004C13D0 /* ButtonToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonToggle.swift; sourceTree = "<group>"; };
+		DD4E8B70272F05E1004C13D0 /* RequestCell+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestCell+Touches.swift"; sourceTree = "<group>"; };
 		DD5414F326C168E000A13BE0 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		DD59F73726B5A95800CA8179 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DD59F73B26B5AA6600CA8179 /* BaseCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomButton.swift; sourceTree = "<group>"; };
@@ -1272,6 +1276,7 @@
 				DD59F73A26B5AA5500CA8179 /* Buttons */,
 				DD65E09826B89E37002BBF80 /* TextFields */,
 				DD5414F326C168E000A13BE0 /* ContainerViewController.swift */,
+				DD4E8B6E272DA53C004C13D0 /* ButtonToggle.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1449,6 +1454,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3FBCC826EE0999002591A6 /* RequestCell.swift */,
+				DD4E8B70272F05E1004C13D0 /* RequestCell+Touches.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2222,6 +2228,7 @@
 				88F448F132351CB3306678F7 /* MainScreenPresenter.swift in Sources */,
 				E791506092A3252CB263145A /* MainScreenInteractor.swift in Sources */,
 				DD1E54DB26F7E42F00CB4903 /* MainScreenInfoView.swift in Sources */,
+				DD4E8B71272F05E1004C13D0 /* RequestCell+Touches.swift in Sources */,
 				38866CBA5AD78DA7754FD72A /* MainScreenRouter.swift in Sources */,
 				F9355AEF5E29281EAE777E3F /* MainScreenBuilder.swift in Sources */,
 				9CDF368FF81A13B82F0A35AB /* MainScreenProtocols.swift in Sources */,
@@ -2304,6 +2311,7 @@
 				FBDCF1FF2711FA82006188E8 /* JSONEncoder+Extension.swift in Sources */,
 				FF3E6DA1662DD18D6ECB3C84 /* FriendDetailRouter.swift in Sources */,
 				2C19B5F9326D23F198B1CE85 /* FriendDetailBuilder.swift in Sources */,
+				DD4E8B6F272DA53C004C13D0 /* ButtonToggle.swift in Sources */,
 				753FB3AE6C18FCB1448B68B0 /* FriendDetailProtocols.swift in Sources */,
 				6FC9E46BF3398C91FDC597BA /* FriendDetailModule.swift in Sources */,
 				DD2FA0C52709065700FC0382 /* FriendsCell+Touches.swift in Sources */,
@@ -2389,7 +2397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2444,7 +2452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2467,7 +2475,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2494,7 +2502,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

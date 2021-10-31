@@ -67,6 +67,15 @@ extension Styles.Colors  {
         }
     }
     
+    static func progressedOverlayColor(days: Int) -> UIColor {
+        switch days {
+        case let daysCount where daysCount <= DaysColorsPeriod.first.rawValue / 2:
+            return base3
+        default:
+            return base1
+        }
+    }
+    
     //MARK: base colors
     static let base1 = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     static let base2 = #colorLiteral(red: 0.9561141133, green: 0.9579541087, blue: 0.9149253964, alpha: 1)

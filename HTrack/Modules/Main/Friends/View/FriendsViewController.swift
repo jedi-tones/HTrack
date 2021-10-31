@@ -16,12 +16,10 @@ class FriendsViewController: ContainerViewContoller {
         return item
     }()
     
-    lazy var addFriendNavButton: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: Styles.Images.addUserButtonImage,
-                                   style: .plain,
-                                   target: self,
-                                   action: #selector(addFriendButtonTapped(sender:)))
-        return item
+    lazy var screenToggle: ButtonToggle = {
+        let toggle = ButtonToggle()
+        toggle.buttonToggleDelegate = self
+        return toggle
     }()
     
     lazy var addFriendButton: BaseTextButtonWithArrow = {
@@ -86,27 +84,29 @@ class FriendsViewController: ContainerViewContoller {
     @objc private func settingsButtonTapped(sender: UIBarButtonItem) {
         output.settingsButtonTapped()
     }
-    
-    @objc private func addFriendButtonTapped(sender: UIBarButtonItem) {
-        output.testButtonTapped()
-    }
 }
 
 extension FriendsViewController {
     // MARK: Methods
     func setupViews() {
         view.backgroundColor = backColor
-        
+        navigationItem.backButtonTitle = ""
         setupNavBar()
         setupConstraints()
     }
 
     func setupConstraints() {
         view.addSubview(addFriendButton)
+        view.addSubview(screenToggle)
         //контейнер для View сабмодулей
         view.addSubview(containerView)
         
-        addFriendButton.topToSuperview(offset: Styles.Sizes.stadartVInset * 2, usingSafeArea: true)
+        screenToggle.topToSuperview(offset: Styles.Sizes.stadartVInset * 2, usingSafeArea: true)
+        screenToggle.leadingToSuperview(offset: Styles.Sizes.standartHInset)
+        screenToggle.trailingToSuperview(offset: Styles.Sizes.standartHInset)
+        screenToggle.height(Styles.Sizes.baseButtonHeight)
+        
+        addFriendButton.topToBottom(of: screenToggle, offset: Styles.Sizes.standartV2Inset)
         addFriendButton.leadingToSuperview(offset: Styles.Sizes.standartHInset)
         addFriendButton.trailingToSuperview(offset: Styles.Sizes.standartHInset)
         addFriendButton.height(Styles.Sizes.baseButtonHeight)
@@ -134,11 +134,29 @@ extension FriendsViewController: FriendsViewInput {
         }
     }
     
+    func setPages(_ pages: [FriendsPage]) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        let titles = pages.map({$0.title})
+        screenToggle.setButtonTitles(buttonTitles: titles)
+    }
+    
     func selectPage(page: FriendsPage) {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        screenToggle.setIndex(index: page.index)
         transitionToSubmodule(page: page)
+    }
+}
+
+extension FriendsViewController: ButtonToggleDelegate {
+    func changeToIndex(index: Int) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) index: \(index)")
+        
+        output.screenToggleChangeToIndex(index)
     }
 }
 

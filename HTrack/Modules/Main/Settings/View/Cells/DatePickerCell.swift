@@ -12,20 +12,23 @@ class DatePickerCell: UICollectionViewCell, BaseCellProtocol {
         return "datePickerCell"
     }
     
-    var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Styles.Colors.myLabelColor()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
-        lb.text = "Пикер"
+        lb.textColor = titleColor
+        lb.font = Styles.Fonts.soyuz1
+        lb.text = "пикер"
         return lb
     }()
     
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
+        picker.preferredDatePickerStyle = .compact
+        picker.maximumDate = Date()
         picker.addTarget(self, action: #selector(updateDate(sender:)), for: .valueChanged)
         picker.alpha = 0
-        picker.tintColor = Styles.Colors.myLabelColor()
+        picker.tintColor = pickerTintColor
+        picker.backgroundColor = pickerBackColor
         return picker
     }()
     
@@ -76,8 +79,7 @@ class DatePickerCell: UICollectionViewCell, BaseCellProtocol {
             }
         }
         
-        backgroundColor = Styles.Colors.mySecondBackgroundColor()
-        layer.cornerRadius = Styles.Sizes.baseCornerRadius
+        backgroundColor = backColor
     }
     
     func setupConstraints() {
@@ -85,20 +87,32 @@ class DatePickerCell: UICollectionViewCell, BaseCellProtocol {
         contentView.addSubview(datePicker)
         contentView.addSubview(activityIndicator)
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        datePicker.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.centerXToSuperview()
+        titleLabel.topToSuperview(offset: Styles.Sizes.stadartVInset * 2)
         
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: Styles.Sizes.standartHInset),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Styles.Sizes.stadartVInset),
-            
-            activityIndicator.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Styles.Sizes.stadartVInset),
-            activityIndicator.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            
-            datePicker.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Styles.Sizes.stadartVInset),
-            datePicker.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            datePicker.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.stadartVInset),
-        ])
+        activityIndicator.centerXToSuperview()
+        activityIndicator.topToBottom(of: titleLabel, offset: Styles.Sizes.stadartVInset)
+        
+        datePicker.centerXToSuperview()
+        datePicker.topToBottom(of: titleLabel, offset: Styles.Sizes.stadartVInset)
+        datePicker.bottomToSuperview(offset: -Styles.Sizes.stadartVInset * 2)
+    }
+}
+
+extension DatePickerCell {
+    var backColor: UIColor {
+        return Styles.Colors.base3
+    }
+    
+    var titleColor: UIColor {
+        return Styles.Colors.base1
+    }
+    
+    var pickerBackColor: UIColor {
+        return Styles.Colors.base1
+    }
+    
+    var pickerTintColor: UIColor {
+        return Styles.Colors.base3
     }
 }

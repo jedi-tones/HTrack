@@ -9,6 +9,8 @@ import Foundation
 
 protocol FriendInputRequestViewModelDelegate: AnyObject  {
     func tapInputRequest(user: MRequestUser)
+    func tapRejectRequest(user: MRequestUser)
+    func tapAcceptRequest(user: MRequestUser)
 }
 
 class FriendInputRequestViewModel: CellViewModel {
@@ -27,9 +29,14 @@ class FriendInputRequestViewModel: CellViewModel {
         requestUser?.userID ?? "id"
     }
 
-    func tapInputRequestIcon() {
+    func tapAcceptIcon() {
         guard let requestUser = requestUser else { return }
-        delegate?.tapInputRequest(user: requestUser)
+        delegate?.tapAcceptRequest(user: requestUser)
+    }
+    
+    func tapRejectIcon() {
+        guard let requestUser = requestUser else { return }
+        delegate?.tapRejectRequest(user: requestUser)
     }
     
     func tapInputRequestCell() {

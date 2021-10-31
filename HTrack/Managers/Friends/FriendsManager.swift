@@ -45,6 +45,10 @@ class FriendsManager {
     var inputRequests: [MRequestUser] = []
     var outputRequests: [MRequestUser] = []
     
+    var serialFriendsQ = DispatchQueue(label: "serialFriends")
+    var serialInputQ = DispatchQueue(label: "serialInput")
+    var serialOutputQ = DispatchQueue(label: "serialOutput")
+    
     func subscribeListners() {
         do {
             try subscribeFriendsListner()
@@ -58,12 +62,12 @@ class FriendsManager {
     }
     
     func updateFriends(_ friends: [MUser]) {
-        Logger.show(title: "Friends updated",
-                    text: "Friends \(String(describing: friends))",
-                    withHeader: true,
-                    withFooter: true)
-        
-        DispatchQueue.global(qos: .background).async { [weak self] in
+        serialFriendsQ.async {[weak self] in
+            Logger.show(title: "Friends updated",
+                        text: "Friends \(String(describing: friends))",
+                        withHeader: true,
+                        withFooter: true)
+            
             guard let self = self else { return }
             
             self.friendsNotifier.forEach({$0.friendsUpdated(friends: friends)})
@@ -71,12 +75,12 @@ class FriendsManager {
     }
     
     func updateInputRequsts(_ requests: [MRequestUser]) {
-        Logger.show(title: "InputRequests updated",
-                    text: "requests \(String(describing: requests))",
-                    withHeader: true,
-                    withFooter: true)
-        
-        DispatchQueue.global(qos: .background).async { [weak self] in
+        serialInputQ.async {[weak self] in
+            Logger.show(title: "InputRequests updated",
+                        text: "requests \(String(describing: requests))",
+                        withHeader: true,
+                        withFooter: true)
+            
             guard let self = self else { return }
             
             self.inputRequestsNotifier.forEach({$0.inputRequestsUpdated(request: requests)})
@@ -84,12 +88,12 @@ class FriendsManager {
     }
     
     func updateOutputRequsts(_ requests: [MRequestUser]) {
-        Logger.show(title: "OutputRequests updated",
-                    text: "requests \(String(describing: requests))",
-                    withHeader: true,
-                    withFooter: true)
-        
-        DispatchQueue.global(qos: .background).async { [weak self] in
+        serialOutputQ.async {[weak self] in
+            Logger.show(title: "OutputRequests updated",
+                        text: "requests \(String(describing: requests))",
+                        withHeader: true,
+                        withFooter: true)
+            
             guard let self = self else { return }
             
             self.outputRequestsNotifier.forEach({$0.outputRequestsUpdated(request: requests)})

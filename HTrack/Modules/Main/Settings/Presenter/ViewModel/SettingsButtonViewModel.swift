@@ -17,7 +17,7 @@ class SettingsButtonViewModel: CellViewModel, Hashable {
     }
     
     var needAnimationTap = true
-    
+    var sensetive = false
     weak var delegate: SettingsButtonViewModelDelegate?
     var element: SettingsElement?
     var title: String?

@@ -57,9 +57,6 @@ extension SettingsViewController {
     func setupViews() {
         
         view.backgroundColor = backColor
-        navigationItem.title = "Настройки"
-        navigationItem.largeTitleDisplayMode = .always
-        
         setupCollectionView()
         setupConstraints()
     }
@@ -119,6 +116,6 @@ extension SettingsViewController: SettingsViewInput {
 
 extension SettingsViewController {
     var backColor: UIColor {
-        Styles.Colors.myBackgroundColor()
+        Styles.Colors.base1
     }
 }

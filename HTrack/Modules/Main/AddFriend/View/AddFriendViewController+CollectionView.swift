@@ -46,9 +46,9 @@ extension AddFriendViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: .zero,
-                                                        leading: Styles.Sizes.mediumHInset,
+                                                        leading: Styles.Sizes.standartHInset,
                                                         bottom: .zero,
-                                                        trailing: Styles.Sizes.mediumHInset)
+                                                        trailing: Styles.Sizes.standartHInset)
         section.interGroupSpacing = Styles.Sizes.stadartVInset
         
         let header = configureHeaderLayout()

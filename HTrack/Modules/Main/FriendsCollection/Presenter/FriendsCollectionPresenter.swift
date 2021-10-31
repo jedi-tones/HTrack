@@ -58,7 +58,7 @@ extension FriendsCollectionPresenter: FriendsCollectionInteractorOutput {
     
     func updateFriendsData(friends: [MUser]) {
         Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
+                    text: "\(type(of: self)) - \(#function) friends count: \(friends.count)")
         
         serialQ.async {
             updateData()
@@ -86,17 +86,9 @@ extension FriendsCollectionPresenter: FriendsCollectionInteractorOutput {
                 sectionVM.items.append(friendVM)
             }
             
-            if sectionVM.items.isNotEmpty {
-                let header = TextHeaderWithCounterViewModel()
-                header.title = sectionName
-                header.count = sectionVM.items.count
-                sectionVM.header = header
-                sectionVM.headerCounter = sectionVM.items.count
-            } else {
-                let header = EmptyHeaderViewModel()
-                sectionVM.header = header
-                sectionVM.headerCounter = 0
-            }
+            let header = EmptyHeaderViewModel()
+            sectionVM.header = header
+            sectionVM.headerCounter = 0
             
             newViewModel[sectionIndex] = sectionVM
             

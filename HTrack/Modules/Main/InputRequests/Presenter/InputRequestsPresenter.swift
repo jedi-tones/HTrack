@@ -122,4 +122,18 @@ extension InputRequestsPresenter: FriendInputRequestViewModelDelegate {
         
         router.showInputRequestDetailScreen(inputRequest: user)
     }
+    
+    func tapAcceptRequest(user: MRequestUser) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) request: \(user)")
+        
+        interactor.acceptUser(user)
+    }
+    
+    func tapRejectRequest(user: MRequestUser) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) request: \(user)")
+        
+        interactor.rejectUser(user)
+    }
 }

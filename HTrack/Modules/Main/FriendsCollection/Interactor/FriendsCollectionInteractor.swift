@@ -31,11 +31,11 @@ extension FriendsCollectionInteractor: FriendsCollectionInteractorInput {
         
         switch section {
         case .friends:
-            friendsManager.friendsNotifier.subscribe(self)
             let friends = friendsManager.friends
-            
-            guard friends.isNotEmpty else { return }
-            output.updateFriendsData(friends: friends)
+            if friends.isNotEmpty {
+                output.updateFriendsData(friends: friends)
+            }
+            friendsManager.friendsNotifier.subscribe(self)
         }
     }
 }
@@ -44,7 +44,7 @@ extension FriendsCollectionInteractor: FriendsCollectionInteractorInput {
 extension FriendsCollectionInteractor: FriendsManagerFriendsListner {
     func friendsUpdated(friends: [MUser]) {
         Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
+                    text: "\(type(of: self)) - \(#function) count: \(friends.count)")
         
         output.updateFriendsData(friends: friends)
     }

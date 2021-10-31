@@ -12,4 +12,5 @@ extension Styles.Constants  {
     static let animationDuarationBase = 0.3
     static let animationDuarationMedium = 0.5
     static let animationDamping: CGFloat = 1
+    static let friendsColorsDaysOffset = 10
 }

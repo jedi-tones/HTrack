@@ -14,6 +14,8 @@ extension Styles.Sizes  {
     static let screenSize: CGSize = UIScreen.main.bounds.size
     static let minHeightDrawerView: CGFloat = 200
     
+    static let selectorLineHeight: CGFloat = 4
+    
     static let baseVInset: CGFloat = 3
     static let baseHInset: CGFloat = 5
     

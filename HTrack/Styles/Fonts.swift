@@ -24,7 +24,7 @@ extension Styles.Fonts  {
         baseNormalFont(size: 11)
     }
     static var normal1: UIFont {
-        baseNormalFont(size: 13)
+        baseNormalFont(size: 15)
     }
     static var normal2: UIFont {
         baseNormalFont(size: 17)

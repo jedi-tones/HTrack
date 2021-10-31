@@ -9,6 +9,7 @@ protocol FriendsViewInput: AnyObject {
     func setupInitialState()
     func updateNickname(nickName: String)
     func selectPage(page: FriendsPage)
+    func setPages(_ pages: [FriendsPage])
 }
 
 protocol FriendsViewOutput {
@@ -16,8 +17,8 @@ protocol FriendsViewOutput {
     func viewIsReady()
     func addFriendButtonTapped()
     func settingsButtonTapped()
-    func testButtonTapped()
     func getSubmoduleController(page: FriendsPage) -> UIViewController?
+    func screenToggleChangeToIndex(_ index: Int)
 }
 
 

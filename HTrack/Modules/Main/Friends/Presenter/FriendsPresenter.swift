@@ -31,6 +31,7 @@ class FriendsPresenter {
                                       requestOutput: nil)
         }
         
+        view?.setPages(pages)
         if let firstPage = self.pages.first {
             selectPage(firstPage, force: true)
         }
@@ -56,6 +57,15 @@ extension FriendsPresenter: FriendsViewOutput {
         setupSubModule()
     }
     
+    func screenToggleChangeToIndex(_ index: Int) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard pages.count > index else { return }
+        let page = pages[index]
+        selectPage(page)
+    }
+    
     func getSubmoduleController(page: FriendsPage) -> UIViewController? {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -65,19 +75,6 @@ extension FriendsPresenter: FriendsViewOutput {
     
     func addFriendButtonTapped() {
         router.showAddFriendScreen()
-    }
-    
-    func testButtonTapped() {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        switch _currentPage {
-            
-        case .friendsCollection:
-            selectPage(.inputRequestCollection)
-        case .inputRequestCollection:
-            selectPage(.friendsCollection)
-        }
     }
     
     func settingsButtonTapped() {

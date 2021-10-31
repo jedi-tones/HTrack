@@ -20,4 +20,22 @@ enum FriendsPage: String, CaseIterable  {
             return String(describing: InputRequestsModule.self)
         }
     }
+    
+    var title: String {
+        switch self {
+        case .friendsCollection:
+            return "Друзья"
+        case .inputRequestCollection:
+            return "Запросы"
+        }
+    }
+    
+    var index: Int {
+        switch self {
+        case .friendsCollection:
+            return 0
+        case .inputRequestCollection:
+            return 1
+        }
+    }
 }

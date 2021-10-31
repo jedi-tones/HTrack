@@ -21,6 +21,8 @@ protocol InputRequestsInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getSections()
     func addDataListnerFor(section: InputRequestSection)
+    func acceptUser(_ user: MRequestUser)
+    func rejectUser(_ user: MRequestUser)
 }
 
 protocol InputRequestsInteractorOutput: AnyObject {

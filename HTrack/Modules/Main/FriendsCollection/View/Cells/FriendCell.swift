@@ -17,7 +17,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
     
     lazy var nameLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = labelColor
+        lb.textColor = labelColor(days: 0)
         lb.font = Styles.Fonts.bold2
         lb.text = "Name"
         return lb
@@ -25,7 +25,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
     
     lazy var countLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = labelColor
+        lb.textColor = labelColor(days: 0)
         lb.font = Styles.Fonts.normal1
         lb.text = "0 Дней"
         return lb
@@ -42,7 +42,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = .zero
-        sv.distribution = .equalSpacing
+        sv.distribution = .fill
         sv.alignment = .leading
         return sv
     }()
@@ -80,12 +80,17 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
         guard let viewModel = viewModel else { return }
         
         DispatchQueue.main.async {[weak self] in
+            let friendsColorsDaysOffset = Styles.Constants.friendsColorsDaysOffset
+            let daysCount = viewModel.daysCount + friendsColorsDaysOffset
+            
             self?.nameLabel.text = "@\(viewModel.name.uppercased())"
             self?.countLabel.text = viewModel.count
-            self?.imageView.backgroundColor = Styles.Colors.progressedColor(days: Int(viewModel.daysCount))
+            self?.nameLabel.textColor = self?.labelColor(days: daysCount)
+            self?.countLabel.textColor = self?.labelColor(days: daysCount)
+            self?.backgroundColor = Styles.Colors.progressedColor(days: daysCount)
             if viewModel.daysCount < 2 {
                 self?.imageView.layer.borderWidth = Styles.Sizes.baseBorderWidth
-                self?.imageView.layer.borderColor = Styles.Colors.base2.cgColor
+                self?.imageView.layer.borderColor = Styles.Colors.base3.withAlphaComponent(0.1).cgColor
             } else {
                 self?.imageView.layer.borderWidth = .zero
                 self?.imageView.layer.borderColor = nil
@@ -99,19 +104,24 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(countLabel)
         
-        imageView.edgesToSuperview(excluding: .right,
-                                   insets: TinyEdgeInsets(top: Styles.Sizes.stadartVInset,
+//        imageView.edgesToSuperview(excluding: .right,
+//                                   insets: TinyEdgeInsets(top: Styles.Sizes.stadartVInset,
+//                                                          left: Styles.Sizes.standartHInset,
+//                                                          bottom: Styles.Sizes.stadartVInset,
+//                                                          right: Styles.Sizes.standartHInset),
+//                                   priority: .defaultHigh)
+//        imageView.height(Styles.Sizes.baseAvatarHeight)
+//        imageView.widthToHeight(of: imageView)
+        stackView.edgesToSuperview(insets: TinyEdgeInsets(top: Styles.Sizes.stadartVInset * 2,
                                                           left: Styles.Sizes.standartHInset,
-                                                          bottom: Styles.Sizes.stadartVInset,
-                                                          right: Styles.Sizes.standartHInset),
-                                   priority: .defaultHigh)
-        imageView.height(Styles.Sizes.baseAvatarHeight)
-        imageView.widthToHeight(of: imageView)
+                                                          bottom: Styles.Sizes.stadartVInset * 2,
+                                                          right: Styles.Sizes.standartHInset))
         
-        stackView.leftToRight(of: imageView, offset: Styles.Sizes.standartHInset)
-        stackView.centerYToSuperview()
         nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        nameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        
+        countLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
 }
 
@@ -120,7 +130,7 @@ extension FriendCell {
         .clear
     }
     
-    var labelColor: UIColor {
-        Styles.Colors.myLabelColor()
+    func labelColor(days: Int) -> UIColor {
+        Styles.Colors.progressedOverlayColor(days: days)
     }
 }

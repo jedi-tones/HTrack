@@ -83,6 +83,7 @@ extension SettingsPresenter: SettingsInteractorOutput {
                         let buttonVM = SettingsButtonViewModel()
                         buttonVM.title = element.title
                         buttonVM.element = element
+                        buttonVM.sensetive = false
                         buttonVM.delegate = self
                         sectionVM.items.append(buttonVM)
                     default:
@@ -106,6 +107,7 @@ extension SettingsPresenter: SettingsInteractorOutput {
                     let buttonVM = SettingsButtonViewModel()
                     buttonVM.title = element.title
                     buttonVM.element = element
+                    buttonVM.sensetive = true
                     buttonVM.delegate = self
                     sectionVM.items.append(buttonVM)
                 }

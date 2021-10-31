@@ -6,17 +6,18 @@
 //
 
 import UIKit
+import TinyConstraints
 
 class SettingsButtonCell: UICollectionViewCell, BaseCellProtocol {
     static var reuseID: String {
         return "textCollectionCell"
     }
     
-    var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Styles.Colors.myLabelColor()
-        lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBase).font
-        lb.text = "Кнопка"
+        lb.textColor = titleColor
+        lb.font = Styles.Fonts.soyuz1
+        lb.text = "кнопка"
         return lb
     }()
     
@@ -51,19 +52,36 @@ class SettingsButtonCell: UICollectionViewCell, BaseCellProtocol {
         guard let viewModel = viewModel else { return }
         
         titleLabel.text = viewModel.title
-        backgroundColor = Styles.Colors.mySecondBackgroundColor()
-        layer.cornerRadius = Styles.Sizes.baseCornerRadius
+        titleLabel.textColor = titleColor
+        backgroundColor = backColor
     }
     
     func setupConstraints() {
+        contentView.edgesToSuperview()
+        contentView.height(Styles.Sizes.baseButtonHeight, priority: .defaultHigh)
         contentView.addSubview(titleLabel)
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.centerXToSuperview()
+        titleLabel.centerYToSuperview()
         
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: Styles.Sizes.standartHInset),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Styles.Sizes.stadartVInset),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.stadartVInset),
-        ])
+    }
+}
+
+extension SettingsButtonCell {
+    var backColor: UIColor {
+        if viewModel?.sensetive ?? false {
+            let friendsColorsDaysOffset = Styles.Constants.friendsColorsDaysOffset
+            return Styles.Colors.progressedColor(days: friendsColorsDaysOffset)
+        } else {
+            return Styles.Colors.base3
+        }
+    }
+    
+    var titleColor: UIColor {
+        if viewModel?.sensetive ?? false {
+            return Styles.Colors.base3
+        } else {
+            return Styles.Colors.base1
+        }
     }
 }

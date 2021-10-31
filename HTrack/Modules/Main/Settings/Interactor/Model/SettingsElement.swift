@@ -16,11 +16,11 @@ enum SettingsElement: String, Hashable {
         switch self {
         
         case .exit:
-            return "Выход"
+            return "выход"
         case .datePicker:
-            return "Трезв с:"
+            return "не пью с:"
         case .reset:
-            return "Сбросить дату"
+            return "я выпил"
         }
     }
 }

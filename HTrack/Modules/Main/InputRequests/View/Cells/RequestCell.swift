@@ -23,13 +23,24 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
         return lb
     }()
     
-    lazy var detailButton: UIButtonWithHitTestInset = {
+    lazy var rejectButton: UIButtonWithHitTestInset = {
         let button = UIButtonWithHitTestInset(type: .custom)
         let hitInset: CGFloat = 12
         button.hitTestInset = UIEdgeInsets(top: hitInset, left: hitInset, bottom: hitInset, right: hitInset)
-        button.setImage(Styles.Images.detailButton.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(Styles.Images.closeCross.withRenderingMode(.alwaysOriginal), for: .normal)
         button.startAction = { [weak self] in
-            self?.viewModel?.tapInputRequestIcon()
+            self?.viewModel?.tapRejectIcon()
+        }
+        return button
+    }()
+    
+    lazy var acceptButton: UIButtonWithHitTestInset = {
+        let button = UIButtonWithHitTestInset(type: .custom)
+        let hitInset: CGFloat = 12
+        button.hitTestInset = UIEdgeInsets(top: hitInset, left: hitInset, bottom: hitInset, right: hitInset)
+        button.setImage(Styles.Images.plusButton.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.startAction = { [weak self] in
+            self?.viewModel?.tapAcceptIcon()
         }
         return button
     }()
@@ -69,24 +80,32 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
     
     func setupConstraints() {
         contentView.addSubview(nameLabel)
-        contentView.addSubview(detailButton)
+        contentView.addSubview(acceptButton)
+        contentView.addSubview(rejectButton)
         
         nameLabel.edgesToSuperview(excluding: .right,
                                    insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
                                                           left: Styles.Sizes.standartHInset,
                                                           bottom: Styles.Sizes.standartHInset,
                                                           right: .zero))
-        detailButton.centerYToSuperview()
-        detailButton.height(Styles.Sizes.smallButtonHeight)
-        detailButton.widthToHeight(of: detailButton)
-        detailButton.rightToSuperview(offset: -Styles.Sizes.standartHInset)
-        detailButton.leftToRight(of: nameLabel)
+        rejectButton.centerYToSuperview()
+        rejectButton.height(Styles.Sizes.smallButtonHeight)
+        rejectButton.widthToHeight(of: rejectButton)
+        rejectButton.rightToSuperview(offset: -Styles.Sizes.standartHInset)
+        rejectButton.leftToRight(of: nameLabel)
+        
+        acceptButton.centerYToSuperview()
+        acceptButton.height(Styles.Sizes.smallButtonHeight)
+        acceptButton.widthToHeight(of: acceptButton)
+        acceptButton.rightToLeft(of: rejectButton, offset: -Styles.Sizes.standartHInset)
+        acceptButton.leftToRight(of: nameLabel)
     }
 }
 
 extension RequestCell {
     var backColor: UIColor {
-        .clear
+        let friendsColorsDaysOffset = Styles.Constants.friendsColorsDaysOffset
+        return Styles.Colors.progressedColor(days: friendsColorsDaysOffset)
     }
     
     var nameLabelColor: UIColor {
