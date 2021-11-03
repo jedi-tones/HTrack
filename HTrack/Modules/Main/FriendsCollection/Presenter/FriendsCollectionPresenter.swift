@@ -2,6 +2,7 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import Foundation
+import Combine
 
 class FriendsCollectionPresenter {
     weak var output: FriendsCollectionModuleOutput?
@@ -10,6 +11,13 @@ class FriendsCollectionPresenter {
     var interactor: FriendsCollectionInteractorInput!
     var serialQ = DispatchQueue(label: "serial")
     var viewModel: [SectionViewModel] = []
+    
+    var cancelleble: Set<AnyCancellable> = []
+    
+    var viewModelPublisher: AnyPublisher<[SectionViewModel], Never> {
+        _viewModelPublisher.eraseToAnyPublisher()
+    }
+    let _viewModelPublisher = CurrentValueSubject<[SectionViewModel], Never>([])
     
     deinit {
         Logger.show(title: "Module",
@@ -34,66 +42,42 @@ extension FriendsCollectionPresenter: FriendsCollectionInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        var newViewModel: [SectionViewModel] = []
-        
         sections.forEach { section in
             switch section {
             case .friends:
-                var sectionVM = SectionViewModel(section: section.rawValue,
-                                                 header: nil,
-                                                 footer: nil,
-                                                 items: [])
-                
-                let header = EmptyHeaderViewModel()
-                sectionVM.header = header
-                newViewModel.append(sectionVM)
+                interactor.friendsPublisher()
+                    .map { updateFriends -> [FriendViewModel]  in
+                        var friendsVMs: [FriendViewModel] = []
+                        updateFriends.forEach { updatedFriend in
+                            let friendVM = FriendViewModel()
+                            friendVM.friend = updatedFriend
+                            friendVM.delegate = self
+                            friendsVMs.append(friendVM)
+                        }
+                        return friendsVMs
+                    }
+                    .map({ friendsVM -> SectionViewModel in
+                        var sectionVM = SectionViewModel(section: section.rawValue,
+                                                         header: nil,
+                                                         footer: nil,
+                                                         items: [])
+                        sectionVM.items = friendsVM
+                        return sectionVM
+                    })
+                    .sink {[weak self] sectionVM in
+                        var currentViewModel = self?._viewModelPublisher.value
+                        if let indexVM = currentViewModel?.firstIndex(where: {$0.section == sectionVM.section}) {
+                            currentViewModel?.remove(at: indexVM)
+                            currentViewModel?.insert(sectionVM, at: indexVM)
+                        } else {
+                            currentViewModel?.append(sectionVM)
+                        }
+                        
+                        guard let currentViewModel = currentViewModel else { return }
+                        self?._viewModelPublisher.send(currentViewModel)
+                    }
+                    .store(in: &cancelleble)
             }
-        }
-        
-        self.viewModel = newViewModel
-        view.setupData(newData: viewModel)
-        
-        sections.forEach({interactor.addDataListnerFor(section: $0)})
-    }
-    
-    func updateFriendsData(friends: [MUser]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function) friends count: \(friends.count)")
-        
-        serialQ.async {
-            updateData()
-        }
-        
-        func updateData() {
-            Logger.show(title: "Module",
-                        text: "\(type(of: self)) - \(#function)")
-            
-            var newViewModel = viewModel
-            let sectionName = FriendsScreenSection.friends.rawValue
-            
-            guard let sectionIndex = newViewModel.firstIndex(where: {$0.section == sectionName})
-            else { return }
-            
-            var sectionVM = SectionViewModel(section: sectionName,
-                                             header: nil,
-                                             footer: nil,
-                                             items: [])
-            
-            for friend in friends {
-                let friendVM = FriendViewModel()
-                friendVM.friend = friend
-                friendVM.delegate = self
-                sectionVM.items.append(friendVM)
-            }
-            
-            let header = EmptyHeaderViewModel()
-            sectionVM.header = header
-            sectionVM.headerCounter = 0
-            
-            newViewModel[sectionIndex] = sectionVM
-            
-            viewModel = newViewModel
-            view.setupData(newData: viewModel)
         }
     }
 }

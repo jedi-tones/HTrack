@@ -3,6 +3,7 @@
 
 import UIKit
 import TinyConstraints
+import Combine
 
 class FriendsCollectionViewController: UIViewController {
     // MARK: Properties
@@ -10,6 +11,8 @@ class FriendsCollectionViewController: UIViewController {
     var collectionView: UICollectionView?
     var layout: UICollectionViewLayout?
     var dataSource: UICollectionViewDiffableDataSource<SectionViewModel, AnyHashable>?
+    
+    private var cancelleble: Set<AnyCancellable> = []
     
     // MARK: Life cycle
     override func loadView() {
@@ -65,9 +68,15 @@ extension FriendsCollectionViewController {
         view.addSubview(collectionView)
         collectionView.edgesToSuperview()
     }
+    
+    func setupSubscriptions() {
+        output?.viewModelPublisher
+            .sink(receiveValue: {[weak self] sectionVM in
+                self?.setupData(newData: sectionVM)
+            })
+            .store(in: &cancelleble)
+    }
 }
-
-
 
 // MARK: - FriendsCollectionViewInput
 extension FriendsCollectionViewController: FriendsCollectionViewInput {
@@ -76,6 +85,7 @@ extension FriendsCollectionViewController: FriendsCollectionViewInput {
                     text: "\(type(of: self)) - \(#function)")
         
         setupViews()
+        setupSubscriptions()
     }
     
     func setupData(newData: [SectionViewModel]) {

@@ -60,24 +60,21 @@ extension FriendsManager {
 
 extension FriendsManager: FriendsListnerDelegate {
     func _friendAdd(friend: MUser) {
-        guard !friends.contains(where: {$0.userID == friend.userID}) else { return }
+        guard !friendsP.contains(where: {$0.userID == friend.userID}) else { return }
         
-        friends.append(friend)
-        updateFriends(friends)
+        friendsP.append(friend)
     }
     
     func _frindsModified(friend: MUser) {
-        guard let index = friends.firstIndex(where: {$0.userID == friend.userID}) else { return }
+        guard let index = friendsP.firstIndex(where: {$0.userID == friend.userID}) else { return }
         
-        friends[index] = friend
-        updateFriends(friends)
+        friendsP[index] = friend
     }
     
     func _friendRemoved(friend: MUser) {
-        guard let index = friends.firstIndex(where: {$0.userID == friend.userID}) else { return }
+        guard let index = friendsP.firstIndex(where: {$0.userID == friend.userID}) else { return }
         
-        friends.remove(at: index)
-        updateFriends(friends)
+        friendsP.remove(at: index)
     }
     
     func _friendsSubscribeError(error: FirebaseListnersError) {

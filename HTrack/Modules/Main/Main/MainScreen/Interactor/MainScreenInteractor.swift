@@ -56,8 +56,7 @@ extension MainScreenInteractor: MainScreenInteractorInput {
         }
         
         func updateStartDateOnFriends(startDate: Double) {
-            let friendsIds = friendsManager.friends.compactMap({$0.userID})
-            friendsManager.updateStartDateInFriends(friendsIDs: friendsIds, startDay: startDate) { _ in}
+            friendsManager.updateStartDateInFriends(startDay: startDate) { _ in}
         }
     }
 }

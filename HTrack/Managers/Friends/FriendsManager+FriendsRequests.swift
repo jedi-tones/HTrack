@@ -47,7 +47,8 @@ extension FriendsManager {
         friendsRequestManager.removeFriend(userID: userID, complition: complition)
     }
     
-    func updateStartDateInFriends(friendsIDs: [String], startDay: Double, complition: @escaping(Result<Bool, Error>) -> Void) {
-        friendsRequestManager.updateStartDateInFriends(friendsIDs: friendsIDs, startDay: startDay, complition: complition)
+    func updateStartDateInFriends(startDay: Double, complition: @escaping(Result<Bool, Error>) -> Void) {
+        let friendsIDS = friendsP.map({$0.userID})
+        friendsRequestManager.updateStartDateInFriends(friendsIDs: friendsIDS, startDay: startDay, complition: complition)
     }
 }

@@ -2,17 +2,19 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import Foundation
+import Combine
 
 // MARK: - View
 protocol FriendsCollectionViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
-    func setupData(newData: [SectionViewModel])
 }
 
 protocol FriendsCollectionViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
+    
+    var viewModelPublisher: AnyPublisher<[SectionViewModel], Never> { get }
 }
 
 
@@ -20,13 +22,13 @@ protocol FriendsCollectionViewOutput {
 protocol FriendsCollectionInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getSections()
-    func addDataListnerFor(section: FriendsScreenSection)
+    
+    func friendsPublisher() -> AnyPublisher<[MUser], Never>
 }
 
 protocol FriendsCollectionInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupSections(sections: [FriendsScreenSection])
-    func updateFriendsData(friends: [MUser])
 }
 
 
@@ -40,7 +42,6 @@ protocol FriendsCollectionRouterInput {
 // MARK: - Presenter (Module)
 protocol FriendsCollectionModuleInput: AnyObject {
     // MARK: IN -> PRESENTER
-
     func configure(output: FriendsCollectionModuleOutput)
 }
 

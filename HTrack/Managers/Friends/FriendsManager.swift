@@ -6,6 +6,7 @@
 //
 
 import FirebaseAuth
+import Combine
 
 protocol FriendsManagerFriendsListner {
     func friendsUpdated(friends: [MUser])
@@ -19,7 +20,14 @@ protocol FriendsManagerOutputRequestsListner {
     func outputRequestsUpdated(request: [MRequestUser])
 }
 
-class FriendsManager {
+protocol FriendsManagerProtocol {
+    var friendsPublisher: Published<[MUser]>.Publisher { get }
+    var friendsP: [MUser] { get }
+//    var inputRequestsPublisher: Published<[MRequestUser]>.Publisher { get }
+//    var outputRequestsRequestsPublisher: Published<[MRequestUser]>.Publisher { get }
+}
+
+class FriendsManager: FriendsManagerProtocol {
     static let shared = FriendsManager()
     
     private init() {
@@ -41,9 +49,14 @@ class FriendsManager {
     let outputRequestsNotifier = Notifier<FriendsManagerOutputRequestsListner>()
     
     var firUser: User? { firebaseAuthService.getCurrentUser() }
-    var friends: [MUser] = []
+    
+    @Published var friendsP: [MUser] = []
     var inputRequests: [MRequestUser] = []
     var outputRequests: [MRequestUser] = []
+    
+    var friendsPublisher: Published<[MUser]>.Publisher { $friendsP }
+//    var inputRequestsPublisher: Published<[MRequestUser]>.Publisher { $inputRequests }
+//    var outputRequestsRequestsPublisher: Published<[MRequestUser]>.Publisher { $outputRequests }
     
     var serialFriendsQ = DispatchQueue(label: "serialFriends")
     var serialInputQ = DispatchQueue(label: "serialInput")

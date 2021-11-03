@@ -12,8 +12,7 @@ extension FriendsManager: FirebaseAuthListner {
         friendsRequestManager.unsubscribeFriendsListner()
         friendsRequestManager.unsubscribeInputRequestsListner()
         
-        friends = []
-        updateFriends(friends)
+        friendsP = []
         
         inputRequests = []
         updateInputRequsts(inputRequests)
