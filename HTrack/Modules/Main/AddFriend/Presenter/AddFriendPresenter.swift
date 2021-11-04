@@ -1,13 +1,19 @@
 //  Created by Denis Shchigolev on 02/10/2021.
 //  Copyright © 2021 HTrack. All rights reserved.
 
+import Combine
+
 class AddFriendPresenter {
     weak var output: AddFriendModuleOutput?
     weak var view: AddFriendViewInput?
     var router: AddFriendRouterInput?
     var interactor: AddFriendInteractorInput?
-    var viewModel: [SectionViewModel] = []
     
+    var cancelleble: Set<AnyCancellable> = []
+    var viewModelPublisher: AnyPublisher<[SectionViewModel], Never> {
+        _viewModelPublisher.eraseToAnyPublisher()
+    }
+    let _viewModelPublisher = CurrentValueSubject<[SectionViewModel], Never>([])
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -21,7 +27,6 @@ extension AddFriendPresenter: AddFriendViewOutput {
                     text: "\(type(of: self)) - \(#function)")
         
         view?.setupInitialState()
-        interactor?.subscribeInputRequests()
         interactor?.getOuputRequestSections()
     }
     
@@ -53,67 +58,45 @@ extension AddFriendPresenter: AddFriendInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        var newViewModel: [SectionViewModel] = []
-        
         sections.forEach { section in
             switch section {
                 
             case .ouputRequest:
-                var sectionVM = SectionViewModel(section: section.rawValue,
-                                                 header: nil,
-                                                 footer: nil,
-                                                 items: [])
-                
-                
-                let header = EmptyHeaderViewModel()
-                sectionVM.header = header
-                newViewModel.append(sectionVM)
+                interactor?.outputRequestsPublisher()
+                    .map { updatedOutputRequests -> [FriendOutputRequestViewModel]  in
+                        var updatedOutputRequestsVMs: [FriendOutputRequestViewModel] = []
+                        
+                        updatedOutputRequests.forEach { updatedOutputRequest in
+                            let outputRequestVM = FriendOutputRequestViewModel()
+                            outputRequestVM.friend = updatedOutputRequest
+                            outputRequestVM.delegate = self
+                            updatedOutputRequestsVMs.append(outputRequestVM)
+                        }
+                        return updatedOutputRequestsVMs
+                    }
+                    .map({ friendsVM -> SectionViewModel in
+                        var sectionVM = SectionViewModel(section: section.rawValue,
+                                                         header: nil,
+                                                         footer: nil,
+                                                         items: [])
+                        sectionVM.items = friendsVM
+                        return sectionVM
+                    })
+                    .sink {[weak self] sectionVM in
+                        var currentViewModel = self?._viewModelPublisher.value
+                        if let indexVM = currentViewModel?.firstIndex(where: {$0.section == sectionVM.section}) {
+                            currentViewModel?.remove(at: indexVM)
+                            currentViewModel?.insert(sectionVM, at: indexVM)
+                        } else {
+                            currentViewModel?.append(sectionVM)
+                        }
+                        
+                        guard let currentViewModel = currentViewModel else { return }
+                        self?._viewModelPublisher.send(currentViewModel)
+                    }
+                    .store(in: &cancelleble)
             }
-            
-            self.viewModel = newViewModel
-            view?.setupData(newData: viewModel)
-            
-            sections.forEach({interactor?.addDataListnerFor(section: $0)})
         }
-    }
-    
-    func updateOutputRequestData(friends: [MRequestUser]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        var newViewModel = viewModel
-        
-        let sectionName = OutputRequestSection.ouputRequest.rawValue
-        
-        guard let sectionIndex = newViewModel.firstIndex(where: {$0.section == sectionName})
-        else { return }
-        
-        var sectionVM = SectionViewModel(section: sectionName,
-                                         header: nil,
-                                         footer: nil,
-                                         items: [])
-        
-        for friend in friends {
-            let friendVM = FriendOutputRequestViewModel()
-            friendVM.friend = friend
-            friendVM.delegate = self
-            sectionVM.items.append(friendVM)
-        }
-        
-        if sectionVM.items.isNotEmpty {
-            let header = TextHeaderWithCounterViewModel()
-            header.title = sectionName
-            header.count = sectionVM.items.count
-            sectionVM.header = header
-        } else {
-            let header = EmptyHeaderViewModel()
-            sectionVM.header = header
-        }
-        
-        newViewModel[sectionIndex] = sectionVM
-        
-        viewModel = newViewModel
-        view?.setupData(newData: viewModel)
     }
     
     func showAddFriendError(error: String) {

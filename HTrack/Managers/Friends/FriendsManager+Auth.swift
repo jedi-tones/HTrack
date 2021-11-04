@@ -14,9 +14,7 @@ extension FriendsManager: FirebaseAuthListner {
         
         friendsP = []
         inputRequestsP = []
-        
-        outputRequests = []
-        updateOutputRequsts(outputRequests)
+        outputRequestsP = []
     }
     
     func logIn(user: User) {

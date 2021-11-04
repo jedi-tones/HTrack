@@ -15,10 +15,11 @@ protocol FriendsManagerOutputRequestsListner {
 protocol FriendsManagerProtocol {
     var friendsP: [MUser] { get }
     var inputRequestsP: [MRequestUser] { get }
-//    var outputRequestsP: [MRequestUser] { get }
+    var outputRequestsP: [MRequestUser] { get }
+    
     var friendsPublisher: Published<[MUser]>.Publisher { get }
     var inputRequestsPublisher: Published<[MRequestUser]>.Publisher { get }
-//    var outputRequestsRequestsPublisher: Published<[MRequestUser]>.Publisher { get }
+    var outputRequestsRequestsPublisher: Published<[MRequestUser]>.Publisher { get }
     
     func checkCanAddFriendRequest(userName: String, complition:((Result<MUser,Error>) -> Void)?)
     func sendAddFriendRequst(currentMUser: MUser, toUser: MUser?, userID: String, complition:((Result<MRequestUser,Error>) -> Void)?)
@@ -27,7 +28,6 @@ protocol FriendsManagerProtocol {
     func rejectOutputRequest(userID: String, complition:((Result<MUser,Error>) -> Void)?)
     func removeFriend(userID: String, complition:((Result<MUser,Error>) -> Void)?)
     func updateStartDateInFriends(startDay: Double, complition: @escaping(Result<Bool, Error>) -> Void)
-    
 }
 
 class FriendsManager: FriendsManagerProtocol {
@@ -46,7 +46,6 @@ class FriendsManager: FriendsManagerProtocol {
     
     let firebaseAuthService = FirebaseAuthManager.shared
     let friendsRequestManager = FriendsRequestManager.shared
-    
     let outputRequestsNotifier = Notifier<FriendsManagerOutputRequestsListner>()
     
     var firUser: User? { firebaseAuthService.getCurrentUser() }
@@ -54,13 +53,15 @@ class FriendsManager: FriendsManagerProtocol {
     
     @Published var friendsP: [MUser] = []
     @Published var inputRequestsP: [MRequestUser] = []
-    var outputRequests: [MRequestUser] = []
+    @Published var outputRequestsP: [MRequestUser] = []
     
     var friendsPublisher: Published<[MUser]>.Publisher { $friendsP }
     var inputRequestsPublisher: Published<[MRequestUser]>.Publisher { $inputRequestsP }
-//    var outputRequestsRequestsPublisher: Published<[MRequestUser]>.Publisher { $outputRequests }
+    var outputRequestsRequestsPublisher: Published<[MRequestUser]>.Publisher { $outputRequestsP }
     
-    var friendsListnerPublisher = CurrentValueSubject<[MUser], Never>([])
+    var friendsFirebaseListnerPublisher = CurrentValueSubject<[MUser], Never>([])
+    var inputRequestFirebaseListnerPublisher = CurrentValueSubject<[MRequestUser], Never>([])
+    var outputRequestFirebaseListnerPublisher = CurrentValueSubject<[MRequestUser], Never>([])
     
     var serialOutputQ = DispatchQueue(label: "serialOutput")
     
@@ -73,19 +74,6 @@ class FriendsManager: FriendsManagerProtocol {
                         text: "\(String(describing: error.localizedDescription))",
                         withHeader: true,
                         withFooter: true)
-        }
-    }
-    
-    func updateOutputRequsts(_ requests: [MRequestUser]) {
-        serialOutputQ.async {[weak self] in
-            Logger.show(title: "OutputRequests updated",
-                        text: "requests \(String(describing: requests))",
-                        withHeader: true,
-                        withFooter: true)
-            
-            guard let self = self else { return }
-            
-            self.outputRequestsNotifier.forEach({$0.outputRequestsUpdated(request: requests)})
         }
     }
 }

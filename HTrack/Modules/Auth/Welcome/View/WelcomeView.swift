@@ -23,6 +23,7 @@ class WelcomeView: UIView {
             .setTitleFont(font: Styles.Fonts.bold2)
             .setButtonColor(color: self.appleButtonColor)
             .setTextColor(color: self.appleButtonLabelColor)
+            .setBorderColor(color: self.appleButtonLabelColor)
         
         return bt
     }()

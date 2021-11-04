@@ -3,6 +3,7 @@
 
 import UIKit
 import TinyConstraints
+import Combine
 
 class AddFriendViewController: UIViewController {
     // MARK: Properties
@@ -12,6 +13,7 @@ class AddFriendViewController: UIViewController {
     var outputRequestsCollectionView: OutputRequestCollectionView?
     var drawerView = DrawerView()
     var keyboardHeight: CGFloat = .zero
+    var cancelleble: Set<AnyCancellable> = []
     
     lazy var drawerHeaderView: DrawerTextHeaderView = {
         let header = DrawerTextHeaderView()
@@ -99,6 +101,14 @@ extension AddFriendViewController {
     func setupConstraints() {
         view.addSubview(drawerView)
         drawerView.edgesToSuperview()
+    }
+    
+    func setupSubscriptions() {
+        output?.viewModelPublisher
+            .sink(receiveValue: {[weak self] sectionVM in
+                self?.setupData(newData: sectionVM)
+            })
+            .store(in: &cancelleble)
     }
 }
 

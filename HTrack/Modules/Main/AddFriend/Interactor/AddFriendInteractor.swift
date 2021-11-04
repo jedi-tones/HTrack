@@ -2,6 +2,7 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import Dispatch
+import Combine
 
 class AddFriendInteractor {
     weak var output: AddFriendInteractorOutput?
@@ -13,33 +14,14 @@ class AddFriendInteractor {
                     text: "\(type(of: self)) - \(#function)")
         
         friendsManager.unsubscribeOutputRequestsListner()
-        friendsManager.outputRequestsNotifier.unsubscribe(self)
     }
 }
 
 // MARK: - AddFriendInteractorInput
 extension AddFriendInteractor: AddFriendInteractorInput {
-    func subscribeInputRequests() {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        //а нужно ли подписываться на обновления? ведь список у нас и так есть в friendsManager
-    }
-    
-    func addDataListnerFor(section: OutputRequestSection) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        switch section {
-        case .ouputRequest:
-            //подписка на firebase слушателя
-            try? friendsManager.subscribeOutputRequestsListner()
-            friendsManager.outputRequestsNotifier.subscribe(self)
-            let requests = friendsManager.outputRequests
-            
-            guard requests.isNotEmpty else { return }
-            output?.updateOutputRequestData(friends: requests)
-        }
+    func outputRequestsPublisher() -> AnyPublisher<[MRequestUser], Never> {
+        try? friendsManager.subscribeOutputRequestsListner()
+        return friendsManager.outputRequestsRequestsPublisher.eraseToAnyPublisher()
     }
     
     func sendAddFriendAction(name: String) {
@@ -116,14 +98,5 @@ extension AddFriendInteractor: AddFriendInteractorInput {
                             text: "\(type(of: self)) - \(#function) \(error)")
             }
         }
-    }
-}
-
-extension AddFriendInteractor: FriendsManagerOutputRequestsListner {
-    func outputRequestsUpdated(request: [MRequestUser]) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        output?.updateOutputRequestData(friends: request)
     }
 }

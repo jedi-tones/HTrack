@@ -37,6 +37,8 @@ extension AddFriendViewController {
             
             return headerReuseView
         }
+        
+        setupSubscriptions()
     }
     
     private func setupReuseCell(collectionView: UICollectionView,

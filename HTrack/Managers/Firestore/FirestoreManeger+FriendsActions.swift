@@ -108,13 +108,15 @@ extension FirestoreManager {
         let mInputRequestUser = MRequestUser(nickname: currentMUser.name,
                                              userID: currentMUser.userID,
                                              photo: currentMUser.photo,
-                                             fcmKey: currentMUser.fcmKey)
+                                             fcmKey: currentMUser.fcmKey,
+                                             createDate: Date())
         
         if let toUser = toUser {
             let mOutputRequestUser = MRequestUser(nickname: toUser.name,
-                                            userID: toUser.userID,
-                                            photo: toUser.photo,
-                                            fcmKey: toUser.fcmKey)
+                                                  userID: toUser.userID,
+                                                  photo: toUser.photo,
+                                                  fcmKey: toUser.fcmKey,
+                                                  createDate: Date())
            
             do {
                 try outputRequestsCollection.document(toUser.userID).setData(from: mOutputRequestUser)
@@ -132,9 +134,10 @@ extension FirestoreManager {
                     
                 case .success(let toUser):
                     let mOutputRequestUser = MRequestUser(nickname: toUser.name,
-                                                    userID: toUser.userID,
-                                                    photo: toUser.photo,
-                                                    fcmKey: toUser.fcmKey)
+                                                          userID: toUser.userID,
+                                                          photo: toUser.photo,
+                                                          fcmKey: toUser.fcmKey,
+                                                          createDate: Date())
                     do {
                         try outputRequestsCollection.document(toUser.userID).setData(from: mOutputRequestUser)
                         try inputFriendRequestsCollection.document(currentMUser.userID).setData(from: mInputRequestUser)

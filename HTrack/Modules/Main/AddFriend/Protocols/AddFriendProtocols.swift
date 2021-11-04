@@ -2,13 +2,13 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import Foundation
+import Combine
 
 // MARK: - View
 protocol AddFriendViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
     func setupState(state: AddFriendHeaderView.AddFriendHeaderState)
-    func setupData(newData: [SectionViewModel])
     func closeDrawerView()
 }
 
@@ -18,23 +18,22 @@ protocol AddFriendViewOutput {
     func didDismissedSheet()
     func addFriendAction(name: String)
     func closeModule()
+    var viewModelPublisher: AnyPublisher<[SectionViewModel], Never> { get }
 }
 
 
 // MARK: - Interactor
 protocol AddFriendInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
-    func subscribeInputRequests()
     func getOuputRequestSections()
     func sendAddFriendAction(name: String)
     func cancelRequestFor(id: String)
-    func addDataListnerFor(section: OutputRequestSection)
+    func outputRequestsPublisher() -> AnyPublisher<[MRequestUser], Never>
 }
 
 protocol AddFriendInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupSections(sections: [OutputRequestSection])
-    func updateOutputRequestData(friends: [MRequestUser])
     func needCloseSheet()
     func showAddFriendError(error: String)
     func addComplite()

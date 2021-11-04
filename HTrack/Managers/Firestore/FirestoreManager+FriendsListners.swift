@@ -26,7 +26,7 @@ extension FirestoreManager {
             }
             
             let updatedUsers = snapshot.documents.compactMap({MUser(documentSnap: $0)})
-            delegate.friendsListnerPublisher.send(updatedUsers)
+            delegate.friendsFirebaseListnerPublisher.send(updatedUsers)
             
             snapshot.documentChanges.forEach { change in
                 guard let friend = MUser(documentSnap: change.document)
@@ -68,6 +68,9 @@ extension FirestoreManager {
                 return
             }
             
+            let updatedInputRequest =  snapshot.documents.compactMap({try? $0.data(as: MRequestUser.self)})
+            delegate.inputRequestFirebaseListnerPublisher.send(updatedInputRequest)
+            
             snapshot.documentChanges.forEach { change in
                 guard let inputRequest: MRequestUser = change.document.data().toObject()
                 else {
@@ -107,6 +110,9 @@ extension FirestoreManager {
                 delegate.outputRequestsSubscribeError(error: .snapshotIsNil)
                 return
             }
+            
+            let updatedOutputRequest =  snapshot.documents.compactMap({try? $0.data(as: MRequestUser.self)})
+            delegate.outputRequestFirebaseListnerPublisher.send(updatedOutputRequest)
             
             snapshot.documentChanges.forEach { change in
                 guard let inputRequest: MRequestUser = change.document.data().toObject()
