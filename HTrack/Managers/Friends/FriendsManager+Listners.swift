@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol FriendsListnerDelegate: AnyObject {
+    var friendsListnerPublisher: CurrentValueSubject<[MUser], Never> { get }
+        
     func _friendAdd(friend: MUser)
     func _frindsModified(friend: MUser)
     func _friendRemoved(friend: MUser)
@@ -37,6 +40,11 @@ extension FriendsManager {
         else { throw AuthError.authUserNil }
         
         friendsRequestManager.subscribeFriendsListner(forUserID: userID, delegate: self)
+        friendsListnerPublisher
+            .sink {[weak self] updatedFriends in
+                self?.friendsP = updatedFriends
+            }
+            .store(in: &cancellable)
     }
     
     func subscribeInputRequestsListner() throws {
@@ -62,19 +70,19 @@ extension FriendsManager: FriendsListnerDelegate {
     func _friendAdd(friend: MUser) {
         guard !friendsP.contains(where: {$0.userID == friend.userID}) else { return }
         
-        friendsP.append(friend)
+//        friendsP.append(friend)
     }
     
     func _frindsModified(friend: MUser) {
         guard let index = friendsP.firstIndex(where: {$0.userID == friend.userID}) else { return }
         
-        friendsP[index] = friend
+//        friendsP[index] = friend
     }
     
     func _friendRemoved(friend: MUser) {
         guard let index = friendsP.firstIndex(where: {$0.userID == friend.userID}) else { return }
         
-        friendsP.remove(at: index)
+//        friendsP.remove(at: index)
     }
     
     func _friendsSubscribeError(error: FirebaseListnersError) {
@@ -88,24 +96,21 @@ extension FriendsManager: FriendsListnerDelegate {
 
 extension FriendsManager: InputRequestListnerDelegate {
     func inputRequestAdd(request: MRequestUser) {
-        guard !inputRequests.contains(where: {$0.userID == request.userID}) else { return }
+        guard !inputRequestsP.contains(where: {$0.userID == request.userID}) else { return }
         
-        inputRequests.append(request)
-        updateInputRequsts(inputRequests)
+        inputRequestsP.append(request)
     }
     
     func inputRequestModified(request: MRequestUser) {
-        guard let index = inputRequests.firstIndex(where: {$0.userID == request.userID}) else { return }
+        guard let index = inputRequestsP.firstIndex(where: {$0.userID == request.userID}) else { return }
         
-        inputRequests[index] = request
-        updateInputRequsts(inputRequests)
+        inputRequestsP[index] = request
     }
     
     func inputRequestRemoved(request: MRequestUser) {
-        guard let index = inputRequests.firstIndex(where: {$0.userID == request.userID}) else { return }
+        guard let index = inputRequestsP.firstIndex(where: {$0.userID == request.userID}) else { return }
         
-        inputRequests.remove(at: index)
-        updateInputRequsts(inputRequests)
+        inputRequestsP.remove(at: index)
     }
     
     func inputRequestsSubscribeError(error: FirebaseListnersError) {
@@ -145,6 +150,4 @@ extension FriendsManager: OutputRequestListnerDelegate {
                     withHeader: true,
                     withFooter: true)
     }
-    
-    
 }

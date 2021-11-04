@@ -25,6 +25,9 @@ extension FirestoreManager {
                 return
             }
             
+            let updatedUsers = snapshot.documents.compactMap({MUser(documentSnap: $0)})
+            delegate.friendsListnerPublisher.send(updatedUsers)
+            
             snapshot.documentChanges.forEach { change in
                 guard let friend = MUser(documentSnap: change.document)
                 else {

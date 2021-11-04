@@ -3,6 +3,7 @@
 
 import UIKit
 import TinyConstraints
+import Combine
 
 class InputRequestsViewController: UIViewController {
     // MARK: Properties
@@ -11,6 +12,7 @@ class InputRequestsViewController: UIViewController {
     var layout: UICollectionViewLayout?
     var dataSource: UICollectionViewDiffableDataSource<SectionViewModel, AnyHashable>?
     
+    private var cancelleble: Set<AnyCancellable> = []
     // MARK: Life cycle
     override func loadView() {
         super.loadView()
@@ -20,30 +22,6 @@ class InputRequestsViewController: UIViewController {
         super.viewDidLoad()
 
         output?.viewIsReady()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
     }
 
     deinit {
@@ -64,8 +42,15 @@ extension InputRequestsViewController {
         view.addSubview(collectionView)
         collectionView.edgesToSuperview()
     }
+    
+    func setupSubscriptions() {
+        output?.viewModelPublisher
+            .sink(receiveValue: {[weak self] sectionVM in
+                self?.setupData(newData: sectionVM)
+            })
+            .store(in: &cancelleble)
+    }
 }
-
 
 // MARK: - InputRequestsViewInput
 extension InputRequestsViewController: InputRequestsViewInput {

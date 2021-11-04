@@ -2,16 +2,17 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import Foundation
+import Combine
 
 // MARK: - View
 protocol InputRequestsViewInput: AnyObject {
     // MARK: PRESENTER -> VIEW
     func setupInitialState()
-    func setupData(newData: [SectionViewModel])
 }
 
 protocol InputRequestsViewOutput {
     // MARK: VIEW -> PRESENTER
+    var viewModelPublisher: AnyPublisher<[SectionViewModel], Never> { get }
     func viewIsReady()
 }
 
@@ -20,7 +21,7 @@ protocol InputRequestsViewOutput {
 protocol InputRequestsInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getSections()
-    func addDataListnerFor(section: InputRequestSection)
+    func inputRequestPubliser() -> AnyPublisher<[MRequestUser], Never> 
     func acceptUser(_ user: MRequestUser)
     func rejectUser(_ user: MRequestUser)
 }
@@ -28,7 +29,6 @@ protocol InputRequestsInteractorInput {
 protocol InputRequestsInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func setupSections(sections: [InputRequestSection])
-    func updateRequestData(requests: [MRequestUser])
 }
 
 

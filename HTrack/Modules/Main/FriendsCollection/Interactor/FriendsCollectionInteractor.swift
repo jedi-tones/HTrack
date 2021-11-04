@@ -5,7 +5,7 @@ import Combine
 
 class FriendsCollectionInteractor {
     weak var output: FriendsCollectionInteractorOutput!
-    var friendsManager = FriendsManager.shared
+    var friendsManager: FriendsManagerProtocol = FriendsManager.shared
     var userManager = UserManager.shared
     var authManager = FirebaseAuthManager.shared
     

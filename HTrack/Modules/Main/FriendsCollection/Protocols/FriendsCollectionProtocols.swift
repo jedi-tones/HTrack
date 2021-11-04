@@ -12,9 +12,8 @@ protocol FriendsCollectionViewInput: AnyObject {
 
 protocol FriendsCollectionViewOutput {
     // MARK: VIEW -> PRESENTER
-    func viewIsReady()
-    
     var viewModelPublisher: AnyPublisher<[SectionViewModel], Never> { get }
+    func viewIsReady()
 }
 
 
@@ -22,7 +21,6 @@ protocol FriendsCollectionViewOutput {
 protocol FriendsCollectionInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getSections()
-    
     func friendsPublisher() -> AnyPublisher<[MUser], Never>
 }
 

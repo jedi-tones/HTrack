@@ -37,6 +37,8 @@ extension InputRequestsViewController {
             
             return headerReuseView
         }
+        
+        setupSubscriptions()
     }
     
     private func setupReuseCell(collectionView: UICollectionView,

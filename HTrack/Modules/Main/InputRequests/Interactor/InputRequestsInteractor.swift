@@ -1,9 +1,11 @@
 //  Created by Denis Shchigolev on 27/10/2021.
 //  Copyright © 2021 HTrack. All rights reserved.
 
+import Combine
+
 class InputRequestsInteractor {
     weak var output: InputRequestsInteractorOutput!
-    var friendsManager = FriendsManager.shared
+    var friendsManager: FriendsManagerProtocol = FriendsManager.shared
     var userManager = UserManager.shared
     var authManager = FirebaseAuthManager.shared
     let sections: [InputRequestSection] = [ .inputRequest]
@@ -11,7 +13,6 @@ class InputRequestsInteractor {
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
-        friendsManager.inputRequestsNotifier.unsubscribe(self)
     }
 }
 
@@ -24,20 +25,8 @@ extension InputRequestsInteractor: InputRequestsInteractorInput {
         output.setupSections(sections: sections)
     }
     
-    func addDataListnerFor(section: InputRequestSection) {
-        Logger.show(title: "Module",
-                    text: "\(type(of: self)) - \(#function)")
-        
-        switch section {
-            
-        case .inputRequest:
-            let inputRequests = friendsManager.inputRequests
-            if inputRequests.isNotEmpty {
-                output.updateRequestData(requests: inputRequests)
-            }
-            
-            friendsManager.inputRequestsNotifier.subscribe(self)
-        }
+    func inputRequestPubliser() -> AnyPublisher<[MRequestUser], Never> {
+        friendsManager.inputRequestsPublisher.eraseToAnyPublisher()
     }
     
     func acceptUser(_ user: MRequestUser) {
@@ -72,10 +61,3 @@ extension InputRequestsInteractor: InputRequestsInteractorInput {
         }
     }
 }
-
-extension InputRequestsInteractor: FriendsManagerInputRequestsListner {
-    func inputRequestsUpdated(request: [MRequestUser]) {
-        output.updateRequestData(requests: request)
-    }
-}
-

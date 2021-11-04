@@ -9,11 +9,8 @@ class FriendsCollectionPresenter {
     weak var view: FriendsCollectionViewInput!
     var router: FriendsCollectionRouterInput!
     var interactor: FriendsCollectionInteractorInput!
-    var serialQ = DispatchQueue(label: "serial")
-    var viewModel: [SectionViewModel] = []
-    
+
     var cancelleble: Set<AnyCancellable> = []
-    
     var viewModelPublisher: AnyPublisher<[SectionViewModel], Never> {
         _viewModelPublisher.eraseToAnyPublisher()
     }

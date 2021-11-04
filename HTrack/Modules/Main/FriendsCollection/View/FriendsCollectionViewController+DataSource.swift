@@ -37,6 +37,8 @@ extension FriendsCollectionViewController {
             
             return headerReuseView
         }
+        
+        setupSubscriptions()
     }
     
     private func setupReuseCell(collectionView: UICollectionView,

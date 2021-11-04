@@ -49,7 +49,7 @@ extension AddFriendInteractor: AddFriendInteractorInput {
         guard let currentMUser = userManager.currentUser else { return }
         let nameToAdd = name.uppercased()
         //если у нас уже есть входящая заявка, то принимаем ее и закрываем пикер
-        if let requestUser = friendsManager.inputRequests.filter({$0.nickname?.uppercased() == nameToAdd}).first {
+        if let requestUser = friendsManager.inputRequestsP.filter({$0.nickname?.uppercased() == nameToAdd}).first {
             friendsManager.acceptInputRequest(userID: requestUser.userID) {[weak self] result in
                 switch result {
                     
