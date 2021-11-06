@@ -23,7 +23,9 @@ class FirestoreManager {
     }
     
     let firestore = Firestore.firestore()
-    let authFirestoreManager = FirebaseAuthManager.shared
+    lazy var authFirestoreManager = FirebaseAuthManager.shared
+    lazy var friendsManager = FriendsManager.shared
+    lazy var userManager = UserManager.shared
     
     weak var friendsListnerDelegate: FriendsListnerDelegate?
     weak var inputRequestListnerDelegate: InputRequestListnerDelegate?

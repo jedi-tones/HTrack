@@ -26,6 +26,7 @@ class DrawerView : UIView {
     private let notifier = Notifier<DrawerViewListener>()
     
     var dragRecognizer: UIPanGestureRecognizer!
+    var backTouchRecognizer: UITapGestureRecognizer!
     
     let animationDamping: CGFloat = Styles.Constants.animationDamping
     let animationDuration  = Styles.Constants.animationDuarationBase

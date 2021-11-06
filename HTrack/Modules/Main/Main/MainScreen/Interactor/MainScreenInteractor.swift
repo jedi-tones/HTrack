@@ -56,6 +56,9 @@ extension MainScreenInteractor: MainScreenInteractorInput {
         }
         
         func updateStartDateOnFriends(startDate: Double) {
+            Logger.show(title: "Module",
+                        text: "\(type(of: self)) - \(#function)")
+            
             friendsManager.updateStartDateInFriends(startDay: startDate) { _ in}
         }
     }

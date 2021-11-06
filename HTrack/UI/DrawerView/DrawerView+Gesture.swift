@@ -10,7 +10,15 @@ import UIKit
 extension DrawerView {
     func setupGestureRecognizer() {
         dragRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragRecognizerHandler))
+        backTouchRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchRecognizerHandler))
         containerView.addGestureRecognizer(dragRecognizer)
+        backgroundView.addGestureRecognizer(backTouchRecognizer)
+        
+    }
+    
+    @objc func touchRecognizerHandler(recognizer: UITapGestureRecognizer) {
+        containerView.endEditing(false)
+        setDrawerPosition(.dismissed) {}
     }
     
     @objc func dragRecognizerHandler(recognizer: UIPanGestureRecognizer) {

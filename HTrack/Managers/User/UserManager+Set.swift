@@ -174,14 +174,17 @@ extension UserManager {
             let updatedToken = appManager.settingsStorage.fcmKey
             
             Logger.show(title: "Manager",
-                        text: "\(type(of: self)) - \(#function) current token: \(currentToken) \n updated token: \(updatedToken)",
+                        text: "\(type(of: self)) - \(#function) current token: \(String(describing: currentToken)) \n updated token: \(String(describing: updatedToken))",
             withFooter: true)
             guard let updatedToken = updatedToken,
-                  updatedToken != currentToken else { return }
+                  updatedToken != currentToken
+            else { return }
             
             updateUser(userID: currentUser.userID,
                        dic: [.fcmKey : updatedToken],
                        complition: nil)
+            
+            friendsManager.updateFCMTokenInFriends(token: updatedToken) { _ in }
         }
     }
     

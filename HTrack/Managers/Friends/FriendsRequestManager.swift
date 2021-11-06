@@ -68,4 +68,8 @@ class FriendsRequestManager {
     func updateStartDateInFriends(friendsIDs: [String], startDay: Double, complition: @escaping(Result<Bool, Error>) -> Void) {
         firestoreManager.updateStartDateInFriends(friendsIDs: friendsIDs, startDay: startDay, complition: complition)
     }
+    
+    func updateFCMTokenInFriends(friendsIDs: [String], token: String, complition: @escaping(Result<Bool, Error>) -> Void) {
+        firestoreManager.updateFCMTokenInFriends(friendsIDs: friendsIDs, token: token, complition: complition)
+    }
 }

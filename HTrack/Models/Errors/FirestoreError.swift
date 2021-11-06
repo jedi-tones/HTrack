@@ -14,6 +14,9 @@ enum FirestoreError {
     case userWithNameNotExist
     case userWithIDNotExist
     case userBannedYou
+    case isItYou
+    case thisUserAlreadyYouFriend
+    case alreadyHasOutputRequestToThisUser
     case inputRequestFromUserNotExist
     case collectionPathIncorrect
     case incorrectInputData
@@ -38,6 +41,12 @@ extension FirestoreError: LocalizedError {
             return NSLocalizedString("Пользователя с таким ID не существует", comment: "")
         case .userBannedYou:
             return NSLocalizedString("Пользователь тебя забанил", comment: "")
+        case .isItYou:
+            return NSLocalizedString("Ты не можешь добавить сам себя", comment: "")
+        case .thisUserAlreadyYouFriend:
+            return NSLocalizedString("Он уже твой друг", comment: "")
+        case .alreadyHasOutputRequestToThisUser:
+            return NSLocalizedString("Ты уже отправил запрос данному пользователю", comment: "")
         case .collectionPathIncorrect:
             return NSLocalizedString("Путь коллекции некорректный", comment: "")
         case .incorrectInputData:

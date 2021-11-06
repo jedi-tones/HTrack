@@ -15,6 +15,30 @@ extension FirestoreManager {
     ///Затем не забанил ли юзер тебя.
     ///Если юзера можем добавить, то complition == MUser, где MUser - добавляемый друг , иначе ошибка
     func checkCanAddFriendRequest(userName: String, complition:((Result<MUser,Error>) -> Void)?) {
+        //проверяем введенной ник не текущий юзер
+        guard let currentUserName = userManager.currentUser?.name
+        else {
+            complition?(.failure(FirestoreError.unownedError))
+            return
+        }
+        
+        guard currentUserName != userName
+        else {
+            complition?(.failure(FirestoreError.isItYou))
+            return
+        }
+        //проверяем есть ли в друзьях
+        guard !friendsManager.friendsP.contains(where: {$0.name == userName})
+        else {
+            complition?(.failure(FirestoreError.thisUserAlreadyYouFriend))
+            return
+        }
+        //проверяем есть ли исходящая заявка
+        guard !friendsManager.outputRequestsP.contains(where: {$0.nickname == userName})
+        else {
+            complition?(.failure(FirestoreError.alreadyHasOutputRequestToThisUser))
+            return
+        }
         //проверяем существует ли юзер
         let checkUserExistOperation = BaseAsyncOperationConstructor {[weak self] input, complitionOperation in
             self?.getUser(nickname: userName) { result in
@@ -351,6 +375,35 @@ extension FirestoreManager {
         friendsIDs.forEach { friendID in
             if let userInFriendRef = FirestoreEndPoint.friends(userID: friendID).collectionRef?.document(currentUserID) {
                 batch.setData([MUser.CodingKeys.startDate.rawValue : startDay],
+                              forDocument: userInFriendRef,
+                              merge: true)
+            }
+        }
+        
+        batch.commit { error in
+            if let error = error {
+                complition(.failure(error))
+            } else {
+                complition(.success(true))
+            }
+        }
+    }
+    
+    ///обновляем fcm ключ у друзей
+    func updateFCMTokenInFriends(friendsIDs: [String], token: String, complition: @escaping(Result<Bool, Error>) -> Void) {
+        guard let currentUser = authFirestoreManager.getCurrentUser() else {
+            complition(.failure(AuthError.userError))
+            return
+        }
+        guard let currentUserID = currentUser.email else {
+            complition(.failure(AuthError.userEmailNil))
+            return
+        }
+        
+        let batch = firestore.batch()
+        friendsIDs.forEach { friendID in
+            if let userInFriendRef = FirestoreEndPoint.friends(userID: friendID).collectionRef?.document(currentUserID) {
+                batch.setData([MUser.CodingKeys.fcmKey.rawValue : token],
                               forDocument: userInFriendRef,
                               merge: true)
             }

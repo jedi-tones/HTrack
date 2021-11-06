@@ -77,6 +77,7 @@
 		DB2EDA1949D630D47C1CF97C /* InputRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B08394DD26CEF2C22D5DAAF /* InputRequestsViewController.swift */; };
 		DB7B54F6004695CFA6A80B57 /* FriendsCollectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31ED7EC1DFBD597E86ABB41 /* FriendsCollectionBuilder.swift */; };
 		DD10980927358DF000C4445B /* AppManager+AuthListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10980827358DF000C4445B /* AppManager+AuthListner.swift */; };
+		DD10980B2736CEF800C4445B /* PushFCMManager+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10980A2736CEF800C4445B /* PushFCMManager+Messages.swift */; };
 		DD1C00D227178BB900E4BBBF /* COperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D127178BB900E4BBBF /* COperationQueue.swift */; };
 		DD1C00D427178BCF00E4BBBF /* COperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D327178BCF00E4BBBF /* COperation.swift */; };
 		DD1C00D727178CA600E4BBBF /* AsyncCOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */; };
@@ -355,6 +356,7 @@
 		DA805F767B093B4A99C63449 /* RegisterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DAF6DB008B893D939541DB46 /* InputRequestsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsRouter.swift; sourceTree = "<group>"; };
 		DD10980827358DF000C4445B /* AppManager+AuthListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppManager+AuthListner.swift"; sourceTree = "<group>"; };
+		DD10980A2736CEF800C4445B /* PushFCMManager+Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PushFCMManager+Messages.swift"; sourceTree = "<group>"; };
 		DD1C00D127178BB900E4BBBF /* COperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperationQueue.swift; sourceTree = "<group>"; };
 		DD1C00D327178BCF00E4BBBF /* COperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperation.swift; sourceTree = "<group>"; };
 		DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCOperation.swift; sourceTree = "<group>"; };
@@ -1429,6 +1431,7 @@
 			children = (
 				DD68697B2728845800C0A590 /* PushNotificationManager.swift */,
 				DD68699127289F0100C0A590 /* PushFCMManager.swift */,
+				DD10980A2736CEF800C4445B /* PushFCMManager+Messages.swift */,
 			);
 			path = PushNotification;
 			sourceTree = "<group>";
@@ -2267,6 +2270,7 @@
 				DD68699E2729AF7100C0A590 /* InputRequestsViewController+CollectionView.swift in Sources */,
 				DD59F75F26B6F1E300CA8179 /* AppleAuthService.swift in Sources */,
 				DD9F617126E8035C009E3D39 /* SettingsInteractor+UserListner.swift in Sources */,
+				DD10980B2736CEF800C4445B /* PushFCMManager+Messages.swift in Sources */,
 				DD5414F426C168E000A13BE0 /* ContainerViewController.swift in Sources */,
 				FBDCF1FB2711F951006188E8 /* Encodable+Extension.swift in Sources */,
 				DD870D7526D93EDE000F59AE /* FirestoreError.swift in Sources */,

@@ -64,7 +64,7 @@ class AddFriendHeaderView: UIView {
         addSubview(addFriendButton)
         
         addFriendInput.edgesToSuperview(excluding: .bottom,
-                                        insets: UIEdgeInsets(top: .zero,
+                                        insets: UIEdgeInsets(top: Styles.Sizes.stadartVInset,
                                                              left: Styles.Sizes.standartHInset,
                                                              bottom: .zero,
                                                              right: Styles.Sizes.standartHInset))

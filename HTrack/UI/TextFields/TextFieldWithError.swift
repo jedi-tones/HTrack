@@ -175,12 +175,12 @@ extension TextFieldWithError {
         switch textFieldState {
         
         case .active:
-            return _placeholderColor ?? Styles.Colors.myLabelColor()
+            return _placeholderColor ?? Styles.Colors.base3
         case .inActive:
             if isEmpty {
-                return _placeholderColor?.withAlphaComponent(0.5) ?? Styles.Colors.myPlaceholderColor()
+                return _placeholderColor?.withAlphaComponent(0.5) ?? Styles.Colors.base3.withAlphaComponent(0.5)
             } else {
-                return _placeholderColor ?? Styles.Colors.myLabelColor()
+                return _placeholderColor ?? Styles.Colors.base3
             }
         }
     }
@@ -189,26 +189,26 @@ extension TextFieldWithError {
         switch textFieldState {
         
         case .active:
-            return _borderColor ?? Styles.Colors.myLabelColor()
+            return _borderColor ?? Styles.Colors.base3
         case .inActive:
             if isEmpty {
-                return _borderColor?.withAlphaComponent(0.5) ?? Styles.Colors.myPlaceholderColor()
+                return _borderColor?.withAlphaComponent(0.5) ?? Styles.Colors.base3.withAlphaComponent(0.5)
             } else {
-                return _borderColor ?? Styles.Colors.myLabelColor()
+                return _borderColor ?? Styles.Colors.base3
             }
         }
     }
     
     var textfieldTextColor: UIColor {
-        return _textfieldTextColor ?? Styles.Colors.myLabelColor()
+        return _textfieldTextColor ?? Styles.Colors.base3
     }
     
     var errorLabelColor: UIColor {
-        return _errorLabelColor ?? Styles.Colors.myErrorLabelColor()
+        return _errorLabelColor ?? Styles.Colors.base3
     }
     
     var infoLabelColor: UIColor {
-        return _infoLabelColor ?? Styles.Colors.myInfoLabelColor()
+        return _infoLabelColor ?? Styles.Colors.base3
     }
 }
 

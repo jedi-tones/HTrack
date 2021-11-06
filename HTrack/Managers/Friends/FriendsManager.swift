@@ -42,8 +42,11 @@ class FriendsManager: FriendsManagerProtocol {
         friendsRequestManager.unsubscribeInputRequestsListner()
     }
     
-    let firebaseAuthService = FirebaseAuthManager.shared
-    let friendsRequestManager = FriendsRequestManager.shared
+    lazy var firebaseAuthService = FirebaseAuthManager.shared
+    lazy var friendsRequestManager = FriendsRequestManager.shared
+    lazy var pushFCMManager = PushFCMManager.shared
+    lazy var userManager = UserManager.shared
+    
     let outputRequestsNotifier = Notifier<FriendsManagerOutputRequestsListner>()
     
     var firUser: User? { firebaseAuthService.getCurrentUser() }
