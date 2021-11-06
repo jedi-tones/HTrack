@@ -20,4 +20,5 @@ extension UserDefaultKey: ExpressibleByStringLiteral {
 
 extension UserDefaultKey {
     static let startDate: UserDefaultKey = "startDate"
+    static let fcmKey: UserDefaultKey = "fcmKey"
 }

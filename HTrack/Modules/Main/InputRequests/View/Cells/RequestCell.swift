@@ -82,12 +82,12 @@ class RequestCell: UICollectionViewCell, BaseCellProtocol {
         contentView.addSubview(nameLabel)
         contentView.addSubview(acceptButton)
         contentView.addSubview(rejectButton)
+        contentView.edgesToSuperview()
+        contentView.height(Styles.Sizes.baseCellHeight)
         
-        nameLabel.edgesToSuperview(excluding: .right,
-                                   insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
-                                                          left: Styles.Sizes.standartHInset,
-                                                          bottom: Styles.Sizes.standartHInset,
-                                                          right: .zero))
+        nameLabel.leftToSuperview(offset: Styles.Sizes.standartHInset)
+        nameLabel.centerYToSuperview()
+        
         rejectButton.centerYToSuperview()
         rejectButton.height(Styles.Sizes.smallButtonHeight)
         rejectButton.widthToHeight(of: rejectButton)

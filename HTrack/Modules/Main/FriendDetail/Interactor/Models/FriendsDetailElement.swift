@@ -10,5 +10,6 @@ import Foundation
 enum FriendsDetailElement: CaseIterable {
     case title
     case counter
+    case friendReactionButton
     case removeButton
 }

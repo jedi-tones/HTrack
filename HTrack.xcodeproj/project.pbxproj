@@ -76,6 +76,7 @@
 		D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39209731F0D8310142B377F9 /* FriendsModule.swift */; };
 		DB2EDA1949D630D47C1CF97C /* InputRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B08394DD26CEF2C22D5DAAF /* InputRequestsViewController.swift */; };
 		DB7B54F6004695CFA6A80B57 /* FriendsCollectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31ED7EC1DFBD597E86ABB41 /* FriendsCollectionBuilder.swift */; };
+		DD10980927358DF000C4445B /* AppManager+AuthListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10980827358DF000C4445B /* AppManager+AuthListner.swift */; };
 		DD1C00D227178BB900E4BBBF /* COperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D127178BB900E4BBBF /* COperationQueue.swift */; };
 		DD1C00D427178BCF00E4BBBF /* COperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D327178BCF00E4BBBF /* COperation.swift */; };
 		DD1C00D727178CA600E4BBBF /* AsyncCOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */; };
@@ -90,7 +91,6 @@
 		DD1E54D926F7D6AF00CB4903 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = DD1E54D826F7D6AF00CB4903 /* TinyConstraints */; };
 		DD1E54DB26F7E42F00CB4903 /* MainScreenInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E54DA26F7E42F00CB4903 /* MainScreenInfoView.swift */; };
 		DD1E54DD26F7F09800CB4903 /* FriendsInteractor+UserListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E54DC26F7F09800CB4903 /* FriendsInteractor+UserListner.swift */; };
-		DD1E54DF26F7FE4E00CB4903 /* FriendsManager+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E54DE26F7FE4E00CB4903 /* FriendsManager+Auth.swift */; };
 		DD2FA09627088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA09527088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift */; };
 		DD2FA09827088BE500FC0382 /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA09727088BE500FC0382 /* DrawerView.swift */; };
 		DD2FA09A27088D2300FC0382 /* DrawerView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA09927088D2300FC0382 /* DrawerView+Gesture.swift */; };
@@ -354,13 +354,13 @@
 		D997B8B684C982B2BB36FF03 /* WelcomeModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeModule.swift; sourceTree = "<group>"; };
 		DA805F767B093B4A99C63449 /* RegisterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DAF6DB008B893D939541DB46 /* InputRequestsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsRouter.swift; sourceTree = "<group>"; };
+		DD10980827358DF000C4445B /* AppManager+AuthListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppManager+AuthListner.swift"; sourceTree = "<group>"; };
 		DD1C00D127178BB900E4BBBF /* COperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperationQueue.swift; sourceTree = "<group>"; };
 		DD1C00D327178BCF00E4BBBF /* COperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperation.swift; sourceTree = "<group>"; };
 		DD1C00D627178CA600E4BBBF /* AsyncCOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCOperation.swift; sourceTree = "<group>"; };
 		DD1C00D827178ED700E4BBBF /* BaseAsyncOperationConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAsyncOperationConstructor.swift; sourceTree = "<group>"; };
 		DD1E54DA26F7E42F00CB4903 /* MainScreenInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInfoView.swift; sourceTree = "<group>"; };
 		DD1E54DC26F7F09800CB4903 /* FriendsInteractor+UserListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsInteractor+UserListner.swift"; sourceTree = "<group>"; };
-		DD1E54DE26F7FE4E00CB4903 /* FriendsManager+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsManager+Auth.swift"; sourceTree = "<group>"; };
 		DD2FA09527088BCF00FC0382 /* DrawerView+ScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrawerView+ScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		DD2FA09727088BE500FC0382 /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
 		DD2FA09927088D2300FC0382 /* DrawerView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrawerView+Gesture.swift"; sourceTree = "<group>"; };
@@ -1260,7 +1260,6 @@
 			children = (
 				DD3FBCD326EE3ACE002591A6 /* FriendsManager.swift */,
 				DD3FBCD626EE3C71002591A6 /* FriendsManager+Listners.swift */,
-				DD1E54DE26F7FE4E00CB4903 /* FriendsManager+Auth.swift */,
 				DDE003702720B2AF00EED493 /* FriendsManager+FriendsRequests.swift */,
 				DD3FBCD826EE3D9D002591A6 /* FriendsRequestManager.swift */,
 			);
@@ -1305,6 +1304,7 @@
 			isa = PBXGroup;
 			children = (
 				DD59F75726B60A2B00CA8179 /* AppManager.swift */,
+				DD10980827358DF000C4445B /* AppManager+AuthListner.swift */,
 				DD59F75B26B6113F00CA8179 /* AppManager+Auth.swift */,
 				DD59F75926B60A4200CA8179 /* AppManager+ViewControllers.swift */,
 			);
@@ -2106,6 +2106,7 @@
 				DD9214EF26763DFB00A3623E /* SceneDelegate.swift in Sources */,
 				DD870D6C26D7E155000F59AE /* FirestoreManager+User.swift in Sources */,
 				DD2FA09A27088D2300FC0382 /* DrawerView+Gesture.swift in Sources */,
+				DD10980927358DF000C4445B /* AppManager+AuthListner.swift in Sources */,
 				DD59F73826B5A95800CA8179 /* WelcomeView.swift in Sources */,
 				DD9EAD1B2699BEBD0032B3D7 /* HTTPMethod.swift in Sources */,
 				DD6869872728881A00C0A590 /* MNotificationActionType.swift in Sources */,
@@ -2285,7 +2286,6 @@
 				DD3FBCC126EE061B002591A6 /* FriendViewModel.swift in Sources */,
 				DD65E09526B89511002BBF80 /* TextFieldWithError.swift in Sources */,
 				9975FF05D6047FCCE7376B97 /* SettingsViewController.swift in Sources */,
-				DD1E54DF26F7FE4E00CB4903 /* FriendsManager+Auth.swift in Sources */,
 				431E45FCFB31AF7DF9941F3E /* SettingsPresenter.swift in Sources */,
 				DD9F615926E64D50009E3D39 /* SettingsButtonCell.swift in Sources */,
 				C27C8ADF0CC8C27D309ED1DA /* SettingsInteractor.swift in Sources */,

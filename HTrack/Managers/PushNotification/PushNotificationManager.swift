@@ -67,7 +67,6 @@ class PushNotificationManager: NSObject {
         }
     }
     
-    
     //MARK: addActionCategory
     private func addActionCategory() {
         let categoryName = MNotificationActionType.newRequest.rawValue

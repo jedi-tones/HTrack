@@ -13,4 +13,5 @@ struct MGradusNotification: Codable {
     var message: String?
     var authorID: String?
     var authorName: String?
+    var category: MNotificationActionType?
 }

@@ -80,6 +80,8 @@ class DatePickerCell: UICollectionViewCell, BaseCellProtocol {
         }
         
         backgroundColor = backColor
+        layer.borderColor = borderColor.cgColor
+        layer.borderWidth = Styles.Sizes.baseBorderWidth
     }
     
     func setupConstraints() {
@@ -101,18 +103,22 @@ class DatePickerCell: UICollectionViewCell, BaseCellProtocol {
 
 extension DatePickerCell {
     var backColor: UIColor {
-        return Styles.Colors.base3
+        return Styles.Colors.base1
     }
     
     var titleColor: UIColor {
-        return Styles.Colors.base1
+        return Styles.Colors.base3
+    }
+    
+    var borderColor: UIColor {
+        return Styles.Colors.base3
     }
     
     var pickerBackColor: UIColor {
-        return Styles.Colors.base1
+        return .clear
     }
     
     var pickerTintColor: UIColor {
-        return Styles.Colors.base3
+        return Styles.Colors.base1
     }
 }

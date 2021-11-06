@@ -35,13 +35,11 @@ class FriendsManager: FriendsManagerProtocol {
     
     private init() {
         subscribeListners()
-        firebaseAuthService.notifier.subscribe(self)
     }
     
     deinit {
         friendsRequestManager.unsubscribeFriendsListner()
         friendsRequestManager.unsubscribeInputRequestsListner()
-        firebaseAuthService.notifier.unsubscribe(self)
     }
     
     let firebaseAuthService = FirebaseAuthManager.shared
@@ -75,5 +73,18 @@ class FriendsManager: FriendsManagerProtocol {
                         withHeader: true,
                         withFooter: true)
         }
+    }
+    
+    func afterLogout() {
+        friendsRequestManager.unsubscribeFriendsListner()
+        friendsRequestManager.unsubscribeInputRequestsListner()
+        
+        friendsP = []
+        inputRequestsP = []
+        outputRequestsP = []
+    }
+    
+    func afterLogin() {
+        subscribeListners()
     }
 }

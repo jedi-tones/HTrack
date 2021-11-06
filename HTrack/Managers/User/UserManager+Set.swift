@@ -19,6 +19,7 @@ extension UserManager {
         newUser.userID = mail
         newUser.authType = authType
         newUser.startDate = Date()
+        newUser.fcmKey = appManager.settingsStorage.fcmKey
         
         saveUser(user: newUser) {[weak self] result in
             switch result {
@@ -159,5 +160,41 @@ extension UserManager {
     
     func saveNickName(nickname: String, userID: String, complition:((Result<String,Error>) -> Void)?) {
         userRequestManager.saveNickName(nickname: nickname, userID: userID, complition: complition)
+    }
+    
+    /// обновляем токен у текущего пользователя в firestore
+    /// только в случае если текущий токен в firestore отличается от токена обновленного из pushFCMManager 
+    func updateFCMToken() {
+        Logger.show(title: "Manager",
+                    text: "\(type(of: self)) - \(#function)",
+                    withHeader: true)
+        
+        if let currentUser = currentUser {
+            let currentToken = currentUser.fcmKey
+            let updatedToken = appManager.settingsStorage.fcmKey
+            
+            Logger.show(title: "Manager",
+                        text: "\(type(of: self)) - \(#function) current token: \(currentToken) \n updated token: \(updatedToken)",
+            withFooter: true)
+            guard let updatedToken = updatedToken,
+                  updatedToken != currentToken else { return }
+            
+            updateUser(userID: currentUser.userID,
+                       dic: [.fcmKey : updatedToken],
+                       complition: nil)
+        }
+    }
+    
+    func removeFCMToken() {
+        Logger.show(title: "Manager",
+                    text: "\(type(of: self)) - \(#function)",
+                    withHeader: true,
+                    withFooter: true)
+        
+        if let currentUser = currentUser {
+            updateUser(userID: currentUser.userID,
+                       dic: [.fcmKey : ""],
+                       complition: nil)
+        }
     }
 }

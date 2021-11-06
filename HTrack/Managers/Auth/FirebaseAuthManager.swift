@@ -7,6 +7,7 @@
 
 import FirebaseAuth
 import AuthenticationServices
+import Combine
 
 protocol FirebaseAuthProtocol {
     func initializeFirebaseCredential(authorization: ASAuthorization, nonce: String?) -> OAuthCredential
@@ -36,11 +37,27 @@ final class FirebaseAuthManager: FirebaseAuthProtocol {
     
     let notifier = Notifier<FirebaseAuthListner>()
     
+    var userStatePublisher:AnyPublisher<UserState, Never> {
+        _userStatePublisher.eraseToAnyPublisher()
+    }
+    var _userStatePublisher = PassthroughSubject<UserState, Never>()
+    
     private func updateSignIn(user: User) {
+        Logger.show(title: "Manager",
+                    text: "\(type(of: self)) - \(#function) user: \(String(describing: user.email))",
+                    withHeader: true,
+                    withFooter: true)
+        _userStatePublisher.send(.authorized)
         notifier.forEach({$0.logIn(user: user)})
     }
     
     private func updateLogOut() {
+        Logger.show(title: "Manager",
+                    text: "\(type(of: self)) - \(#function)",
+                    withHeader: true,
+                    withFooter: true)
+        
+        _userStatePublisher.send(.notAuthorized)
         notifier.forEach({$0.logOut()})
     }
     
@@ -110,7 +127,6 @@ final class FirebaseAuthManager: FirebaseAuthProtocol {
                 password: String,
                 complition: @escaping (Result<User,Error>) -> Void) {
     
-        
         auth.signIn(withEmail: email, password: password) {[weak self] result, error in
             
             guard let result = result else {

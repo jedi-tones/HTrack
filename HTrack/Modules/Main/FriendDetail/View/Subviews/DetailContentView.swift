@@ -64,6 +64,17 @@ class DetailContentView: UIScrollView, ScrollableContent {
         return c
     }()
     
+    lazy var reactionButton: BaseTextButtonWithArrow = {
+        let button = BaseTextButtonWithArrow()
+        button.setTitle(title: "подбордить друга")
+        button.setTextColor(color: self.reactionButtonTextColor)
+        button.setButtonColor(color: self.reactionButtonColor)
+        button.action = {[weak self] in
+            self?.viewModel?.tapReactionButton()
+        }
+        return button
+    }()
+    
     lazy var removeButton: BaseTextButtonWithArrow = {
         let button = BaseTextButtonWithArrow()
         button.setTitle(title: "удалить")
@@ -124,6 +135,10 @@ class DetailContentView: UIScrollView, ScrollableContent {
             case .counter(count: let count):
                 self.counter.text = String(count)
                 self.viewBlocks.append(self.counter)
+                
+            case .friendReactionButton(title: let title):
+                self.reactionButton.setTitle(title: title)
+                self.viewBlocks.append(self.reactionButton)
                 
             case .removeButton(title: let title):
                 self.removeButton.setTitle(title: title)
@@ -187,12 +202,20 @@ extension DetailContentView {
         Styles.Colors.base3
     }
     
+    var reactionButtonColor: UIColor {
+        Styles.Colors.base3
+    }
+    
+    var reactionButtonTextColor: UIColor {
+        Styles.Colors.base1
+    }
+    
     var removeButtonColor: UIColor {
-        Styles.Colors.base5
+        Styles.Colors.base3
     }
     
     var removeButtonTextColor: UIColor {
-        Styles.Colors.base5
+        Styles.Colors.base3
     }
     
     var removeButtonBackColor: UIColor {
@@ -217,11 +240,11 @@ extension DetailContentView {
     }
     
     var rejectButtonColor: UIColor {
-        Styles.Colors.base5
+        Styles.Colors.base3
     }
     
     var rejectButtonTextColor: UIColor {
-        Styles.Colors.base5
+        Styles.Colors.base3
     }
     
     var rejectButtonBackColor: UIColor {

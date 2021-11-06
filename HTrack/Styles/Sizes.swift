@@ -42,6 +42,8 @@ extension Styles.Sizes  {
                                                              bottom: 10,
                                                              right: 35)
     
+    static let baseCellHeight: CGFloat = 74
+    
     static let smallButtonHeight: CGFloat = 22
     static let baseButtonHeight: CGFloat = 54
     static let appleButtonHeight: CGFloat = 54

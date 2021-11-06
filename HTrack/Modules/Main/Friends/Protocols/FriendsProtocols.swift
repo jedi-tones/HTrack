@@ -10,6 +10,7 @@ protocol FriendsViewInput: AnyObject {
     func updateNickname(nickName: String)
     func selectPage(page: FriendsPage)
     func setPages(_ pages: [FriendsPage])
+    func setAddButton(isHidden: Bool)
 }
 
 protocol FriendsViewOutput {

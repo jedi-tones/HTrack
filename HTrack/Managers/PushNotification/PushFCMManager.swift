@@ -9,10 +9,16 @@ import Foundation
 
 import Foundation
 import FirebaseMessaging
+import Combine
 
 class PushFCMManager: NSObject {
     static let shared = PushFCMManager()
     let notificationName = "firebaseMessageToken"
+    
+    var fcmTokenPublisher: AnyPublisher<String,Never> {
+        _fcmTokenPublisher.eraseToAnyPublisher()
+    }
+    var _fcmTokenPublisher = CurrentValueSubject<String, Never>("")
     
     //for auth when post request
     private let serverKey = "AAAAG9wxVfA:APA91bFiJFRGIQbGLBP9pFFdZXVCYhicxjTizNpEgYuUCXmdn0U9WEmuxnYNhmaSSHyeKUmXORTDhj0O06hpO_jnTfDzm0H21H8fc3kv1FoZbQaZfKtJiTASChREOE39roDgQD7OlzUx"
@@ -89,13 +95,20 @@ class PushFCMManager: NSObject {
     
     //MARK: getToken
     func getToken() {
-        Messaging.messaging().token { token, error in
+        Logger.show(title: "Manager",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        Messaging.messaging().token {[weak self] token, error in
             if let error = error {
                 fatalError(error.localizedDescription)
             } else if let token = token {
-                print("FCM registration token: \(token)")
+                Logger.show(title: "Manager",
+                            text: "\(type(of: self)) - \(#function) FCM registration token: \(String(describing: token))",
+                            withHeader: true,
+                            withFooter: true)
                 
                 //обновляем FCM токен
+                self?._fcmTokenPublisher.send(token)
             }
         }
     }
@@ -116,11 +129,17 @@ extension PushFCMManager {
 //MARK: - send message
 extension PushFCMManager {
     func sendPushMessageToToken(token: String, header: String, text: String, authorID: String?, authorName: String?, category: MNotificationActionType) {
+        Logger.show(title: "Manager",
+                    text: "\(type(of: self)) - \(#function) to token: \(token)",
+                    withHeader: true,
+                    withFooter: true)
+        
         let data = MGradusNotification(deeplinkType: .requests,
                                        title: header,
                                        message: text,
                                        authorID: authorID,
-                                       authorName: authorName)
+                                       authorName: authorName,
+                                       category: category)
         
         sendMessage(token: token,
                     topic: nil,
@@ -132,13 +151,35 @@ extension PushFCMManager {
                     isMutableContent: "true",
                     data: data)
     }
+    
+    func sendPushMessageToToken(token: String, gradusNotification: MGradusNotification) {
+        Logger.show(title: "Manager",
+                    text: "\(type(of: self)) - \(#function) to token: \(token)",
+                    withHeader: true,
+                    withFooter: true)
+        
+        sendMessage(token: token,
+                    topic: nil,
+                    title: gradusNotification.title ?? "",
+                    body: gradusNotification.message ?? "",
+                    category: gradusNotification.category ?? .systemMessage,
+                    bageCount: 1,
+                    sound: "default",  //"zenRequestAlert.caf"
+                    isMutableContent: "true",
+                    data: gradusNotification)
+    }
 }
 
 //MARK: - MessagingDelegate
 extension PushFCMManager: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        Logger.show(title: "Manager",
+                    text: "\(type(of: self)) - \(#function) FCM registration token: \(String(describing: fcmToken))",
+                    withHeader: true,
+                    withFooter: true)
         
-        print("\n FCM registration token: \(String(describing: fcmToken)) \n")
+        guard let fcmToken = fcmToken else { return }
+        _fcmTokenPublisher.send(fcmToken)
     }
 }

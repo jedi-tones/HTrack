@@ -22,8 +22,10 @@ class UserManager {
     static let shared = UserManager()
     private init() {}
     
-    let firebaseAuthService = FirebaseAuthManager.shared
-    let userRequestManager = UserRequestManager.shared
+    lazy var  firebaseAuthService = FirebaseAuthManager.shared
+    lazy var userRequestManager = UserRequestManager.shared
+    lazy var appManager = AppManager.shared
+    lazy var pushFCMManager = PushFCMManager.shared
     
     let notifier = Notifier<UserManagerListner>()
     

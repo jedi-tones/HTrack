@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MNotificationActionType: String {
+enum MNotificationActionType: String, Codable {
     case newRequest
     case newFriend
     case iDrink

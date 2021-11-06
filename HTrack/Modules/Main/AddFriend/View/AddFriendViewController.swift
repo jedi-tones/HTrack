@@ -17,7 +17,7 @@ class AddFriendViewController: UIViewController {
     
     lazy var drawerHeaderView: DrawerTextHeaderView = {
         let header = DrawerTextHeaderView()
-        header.setTitle(title: "добавить друга".uppercased())
+        header.setTitle(title: "отправить запрос".uppercased())
         header.setFont(font: Styles.Fonts.bold2)
         header.onClose = { [weak self] in
             _ = self?.addFriendHeaderView.addFriendInput.resignFirstResponder()

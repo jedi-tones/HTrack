@@ -54,6 +54,14 @@ class SettingsButtonCell: UICollectionViewCell, BaseCellProtocol {
         titleLabel.text = viewModel.title
         titleLabel.textColor = titleColor
         backgroundColor = backColor
+        
+        if let borderColor = borderColor {
+            layer.borderWidth = Styles.Sizes.baseBorderWidth
+            layer.borderColor = borderColor.cgColor
+        } else {
+            layer.borderWidth = .zero
+            layer.borderColor = nil
+        }
     }
     
     func setupConstraints() {
@@ -73,6 +81,14 @@ extension SettingsButtonCell {
             let friendsColorsDaysOffset = Styles.Constants.friendsColorsDaysOffset
             return Styles.Colors.progressedColor(days: friendsColorsDaysOffset)
         } else {
+            return Styles.Colors.base1
+        }
+    }
+    
+    var borderColor: UIColor? {
+        if viewModel?.sensetive ?? false {
+            return nil
+        } else {
             return Styles.Colors.base3
         }
     }
@@ -81,7 +97,7 @@ extension SettingsButtonCell {
         if viewModel?.sensetive ?? false {
             return Styles.Colors.base3
         } else {
-            return Styles.Colors.base1
+            return Styles.Colors.base3
         }
     }
 }

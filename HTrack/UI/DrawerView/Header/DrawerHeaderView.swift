@@ -25,7 +25,7 @@ class DrawerHeaderView: UIView {
     
     private var _dragAccessoryView: UIView = {
         let view = UIView()
-        view.setCornerRadius(radius: 2.5)
+//        view.setCornerRadius(radius: 2.5)
         return view
     }()
     
@@ -62,7 +62,7 @@ class DrawerHeaderView: UIView {
         addSubview(_dragAccessoryView)
         _dragAccessoryView.size(_dragAccessorySize)
         _dragAccessoryView.centerXToSuperview()
-        _dragAccessoryView.bottomToTop(of: self, offset: -Styles.Sizes.mediumVInset)
+        _dragAccessoryView.topToSuperview(offset: Styles.Sizes.mediumVInset)
         
         addSubview(_stackView)
         

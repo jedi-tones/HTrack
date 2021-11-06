@@ -16,7 +16,7 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
     lazy var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = titleColor
-        lb.font = Styles.Fonts.normal1
+        lb.font = Styles.Fonts.bold2
         return lb
     }()
     
@@ -24,7 +24,7 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
         let lb = UILabel()
         lb.text = ""
         lb.textColor = titleColor
-        lb.font = Styles.Fonts.normal1
+        lb.font = Styles.Fonts.bold2
         lb.isHidden = true
         return lb
     }()
@@ -75,7 +75,7 @@ class TextHeaderWithCounterCell: UICollectionViewCell, BaseCellProtocol {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Styles.Sizes.mediumHInset),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Styles.Sizes.baseVInset),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.baseVInset),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Styles.Sizes.stadartVInset),
             
             countLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: Styles.Sizes.standartHInset),
             countLabel.topAnchor.constraint(equalTo: titleLabel.topAnchor),

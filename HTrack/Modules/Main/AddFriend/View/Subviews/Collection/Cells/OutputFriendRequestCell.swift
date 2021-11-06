@@ -57,8 +57,6 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
     
     func setupView() {
         backgroundColor = backColor
-        layer.borderColor = borderColor.cgColor
-        layer.borderWidth = Styles.Sizes.baseBorderWidth
     }
     
     func setup() {
@@ -72,32 +70,26 @@ class OutputFriendRequestCell: UICollectionViewCell, BaseCellProtocol {
     func setupConstraints() {
         contentView.addSubview(nameLabel)
         contentView.addSubview(closeButton)
+        contentView.edgesToSuperview()
+        contentView.height(Styles.Sizes.baseCellHeight)
         
-        nameLabel.edgesToSuperview(excluding: .right, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
-                                                                             left: Styles.Sizes.standartHInset,
-                                                                             bottom: Styles.Sizes.standartHInset,
-                                                                             right: .zero))
-        closeButton.edgesToSuperview(excluding: .left, insets: TinyEdgeInsets(top: Styles.Sizes.standartHInset,
-                                                                              left: .zero,
-                                                                              bottom: Styles.Sizes.standartHInset,
-                                                                              right: Styles.Sizes.standartHInset))
-        closeButton.height(Styles.Sizes.smallButtonHeight)
-        closeButton.widthToHeight(of: closeButton)
-        nameLabel.rightToLeft(of: closeButton,offset: Styles.Sizes.standartHInset, relation: .equalOrLess)
+        nameLabel.leftToSuperview(offset: Styles.Sizes.standartHInset)
+        nameLabel.centerYToSuperview()
+        nameLabel.rightToLeft(of: closeButton,offset: Styles.Sizes.standartHInset)
         nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
-//        contentView.height(Styles.Sizes.baseButtonHeight, relation: .equalOrGreater)
+        closeButton.rightToSuperview(offset: -Styles.Sizes.standartHInset)
+        closeButton.centerYToSuperview()
+        closeButton.height(Styles.Sizes.smallButtonHeight)
+        closeButton.widthToHeight(of: closeButton)
     }
 }
 
 extension OutputFriendRequestCell {
     var backColor: UIColor {
-        .clear
-    }
-    
-    var borderColor: UIColor {
-        Styles.Colors.base3
+        let friendsColorsDaysOffset = Styles.Constants.friendsColorsDaysOffset
+        return Styles.Colors.progressedColor(days: friendsColorsDaysOffset)
     }
     
     var labelColor: UIColor {

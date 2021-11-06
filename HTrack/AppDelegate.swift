@@ -15,8 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        PushNotificationManager.shared.requestNotificationAuth()
-        PushFCMManager.shared.registerDelegate()
+        AppManager.shared.afterStart()
         return true
     }
 

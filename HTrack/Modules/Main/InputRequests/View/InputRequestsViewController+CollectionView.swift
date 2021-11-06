@@ -30,9 +30,9 @@ extension InputRequestsViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: .zero,
-                                                        leading: Styles.Sizes.standartHInset,
+                                                        leading: .zero,
                                                         bottom: Styles.Sizes.mediumVInset,
-                                                        trailing: Styles.Sizes.standartHInset)
+                                                        trailing: .zero)
         section.interGroupSpacing = Styles.Sizes.stadartVInset
         
         let header = configureHeaderLayout()

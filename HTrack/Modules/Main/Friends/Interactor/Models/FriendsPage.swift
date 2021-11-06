@@ -24,9 +24,9 @@ enum FriendsPage: String, CaseIterable  {
     var title: String {
         switch self {
         case .friendsCollection:
-            return "Друзья"
+            return "друзья"
         case .inputRequestCollection:
-            return "Запросы"
+            return "запросы"
         }
     }
     

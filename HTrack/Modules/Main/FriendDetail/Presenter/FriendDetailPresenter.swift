@@ -44,15 +44,19 @@ extension FriendDetailPresenter: FriendDetailInteractorOutput {
         elements.forEach { element in
             switch element {
             case .title:
-                let block = FriendDetailViewModel.ViewBlock.title(title: "Дней без алкоголя")
+                let block = FriendDetailViewModel.ViewBlock.title(title: "дней без алкоголя")
                 blocks.append(block)
                 
             case .counter:
                 let block = FriendDetailViewModel.ViewBlock.counter(count: interactor.friendDayCount)
                 blocks.append(block)
+            
+            case .friendReactionButton:
+                let block = FriendDetailViewModel.ViewBlock.friendReactionButton(title: "подбодрить друга")
+                blocks.append(block)
                 
             case .removeButton:
-                let block = FriendDetailViewModel.ViewBlock.removeButton(title: "Удалить друга")
+                let block = FriendDetailViewModel.ViewBlock.removeButton(title: "удалить друга")
                 blocks.append(block)
             }
         }
@@ -99,6 +103,13 @@ extension FriendDetailPresenter: FriendDetailInteractorOutput {
 }
 
 extension FriendDetailPresenter: FriendDetailViewModelDelegate{
+    func reactionButtonTapped() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        interactor.sendReactionToFriend()
+    }
+    
     func removeButtonTapped() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")

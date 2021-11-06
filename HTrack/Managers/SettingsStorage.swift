@@ -14,4 +14,12 @@ class SettingsStorage {
     
     @UserDefault(key: UserDefaultKey.startDate)
     var startDate: Double?
+    
+    @UserDefault(key: UserDefaultKey.fcmKey)
+    var fcmKey: String?
+    
+    func resetUserStorage() {
+        startDate = nil
+        fcmKey = nil
+    }
 }

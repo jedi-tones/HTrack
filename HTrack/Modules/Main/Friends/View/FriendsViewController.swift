@@ -34,6 +34,13 @@ class FriendsViewController: ContainerViewContoller {
         return bt
     }()
     
+    lazy var vertStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.spacing = Styles.Sizes.standartV2Inset
+        stack.axis = .vertical
+        return stack
+    }()
+    
     var customNavView = FriendsCustomNavigationView()
     
     lazy var leftNavButton: UIBarButtonItem = {
@@ -50,30 +57,6 @@ class FriendsViewController: ContainerViewContoller {
         super.viewDidLoad()
         
         output.viewIsReady()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
     }
 
     deinit {
@@ -96,23 +79,26 @@ extension FriendsViewController {
     }
 
     func setupConstraints() {
-        view.addSubview(addFriendButton)
         view.addSubview(screenToggle)
+        view.addSubview(vertStackView)
+        vertStackView.addArrangedSubview(addFriendButton)
         //контейнер для View сабмодулей
-        view.addSubview(containerView)
+        vertStackView.addArrangedSubview(containerView)
         
         screenToggle.topToSuperview(offset: Styles.Sizes.stadartVInset * 2, usingSafeArea: true)
         screenToggle.leadingToSuperview(offset: Styles.Sizes.standartHInset)
         screenToggle.trailingToSuperview(offset: Styles.Sizes.standartHInset)
         screenToggle.height(Styles.Sizes.baseButtonHeight)
         
-        addFriendButton.topToBottom(of: screenToggle, offset: Styles.Sizes.standartV2Inset)
-        addFriendButton.leadingToSuperview(offset: Styles.Sizes.standartHInset)
-        addFriendButton.trailingToSuperview(offset: Styles.Sizes.standartHInset)
+        vertStackView.topToBottom(of: screenToggle, offset: Styles.Sizes.standartV2Inset)
+        vertStackView.edgesToSuperview(excluding: .top,
+                                       insets: TinyEdgeInsets(top: .zero,
+                                                              left: Styles.Sizes.standartHInset,
+                                                              bottom: .zero,
+                                                              right: Styles.Sizes.standartHInset),
+                                       usingSafeArea: false)
+    
         addFriendButton.height(Styles.Sizes.baseButtonHeight)
-        
-        containerView.topToBottom(of: addFriendButton, offset: Styles.Sizes.standartV2Inset)
-        containerView.edgesToSuperview(excluding: .top, usingSafeArea: true)
     }
 }
 
@@ -157,6 +143,13 @@ extension FriendsViewController: ButtonToggleDelegate {
                     text: "\(type(of: self)) - \(#function) index: \(index)")
         
         output.screenToggleChangeToIndex(index)
+    }
+    
+    func setAddButton(isHidden: Bool) {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function) isHidden: \(isHidden)")
+        
+        addFriendButton.isHidden = isHidden
     }
 }
 

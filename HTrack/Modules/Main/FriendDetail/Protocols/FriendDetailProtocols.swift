@@ -30,6 +30,7 @@ protocol FriendDetailInteractorInput {
     func removeFriend()
     func acceptRequest()
     func rejectRequest()
+    func sendReactionToFriend()
 }
 
 protocol FriendDetailInteractorOutput: AnyObject {

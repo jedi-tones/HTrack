@@ -39,7 +39,8 @@ extension BaseEndPoint {
         switch self.environment {
         
         case .publicAPI:
-            return "prod"
+//            return "prod"
+            return "debug"
         case .devAPI:
             return "debug"
         }

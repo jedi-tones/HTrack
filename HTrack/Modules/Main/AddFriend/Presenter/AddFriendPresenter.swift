@@ -80,6 +80,15 @@ extension AddFriendPresenter: AddFriendInteractorOutput {
                                                          footer: nil,
                                                          items: [])
                         sectionVM.items = friendsVM
+                        sectionVM.headerCounter = friendsVM.count
+                        
+                        if friendsVM.count != .zero {
+                            let header = TextHeaderWithCounterViewModel()
+                            header.count = friendsVM.count
+                            header.title = "исходящие запросы в друзья"
+                            
+                            sectionVM.header = header
+                        }
                         return sectionVM
                     })
                     .sink {[weak self] sectionVM in

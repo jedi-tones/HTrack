@@ -11,6 +11,7 @@ class FriendsPresenter {
     var _currentPage: FriendsPage = .friendsCollection {
         didSet {
             view?.selectPage(page: _currentPage)
+            view?.setAddButton(isHidden: _currentPage == .inputRequestCollection)
         }
     }
     var pages: [FriendsPage] = []

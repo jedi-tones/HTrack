@@ -5,6 +5,8 @@ class FriendDetailInteractor {
     weak var output: FriendDetailInteractorOutput!
 
     lazy var friendsManager = FriendsManager.shared
+    lazy var pushFCMManager = PushFCMManager.shared
+    lazy var userManager = UserManager.shared
     
     deinit {
         Logger.show(title: "Module",
@@ -106,5 +108,24 @@ extension FriendDetailInteractor: FriendDetailInteractorInput {
                 self?.output?.needCloseModule()
             }
         }
+    }
+    
+    func sendReactionToFriend() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        guard let currentUser = userManager.currentUser,
+              let currentUserName = userManager.currentUser?.name,
+              let friend = friend,
+              let friendToken = friend.fcmKey
+        else { return }
+        let title = "\(currentUserName) говорит тебе"
+        let notification = MGradusNotification(deeplinkType: .friends,
+                                               title: title,
+                                               message: "какой ты молодец",
+                                               authorID: currentUser.userID,
+                                               authorName: currentUserName,
+                                               category: .systemMessage)
+        pushFCMManager.sendPushMessageToToken(token: friendToken, gradusNotification: notification)
     }
 }
