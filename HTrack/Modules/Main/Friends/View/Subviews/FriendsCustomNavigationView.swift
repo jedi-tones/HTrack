@@ -13,7 +13,7 @@ class FriendsCustomNavigationView: UIView {
         let lb = UILabel()
         lb.textColor = labelColor
         lb.font = Styles.Fonts.AvenirFonts.avenirNextBold(size: Styles.Sizes.fontSizeBig).font
-        lb.text = "@NICKNAME"
+        lb.text = "NICKNAME"
         return lb
     }()
     
@@ -42,7 +42,7 @@ class FriendsCustomNavigationView: UIView {
     func updateTitle(title: String) -> Self {
         
         DispatchQueue.main.async {[weak self] in
-            self?.nameLabel.text = "@\(title.uppercased())"
+            self?.nameLabel.text = "\(title.uppercased())"
         }
         
         return self

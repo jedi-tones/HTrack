@@ -13,6 +13,7 @@ class AddFriendHeaderView: UIView {
         case normal
         case error(error: String)
         case load
+        case success
     }
     
     private var state: AddFriendHeaderState = .normal
@@ -24,6 +25,12 @@ class AddFriendHeaderView: UIView {
             .setRules([.isNotEmpty, .isNickname])
         tf.changeTextDelegate = { [weak self] _, text in
             self?.updateState(to: .normal)
+        }
+        
+        tf.beginEditingAction = { [weak self] updatedTextField in
+            if updatedTextField.text == "" || updatedTextField.text == nil {
+                self?.updateState(to: .normal)
+            }
         }
         return tf
     }()
@@ -94,6 +101,12 @@ class AddFriendHeaderView: UIView {
             addFriendInput.isUserInteractionEnabled = false
             addFriendInput.error = ""
             addFriendButton.setStatus(.busy)
+        
+        case .success:
+            addFriendInput.isUserInteractionEnabled = true
+            addFriendInput.text = ""
+            addFriendInput.infoLabel = "запрос другу отправлен"
+            addFriendButton.setStatus(.deactive)
         }
     }
 }

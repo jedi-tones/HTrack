@@ -119,7 +119,7 @@ extension AddFriendPresenter: AddFriendInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        view?.setupState(state: .normal)
+        view?.setupState(state: .success)
     }
     
     func needCloseSheet() {
