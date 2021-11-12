@@ -12,7 +12,7 @@ class NotificationServiceSettingsManager {
     private init() {}
     
     var badgeCount: Int? {
-        get { UserDefaults(suiteName: "group.flava.app.HTrack")?.value(forKey: "badgeCount") as? Int}
-        set { UserDefaults(suiteName: "group.flava.app.HTrack")?.set(newValue, forKey: "badgeCount") }
+        get { UserDefaults.group.value(forKey: "badgeCount") as? Int}
+        set { UserDefaults.group.set(newValue, forKey: "badgeCount") }
     }
 }

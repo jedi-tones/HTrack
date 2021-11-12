@@ -11,6 +11,6 @@ class DayCountWidgetSettingsStorage {
     static let shared = DayCountWidgetSettingsStorage()
     private init() {}
     
-    @AppStorage("currenWidgettUser", store: UserDefaults(suiteName: "group.flava.app.HTrack"))
+    @AppStorage("currenWidgettUser", store: UserDefaults.group)
     var currentUser: Data?
 }

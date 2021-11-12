@@ -84,7 +84,9 @@ extension MainTabBarCoordinator: MainTabBarCoordinatorFlow {
     }
     
     func showTab(index: Int) {
-        
+        guard let tabBar = modulePresenter as? MainTabBarViewController else { return }
+        guard tabBar.viewControllers?.count ?? 0 > index else { return }
+        tabBar.selectedIndex = index
     }
     
     func startAuthCoordinator(animated: Bool, showScreen: AuthCoordinator.Screens?) {

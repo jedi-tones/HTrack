@@ -11,25 +11,33 @@ import TinyConstraints
 class MainScreenInfoView: UIView {
     fileprivate var descLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Styles.Colors.myLabelColor()
+        lb.textColor = Styles.Colors.base3
         lb.font = Styles.Fonts.soyuz2
-        lb.text = """
-                  дней
-                  без
-                  алкоголя
-                  """
+        lb.text = ""
         lb.textAlignment = .left
         lb.numberOfLines = 3
+        lb.isHidden = true
         return lb
     }()
     
     fileprivate var countLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Styles.Colors.myLabelColor()
+        lb.textColor = Styles.Colors.base3
         lb.font = Styles.Fonts.soyuz3
+        lb.adjustsFontSizeToFitWidth = true
+        lb.minimumScaleFactor = 0.2
         lb.text = "0"
         lb.textAlignment = .left
+        lb.isHidden = true
         return lb
+    }()
+    
+    fileprivate var loader: UIActivityIndicatorView = {
+        let loader = UIActivityIndicatorView()
+        loader.hidesWhenStopped = true
+        loader.style = .large
+        loader.tintColor = Styles.Colors.base3
+        return loader
     }()
     
     lazy var drinkButton: BaseTextButtonWithArrow = {
@@ -70,6 +78,7 @@ class MainScreenInfoView: UIView {
         
         containerView.addSubview(stackView)
         stackView.addArrangedSubview(countLabel)
+        stackView.addArrangedSubview(loader)
         stackView.addArrangedSubview(descLabel)
         
         drinkButton.leftToSuperview(offset: Styles.Sizes.standartH2Inset)
@@ -81,6 +90,21 @@ class MainScreenInfoView: UIView {
         
         stackView.centerYToSuperview()
         stackView.leftToSuperview(offset: Styles.Sizes.standartH2Inset)
+        stackView.rightToSuperview(offset: -Styles.Sizes.standartH2Inset)
+    }
+    
+    func showLoader(isActive: Bool) {
+        DispatchQueue.main.async {[weak self] in
+            if isActive {
+                self?.countLabel.isHidden = true
+                self?.descLabel.isHidden = true
+                self?.loader.startAnimating()
+            } else {
+                self?.countLabel.isHidden = false
+                self?.descLabel.isHidden = false
+                self?.loader.stopAnimating()
+            }
+        }
     }
     
     func setup(vm: MainScreenInfoViewModel) {

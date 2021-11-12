@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         AppManager.shared.afterStart()
+        
+        for familyName in UIFont.familyNames {
+            print("\n-- \(familyName) \n")
+            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+                print(fontName)
+            }
+        }
         return true
     }
 

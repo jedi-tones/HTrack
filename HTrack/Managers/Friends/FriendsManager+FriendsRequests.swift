@@ -105,7 +105,8 @@ extension FriendsManager {
         let friendsIDS = friendsP.map({$0.userID})
         friendsRequestManager.updateStartDateInFriends(friendsIDs: friendsIDS, startDay: startDay, complition: complition)
         
-        guard let currentUser = userManager.currentUser else { return }
+        guard let currentUser = userManager.currentUser,
+              startDay.fromUNIXTimestampToDate().isToday() else { return }
         let friendsFCMs = friendsP.compactMap({$0.fcmKey})
         pushFCMManager.iDrink(to: friendsFCMs, sender: currentUser)
     }

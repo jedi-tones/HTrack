@@ -47,35 +47,25 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationIntent
 }
 
-struct DayCountWidgetEntryView : View {
-    @AppStorage("currenWidgettUser", store: UserDefaults(suiteName: "group.flava.app.HTrack"))
-    var currentUserData: Data?
-
-    var entry: Provider.Entry
-
-    var body: some View {
-        Text("my name: \(entry.currentWidgetUser.name ?? "GRADUS")")
-    }
-}
-
 @main
 struct DayCountWidget: Widget {
     let kind: String = "DayCountWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            DayCountWidgetView(widgetUser: entry.currentWidgetUser)
+        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry  in
+            return DayCountWidgetView().environmentObject(DayCountWidgetViewModel(widgetUser:entry.currentWidgetUser))
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
-        .supportedFamilies([.systemLarge,.systemMedium, .systemSmall])
+        .configurationDisplayName("Gradus days count")
+        .description("Days count widget")
+        .supportedFamilies([.systemMedium, .systemSmall])
     }
 }
 
 struct DayCountWidget_Previews: PreviewProvider {
     static var previews: some View {
         let placeholderUser = WidgetUserModel(name: "GRADUS", startDate: Date())
-        DayCountWidgetView(widgetUser: placeholderUser)
+        let vm = DayCountWidgetViewModel(widgetUser:placeholderUser)
+        DayCountWidgetView().environmentObject(vm)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

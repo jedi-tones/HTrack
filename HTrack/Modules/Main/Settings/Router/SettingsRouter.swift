@@ -14,8 +14,8 @@ class SettingsRouter: SettingsRouterInput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        guard let mainCoordinator = coordinator as? MainScreenCoordinatorFlow else { return }
+        guard let friendsCoordinator = coordinator as? FriendsCoordinatorFlow else { return }
         
-        mainCoordinator.open(screen: .main, animated: true)
+        friendsCoordinator.open(screen: .mainCountScreen, animated: false)
     }
 }

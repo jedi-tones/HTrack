@@ -14,6 +14,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
     }
     
     var needAnimationTap = false
+    var timer: Timer?
     
     lazy var nameLabel: UILabel = {
         let lb = UILabel()
@@ -64,16 +65,35 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        timer?.invalidate()
+        timer = nil
+    }
+    
     func configure(viewModel: CellViewModel?) {
         guard let viewModel = viewModel as? FriendViewModel else { return }
         
         self.viewModel = viewModel
         
         setup()
+        setupTimer()
     }
     
     func setupView() {
         backgroundColor = backColor
+    }
+    
+    func setupTimer() {
+        if timer == nil {
+            let timeInterval = TimeInterval(60)
+            timer = Timer(timeInterval: timeInterval, target: self, selector: #selector(friendCellTimerTick), userInfo: nil, repeats: true)
+            timer?.tolerance = 30
+            if let timer = timer {
+                RunLoop.main.add(timer, forMode: .common)
+            }
+        }
     }
     
     func setup() {
@@ -83,7 +103,7 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
             let friendsColorsDaysOffset = Styles.Constants.friendsColorsDaysOffset
             let daysCount = viewModel.daysCount + friendsColorsDaysOffset
             
-            self?.nameLabel.text = "@\(viewModel.name.uppercased())"
+            self?.nameLabel.text = "\(viewModel.name.uppercased())"
             self?.countLabel.text = viewModel.count
             self?.nameLabel.textColor = self?.labelColor(days: daysCount)
             self?.countLabel.textColor = self?.labelColor(days: daysCount)
@@ -122,6 +142,16 @@ class FriendCell: UICollectionViewCell, BaseCellProtocol {
         nameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         countLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+    }
+    
+    @objc func friendCellTimerTick() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        DispatchQueue.main.async {[weak self] in
+            self?.countLabel.text = viewModel.count
+        }
     }
 }
 

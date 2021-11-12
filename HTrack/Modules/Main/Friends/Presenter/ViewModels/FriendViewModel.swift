@@ -24,7 +24,9 @@ class FriendViewModel: CellViewModel {
         friend?.name ?? "Name"
     }
     var count: String {
-        friend?.startDate?.getDaysString() ?? Date().getDaysString()
+        let daysCount =  friend?.startDate?.getDayCount() ?? Date().getDayCount()
+        let stringDaysCount = daysCount.toString()
+        return LocDic.daysCount.withArguments([stringDaysCount])
     }
     
     var daysCount: Int {

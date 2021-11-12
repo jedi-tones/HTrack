@@ -44,7 +44,9 @@ extension FriendDetailPresenter: FriendDetailInteractorOutput {
         elements.forEach { element in
             switch element {
             case .title:
-                let block = FriendDetailViewModel.ViewBlock.title(title: "дней без алкоголя")
+                let dayCount = interactor.friendDayCount
+                let daysString = LocDic.daysWithoutAlcohol.withArguments([dayCount.toString()])
+                let block = FriendDetailViewModel.ViewBlock.title(title: daysString)
                 blocks.append(block)
                 
             case .counter:

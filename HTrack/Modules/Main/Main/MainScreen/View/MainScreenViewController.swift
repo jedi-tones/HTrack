@@ -77,6 +77,7 @@ extension MainScreenViewController: MainScreenViewInput {
                     text: "\(type(of: self)) - \(#function)")
 
         setupViews()
+        infoView.showLoader(isActive: true)
     }
     
     func update(vm: MainScreenInfoViewModel) {
@@ -84,6 +85,7 @@ extension MainScreenViewController: MainScreenViewInput {
                     text: "\(type(of: self)) - \(#function) vm: \(vm)")
         
         infoView.setup(vm: vm)
+        infoView.showLoader(isActive: false)
     }
 }
 

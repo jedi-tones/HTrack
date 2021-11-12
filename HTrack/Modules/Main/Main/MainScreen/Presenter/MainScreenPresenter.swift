@@ -10,7 +10,8 @@ class MainScreenPresenter {
     var interactor: MainScreenInteractorInput!
     
     var viewModel: [SectionViewModel] = []
-    
+    var timer: Timer?
+    var currentCount = 0
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -24,14 +25,33 @@ extension MainScreenPresenter: MainScreenViewOutput {
                     text: "\(type(of: self)) - \(#function)")
 
         view.setupInitialState()
-        let user = interactor.getUser()
-        updateUserStat(user: user)
+        _ = interactor.getUser()
+    }
+    
+    func setupUpdateTimer() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        if timer == nil {
+            let timeInterval = TimeInterval(60)
+            timer = Timer(timeInterval: timeInterval, target: self, selector: #selector(mainScreenTimerTick), userInfo: nil, repeats: true)
+            timer?.tolerance = 30
+            if let timer = timer {
+                RunLoop.main.add(timer, forMode: .common)
+            }
+        }
     }
     
     func drinkButtonTapped() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         interactor?.resetDrinkDate()
+    }
+    
+    @objc private func mainScreenTimerTick() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        updateMainScreen()
     }
 }
 
@@ -41,12 +61,19 @@ extension MainScreenPresenter: MainScreenInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
-        let count = String(user?.startDate?.getDayCount() ?? 0)
-        let infoVM = MainScreenInfoViewModel(title: """
-                                                    дней
-                                                    без
-                                                    алкоголя
-                                                    """,
+        currentCount = user?.startDate?.getDayCount() ?? 0
+        updateMainScreen()
+        setupUpdateTimer()
+    }
+    
+    private func updateMainScreen() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        let count = String(currentCount)
+        
+        let daysCountString = LocDic.daysWithoutAlcohol.withArguments([count]).replacingOccurrences(of: " ", with: "\n")
+        let infoVM = MainScreenInfoViewModel(title: daysCountString,
                                              count: count)
         
         view.update(vm: infoVM)

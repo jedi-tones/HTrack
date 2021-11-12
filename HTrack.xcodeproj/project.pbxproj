@@ -195,7 +195,6 @@
 		DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214EC26763DFB00A3623E /* AppDelegate.swift */; };
 		DD9214EF26763DFB00A3623E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9214EE26763DFB00A3623E /* SceneDelegate.swift */; };
 		DD9214F626763DFD00A3623E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9214F526763DFD00A3623E /* Assets.xcassets */; };
-		DD9214F926763DFD00A3623E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9214F726763DFD00A3623E /* LaunchScreen.storyboard */; };
 		DD92150126763E8F00A3623E /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92150026763E8F00A3623E /* CoordinatorProtocol.swift */; };
 		DD92150426763EC300A3623E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92150326763EC300A3623E /* Logger.swift */; };
 		DD92150626763ED800A3623E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92150526763ED800A3623E /* Date+Extension.swift */; };
@@ -216,7 +215,6 @@
 		DD92152C2677DFBA00A3623E /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92152B2677DFBA00A3623E /* Array+Extension.swift */; };
 		DD92152E2677E93000A3623E /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92152D2677E93000A3623E /* Images.swift */; };
 		DD94E7CD2724390B00678AED /* Fonts+SoyuzGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */; };
-		DD94E7CE27243BDC00678AED /* SoyuzGrotesk.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD94E7CA2724382D00678AED /* SoyuzGrotesk.otf */; };
 		DD94E7D0272447C000678AED /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7CF272447C000678AED /* UIColor.swift */; };
 		DD94E7D22725801900678AED /* FriendsInteractor+AuthListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7D12725801900678AED /* FriendsInteractor+AuthListner.swift */; };
 		DD9EAD0F2698CD8D0032B3D7 /* EmptyHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EAD0E2698CD8D0032B3D7 /* EmptyHeaderCell.swift */; };
@@ -245,7 +243,6 @@
 		DD9F615C26E64DE5009E3D39 /* SettingsButtonCell+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F615B26E64DE5009E3D39 /* SettingsButtonCell+Touches.swift */; };
 		DD9F615E26E65538009E3D39 /* BackgroudSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F615D26E65538009E3D39 /* BackgroudSectionView.swift */; };
 		DD9F616026E657B0009E3D39 /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F615F26E657B0009E3D39 /* UICollectionReusableView+Extension.swift */; };
-		DD9F616326E678B7009E3D39 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = DD9F616226E678B7009E3D39 /* Localizable.stringsdict */; };
 		DD9F616926E67F84009E3D39 /* MainScreenInteractor+UserListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F616826E67F84009E3D39 /* MainScreenInteractor+UserListner.swift */; };
 		DD9F616B26E68985009E3D39 /* MainScreenInteractor+AuthListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F616A26E68985009E3D39 /* MainScreenInteractor+AuthListner.swift */; };
 		DD9F616D26E7E72A009E3D39 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F616C26E7E72A009E3D39 /* DatePickerCell.swift */; };
@@ -275,6 +272,31 @@
 		DDEA6BE2273D72C900F3BB2D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BC8273D624A00F3BB2D /* UserDefaults+Extension.swift */; };
 		DDEA6BE5273D7B2800F3BB2D /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BE4273D7B2800F3BB2D /* WidgetManager.swift */; };
 		DDEA6BE8273D80A200F3BB2D /* DayCountWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BE6273D7CD000F3BB2D /* DayCountWidgetView.swift */; };
+		DDEA6BE9273E793D00F3BB2D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BC8273D624A00F3BB2D /* UserDefaults+Extension.swift */; };
+		DDEA6BEC273E7BA100F3BB2D /* DayCountWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BEA273E79E400F3BB2D /* DayCountWidgetViewModel.swift */; };
+		DDEA6BEE273E7E5300F3BB2D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92150526763ED800A3623E /* Date+Extension.swift */; };
+		DDEA6BF0273E812400F3BB2D /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BEF273E812400F3BB2D /* String+Localized.swift */; };
+		DDEA6BF1273E827200F3BB2D /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6BF3273E827200F3BB2D /* Localizable.stringsdict */; };
+		DDEA6BFA273E862400F3BB2D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6BFD273E862400F3BB2D /* Localizable.strings */; };
+		DDEA6BFB273E862400F3BB2D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6BFD273E862400F3BB2D /* Localizable.strings */; };
+		DDEA6BFF273E86D200F3BB2D /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6BF3273E827200F3BB2D /* Localizable.stringsdict */; };
+		DDEA6C01273E871600F3BB2D /* LocDic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C00273E871600F3BB2D /* LocDic.swift */; };
+		DDEA6C02273E871600F3BB2D /* LocDic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C00273E871600F3BB2D /* LocDic.swift */; };
+		DDEA6C04273E912000F3BB2D /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BEF273E812400F3BB2D /* String+Localized.swift */; };
+		DDEA6C07273E91EE00F3BB2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6C05273E91EE00F3BB2D /* LaunchScreen.storyboard */; };
+		DDEA6C08273E91EE00F3BB2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6C05273E91EE00F3BB2D /* LaunchScreen.storyboard */; };
+		DDEA6C0B273E92AC00F3BB2D /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C0A273E92AC00F3BB2D /* Int+Extension.swift */; };
+		DDEA6C0C273E92AC00F3BB2D /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C0A273E92AC00F3BB2D /* Int+Extension.swift */; };
+		DDEA6C0E273E9BF400F3BB2D /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59F74A26B5B04700CA8179 /* Styles.swift */; };
+		DDEA6C0F273E9BF700F3BB2D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9215212677D7C800A3623E /* Colors.swift */; };
+		DDEA6C12273E9BFE00F3BB2D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9215262677D99D00A3623E /* Fonts.swift */; };
+		DDEA6C13273E9C0100F3BB2D /* Fonts+Avenir.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA0A72708A2E400FC0382 /* Fonts+Avenir.swift */; };
+		DDEA6C14273E9C0400F3BB2D /* Fonts+SoyuzGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */; };
+		DDEA6C16273E9C4700F3BB2D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92150326763EC300A3623E /* Logger.swift */; };
+		DDEA6C17273E9C5100F3BB2D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94E7CF272447C000678AED /* UIColor.swift */; };
+		DDEA6C19273E9CB500F3BB2D /* Sizes+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C18273E9CB500F3BB2D /* Sizes+Extension.swift */; };
+		DDEA6C1E273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6C1D273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf */; };
+		DDEA6C20273E9EAD00F3BB2D /* Soyuz Grotesk Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6C1F273E9EAD00F3BB2D /* Soyuz Grotesk Bold.otf */; };
 		E14B64B9A2AFB6AD64291F1D /* InputRequestsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11ABB6D0F7BB0AEFC622 /* InputRequestsPresenter.swift */; };
 		E1560B40513E728EEAD06A5B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931C55A79037676521FC968 /* SettingsRouter.swift */; };
 		E791506092A3252CB263145A /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F339803F883491C41641E /* MainScreenInteractor.swift */; };
@@ -519,7 +541,6 @@
 		DD9214EC26763DFB00A3623E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD9214EE26763DFB00A3623E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DD9214F526763DFD00A3623E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DD9214F826763DFD00A3623E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD9214FA26763DFD00A3623E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD92150026763E8F00A3623E /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		DD92150326763EC300A3623E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -540,7 +561,6 @@
 		DD9215282677DEB100A3623E /* MainTabBarTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarTabs.swift; sourceTree = "<group>"; };
 		DD92152B2677DFBA00A3623E /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		DD92152D2677E93000A3623E /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		DD94E7CA2724382D00678AED /* SoyuzGrotesk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoyuzGrotesk.otf; sourceTree = "<group>"; };
 		DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+SoyuzGrotesk.swift"; sourceTree = "<group>"; };
 		DD94E7CF272447C000678AED /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		DD94E7D12725801900678AED /* FriendsInteractor+AuthListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsInteractor+AuthListner.swift"; sourceTree = "<group>"; };
@@ -570,7 +590,6 @@
 		DD9F615B26E64DE5009E3D39 /* SettingsButtonCell+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsButtonCell+Touches.swift"; sourceTree = "<group>"; };
 		DD9F615D26E65538009E3D39 /* BackgroudSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroudSectionView.swift; sourceTree = "<group>"; };
 		DD9F615F26E657B0009E3D39 /* UICollectionReusableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extension.swift"; sourceTree = "<group>"; };
-		DD9F616226E678B7009E3D39 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		DD9F616826E67F84009E3D39 /* MainScreenInteractor+UserListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenInteractor+UserListner.swift"; sourceTree = "<group>"; };
 		DD9F616A26E68985009E3D39 /* MainScreenInteractor+AuthListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenInteractor+AuthListner.swift"; sourceTree = "<group>"; };
 		DD9F616C26E7E72A009E3D39 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
@@ -603,6 +622,19 @@
 		DDEA6BDE273D6FE000F3BB2D /* WidgetUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUserModel.swift; sourceTree = "<group>"; };
 		DDEA6BE4273D7B2800F3BB2D /* WidgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetManager.swift; sourceTree = "<group>"; };
 		DDEA6BE6273D7CD000F3BB2D /* DayCountWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCountWidgetView.swift; sourceTree = "<group>"; };
+		DDEA6BEA273E79E400F3BB2D /* DayCountWidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCountWidgetViewModel.swift; sourceTree = "<group>"; };
+		DDEA6BEF273E812400F3BB2D /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		DDEA6BF2273E827200F3BB2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		DDEA6BF5273E849600F3BB2D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		DDEA6BFC273E862400F3BB2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDEA6BFE273E862600F3BB2D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDEA6C00273E871600F3BB2D /* LocDic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocDic.swift; sourceTree = "<group>"; };
+		DDEA6C06273E91EE00F3BB2D /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = HTrack/ru.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		DDEA6C09273E91FA00F3BB2D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = ../en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDEA6C0A273E92AC00F3BB2D /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		DDEA6C18273E9CB500F3BB2D /* Sizes+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sizes+Extension.swift"; sourceTree = "<group>"; };
+		DDEA6C1D273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Soyuz Grotesk Bold.otf"; sourceTree = "<group>"; };
+		DDEA6C1F273E9EAD00F3BB2D /* Soyuz Grotesk Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Soyuz Grotesk Bold.otf"; sourceTree = "<group>"; };
 		E2DF7355EF3EBC57DA24544F /* AuthInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
 		ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
@@ -1631,8 +1663,7 @@
 				DD9215232677D8D200A3623E /* Styles */,
 				DD94E7CB2724383600678AED /* Fonts */,
 				DD9214F526763DFD00A3623E /* Assets.xcassets */,
-				DD9214F726763DFD00A3623E /* LaunchScreen.storyboard */,
-				DD9F616226E678B7009E3D39 /* Localizable.stringsdict */,
+				DDEA6C03273E872500F3BB2D /* Localize */,
 				DD9214FA26763DFD00A3623E /* Info.plist */,
 				DD59F76726B6FE8800CA8179 /* GoogleService-Info.plist */,
 			);
@@ -1661,8 +1692,10 @@
 				DD92150526763ED800A3623E /* Date+Extension.swift */,
 				FBAF501927137DE5003CF510 /* Double+Extension.swift */,
 				DD92152B2677DFBA00A3623E /* Array+Extension.swift */,
+				DDEA6C0A273E92AC00F3BB2D /* Int+Extension.swift */,
 				FB6B9D4C26BAD1D60050690F /* Bool+Extension.swift */,
 				FBDCF1FC2711F98F006188E8 /* String+Extension.swift */,
+				DDEA6BEF273E812400F3BB2D /* String+Localized.swift */,
 				FBDCF1FA2711F951006188E8 /* Encodable+Extension.swift */,
 				FBDCF1FE2711FA82006188E8 /* JSONEncoder+Extension.swift */,
 				FBDCF2002711FB97006188E8 /* Dictionary+ToObject.swift */,
@@ -1731,6 +1764,7 @@
 				DD9215212677D7C800A3623E /* Colors.swift */,
 				DD59F74826B5B01400CA8179 /* Constants.swift */,
 				DD9215242677D99400A3623E /* Sizes.swift */,
+				DDEA6C18273E9CB500F3BB2D /* Sizes+Extension.swift */,
 				DD9215262677D99D00A3623E /* Fonts.swift */,
 				DD2FA0A72708A2E400FC0382 /* Fonts+Avenir.swift */,
 				DD94E7CC2724390B00678AED /* Fonts+SoyuzGrotesk.swift */,
@@ -1764,7 +1798,7 @@
 		DD94E7CB2724383600678AED /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				DD94E7CA2724382D00678AED /* SoyuzGrotesk.otf */,
+				DDEA6C1F273E9EAD00F3BB2D /* Soyuz Grotesk Bold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1890,14 +1924,43 @@
 		DDEA6BB8273D58D900F3BB2D /* DayCountWidget */ = {
 			isa = PBXGroup;
 			children = (
+				DDEA6BED273E7CBF00F3BB2D /* DayCountWidgetView */,
+				DDEA6C1C273E9E0000F3BB2D /* Fonts */,
 				DDEA6BB9273D58D900F3BB2D /* DayCountWidget.swift */,
-				DDEA6BE6273D7CD000F3BB2D /* DayCountWidgetView.swift */,
 				DDEA6BD9273D69AD00F3BB2D /* DayCountWidgetSettings.swift */,
 				DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */,
 				DDEA6BBC273D58DA00F3BB2D /* Assets.xcassets */,
 				DDEA6BBE273D58DA00F3BB2D /* Info.plist */,
 			);
 			path = DayCountWidget;
+			sourceTree = "<group>";
+		};
+		DDEA6BED273E7CBF00F3BB2D /* DayCountWidgetView */ = {
+			isa = PBXGroup;
+			children = (
+				DDEA6BE6273D7CD000F3BB2D /* DayCountWidgetView.swift */,
+				DDEA6BEA273E79E400F3BB2D /* DayCountWidgetViewModel.swift */,
+			);
+			path = DayCountWidgetView;
+			sourceTree = "<group>";
+		};
+		DDEA6C03273E872500F3BB2D /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				DDEA6C05273E91EE00F3BB2D /* LaunchScreen.storyboard */,
+				DDEA6BF3273E827200F3BB2D /* Localizable.stringsdict */,
+				DDEA6BFD273E862400F3BB2D /* Localizable.strings */,
+				DDEA6C00273E871600F3BB2D /* LocDic.swift */,
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
+		DDEA6C1C273E9E0000F3BB2D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DDEA6C1D273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E06F00746F12380DE362E097 /* Router */ = {
@@ -2209,7 +2272,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = DD9214E026763DFB00A3623E;
 			packageReferences = (
@@ -2233,10 +2296,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD9214F926763DFD00A3623E /* LaunchScreen.storyboard in Resources */,
-				DD94E7CE27243BDC00678AED /* SoyuzGrotesk.otf in Resources */,
-				DD9F616326E678B7009E3D39 /* Localizable.stringsdict in Resources */,
+				DDEA6BFA273E862400F3BB2D /* Localizable.strings in Resources */,
+				DDEA6BF1273E827200F3BB2D /* Localizable.stringsdict in Resources */,
+				DDEA6C07273E91EE00F3BB2D /* LaunchScreen.storyboard in Resources */,
 				DD9214F626763DFD00A3623E /* Assets.xcassets in Resources */,
+				DDEA6C20273E9EAD00F3BB2D /* Soyuz Grotesk Bold.otf in Resources */,
 				DD59F76826B6FE8800CA8179 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2253,6 +2317,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDEA6BBD273D58DA00F3BB2D /* Assets.xcassets in Resources */,
+				DDEA6C1E273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf in Resources */,
+				DDEA6C08273E91EE00F3BB2D /* LaunchScreen.storyboard in Resources */,
+				DDEA6BFB273E862400F3BB2D /* Localizable.strings in Resources */,
+				DDEA6BFF273E86D200F3BB2D /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2370,6 +2438,7 @@
 				AF127BC8E928D8FE8A2492AB /* AuthProtocols.swift in Sources */,
 				DD3FBCCF26EE1B76002591A6 /* TextHeaderWithCounterViewModel.swift in Sources */,
 				DD9215272677D99D00A3623E /* Fonts.swift in Sources */,
+				DDEA6C19273E9CB500F3BB2D /* Sizes+Extension.swift in Sources */,
 				DD9F616B26E68985009E3D39 /* MainScreenInteractor+AuthListner.swift in Sources */,
 				FB6B9D4326B96E6A0050690F /* TextFiledWithError+Set.swift in Sources */,
 				DD2FA0B62708E3FB00FC0382 /* FriendOutputRequestViewModel.swift in Sources */,
@@ -2380,6 +2449,7 @@
 				509A7B54583ABC5E21750DA0 /* WelcomeViewController.swift in Sources */,
 				DD68699C2729A29500C0A590 /* InputRequestSection.swift in Sources */,
 				FBDCF2012711FB97006188E8 /* Dictionary+ToObject.swift in Sources */,
+				DDEA6C0B273E92AC00F3BB2D /* Int+Extension.swift in Sources */,
 				DD9F613D26E2A8CC009E3D39 /* MainTabBarInteractor+FirebaseAuth.swift in Sources */,
 				DD59F74B26B5B04700CA8179 /* Styles.swift in Sources */,
 				9DA4C5F02320430EEBB2A568 /* WelcomePresenter.swift in Sources */,
@@ -2529,8 +2599,10 @@
 				9684E2E5FCD1C99A235565CD /* FriendsCollectionModule.swift in Sources */,
 				DB2EDA1949D630D47C1CF97C /* InputRequestsViewController.swift in Sources */,
 				E14B64B9A2AFB6AD64291F1D /* InputRequestsPresenter.swift in Sources */,
+				DDEA6BF0273E812400F3BB2D /* String+Localized.swift in Sources */,
 				2A58348392E6877252810015 /* InputRequestsInteractor.swift in Sources */,
 				609A54F4736D869028EEEE11 /* InputRequestsRouter.swift in Sources */,
+				DDEA6C01273E871600F3BB2D /* LocDic.swift in Sources */,
 				1E1C515B719539E585471022 /* InputRequestsBuilder.swift in Sources */,
 				A6D3B1657D801EA6F737AA44 /* InputRequestsProtocols.swift in Sources */,
 				B03802C4F3E7838A60ACB05E /* InputRequestsModule.swift in Sources */,
@@ -2551,11 +2623,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDEA6C12273E9BFE00F3BB2D /* Fonts.swift in Sources */,
+				DDEA6C17273E9C5100F3BB2D /* UIColor.swift in Sources */,
 				DDEA6BBA273D58D900F3BB2D /* DayCountWidget.swift in Sources */,
 				DDEA6BE0273D720D00F3BB2D /* WidgetUserModel.swift in Sources */,
 				DDEA6BE8273D80A200F3BB2D /* DayCountWidgetView.swift in Sources */,
+				DDEA6C0E273E9BF400F3BB2D /* Styles.swift in Sources */,
+				DDEA6C14273E9C0400F3BB2D /* Fonts+SoyuzGrotesk.swift in Sources */,
 				DDEA6BBF273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */,
+				DDEA6C04273E912000F3BB2D /* String+Localized.swift in Sources */,
+				DDEA6C0C273E92AC00F3BB2D /* Int+Extension.swift in Sources */,
+				DDEA6BE9273E793D00F3BB2D /* UserDefaults+Extension.swift in Sources */,
+				DDEA6C13273E9C0100F3BB2D /* Fonts+Avenir.swift in Sources */,
+				DDEA6C0F273E9BF700F3BB2D /* Colors.swift in Sources */,
+				DDEA6C02273E871600F3BB2D /* LocDic.swift in Sources */,
+				DDEA6C16273E9C4700F3BB2D /* Logger.swift in Sources */,
+				DDEA6BEE273E7E5300F3BB2D /* Date+Extension.swift in Sources */,
 				DDEA6BDB273D6C7200F3BB2D /* DayCountWidgetSettings.swift in Sources */,
+				DDEA6BEC273E7BA100F3BB2D /* DayCountWidgetViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2576,10 +2661,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DD9214F726763DFD00A3623E /* LaunchScreen.storyboard */ = {
+		DDEA6BF3273E827200F3BB2D /* Localizable.stringsdict */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DD9214F826763DFD00A3623E /* Base */,
+				DDEA6BF2273E827200F3BB2D /* en */,
+				DDEA6BF5273E849600F3BB2D /* ru */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+		DDEA6BFD273E862400F3BB2D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDEA6BFC273E862400F3BB2D /* en */,
+				DDEA6BFE273E862600F3BB2D /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DDEA6C05273E91EE00F3BB2D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDEA6C06273E91EE00F3BB2D /* ru */,
+				DDEA6C09273E91FA00F3BB2D /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2591,6 +2695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2652,6 +2757,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

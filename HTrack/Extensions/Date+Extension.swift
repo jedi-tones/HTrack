@@ -128,4 +128,8 @@ extension Date {
         let day = components.day ?? 0
         return day
     }
+    
+    func isToday() -> Bool {
+        Calendar.current.isDateInToday(self)
+    }
 }

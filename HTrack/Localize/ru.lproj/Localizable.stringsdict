@@ -2,11 +2,59 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>days</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@key@</string>
+		<key>key</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>дней</string>
+			<key>one</key>
+			<string>день</string>
+			<key>two</key>
+			<string>дня</string>
+			<key>few</key>
+			<string>дня</string>
+			<key>many</key>
+			<string>дней</string>
+			<key>other</key>
+			<string>дня</string>
+		</dict>
+	</dict>
+	<key>daysWithoutAlcohol</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@key@</string>
+		<key>key</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>дней без алкоголя</string>
+			<key>one</key>
+			<string>день без алкоголя</string>
+			<key>two</key>
+			<string>дня без алкоголя</string>
+			<key>few</key>
+			<string>дня без алкоголя</string>
+			<key>many</key>
+			<string>дней без алкоголя</string>
+			<key>other</key>
+			<string>дня без алкоголя</string>
+		</dict>
+	</dict>
 	<key>yearsCount</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@VARIABLE@</string>
-		<key>VARIABLE</key>
+		<string>%#@key@</string>
+		<key>key</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
@@ -29,8 +77,8 @@
 	<key>monthCount</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@VARIABLE@</string>
-		<key>VARIABLE</key>
+		<string>%#@key@</string>
+		<key>key</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
@@ -53,13 +101,13 @@
 	<key>daysCount</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@VARIABLE@</string>
-		<key>VARIABLE</key>
+		<string>%#@key@</string>
+		<key>key</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string></string>
+			<string>d</string>
 			<key>zero</key>
 			<string>%d дней</string>
 			<key>one</key>
@@ -77,8 +125,8 @@
 	<key>hoursCount</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@VARIABLE@</string>
-		<key>VARIABLE</key>
+		<string>%#@key@</string>
+		<key>key</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
@@ -101,8 +149,8 @@
 	<key>minCount</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@VARIABLE@</string>
-		<key>VARIABLE</key>
+		<string>%#@key@</string>
+		<key>key</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
@@ -125,8 +173,8 @@
 	<key>secCount</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@VARIABLE@</string>
-		<key>VARIABLE</key>
+		<string>%#@key@</string>
+		<key>key</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>

@@ -27,6 +27,10 @@ class RegisterViewController: UIViewController {
                 self?.setupState(state: .notChecked)
             }
         }
+        tf.endEditingAction = {[weak self] textField in
+            let oldText = textField.text
+            textField.text = self?.getFormattedNickname(text: oldText)
+        }
         return tf
     }()
     
@@ -144,6 +148,10 @@ extension RegisterViewController {
         nextButton.left(to: nicknameInput)
         nextButton.right(to: nicknameInput)
         nextButton.topToBottom(of: nicknameInput, offset: Styles.Sizes.standartV2Inset)
+    }
+    
+    fileprivate func getFormattedNickname(text: String?) -> String? {
+        text?.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "").uppercased()
     }
     
     fileprivate func updateLayoutToState(state: RegisterViewControllerState) {

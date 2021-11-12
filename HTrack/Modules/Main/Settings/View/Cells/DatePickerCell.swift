@@ -25,6 +25,7 @@ class DatePickerCell: UICollectionViewCell, BaseCellProtocol {
         picker.datePickerMode = .date
         picker.preferredDatePickerStyle = .compact
         picker.maximumDate = Date()
+        picker.minimumDate = Calendar.current.date(byAdding: .year, value: -50, to: Date())
         picker.addTarget(self, action: #selector(updateDate(sender:)), for: .valueChanged)
         picker.alpha = 0
         picker.tintColor = pickerTintColor

@@ -25,6 +25,7 @@ class FriendsCoordinator: CoordinatorProtocol {
         case settings
         case addFriend
         case friendDetail(friend: MUser?, inputRequest: MRequestUser?)
+        case mainCountScreen
     }
     
     init(modulePresenter: Presentable) {
@@ -67,6 +68,9 @@ extension FriendsCoordinator: FriendsCoordinatorFlow {
             showFriendDetailScreen(friend: friend,
                                    inputRequest: inputRequest,
                                    animated: animated)
+        case .mainCountScreen:
+            showMainCountScreen(animated: animated)
+
         }
     }
     
@@ -90,6 +94,14 @@ extension FriendsCoordinator: FriendsCoordinatorFlow {
                 navController.setViewControllers([module.controller], animated: animated)
             }
         }
+    }
+    
+    func showMainCountScreen(animated: Bool) {
+        Logger.show(title: "Coordinator",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        showMainScreen(animated: animated)
+        parentMainTabBar?.showTab(index: 0)
     }
     
     func showProfileSettings(animated: Bool) {

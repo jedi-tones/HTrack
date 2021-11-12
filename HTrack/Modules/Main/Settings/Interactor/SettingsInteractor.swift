@@ -48,7 +48,7 @@ extension SettingsInteractor: SettingsInteractorInput {
                     text: "\(type(of: self)) - \(#function)")
         
         do {
-           try appManager.logOut()
+            try appManager.logOut()
             output.logOutSuccess()
         } catch {
             Logger.show(title: "Module",

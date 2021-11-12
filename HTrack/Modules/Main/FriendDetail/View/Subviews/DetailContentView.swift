@@ -59,6 +59,8 @@ class DetailContentView: UIScrollView, ScrollableContent {
         let c = UILabel()
         c.text = "0"
         c.textColor = counterColor
+        c.adjustsFontSizeToFitWidth = true
+        c.minimumScaleFactor = 0.2
         c.font = Styles.Fonts.soyuz3
         c.textAlignment = .center
         return c
