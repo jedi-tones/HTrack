@@ -96,7 +96,7 @@ extension FriendsViewController {
                                                               left: Styles.Sizes.standartHInset,
                                                               bottom: .zero,
                                                               right: Styles.Sizes.standartHInset),
-                                       usingSafeArea: false)
+                                       usingSafeArea: true)
     
         addFriendButton.height(Styles.Sizes.baseButtonHeight)
     }

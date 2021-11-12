@@ -256,6 +256,25 @@
 		DDBEFEC527274019006276F3 /* FriendsInputRequestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBEFEC427274019006276F3 /* FriendsInputRequestElement.swift */; };
 		DDBEFEC7272740FD006276F3 /* FriendRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBEFEC6272740FD006276F3 /* FriendRequestViewModel.swift */; };
 		DDE003712720B2AF00EED493 /* FriendsManager+FriendsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE003702720B2AF00EED493 /* FriendsManager+FriendsRequests.swift */; };
+		DDEA6BA6273D56ED00F3BB2D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BA5273D56ED00F3BB2D /* NotificationService.swift */; };
+		DDEA6BAA273D56ED00F3BB2D /* NotificationServiceExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DDEA6BA3273D56ED00F3BB2D /* NotificationServiceExt.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DDEA6BB5273D58D900F3BB2D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEA6BB4273D58D900F3BB2D /* WidgetKit.framework */; };
+		DDEA6BB7273D58D900F3BB2D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEA6BB6273D58D900F3BB2D /* SwiftUI.framework */; };
+		DDEA6BBA273D58D900F3BB2D /* DayCountWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BB9273D58D900F3BB2D /* DayCountWidget.swift */; };
+		DDEA6BBD273D58DA00F3BB2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6BBC273D58DA00F3BB2D /* Assets.xcassets */; };
+		DDEA6BBF273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */; };
+		DDEA6BC0273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */; };
+		DDEA6BC3273D58DA00F3BB2D /* DayCountWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DDEA6BB3273D58D900F3BB2D /* DayCountWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DDEA6BC9273D624A00F3BB2D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BC8273D624A00F3BB2D /* UserDefaults+Extension.swift */; };
+		DDEA6BCE273D62D900F3BB2D /* UserDefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BCD273D62D900F3BB2D /* UserDefaultValue.swift */; };
+		DDEA6BD2273D630400F3BB2D /* GroupUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BD1273D630400F3BB2D /* GroupUserDefault.swift */; };
+		DDEA6BD8273D65DD00F3BB2D /* NotificationServiceSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BD7273D65DD00F3BB2D /* NotificationServiceSettingsManager.swift */; };
+		DDEA6BDB273D6C7200F3BB2D /* DayCountWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BD9273D69AD00F3BB2D /* DayCountWidgetSettings.swift */; };
+		DDEA6BDF273D6FE000F3BB2D /* WidgetUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BDE273D6FE000F3BB2D /* WidgetUserModel.swift */; };
+		DDEA6BE0273D720D00F3BB2D /* WidgetUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BDE273D6FE000F3BB2D /* WidgetUserModel.swift */; };
+		DDEA6BE2273D72C900F3BB2D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BC8273D624A00F3BB2D /* UserDefaults+Extension.swift */; };
+		DDEA6BE5273D7B2800F3BB2D /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BE4273D7B2800F3BB2D /* WidgetManager.swift */; };
+		DDEA6BE8273D80A200F3BB2D /* DayCountWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BE6273D7CD000F3BB2D /* DayCountWidgetView.swift */; };
 		E14B64B9A2AFB6AD64291F1D /* InputRequestsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11ABB6D0F7BB0AEFC622 /* InputRequestsPresenter.swift */; };
 		E1560B40513E728EEAD06A5B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931C55A79037676521FC968 /* SettingsRouter.swift */; };
 		E791506092A3252CB263145A /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F339803F883491C41641E /* MainScreenInteractor.swift */; };
@@ -286,6 +305,38 @@
 		FBDCF2012711FB97006188E8 /* Dictionary+ToObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCF2002711FB97006188E8 /* Dictionary+ToObject.swift */; };
 		FF3E6DA1662DD18D6ECB3C84 /* FriendDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E107C4322513D027960E63 /* FriendDetailRouter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDEA6BA8273D56ED00F3BB2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD9214E126763DFB00A3623E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDEA6BA2273D56ED00F3BB2D;
+			remoteInfo = NotificationServiceExt;
+		};
+		DDEA6BC1273D58DA00F3BB2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD9214E126763DFB00A3623E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDEA6BB2273D58D900F3BB2D;
+			remoteInfo = DayCountWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DDEA6B9B273D569300F3BB2D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DDEA6BAA273D56ED00F3BB2D /* NotificationServiceExt.appex in Embed App Extensions */,
+				DDEA6BC3273D58DA00F3BB2D /* DayCountWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E3A3EE2C52C04ECFA0ED44 /* FriendDetailModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FriendDetailModule.swift; sourceTree = "<group>"; };
@@ -530,6 +581,28 @@
 		DDBEFEC427274019006276F3 /* FriendsInputRequestElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInputRequestElement.swift; sourceTree = "<group>"; };
 		DDBEFEC6272740FD006276F3 /* FriendRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestViewModel.swift; sourceTree = "<group>"; };
 		DDE003702720B2AF00EED493 /* FriendsManager+FriendsRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsManager+FriendsRequests.swift"; sourceTree = "<group>"; };
+		DDEA6B8D273D569300F3BB2D /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		DDEA6B8F273D569300F3BB2D /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		DDEA6BA3273D56ED00F3BB2D /* NotificationServiceExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDEA6BA5273D56ED00F3BB2D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		DDEA6BA7273D56ED00F3BB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEA6BAE273D570700F3BB2D /* NotificationServiceExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExt.entitlements; sourceTree = "<group>"; };
+		DDEA6BB3273D58D900F3BB2D /* DayCountWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DayCountWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDEA6BB4273D58D900F3BB2D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DDEA6BB6273D58D900F3BB2D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		DDEA6BB9273D58D900F3BB2D /* DayCountWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCountWidget.swift; sourceTree = "<group>"; };
+		DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DayCountWidget.intentdefinition; sourceTree = "<group>"; };
+		DDEA6BBC273D58DA00F3BB2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDEA6BBE273D58DA00F3BB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEA6BC7273D5AFC00F3BB2D /* DayCountWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayCountWidgetExtension.entitlements; sourceTree = "<group>"; };
+		DDEA6BC8273D624A00F3BB2D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		DDEA6BCD273D62D900F3BB2D /* UserDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultValue.swift; sourceTree = "<group>"; };
+		DDEA6BD1273D630400F3BB2D /* GroupUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUserDefault.swift; sourceTree = "<group>"; };
+		DDEA6BD7273D65DD00F3BB2D /* NotificationServiceSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceSettingsManager.swift; sourceTree = "<group>"; };
+		DDEA6BD9273D69AD00F3BB2D /* DayCountWidgetSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCountWidgetSettings.swift; sourceTree = "<group>"; };
+		DDEA6BDE273D6FE000F3BB2D /* WidgetUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUserModel.swift; sourceTree = "<group>"; };
+		DDEA6BE4273D7B2800F3BB2D /* WidgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetManager.swift; sourceTree = "<group>"; };
+		DDEA6BE6273D7CD000F3BB2D /* DayCountWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCountWidgetView.swift; sourceTree = "<group>"; };
 		E2DF7355EF3EBC57DA24544F /* AuthInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
 		ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
@@ -576,6 +649,22 @@
 				DD1E54CD26F66C1000CB4903 /* FirebaseStorage in Frameworks */,
 				DD1E54C926F66C1000CB4903 /* FirebaseAnalytics in Frameworks */,
 				DD1E54D126F66C1000CB4903 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEA6BA0273D56ED00F3BB2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEA6BB0273D58D900F3BB2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDEA6BB7273D58D900F3BB2D /* SwiftUI.framework in Frameworks */,
+				DDEA6BB5273D58D900F3BB2D /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1353,6 +1442,7 @@
 				DD5F63EB267FA773002131FD /* SectionViewModel.swift */,
 				DD5F63EE267FA85B002131FD /* CellViewModel.swift */,
 				DD5F63F0267FAC41002131FD /* BaseCellProtocol.swift */,
+				DDEA6BDE273D6FE000F3BB2D /* WidgetUserModel.swift */,
 				DD6869882728882800C0A590 /* UserNotification */,
 			);
 			path = Models;
@@ -1399,7 +1489,9 @@
 			isa = PBXGroup;
 			children = (
 				DD68697427287EF200C0A590 /* UserDefault.swift */,
+				DDEA6BD1273D630400F3BB2D /* GroupUserDefault.swift */,
 				DD68697627287F8C00C0A590 /* UserDefaultKey.swift */,
+				DDEA6BCD273D62D900F3BB2D /* UserDefaultValue.swift */,
 			);
 			path = UserDefault;
 			sourceTree = "<group>";
@@ -1502,7 +1594,11 @@
 		DD9214E026763DFB00A3623E = {
 			isa = PBXGroup;
 			children = (
+				DDEA6BC7273D5AFC00F3BB2D /* DayCountWidgetExtension.entitlements */,
 				DD9214EB26763DFB00A3623E /* HTrack */,
+				DDEA6BA4273D56ED00F3BB2D /* NotificationServiceExt */,
+				DDEA6BB8273D58D900F3BB2D /* DayCountWidget */,
+				DDEA6B8C273D569300F3BB2D /* Frameworks */,
 				DD9214EA26763DFB00A3623E /* Products */,
 				1D3ABFE15F188BB251539911 /* NewModules */,
 			);
@@ -1512,6 +1608,8 @@
 			isa = PBXGroup;
 			children = (
 				DD9214E926763DFB00A3623E /* HTrack.app */,
+				DDEA6BA3273D56ED00F3BB2D /* NotificationServiceExt.appex */,
+				DDEA6BB3273D58D900F3BB2D /* DayCountWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1569,6 +1667,7 @@
 				FBDCF1FE2711FA82006188E8 /* JSONEncoder+Extension.swift */,
 				FBDCF2002711FB97006188E8 /* Dictionary+ToObject.swift */,
 				DD68698D27288FD700C0A590 /* UNNotificationAttachment+Extension.swift */,
+				DDEA6BC8273D624A00F3BB2D /* UserDefaults+Extension.swift */,
 				DD9215202677D6EE00A3623E /* UIKit */,
 			);
 			path = Extensions;
@@ -1692,6 +1791,7 @@
 				FBAF501327131D84003CF510 /* Firestore */,
 				DD6BD70D26F90981006369BB /* PopUpManager.swift */,
 				DD6869792728818A00C0A590 /* SettingsStorage.swift */,
+				DDEA6BE4273D7B2800F3BB2D /* WidgetManager.swift */,
 				DD6869932728A12300C0A590 /* PushNotification */,
 				DD6869812728859F00C0A590 /* DeeplinkManager */,
 				DD68697827287F9D00C0A590 /* UserDefault */,
@@ -1763,6 +1863,41 @@
 				AE809CA9CD0597ADD36E0F25 /* RegisterInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DDEA6B8C273D569300F3BB2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DDEA6B8D273D569300F3BB2D /* UserNotifications.framework */,
+				DDEA6B8F273D569300F3BB2D /* UserNotificationsUI.framework */,
+				DDEA6BB4273D58D900F3BB2D /* WidgetKit.framework */,
+				DDEA6BB6273D58D900F3BB2D /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDEA6BA4273D56ED00F3BB2D /* NotificationServiceExt */ = {
+			isa = PBXGroup;
+			children = (
+				DDEA6BAE273D570700F3BB2D /* NotificationServiceExt.entitlements */,
+				DDEA6BA5273D56ED00F3BB2D /* NotificationService.swift */,
+				DDEA6BD7273D65DD00F3BB2D /* NotificationServiceSettingsManager.swift */,
+				DDEA6BA7273D56ED00F3BB2D /* Info.plist */,
+			);
+			path = NotificationServiceExt;
+			sourceTree = "<group>";
+		};
+		DDEA6BB8273D58D900F3BB2D /* DayCountWidget */ = {
+			isa = PBXGroup;
+			children = (
+				DDEA6BB9273D58D900F3BB2D /* DayCountWidget.swift */,
+				DDEA6BE6273D7CD000F3BB2D /* DayCountWidgetView.swift */,
+				DDEA6BD9273D69AD00F3BB2D /* DayCountWidgetSettings.swift */,
+				DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */,
+				DDEA6BBC273D58DA00F3BB2D /* Assets.xcassets */,
+				DDEA6BBE273D58DA00F3BB2D /* Info.plist */,
+			);
+			path = DayCountWidget;
 			sourceTree = "<group>";
 		};
 		E06F00746F12380DE362E097 /* Router */ = {
@@ -1991,10 +2126,13 @@
 				DD9214E526763DFB00A3623E /* Sources */,
 				DD9214E626763DFB00A3623E /* Frameworks */,
 				DD9214E726763DFB00A3623E /* Resources */,
+				DDEA6B9B273D569300F3BB2D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DDEA6BA9273D56ED00F3BB2D /* PBXTargetDependency */,
+				DDEA6BC2273D58DA00F3BB2D /* PBXTargetDependency */,
 			);
 			name = HTrack;
 			packageProductDependencies = (
@@ -2011,17 +2149,57 @@
 			productReference = DD9214E926763DFB00A3623E /* HTrack.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DDEA6BA2273D56ED00F3BB2D /* NotificationServiceExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEA6BAB273D56ED00F3BB2D /* Build configuration list for PBXNativeTarget "NotificationServiceExt" */;
+			buildPhases = (
+				DDEA6B9F273D56ED00F3BB2D /* Sources */,
+				DDEA6BA0273D56ED00F3BB2D /* Frameworks */,
+				DDEA6BA1273D56ED00F3BB2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationServiceExt;
+			productName = NotificationServiceExt;
+			productReference = DDEA6BA3273D56ED00F3BB2D /* NotificationServiceExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DDEA6BB2273D58D900F3BB2D /* DayCountWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEA6BC4273D58DA00F3BB2D /* Build configuration list for PBXNativeTarget "DayCountWidgetExtension" */;
+			buildPhases = (
+				DDEA6BAF273D58D900F3BB2D /* Sources */,
+				DDEA6BB0273D58D900F3BB2D /* Frameworks */,
+				DDEA6BB1273D58D900F3BB2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DayCountWidgetExtension;
+			productName = DayCountWidgetExtension;
+			productReference = DDEA6BB3273D58D900F3BB2D /* DayCountWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		DD9214E126763DFB00A3623E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					DD9214E826763DFB00A3623E = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					DDEA6BA2273D56ED00F3BB2D = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					DDEA6BB2273D58D900F3BB2D = {
+						CreatedOnToolsVersion = 13.1;
 					};
 				};
 			};
@@ -2044,6 +2222,8 @@
 			projectRoot = "";
 			targets = (
 				DD9214E826763DFB00A3623E /* HTrack */,
+				DDEA6BA2273D56ED00F3BB2D /* NotificationServiceExt */,
+				DDEA6BB2273D58D900F3BB2D /* DayCountWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -2058,6 +2238,21 @@
 				DD9F616326E678B7009E3D39 /* Localizable.stringsdict in Resources */,
 				DD9214F626763DFD00A3623E /* Assets.xcassets in Resources */,
 				DD59F76826B6FE8800CA8179 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEA6BA1273D56ED00F3BB2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEA6BB1273D58D900F3BB2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDEA6BBD273D58DA00F3BB2D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2078,6 +2273,7 @@
 				DD68697C2728845800C0A590 /* PushNotificationManager.swift in Sources */,
 				DD9215222677D7C800A3623E /* Colors.swift in Sources */,
 				DD59F76C26B734C000CA8179 /* MUser.swift in Sources */,
+				DDEA6BCE273D62D900F3BB2D /* UserDefaultValue.swift in Sources */,
 				DD9EAD192699BE8B0032B3D7 /* NetworkService.swift in Sources */,
 				DD59F76626B6FD3400CA8179 /* AuthError.swift in Sources */,
 				DD9F613926E0E8C7009E3D39 /* UserManager+Check.swift in Sources */,
@@ -2155,6 +2351,7 @@
 				DD9EAD152699BE4D0032B3D7 /* NetworkError.swift in Sources */,
 				DD9F617526E947D8009E3D39 /* MNickname.swift in Sources */,
 				2089B038C856887E459DA17C /* AuthRouter.swift in Sources */,
+				DDEA6BC0273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */,
 				DD2FA0B22708B83A00FC0382 /* FriendDetailViewModel.swift in Sources */,
 				DD92152C2677DFBA00A3623E /* Array+Extension.swift in Sources */,
 				DD1C00D427178BCF00E4BBBF /* COperation.swift in Sources */,
@@ -2210,6 +2407,7 @@
 				DD870D7026D7E320000F59AE /* BaseEndPoint.swift in Sources */,
 				B59C60C49C97C4E94BC904AF /* RegisterInteractor.swift in Sources */,
 				F172449F63A9506E7070F9CE /* RegisterRouter.swift in Sources */,
+				DDEA6BDF273D6FE000F3BB2D /* WidgetUserModel.swift in Sources */,
 				DD9F613726E0E85D009E3D39 /* UserManager+Set.swift in Sources */,
 				DD5F63EF267FA85B002131FD /* CellViewModel.swift in Sources */,
 				DD92151B2677B48D00A3623E /* FriendsCoordinator.swift in Sources */,
@@ -2218,6 +2416,7 @@
 				DD6869952728A1DE00C0A590 /* FCMTopic.swift in Sources */,
 				DD3FBCC926EE0999002591A6 /* RequestCell.swift in Sources */,
 				6225EF4BD962064B9F8D11C9 /* RegisterBuilder.swift in Sources */,
+				DDEA6BC9273D624A00F3BB2D /* UserDefaults+Extension.swift in Sources */,
 				DD9F616F26E7E816009E3D39 /* DatePickerCellViewModel.swift in Sources */,
 				DD9F616D26E7E72A009E3D39 /* DatePickerCell.swift in Sources */,
 				DD9F615E26E65538009E3D39 /* BackgroudSectionView.swift in Sources */,
@@ -2287,6 +2486,7 @@
 				DD3FBCDD26EE4983002591A6 /* FirebaseListnersError.swift in Sources */,
 				DD59F74326B5ABE200CA8179 /* BaseCustomButtonActionProtocol.swift in Sources */,
 				FB6B9D4B26BAC8370050690F /* ValidatorRegex.swift in Sources */,
+				DDEA6BD2273D630400F3BB2D /* GroupUserDefault.swift in Sources */,
 				DD3FBCC126EE061B002591A6 /* FriendViewModel.swift in Sources */,
 				DD65E09526B89511002BBF80 /* TextFieldWithError.swift in Sources */,
 				9975FF05D6047FCCE7376B97 /* SettingsViewController.swift in Sources */,
@@ -2304,6 +2504,7 @@
 				162EDA55240A0170EB05C2D1 /* AddFriendPresenter.swift in Sources */,
 				1E3BE55087AE90D1FD12BCBA /* AddFriendInteractor.swift in Sources */,
 				56F772EEAB8991C581444995 /* AddFriendRouter.swift in Sources */,
+				DDEA6BE5273D7B2800F3BB2D /* WidgetManager.swift in Sources */,
 				639E4D30DFF9E5EA844D4CB8 /* AddFriendBuilder.swift in Sources */,
 				2A0D1CCA1F00B2A1011E4EBC /* AddFriendProtocols.swift in Sources */,
 				406706AE7C4F63F60FB90CC9 /* AddFriendModule.swift in Sources */,
@@ -2336,7 +2537,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDEA6B9F273D56ED00F3BB2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDEA6BD8273D65DD00F3BB2D /* NotificationServiceSettingsManager.swift in Sources */,
+				DDEA6BE2273D72C900F3BB2D /* UserDefaults+Extension.swift in Sources */,
+				DDEA6BA6273D56ED00F3BB2D /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEA6BAF273D58D900F3BB2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDEA6BBA273D58D900F3BB2D /* DayCountWidget.swift in Sources */,
+				DDEA6BE0273D720D00F3BB2D /* WidgetUserModel.swift in Sources */,
+				DDEA6BE8273D80A200F3BB2D /* DayCountWidgetView.swift in Sources */,
+				DDEA6BBF273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */,
+				DDEA6BDB273D6C7200F3BB2D /* DayCountWidgetSettings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDEA6BA9273D56ED00F3BB2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = DDEA6BA2273D56ED00F3BB2D /* NotificationServiceExt */;
+			targetProxy = DDEA6BA8273D56ED00F3BB2D /* PBXContainerItemProxy */;
+		};
+		DDEA6BC2273D58DA00F3BB2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDEA6BB2273D58D900F3BB2D /* DayCountWidgetExtension */;
+			targetProxy = DDEA6BC1273D58DA00F3BB2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DD9214F726763DFD00A3623E /* LaunchScreen.storyboard */ = {
@@ -2470,6 +2707,7 @@
 		DD9214FE26763DFD00A3623E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -2488,8 +2726,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = flava.app.HTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -2497,6 +2736,7 @@
 		DD9214FF26763DFD00A3623E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -2515,9 +2755,134 @@
 				PRODUCT_BUNDLE_IDENTIFIER = flava.app.HTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		DDEA6BAC273D56ED00F3BB2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/NotificationServiceExt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W69L42NMK2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationServiceExt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = flava.app.HTrack.NotificationServiceExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDEA6BAD273D56ED00F3BB2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/NotificationServiceExt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W69L42NMK2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationServiceExt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = flava.app.HTrack.NotificationServiceExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DDEA6BC5273D58DA00F3BB2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = DayCountWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W69L42NMK2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DayCountWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DayCountWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = flava.app.HTrack.DayCountWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDEA6BC6273D58DA00F3BB2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = DayCountWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W69L42NMK2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DayCountWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DayCountWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = flava.app.HTrack.DayCountWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2538,6 +2903,24 @@
 			buildConfigurations = (
 				DD9214FE26763DFD00A3623E /* Debug */,
 				DD9214FF26763DFD00A3623E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDEA6BAB273D56ED00F3BB2D /* Build configuration list for PBXNativeTarget "NotificationServiceExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEA6BAC273D56ED00F3BB2D /* Debug */,
+				DDEA6BAD273D56ED00F3BB2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDEA6BC4273D58DA00F3BB2D /* Build configuration list for PBXNativeTarget "DayCountWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEA6BC5273D58DA00F3BB2D /* Debug */,
+				DDEA6BC6273D58DA00F3BB2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -32,6 +32,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         DeeplinkManager.shared.checkDeeplink()
+        let updatedBadgeCount = 0
+        UIApplication.shared.applicationIconBadgeNumber = updatedBadgeCount
+        AppManager.shared.settingsStorage.badgeCount = updatedBadgeCount
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

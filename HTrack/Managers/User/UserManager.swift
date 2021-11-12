@@ -27,6 +27,7 @@ class UserManager {
     lazy var appManager = AppManager.shared
     lazy var pushFCMManager = PushFCMManager.shared
     lazy var friendsManager = FriendsManager.shared
+    lazy var widgetManager = WidgetManager.shared
     
     let notifier = Notifier<UserManagerListner>()
     
@@ -37,6 +38,8 @@ class UserManager {
         Logger.show(title: "Current UserUpdated",
                     text: "User \(String(describing: currentUser))", withHeader: true, withFooter: true)
         
+      
+        widgetManager.updateUser(user)
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
             

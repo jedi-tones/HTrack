@@ -146,7 +146,7 @@ extension PushFCMManager {
                     title: header,
                     body: text,
                     category: category,
-                    bageCount: 0,
+                    bageCount: 1,
                     sound: "default",  //"zenRequestAlert.caf"
                     isMutableContent: "true",
                     data: data)
@@ -163,7 +163,7 @@ extension PushFCMManager {
                     title: gradusNotification.title ?? "",
                     body: gradusNotification.message ?? "",
                     category: gradusNotification.category ?? .systemMessage,
-                    bageCount: 0,
+                    bageCount: 1,
                     sound: "default",  //"zenRequestAlert.caf"
                     isMutableContent: "true",
                     data: gradusNotification)

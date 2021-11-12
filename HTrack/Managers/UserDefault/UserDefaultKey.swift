@@ -21,4 +21,8 @@ extension UserDefaultKey: ExpressibleByStringLiteral {
 extension UserDefaultKey {
     static let startDate: UserDefaultKey = "startDate"
     static let fcmKey: UserDefaultKey = "fcmKey"
+    
+    //for group
+    static let currenWidgettUser: UserDefaultKey = "currenWidgettUser"
+    static let badgeCount: UserDefaultKey = "badgeCount"
 }

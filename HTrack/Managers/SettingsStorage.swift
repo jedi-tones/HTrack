@@ -18,8 +18,16 @@ class SettingsStorage {
     @UserDefault(key: UserDefaultKey.fcmKey)
     var fcmKey: String?
     
+    @GroupUserDefault(key: UserDefaultKey.badgeCount)
+    var badgeCount: Int?
+    
+    @GroupUserDefault(key: UserDefaultKey.currenWidgettUser)
+    var currentUser: Data?
+    
     func resetUserStorage() {
         startDate = nil
         fcmKey = nil
+        badgeCount = nil
+        currentUser = nil
     }
 }
