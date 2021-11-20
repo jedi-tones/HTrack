@@ -35,9 +35,9 @@ extension SettingsInteractor: SettingsInteractorInput {
         switch section {
         
         case .settings:
-            return [.datePicker, .reset]
+            return [.datePicker, .exit]
         case .control:
-            return [.exit]
+            return []
         case .info:
             return []
         }

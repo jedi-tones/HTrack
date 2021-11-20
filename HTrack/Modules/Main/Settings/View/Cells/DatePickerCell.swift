@@ -90,13 +90,13 @@ class DatePickerCell: UICollectionViewCell, BaseCellProtocol {
         contentView.addSubview(datePicker)
         contentView.addSubview(activityIndicator)
         
-        titleLabel.centerXToSuperview()
+        titleLabel.leftToSuperview(offset: Styles.Sizes.standartHInset)
         titleLabel.topToSuperview(offset: Styles.Sizes.stadartVInset * 2)
         
-        activityIndicator.centerXToSuperview()
+        activityIndicator.leftToSuperview(offset: Styles.Sizes.standartHInset)
         activityIndicator.topToBottom(of: titleLabel, offset: Styles.Sizes.stadartVInset)
         
-        datePicker.centerXToSuperview()
+        datePicker.leftToSuperview(offset: Styles.Sizes.standartHInset)
         datePicker.topToBottom(of: titleLabel, offset: Styles.Sizes.stadartVInset)
         datePicker.bottomToSuperview(offset: -Styles.Sizes.stadartVInset * 2)
     }

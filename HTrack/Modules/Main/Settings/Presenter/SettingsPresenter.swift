@@ -86,8 +86,13 @@ extension SettingsPresenter: SettingsInteractorOutput {
                         buttonVM.sensetive = false
                         buttonVM.delegate = self
                         sectionVM.items.append(buttonVM)
-                    default:
-                        break
+                    case .exit:
+                        let buttonVM = SettingsButtonViewModel()
+                        buttonVM.title = element.title
+                        buttonVM.element = element
+                        buttonVM.sensetive = false
+                        buttonVM.delegate = self
+                        sectionVM.items.append(buttonVM)
                     }
                 }
                 
@@ -104,12 +109,14 @@ extension SettingsPresenter: SettingsInteractorOutput {
                 let elements = interactor.getElementsFor(section: section)
                 
                 for element in elements {
-                    let buttonVM = SettingsButtonViewModel()
-                    buttonVM.title = element.title
-                    buttonVM.element = element
-                    buttonVM.sensetive = true
-                    buttonVM.delegate = self
-                    sectionVM.items.append(buttonVM)
+                    switch element {
+                    case .datePicker:
+                        break
+                    case .reset:
+                        break
+                    case .exit:
+                        break
+                    }
                 }
                 
                 let header = EmptyHeaderViewModel()

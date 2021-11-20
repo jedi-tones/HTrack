@@ -59,6 +59,32 @@ class PopUpManager {
         SwiftEntryKit.display(entry: viewController, using: attributes)
     }
     
+    //MARK: show info
+    func showInfo(text: String){
+        var attributes = EKAttributes()
+        attributes = .topNote
+        attributes.displayMode = .inferred
+        attributes.displayDuration = 3
+        attributes.name = "Top Info"
+        attributes.hapticFeedbackType = .success
+        attributes.popBehavior = .animated(animation: .translation)
+        attributes.entryBackground = .color(color: .init(Styles.Colors.base1))
+    
+        let text = text
+        let style = EKProperty.LabelStyle(
+            font: Styles.Fonts.bold1,
+            color: .init(Styles.Colors.base3),
+            alignment: .center,
+            numberOfLines: 2
+        )
+        let labelContent = EKProperty.LabelContent(
+            text: text,
+            style: style
+        )
+        let contentView = EKNoteMessageView(with: labelContent)
+        SwiftEntryKit.display(entry: contentView, using: attributes)
+    }
+    
     func dismisPopUp(name: String, complition:@escaping()->()) {
         SwiftEntryKit.dismiss(.specific(entryName: name)) {
             complition()

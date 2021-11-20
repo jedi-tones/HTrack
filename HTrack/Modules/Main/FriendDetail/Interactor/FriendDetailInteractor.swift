@@ -7,6 +7,7 @@ class FriendDetailInteractor {
     lazy var friendsManager = FriendsManager.shared
     lazy var pushFCMManager = PushFCMManager.shared
     lazy var userManager = UserManager.shared
+    lazy var popUpManager = PopUpManager.shared
     
     deinit {
         Logger.show(title: "Module",
@@ -120,5 +121,6 @@ extension FriendDetailInteractor: FriendDetailInteractorInput {
         else { return }
        
         pushFCMManager.sendReactionToFriend(token: friendToken, sender: currentUser)
+        popUpManager.showInfo(text: "Мы отправили лучи поддержки твоему другу")
     }
 }

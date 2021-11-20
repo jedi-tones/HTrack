@@ -18,7 +18,7 @@ enum SettingsElement: String, Hashable {
         case .exit:
             return "выход"
         case .datePicker:
-            return "не пью с:"
+            return "Последний раз пил"
         case .reset:
             return "я выпил"
         }
