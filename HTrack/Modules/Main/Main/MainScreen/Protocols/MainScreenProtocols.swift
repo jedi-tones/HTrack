@@ -14,6 +14,7 @@ protocol MainScreenViewOutput {
     // MARK: VIEW -> PRESENTER
     func viewIsReady()
     func drinkButtonTapped()
+    func needUpdateDate()
 }
 
 // MARK: - Interactor
@@ -26,6 +27,7 @@ protocol MainScreenInteractorInput {
 protocol MainScreenInteractorOutput: AnyObject {
     // MARK: INTERACTOR -> PRESENTER
     func updateUserStat(user: MUser?)
+    func needUpdateDate()
 }
 
 

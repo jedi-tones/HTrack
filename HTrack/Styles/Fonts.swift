@@ -54,4 +54,12 @@ extension Styles.Fonts  {
     static var soyuz3: UIFont {
         soyuzFont(size: 150)
     }
+    
+    static var widgetSoyuz1: UIFont {
+        soyuzFont(size: 48)
+    }
+    
+    static var widgetSoyuz2: UIFont {
+        soyuzFont(size: 28)
+    }
 }

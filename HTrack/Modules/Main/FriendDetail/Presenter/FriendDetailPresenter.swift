@@ -117,6 +117,7 @@ extension FriendDetailPresenter: FriendDetailViewModelDelegate{
                     text: "\(type(of: self)) - \(#function)")
         
         interactor.removeFriend()
+
     }
 }
 

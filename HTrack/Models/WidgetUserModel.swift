@@ -9,5 +9,5 @@ import Foundation
 
 struct WidgetUserModel: Codable {
     let name: String?
-    let startDate: Date?
+    var startDate: Date?
 }

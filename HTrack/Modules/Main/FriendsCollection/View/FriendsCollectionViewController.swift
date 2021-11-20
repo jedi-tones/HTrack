@@ -47,6 +47,7 @@ extension FriendsCollectionViewController {
     
     func setupSubscriptions() {
         output?.viewModelPublisher
+            .throttle(for: .seconds(0.5), scheduler: DispatchQueue.main, latest: true)
             .sink(receiveValue: {[weak self] sectionVM in
                 self?.setupData(newData: sectionVM)
             })

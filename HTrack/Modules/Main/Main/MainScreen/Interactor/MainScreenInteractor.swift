@@ -2,6 +2,7 @@
 //  Copyright © 2021 HTrack. All rights reserved.
 
 import Foundation
+import Combine
 
 class MainScreenInteractor {
     weak var output: MainScreenInteractorOutput!
@@ -9,13 +10,33 @@ class MainScreenInteractor {
     let userManager = UserManager.shared
     let friendsManager = FriendsManager.shared
     let authManager = FirebaseAuthManager.shared
+    let appManager = AppManager.shared
     
+    private var subscriptions: Set<AnyCancellable> = []
+    
+    init() {
+        subscribeAppStatePublisher()
+    }
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
         userManager.notifier.unsubscribe(self)
         authManager.notifier.unsubscribe(self)
+    }
+    
+    private func subscribeAppStatePublisher() {
+        appManager.appLifecycleManager.lifecycleStatusPublisher
+            .throttle(for: .seconds(0.5), scheduler: DispatchQueue.main, latest: true)
+            .sink {[weak self] lifeCycleState in
+                switch lifeCycleState {
+                case .didBecomeActive:
+                    self?.output.needUpdateDate()
+                default:
+                    break
+                }
+            }
+            .store(in: &subscriptions)
     }
 }
 

@@ -11,7 +11,7 @@ class MainScreenPresenter {
     
     var viewModel: [SectionViewModel] = []
     var timer: Timer?
-    var currentCount = 0
+    var currentCount: Int?
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -48,6 +48,13 @@ extension MainScreenPresenter: MainScreenViewOutput {
         interactor?.resetDrinkDate()
     }
     
+    func needUpdateDate() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        updateMainScreen()
+    }
+    
     @objc private func mainScreenTimerTick() {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
@@ -70,6 +77,7 @@ extension MainScreenPresenter: MainScreenInteractorOutput {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
         
+        guard let currentCount = currentCount else { return }
         let count = String(currentCount)
         
         let daysCountString = LocDic.daysWithoutAlcohol.withArguments([count]).replacingOccurrences(of: " ", with: "\n")

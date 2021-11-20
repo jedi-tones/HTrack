@@ -119,6 +119,10 @@ extension FriendsManager {
     func updateFCMTokenInFriends(token: String, complition: @escaping(Result<Bool, Error>) -> Void) {
         let friendsIDS = friendsP.map({$0.userID})
         
+        Logger.show(title: "updateFCMTokenInFriends",
+                    text: "\(friendsP.map({$0.userID}))",
+                    withHeader: true, withFooter: true)
+        
         friendsRequestManager.updateFCMTokenInFriends(friendsIDs: friendsIDS, token: token, complition: complition)
     }
 }

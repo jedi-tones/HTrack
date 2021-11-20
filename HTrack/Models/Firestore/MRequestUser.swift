@@ -23,6 +23,14 @@ struct MRequestUser: Codable, Hashable {
         self.requestCreateDate = createDate
     }
     
+    init(user: MUser) {
+        self.nickname = user.name
+        self.userID = user.userID
+        self.photo = user.photo
+        self.fcmKey = user.fcmKey
+        self.requestCreateDate = Date()
+    }
+    
     init(json: [String : Any]){
         if let nickname = json["nickname"] as? String { self.nickname = nickname } else { self.nickname = ""}
         if let userID = json["userID"] as? String { self.userID = userID } else { self.userID = ""}

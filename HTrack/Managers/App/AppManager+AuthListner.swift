@@ -29,8 +29,8 @@ extension AppManager {
         Logger.show(title: "Manager",
                     text: "\(type(of: self)) - \(#function)")
         
-        pushFCMManger.getToken()
         friendsManager.afterLogin()
+        pushFCMManger.getToken()
     }
     
     private func afterLogOut() {

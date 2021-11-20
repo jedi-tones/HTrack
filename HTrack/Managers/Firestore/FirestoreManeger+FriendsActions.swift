@@ -240,9 +240,11 @@ extension FirestoreManager {
             switch result {
                 
             case .success(let mUser):
+                let mRequestUser = MRequestUser(user: mUser)
+                complition?(.success(mRequestUser))
                 self?.sendNotificationToFriend(userToken: mUser.fcmKey, text: "Пользователь \(mUser.name ?? "") отклонил запрос")
             case .failure(_):
-                break
+                complition?(.failure(FirestoreError.unownedError))
             }
         }
     }
@@ -403,9 +405,8 @@ extension FirestoreManager {
         let batch = firestore.batch()
         friendsIDs.forEach { friendID in
             if let userInFriendRef = FirestoreEndPoint.friends(userID: friendID).collectionRef?.document(currentUserID) {
-                batch.setData([MUser.CodingKeys.fcmKey.rawValue : token],
-                              forDocument: userInFriendRef,
-                              merge: true)
+                batch.updateData([MUser.CodingKeys.fcmKey.rawValue : token],
+                                 forDocument: userInFriendRef)
             }
         }
         

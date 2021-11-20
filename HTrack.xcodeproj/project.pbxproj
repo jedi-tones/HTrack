@@ -250,6 +250,7 @@
 		DD9F617126E8035C009E3D39 /* SettingsInteractor+UserListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F617026E8035C009E3D39 /* SettingsInteractor+UserListner.swift */; };
 		DD9F617326E93032009E3D39 /* KeyboardNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F617226E93032009E3D39 /* KeyboardNotifications.swift */; };
 		DD9F617526E947D8009E3D39 /* MNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F617426E947D8009E3D39 /* MNickname.swift */; };
+		DDB5BB7C27492D9B001673BF /* AppLifecycleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB5BB7B27492D9B001673BF /* AppLifecycleManager.swift */; };
 		DDBEFEC527274019006276F3 /* FriendsInputRequestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBEFEC427274019006276F3 /* FriendsInputRequestElement.swift */; };
 		DDBEFEC7272740FD006276F3 /* FriendRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBEFEC6272740FD006276F3 /* FriendRequestViewModel.swift */; };
 		DDE003712720B2AF00EED493 /* FriendsManager+FriendsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE003702720B2AF00EED493 /* FriendsManager+FriendsRequests.swift */; };
@@ -259,8 +260,6 @@
 		DDEA6BB7273D58D900F3BB2D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEA6BB6273D58D900F3BB2D /* SwiftUI.framework */; };
 		DDEA6BBA273D58D900F3BB2D /* DayCountWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BB9273D58D900F3BB2D /* DayCountWidget.swift */; };
 		DDEA6BBD273D58DA00F3BB2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6BBC273D58DA00F3BB2D /* Assets.xcassets */; };
-		DDEA6BBF273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */; };
-		DDEA6BC0273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */; };
 		DDEA6BC3273D58DA00F3BB2D /* DayCountWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DDEA6BB3273D58D900F3BB2D /* DayCountWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DDEA6BC9273D624A00F3BB2D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BC8273D624A00F3BB2D /* UserDefaults+Extension.swift */; };
 		DDEA6BCE273D62D900F3BB2D /* UserDefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6BCD273D62D900F3BB2D /* UserDefaultValue.swift */; };
@@ -297,6 +296,10 @@
 		DDEA6C19273E9CB500F3BB2D /* Sizes+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C18273E9CB500F3BB2D /* Sizes+Extension.swift */; };
 		DDEA6C1E273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6C1D273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf */; };
 		DDEA6C20273E9EAD00F3BB2D /* Soyuz Grotesk Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDEA6C1F273E9EAD00F3BB2D /* Soyuz Grotesk Bold.otf */; };
+		DDEA6C22273ED20500F3BB2D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C21273ED20500F3BB2D /* Color+Extension.swift */; };
+		DDEA6C23273ED20800F3BB2D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C21273ED20500F3BB2D /* Color+Extension.swift */; };
+		DDEA6C2D273EE24400F3BB2D /* DayCountWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DDEA6C2A273EE1D200F3BB2D /* DayCountWidget.intentdefinition */; };
+		DDF820E127425BF400AE9D0D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF820E027425BF400AE9D0D /* UIColor+Extension.swift */; };
 		E14B64B9A2AFB6AD64291F1D /* InputRequestsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11ABB6D0F7BB0AEFC622 /* InputRequestsPresenter.swift */; };
 		E1560B40513E728EEAD06A5B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931C55A79037676521FC968 /* SettingsRouter.swift */; };
 		E791506092A3252CB263145A /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F339803F883491C41641E /* MainScreenInteractor.swift */; };
@@ -597,6 +600,7 @@
 		DD9F617026E8035C009E3D39 /* SettingsInteractor+UserListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsInteractor+UserListner.swift"; sourceTree = "<group>"; };
 		DD9F617226E93032009E3D39 /* KeyboardNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotifications.swift; sourceTree = "<group>"; };
 		DD9F617426E947D8009E3D39 /* MNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNickname.swift; sourceTree = "<group>"; };
+		DDB5BB7B27492D9B001673BF /* AppLifecycleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifecycleManager.swift; sourceTree = "<group>"; };
 		DDBEFEC427274019006276F3 /* FriendsInputRequestElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInputRequestElement.swift; sourceTree = "<group>"; };
 		DDBEFEC6272740FD006276F3 /* FriendRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestViewModel.swift; sourceTree = "<group>"; };
 		DDE003702720B2AF00EED493 /* FriendsManager+FriendsRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsManager+FriendsRequests.swift"; sourceTree = "<group>"; };
@@ -610,7 +614,6 @@
 		DDEA6BB4273D58D900F3BB2D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DDEA6BB6273D58D900F3BB2D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DDEA6BB9273D58D900F3BB2D /* DayCountWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCountWidget.swift; sourceTree = "<group>"; };
-		DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DayCountWidget.intentdefinition; sourceTree = "<group>"; };
 		DDEA6BBC273D58DA00F3BB2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDEA6BBE273D58DA00F3BB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDEA6BC7273D5AFC00F3BB2D /* DayCountWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayCountWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -630,11 +633,16 @@
 		DDEA6BFE273E862600F3BB2D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DDEA6C00273E871600F3BB2D /* LocDic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocDic.swift; sourceTree = "<group>"; };
 		DDEA6C06273E91EE00F3BB2D /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = HTrack/ru.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
-		DDEA6C09273E91FA00F3BB2D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = ../en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDEA6C0A273E92AC00F3BB2D /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		DDEA6C18273E9CB500F3BB2D /* Sizes+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sizes+Extension.swift"; sourceTree = "<group>"; };
 		DDEA6C1D273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Soyuz Grotesk Bold.otf"; sourceTree = "<group>"; };
 		DDEA6C1F273E9EAD00F3BB2D /* Soyuz Grotesk Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Soyuz Grotesk Bold.otf"; sourceTree = "<group>"; };
+		DDEA6C21273ED20500F3BB2D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		DDF820DA273F1CB500AE9D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDF820DB273F1CB500AE9D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/DayCountWidget.intentdefinition; sourceTree = "<group>"; };
+		DDF820DD273F1CED00AE9D0D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DayCountWidget.strings; sourceTree = "<group>"; };
+		DDF820DF273F1CF300AE9D0D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DayCountWidget.strings; sourceTree = "<group>"; };
+		DDF820E027425BF400AE9D0D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E2DF7355EF3EBC57DA24544F /* AuthInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		E80B8A58C3703FA62ADDADB7 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
 		ED3D50FD064400D8869E76EC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
@@ -1691,6 +1699,7 @@
 			children = (
 				DD92150526763ED800A3623E /* Date+Extension.swift */,
 				FBAF501927137DE5003CF510 /* Double+Extension.swift */,
+				DDF820E027425BF400AE9D0D /* UIColor+Extension.swift */,
 				DD92152B2677DFBA00A3623E /* Array+Extension.swift */,
 				DDEA6C0A273E92AC00F3BB2D /* Int+Extension.swift */,
 				FB6B9D4C26BAD1D60050690F /* Bool+Extension.swift */,
@@ -1701,6 +1710,7 @@
 				FBDCF2002711FB97006188E8 /* Dictionary+ToObject.swift */,
 				DD68698D27288FD700C0A590 /* UNNotificationAttachment+Extension.swift */,
 				DDEA6BC8273D624A00F3BB2D /* UserDefaults+Extension.swift */,
+				DDEA6C24273ED22800F3BB2D /* SwiftUI */,
 				DD9215202677D6EE00A3623E /* UIKit */,
 			);
 			path = Extensions;
@@ -1826,6 +1836,7 @@
 				DD6BD70D26F90981006369BB /* PopUpManager.swift */,
 				DD6869792728818A00C0A590 /* SettingsStorage.swift */,
 				DDEA6BE4273D7B2800F3BB2D /* WidgetManager.swift */,
+				DDB5BB7B27492D9B001673BF /* AppLifecycleManager.swift */,
 				DD6869932728A12300C0A590 /* PushNotification */,
 				DD6869812728859F00C0A590 /* DeeplinkManager */,
 				DD68697827287F9D00C0A590 /* UserDefault */,
@@ -1928,7 +1939,7 @@
 				DDEA6C1C273E9E0000F3BB2D /* Fonts */,
 				DDEA6BB9273D58D900F3BB2D /* DayCountWidget.swift */,
 				DDEA6BD9273D69AD00F3BB2D /* DayCountWidgetSettings.swift */,
-				DDEA6BBB273D58D900F3BB2D /* DayCountWidget.intentdefinition */,
+				DDEA6C2A273EE1D200F3BB2D /* DayCountWidget.intentdefinition */,
 				DDEA6BBC273D58DA00F3BB2D /* Assets.xcassets */,
 				DDEA6BBE273D58DA00F3BB2D /* Info.plist */,
 			);
@@ -1961,6 +1972,14 @@
 				DDEA6C1D273E9E7500F3BB2D /* Soyuz Grotesk Bold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DDEA6C24273ED22800F3BB2D /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				DDEA6C21273ED20500F3BB2D /* Color+Extension.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		E06F00746F12380DE362E097 /* Router */ = {
@@ -2273,6 +2292,7 @@
 			knownRegions = (
 				en,
 				ru,
+				Base,
 			);
 			mainGroup = DD9214E026763DFB00A3623E;
 			packageReferences = (
@@ -2419,9 +2439,10 @@
 				DD9EAD152699BE4D0032B3D7 /* NetworkError.swift in Sources */,
 				DD9F617526E947D8009E3D39 /* MNickname.swift in Sources */,
 				2089B038C856887E459DA17C /* AuthRouter.swift in Sources */,
-				DDEA6BC0273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */,
 				DD2FA0B22708B83A00FC0382 /* FriendDetailViewModel.swift in Sources */,
 				DD92152C2677DFBA00A3623E /* Array+Extension.swift in Sources */,
+				DDEA6C22273ED20500F3BB2D /* Color+Extension.swift in Sources */,
+				DDF820E127425BF400AE9D0D /* UIColor+Extension.swift in Sources */,
 				DD1C00D427178BCF00E4BBBF /* COperation.swift in Sources */,
 				DDBEFEC7272740FD006276F3 /* FriendRequestViewModel.swift in Sources */,
 				DD870D7926DEC1FB000F59AE /* Notifier.swift in Sources */,
@@ -2585,6 +2606,7 @@
 				5E0CB0BFEEEC69017C7C7B41 /* FriendDetailInteractor.swift in Sources */,
 				FBDCF1FF2711FA82006188E8 /* JSONEncoder+Extension.swift in Sources */,
 				FF3E6DA1662DD18D6ECB3C84 /* FriendDetailRouter.swift in Sources */,
+				DDB5BB7C27492D9B001673BF /* AppLifecycleManager.swift in Sources */,
 				2C19B5F9326D23F198B1CE85 /* FriendDetailBuilder.swift in Sources */,
 				DD4E8B6F272DA53C004C13D0 /* ButtonToggle.swift in Sources */,
 				753FB3AE6C18FCB1448B68B0 /* FriendDetailProtocols.swift in Sources */,
@@ -2630,10 +2652,11 @@
 				DDEA6BE8273D80A200F3BB2D /* DayCountWidgetView.swift in Sources */,
 				DDEA6C0E273E9BF400F3BB2D /* Styles.swift in Sources */,
 				DDEA6C14273E9C0400F3BB2D /* Fonts+SoyuzGrotesk.swift in Sources */,
-				DDEA6BBF273D58DA00F3BB2D /* DayCountWidget.intentdefinition in Sources */,
 				DDEA6C04273E912000F3BB2D /* String+Localized.swift in Sources */,
+				DDEA6C23273ED20800F3BB2D /* Color+Extension.swift in Sources */,
 				DDEA6C0C273E92AC00F3BB2D /* Int+Extension.swift in Sources */,
 				DDEA6BE9273E793D00F3BB2D /* UserDefaults+Extension.swift in Sources */,
+				DDEA6C2D273EE24400F3BB2D /* DayCountWidget.intentdefinition in Sources */,
 				DDEA6C13273E9C0100F3BB2D /* Fonts+Avenir.swift in Sources */,
 				DDEA6C0F273E9BF700F3BB2D /* Colors.swift in Sources */,
 				DDEA6C02273E871600F3BB2D /* LocDic.swift in Sources */,
@@ -2683,9 +2706,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				DDEA6C06273E91EE00F3BB2D /* ru */,
-				DDEA6C09273E91FA00F3BB2D /* en */,
+				DDF820DA273F1CB500AE9D0D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DDEA6C2A273EE1D200F3BB2D /* DayCountWidget.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDF820DB273F1CB500AE9D0D /* Base */,
+				DDF820DD273F1CED00AE9D0D /* ru */,
+				DDF820DF273F1CF300AE9D0D /* en */,
+			);
+			name = DayCountWidget.intentdefinition;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2820,7 +2853,7 @@
 				CODE_SIGN_ENTITLEMENTS = HTrack/HTrack.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2849,7 +2882,7 @@
 				CODE_SIGN_ENTITLEMENTS = HTrack/HTrack.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2875,7 +2908,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/NotificationServiceExt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
@@ -2905,7 +2938,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/NotificationServiceExt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
@@ -2938,7 +2971,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayCountWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DayCountWidget/Info.plist;
@@ -2970,7 +3003,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayCountWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DayCountWidget/Info.plist;

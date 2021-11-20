@@ -13,25 +13,26 @@ struct DayCountWidgetView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading){
-            Color(UIColor.black)
-            VStack(alignment: .leading, spacing: 04) {
+            Color(viewModel.backColor)
+            VStack(alignment: .leading, spacing: 0) {
                 Text("\(viewModel.dateCount)")
-                    .font(Font(Styles.Fonts.soyuz2 as CTFont))
+                    .font(Font(Styles.Fonts.widgetSoyuz1 as CTFont))
+                    .minimumScaleFactor(0.2)
                 Text(viewModel.descString)
-                    .font(Font(Styles.Fonts.soyuz1 as CTFont))
-                    .fixedSize(horizontal: false, vertical: true)
-                
+                    .font(Font(Styles.Fonts.widgetSoyuz2 as CTFont))
+//                    .fixedSize(horizontal: false, vertical: false)
+                    .minimumScaleFactor(0.2)
             }
-            .foregroundColor(.white)
-//            .background(Color(UIColor.red))
-            .padding(.all, 10)
+            .foregroundColor(viewModel.titleColor)
+            .padding(.all, 16)
         }
     }
 }
 
 struct DayCountWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        DayCountWidgetView().environmentObject(DayCountWidgetViewModel(widgetUser:  WidgetUserModel(name: "GRADUS", startDate: Date())))
+        let startDate = Calendar.current.date(byAdding: .day, value: -1123211, to: Date())
+        DayCountWidgetView().environmentObject(DayCountWidgetViewModel(widgetUser:  WidgetUserModel(name: "GRADUS", startDate: startDate)))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

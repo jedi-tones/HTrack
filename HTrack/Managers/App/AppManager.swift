@@ -19,6 +19,7 @@ class AppManager {
     let settingsStorage = SettingsStorage.shared
     let pushFCMManger = PushFCMManager.shared
     let pushNotificationManager = PushNotificationManager.shared
+    let appLifecycleManager = AppLifecycleManager.shared
     
     var needAutoCheckProfileFullFilled = true
     var subscribers: Set<AnyCancellable> = []

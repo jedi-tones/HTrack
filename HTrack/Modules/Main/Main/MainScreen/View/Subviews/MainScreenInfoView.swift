@@ -16,7 +16,7 @@ class MainScreenInfoView: UIView {
         lb.text = ""
         lb.textAlignment = .left
         lb.numberOfLines = 3
-        lb.isHidden = true
+        lb.layer.opacity = 0
         return lb
     }()
     
@@ -28,7 +28,7 @@ class MainScreenInfoView: UIView {
         lb.minimumScaleFactor = 0.2
         lb.text = "0"
         lb.textAlignment = .left
-        lb.isHidden = true
+        lb.layer.opacity = 0
         return lb
     }()
     
@@ -96,13 +96,21 @@ class MainScreenInfoView: UIView {
     func showLoader(isActive: Bool) {
         DispatchQueue.main.async {[weak self] in
             if isActive {
-                self?.countLabel.isHidden = true
-                self?.descLabel.isHidden = true
-                self?.loader.startAnimating()
+                
+                UIView.animate(withDuration: Styles.Constants.animationDuarationMedium) {
+                    self?.countLabel.layer.opacity = 0
+                    self?.descLabel.layer.opacity = 0
+                } completion: { isComplete in
+                    self?.loader.startAnimating()
+                }
             } else {
+                self?.loader.stopAnimating()
                 self?.countLabel.isHidden = false
                 self?.descLabel.isHidden = false
-                self?.loader.stopAnimating()
+                UIView.animate(withDuration: Styles.Constants.animationDuarationMedium) {
+                    self?.countLabel.layer.opacity = 1
+                    self?.descLabel.layer.opacity = 1
+                }
             }
         }
     }
