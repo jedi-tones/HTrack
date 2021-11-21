@@ -43,16 +43,20 @@ extension FriendDetailPresenter: FriendDetailInteractorOutput {
         
         elements.forEach { element in
             switch element {
-            case .title:
-                let dayCount = interactor.friendDayCount
-                let daysString = LocDic.daysWithoutAlcohol.withArguments([dayCount.toString()])
-                let block = FriendDetailViewModel.ViewBlock.title(title: daysString)
+            case .name:
+                let block = FriendDetailViewModel.ViewBlock.name(title: interactor.friendName)
                 blocks.append(block)
                 
             case .counter:
                 let block = FriendDetailViewModel.ViewBlock.counter(count: interactor.friendDayCount)
                 blocks.append(block)
             
+            case .title:
+                let dayCount = interactor.friendDayCount
+                let daysString = LocDic.daysWithoutAlcohol.withArguments([dayCount.toString()])
+                let block = FriendDetailViewModel.ViewBlock.title(title: daysString)
+                blocks.append(block)
+                
             case .friendReactionButton:
                 let block = FriendDetailViewModel.ViewBlock.friendReactionButton(title: "подбодрить друга")
                 blocks.append(block)

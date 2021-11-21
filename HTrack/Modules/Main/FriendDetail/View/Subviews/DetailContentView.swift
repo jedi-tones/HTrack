@@ -38,7 +38,7 @@ class DetailContentView: UIScrollView, ScrollableContent {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.contentMode = .scaleAspectFit
-        stackView.spacing = Styles.Sizes.standartV2Inset
+        stackView.spacing = Styles.Sizes.stadartVInset
         stackView.width(Styles.Sizes.screenSize.width - insets.left - insets.right)
         addSubview(stackView)
         stackView.edgesToSuperview(insets: insets)
@@ -46,6 +46,15 @@ class DetailContentView: UIScrollView, ScrollableContent {
     }()
     
     //MARK: Friends detail
+    lazy var friendName: UILabel = {
+        let t = UILabel()
+        t.text = "имя друга"
+        t.font = Styles.Fonts.bold2
+        t.textColor = titleColor
+        t.textAlignment = .center
+        return t
+    }()
+    
     lazy var title: UILabel = {
         let t = UILabel()
         t.text = "дней без алкоголя"
@@ -130,6 +139,10 @@ class DetailContentView: UIScrollView, ScrollableContent {
         
         data.viewBlocks.forEach { (viewBlock) in
             switch viewBlock {
+            case .name(title: let title):
+                self.friendName.text = title
+                self.viewBlocks.append(self.friendName)
+                
             case .title(title: let title):
                 self.title.text = title
                 self.viewBlocks.append(self.title)
@@ -184,6 +197,8 @@ class DetailContentView: UIScrollView, ScrollableContent {
         }
         
         mainStackView.setCustomSpacing(Styles.Sizes.stadartVInset, after: acceptButton)
+        mainStackView.setCustomSpacing(Styles.Sizes.standartV2Inset, after: inputRequestName)
+        mainStackView.setCustomSpacing(Styles.Sizes.standartV2Inset, after: title)
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

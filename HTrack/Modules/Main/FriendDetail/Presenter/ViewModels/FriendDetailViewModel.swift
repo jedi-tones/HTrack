@@ -14,8 +14,9 @@ protocol FriendDetailViewModelDelegate: AnyObject {
 
 class FriendDetailViewModel {
     enum ViewBlock {
-        case title(title: String)
+        case name(title: String)
         case counter(count: Int)
+        case title(title: String)
         case friendReactionButton(title: String)
         case removeButton(title: String)
     }

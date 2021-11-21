@@ -8,8 +8,9 @@
 import Foundation
 
 enum FriendsDetailElement: CaseIterable {
-    case title
+    case name
     case counter
+    case title
     case friendReactionButton
     case removeButton
 }
