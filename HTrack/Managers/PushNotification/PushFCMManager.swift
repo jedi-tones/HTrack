@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-import Foundation
 import FirebaseMessaging
 import Combine
 
@@ -172,7 +170,6 @@ extension PushFCMManager {
 
 //MARK: - MessagingDelegate
 extension PushFCMManager: MessagingDelegate {
-    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         Logger.show(title: "Manager",
                     text: "\(type(of: self)) - \(#function) FCM registration token: \(String(describing: fcmToken))",

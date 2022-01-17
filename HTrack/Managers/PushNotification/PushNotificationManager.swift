@@ -113,8 +113,8 @@ extension PushNotificationManager: UNUserNotificationCenterDelegate {
         
         let data: [String : Any] = userInfo as? [String : Any] ?? [:]
         
-        if let anonNotification: MGradusNotification = data.toObject() {
-            Logger.show(title: "userNotificationCenter", text: "didReceive MGradusNotification \(anonNotification)")
+        if let gradusNotification: MGradusNotification = data.toObject() {
+            Logger.show(title: "userNotificationCenter", text: "didReceive MGradusNotification \(gradusNotification)")
         }
         //parse for check deeplink
         DeeplinkManager.shared.handleRemoteNotification(userInfo)

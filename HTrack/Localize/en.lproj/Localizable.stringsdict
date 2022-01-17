@@ -50,6 +50,8 @@
 			<string>days without alcohol</string>
 		</dict>
 	</dict>
+	<key>StringKey</key>
+	<string>setupData</string>
 	<key>days</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>

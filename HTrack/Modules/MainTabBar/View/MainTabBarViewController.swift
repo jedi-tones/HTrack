@@ -7,14 +7,6 @@ class MainTabBarViewController: UITabBarController {
     // MARK: Properties
     var output: MainTabBarViewOutput!
 
-  
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
- 
-    }
-
-
     deinit {
         Logger.show(title: "Module",
                     text: "\(type(of: self)) - \(#function)")
