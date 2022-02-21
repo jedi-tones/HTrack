@@ -24,9 +24,9 @@ enum FriendsPage: String, CaseIterable  {
     var title: String {
         switch self {
         case .friendsCollection:
-            return "друзья"
+            return LocDic.friends
         case .inputRequestCollection:
-            return "запросы"
+            return LocDic.friendsRequests
         }
     }
     

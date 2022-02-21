@@ -76,6 +76,8 @@
 		D93281E52B471A9EB343B8C9 /* FriendsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39209731F0D8310142B377F9 /* FriendsModule.swift */; };
 		DB2EDA1949D630D47C1CF97C /* InputRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B08394DD26CEF2C22D5DAAF /* InputRequestsViewController.swift */; };
 		DB7B54F6004695CFA6A80B57 /* FriendsCollectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31ED7EC1DFBD597E86ABB41 /* FriendsCollectionBuilder.swift */; };
+		DD0D75E127C3A11F009E7295 /* BaseTextButtonWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0D75E027C3A11F009E7295 /* BaseTextButtonWithImage.swift */; };
+		DD0D75E327C3B2AB009E7295 /* AppTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0D75E227C3B2AB009E7295 /* AppTrackingManager.swift */; };
 		DD10980927358DF000C4445B /* AppManager+AuthListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10980827358DF000C4445B /* AppManager+AuthListner.swift */; };
 		DD10980B2736CEF800C4445B /* PushFCMManager+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10980A2736CEF800C4445B /* PushFCMManager+Messages.swift */; };
 		DD1C00D227178BB900E4BBBF /* COperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C00D127178BB900E4BBBF /* COperationQueue.swift */; };
@@ -183,6 +185,7 @@
 		DD6BD6B426F8EC9E006369BB /* FriendsCustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */; };
 		DD6BD6B726F8EE89006369BB /* FriendsViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */; };
 		DD6BD70E26F90981006369BB /* PopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD70D26F90981006369BB /* PopUpManager.swift */; };
+		DD749DB327C3B83700AD7D2C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD749DB527C3B83700AD7D2C /* InfoPlist.strings */; };
 		DD870D6526D7DBF3000F59AE /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6426D7DBF3000F59AE /* UserManager.swift */; };
 		DD870D6726D7DCE8000F59AE /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6626D7DCE8000F59AE /* FirestoreManager.swift */; };
 		DD870D6926D7E0BE000F59AE /* UserRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870D6826D7E0BE000F59AE /* UserRequestManager.swift */; };
@@ -431,6 +434,8 @@
 		D997B8B684C982B2BB36FF03 /* WelcomeModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeModule.swift; sourceTree = "<group>"; };
 		DA805F767B093B4A99C63449 /* RegisterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DAF6DB008B893D939541DB46 /* InputRequestsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InputRequestsRouter.swift; sourceTree = "<group>"; };
+		DD0D75E027C3A11F009E7295 /* BaseTextButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextButtonWithImage.swift; sourceTree = "<group>"; };
+		DD0D75E227C3B2AB009E7295 /* AppTrackingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackingManager.swift; sourceTree = "<group>"; };
 		DD10980827358DF000C4445B /* AppManager+AuthListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppManager+AuthListner.swift"; sourceTree = "<group>"; };
 		DD10980A2736CEF800C4445B /* PushFCMManager+Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PushFCMManager+Messages.swift"; sourceTree = "<group>"; };
 		DD1C00D127178BB900E4BBBF /* COperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COperationQueue.swift; sourceTree = "<group>"; };
@@ -531,6 +536,8 @@
 		DD6BD6B326F8EC9E006369BB /* FriendsCustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCustomNavigationView.swift; sourceTree = "<group>"; };
 		DD6BD6B626F8EE89006369BB /* FriendsViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		DD6BD70D26F90981006369BB /* PopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpManager.swift; sourceTree = "<group>"; };
+		DD749DB427C3B83700AD7D2C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DD749DB627C3B83C00AD7D2C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DD870D6426D7DBF3000F59AE /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		DD870D6626D7DCE8000F59AE /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		DD870D6826D7E0BE000F59AE /* UserRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestManager.swift; sourceTree = "<group>"; };
@@ -1416,6 +1423,7 @@
 			children = (
 				FB6B9D5526BB057E0050690F /* BaseTextButtonWithArrow.swift */,
 				DD59F73B26B5AA6600CA8179 /* BaseCustomButton.swift */,
+				DD0D75E027C3A11F009E7295 /* BaseTextButtonWithImage.swift */,
 				DD2FA0BB2708E81700FC0382 /* BaseIconButton.swift */,
 				DD59F74226B5ABE200CA8179 /* BaseCustomButtonActionProtocol.swift */,
 				DD2FA0A92708A76200FC0382 /* UIButtonWithHitTestInset.swift */,
@@ -1837,6 +1845,7 @@
 				DD6869792728818A00C0A590 /* SettingsStorage.swift */,
 				DDEA6BE4273D7B2800F3BB2D /* WidgetManager.swift */,
 				DDB5BB7B27492D9B001673BF /* AppLifecycleManager.swift */,
+				DD0D75E227C3B2AB009E7295 /* AppTrackingManager.swift */,
 				DD6869932728A12300C0A590 /* PushNotification */,
 				DD6869812728859F00C0A590 /* DeeplinkManager */,
 				DD68697827287F9D00C0A590 /* UserDefault */,
@@ -1962,6 +1971,7 @@
 				DDEA6BF3273E827200F3BB2D /* Localizable.stringsdict */,
 				DDEA6BFD273E862400F3BB2D /* Localizable.strings */,
 				DDEA6C00273E871600F3BB2D /* LocDic.swift */,
+				DD749DB527C3B83700AD7D2C /* InfoPlist.strings */,
 			);
 			path = Localize;
 			sourceTree = "<group>";
@@ -2317,6 +2327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDEA6BFA273E862400F3BB2D /* Localizable.strings in Resources */,
+				DD749DB327C3B83700AD7D2C /* InfoPlist.strings in Resources */,
 				DDEA6BF1273E827200F3BB2D /* Localizable.stringsdict in Resources */,
 				DDEA6C07273E91EE00F3BB2D /* LaunchScreen.storyboard in Resources */,
 				DD9214F626763DFD00A3623E /* Assets.xcassets in Resources */,
@@ -2372,6 +2383,7 @@
 				DD2FA0A12708959700FC0382 /* DrawerHeaderView.swift in Sources */,
 				DD92150D2676577800A3623E /* UIApplication+Extension.swift in Sources */,
 				DD68699227289F0100C0A590 /* PushFCMManager.swift in Sources */,
+				DD0D75E127C3A11F009E7295 /* BaseTextButtonWithImage.swift in Sources */,
 				FBDCF1F22711D970006188E8 /* AddFriendViewController+CollectionView.swift in Sources */,
 				DD9214ED26763DFB00A3623E /* AppDelegate.swift in Sources */,
 				DD6BD70E26F90981006369BB /* PopUpManager.swift in Sources */,
@@ -2440,6 +2452,7 @@
 				DD9F617526E947D8009E3D39 /* MNickname.swift in Sources */,
 				2089B038C856887E459DA17C /* AuthRouter.swift in Sources */,
 				DD2FA0B22708B83A00FC0382 /* FriendDetailViewModel.swift in Sources */,
+				DD0D75E327C3B2AB009E7295 /* AppTrackingManager.swift in Sources */,
 				DD92152C2677DFBA00A3623E /* Array+Extension.swift in Sources */,
 				DDEA6C22273ED20500F3BB2D /* Color+Extension.swift in Sources */,
 				DDF820E127425BF400AE9D0D /* UIColor+Extension.swift in Sources */,
@@ -2684,6 +2697,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DD749DB527C3B83700AD7D2C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD749DB427C3B83700AD7D2C /* en */,
+				DD749DB627C3B83C00AD7D2C /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DDEA6BF3273E827200F3BB2D /* Localizable.stringsdict */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2853,7 +2875,7 @@
 				CODE_SIGN_ENTITLEMENTS = HTrack/HTrack.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2867,7 +2889,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -2882,7 +2904,7 @@
 				CODE_SIGN_ENTITLEMENTS = HTrack/HTrack.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2896,7 +2918,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -2908,7 +2930,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/NotificationServiceExt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
@@ -2927,7 +2949,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2938,7 +2960,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/NotificationServiceExt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
@@ -2957,7 +2979,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2971,7 +2993,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayCountWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DayCountWidget/Info.plist;
@@ -2989,7 +3011,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3003,7 +3025,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayCountWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DayCountWidget/Info.plist;
@@ -3021,7 +3043,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

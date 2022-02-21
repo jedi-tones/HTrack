@@ -11,6 +11,8 @@ class MainScreenInteractor {
     let friendsManager = FriendsManager.shared
     let authManager = FirebaseAuthManager.shared
     let appManager = AppManager.shared
+    let widgetManager = WidgetManager.shared
+    let appTrackingManager = AppTrackingManager.shared
     
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -32,6 +34,7 @@ class MainScreenInteractor {
                 switch lifeCycleState {
                 case .didBecomeActive:
                     self?.output.needUpdateDate()
+                    self?.widgetManager.updateWidget()
                 default:
                     break
                 }
@@ -54,6 +57,13 @@ extension MainScreenInteractor: MainScreenInteractorInput {
         } else {
             return nil
         }
+    }
+    
+    func requestAppTrackingPermission() {
+        Logger.show(title: "Module",
+                    text: "\(type(of: self)) - \(#function)")
+        
+        appTrackingManager.requestPermission(complition: nil)
     }
     
     func resetDrinkDate() {

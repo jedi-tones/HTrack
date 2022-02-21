@@ -25,7 +25,7 @@ class FriendsViewController: ContainerViewContoller {
     lazy var addFriendButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: addButtonCollor)
-            .setTitle(title: "добавить друга")
+            .setTitle(title: LocDic.friendsAdd)
             .setTextColor(color: addButtonTitleCollor)
         
         bt.action = { [weak self] in

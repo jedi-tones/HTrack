@@ -58,11 +58,11 @@ extension FriendDetailPresenter: FriendDetailInteractorOutput {
                 blocks.append(block)
                 
             case .friendReactionButton:
-                let block = FriendDetailViewModel.ViewBlock.friendReactionButton(title: "подбодрить друга")
+                let block = FriendDetailViewModel.ViewBlock.friendReactionButton(title: LocDic.friendReaction)
                 blocks.append(block)
                 
             case .removeButton:
-                let block = FriendDetailViewModel.ViewBlock.removeButton(title: "удалить друга")
+                let block = FriendDetailViewModel.ViewBlock.removeButton(title: LocDic.friendRemove)
                 blocks.append(block)
             }
         }
@@ -86,10 +86,10 @@ extension FriendDetailPresenter: FriendDetailInteractorOutput {
                 let block = FriendRequestViewModel.ViewBlock.name(title: interactor.friendName)
                 blocks.append(block)
             case .acceptButton:
-                let block = FriendRequestViewModel.ViewBlock.acceptButton(title: "принять")
+                let block = FriendRequestViewModel.ViewBlock.acceptButton(title: LocDic.friendsAdd)
                 blocks.append(block)
             case .rejectButton:
-                let block = FriendRequestViewModel.ViewBlock.rejectButton(title: "отклонить")
+                let block = FriendRequestViewModel.ViewBlock.rejectButton(title: LocDic.friendReject)
                 blocks.append(block)
             }
         }

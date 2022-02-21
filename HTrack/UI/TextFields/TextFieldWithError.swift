@@ -8,7 +8,6 @@
 import UIKit
 
 class TextFieldWithError: UIView {
-    
     private var topPlaceholderConstraint: NSLayoutConstraint?
     private var centerPlaceholderConstraint: NSLayoutConstraint?
     

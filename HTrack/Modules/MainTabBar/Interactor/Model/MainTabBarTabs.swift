@@ -17,7 +17,7 @@ enum MainTabBarTabs: CaseIterable {
         case .main:
            return "Anonym"
         case .friends:
-           return "Друзья"
+            return LocDic.friends
         }
     }
     

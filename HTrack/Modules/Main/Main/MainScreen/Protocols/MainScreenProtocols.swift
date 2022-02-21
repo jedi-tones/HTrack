@@ -22,6 +22,7 @@ protocol MainScreenInteractorInput {
     // MARK: PRESENTER -> INTERACTOR
     func getUser() -> MUser?
     func resetDrinkDate()
+    func requestAppTrackingPermission()
 }
 
 protocol MainScreenInteractorOutput: AnyObject {

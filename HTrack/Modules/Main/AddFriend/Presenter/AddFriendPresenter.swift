@@ -85,7 +85,7 @@ extension AddFriendPresenter: AddFriendInteractorOutput {
                         if friendsVM.count != .zero {
                             let header = TextHeaderWithCounterViewModel()
                             header.count = friendsVM.count
-                            header.title = "исходящие запросы в друзья"
+                            header.title = LocDic.friendsOuputRequest
                             
                             sectionVM.header = header
                         }

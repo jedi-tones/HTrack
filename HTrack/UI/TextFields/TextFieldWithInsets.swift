@@ -28,6 +28,4 @@ class TextFieldWithInsets: UITextField {
         let rect = super.editingRect(forBounds: bounds)
         return rect.inset(by: insets)
     }
-    
-    
 }

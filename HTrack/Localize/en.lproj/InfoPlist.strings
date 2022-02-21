@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  HTrack
+
+  Created by Jedi Tones on 21.02.2022.
+  
+*/
+
+NSUserTrackingUsageDescription = "It will help us to provide you a more personalized experience";

@@ -16,11 +16,13 @@ enum SettingsElement: String, Hashable {
         switch self {
         
         case .exit:
-            return "выход"
+            return LocDic.settingsExit
+            
         case .datePicker:
-            return "Последний раз пил"
+            return LocDic.settingsLast
+            
         case .reset:
-            return "я выпил"
+            return LocDic.iDrank
         }
     }
 }

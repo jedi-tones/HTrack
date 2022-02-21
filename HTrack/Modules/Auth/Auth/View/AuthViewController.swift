@@ -33,7 +33,7 @@ class AuthViewController: UIViewController {
     
     fileprivate lazy var emailInput: TextFieldWithError = {
         let tf = TextFieldWithError()
-            .setPlacehodler("введи e-mail")
+            .setPlacehodler(LocDic.emailPlaceholder)
             .setKeyboardType(.emailAddress)
             .setRules([.isNotEmpty, .isEmail])
         
@@ -46,7 +46,7 @@ class AuthViewController: UIViewController {
     
     fileprivate lazy var passwordInput: TextFieldWithError = {
         let tf = TextFieldWithError()
-            .setPlacehodler("пароль")
+            .setPlacehodler(LocDic.emailPassword)
             .setSecureText(true)
             .setRules([.isNotEmpty, .rule(regex: .password)])
         
@@ -66,7 +66,7 @@ class AuthViewController: UIViewController {
     fileprivate lazy var nextButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: nextButtonColor)
-            .setTitle(title: "продолжить")
+            .setTitle(title: LocDic.sharedContinue)
             .setBorderColor(color: nil)
             .setTextColor(color: nextButtonTitleColor)
             .setStatus(.deactive)
@@ -191,33 +191,33 @@ extension AuthViewController {
                 self?.passwordInput.alpha = 0
                 self?.passwordInput.text = ""
             }
-            nextButton.setTitle(title: "продолжить".uppercased(), animated: true)
+            nextButton.setTitle(title: LocDic.sharedContinue.uppercased(), animated: true)
             
         case .auth:
             emailInput.isUserInteractionEnabled = true
             passwordInput.isUserInteractionEnabled = true
             nextButton.setStatus(.normal)
             UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
-                self?.passwordInput.setPlacehodler("пароль")
+                self?.passwordInput.setPlacehodler(LocDic.emailPassword)
                 self?.passwordInput.isHidden = false
                 self?.passwordInput.alpha = 1
             } completion: { [weak self] _ in
                 self?.buttonWithPasswordStartMaxY = self?.nextButton.frame.maxY ?? .zero
             }
-            nextButton.setTitle(title: "войти", animated: true)
+            nextButton.setTitle(title: LocDic.sharedSignIn, animated: true)
             
         case .register:
             emailInput.isUserInteractionEnabled = true
             passwordInput.isUserInteractionEnabled = true
             nextButton.setStatus(.normal)
             UIView.animate(withDuration: Styles.Constants.animationDuarationBase) { [weak self] in
-                self?.passwordInput.setPlacehodler("Придумай пароль")
+                self?.passwordInput.setPlacehodler(LocDic.emailPasswordTiotle)
                 self?.passwordInput.isHidden = false
                 self?.passwordInput.alpha = 1
             } completion: { [weak self] _ in
                 self?.buttonWithPasswordStartMaxY = self?.nextButton.frame.maxY ?? .zero
             }
-            nextButton.setTitle(title: "зарегистрироваться".uppercased(), animated: true)
+            nextButton.setTitle(title: LocDic.sharedRegister.uppercased(), animated: true)
             
         case .load:
             emailInput.isUserInteractionEnabled = false

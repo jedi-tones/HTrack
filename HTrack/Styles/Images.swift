@@ -18,6 +18,8 @@ extension Styles.Images  {
     static let buttonUpArrow: UIImage = #imageLiteral(resourceName: "ArrowUp")
     static let buttonDownArrow: UIImage = #imageLiteral(resourceName: "ArrowDown")
     
+    static let buttonApple: UIImage = #imageLiteral(resourceName: "Apple")
+    
     static let settingButtonImage: UIImage = #imageLiteral(resourceName: "Settings")
     static let addUserButtonImage: UIImage = #imageLiteral(resourceName: "AddUser")
     

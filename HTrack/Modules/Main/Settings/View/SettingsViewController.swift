@@ -57,7 +57,7 @@ extension SettingsViewController {
     func setupViews() {
         
         view.backgroundColor = backColor
-        navigationItem.title = "Настройки"
+        navigationItem.title = LocDic.settingsTitle
         setupCollectionView()
         setupConstraints()
     }

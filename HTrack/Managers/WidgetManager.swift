@@ -22,7 +22,7 @@ class WidgetManager {
         updateWidget()
     }
     
-    private func updateWidget() {
+     func updateWidget() {
         WidgetCenter.shared
             .reloadTimelines(ofKind: "DayCountWidget")
     }

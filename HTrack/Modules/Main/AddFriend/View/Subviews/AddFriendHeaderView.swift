@@ -21,7 +21,7 @@ class AddFriendHeaderView: UIView {
     
     lazy var addFriendInput: TextFieldWithError = {
         let tf = TextFieldWithError()
-            .setPlacehodler("никнейм друга")
+            .setPlacehodler(LocDic.friendPlceholderName)
             .setRules([.isNotEmpty, .isNickname])
         tf.changeTextDelegate = { [weak self] _, text in
             self?.updateState(to: .normal)
@@ -38,7 +38,7 @@ class AddFriendHeaderView: UIView {
     lazy var addFriendButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: addButtonCollor)
-            .setTitle(title: "отправить запрос")
+            .setTitle(title: LocDic.friendSendRequest)
             .setTextColor(color: addButtonTitleCollor)
         
         bt.action = { [weak self] in

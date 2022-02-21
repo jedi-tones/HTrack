@@ -27,6 +27,10 @@ extension MainScreenPresenter: MainScreenViewOutput {
 
         view.setupInitialState()
         _ = interactor.getUser()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {[weak self] in
+            self?.interactor.requestAppTrackingPermission()
+        }
     }
     
     func setupUpdateTimer() {

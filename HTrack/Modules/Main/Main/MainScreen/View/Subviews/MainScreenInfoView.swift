@@ -42,7 +42,7 @@ class MainScreenInfoView: UIView {
     
     lazy var drinkButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow(insets: Styles.Sizes.mainScreenButtonInsets)
-        bt.setTitle(title: "я выпил")
+        bt.setTitle(title: LocDic.iDrank)
             .setTitleFont(font: Styles.Fonts.soyuz1)
             .setButtonColor(color: self.drinkButtonColor)
             .setTextColor(color: self.drinkButtonLabelColor)

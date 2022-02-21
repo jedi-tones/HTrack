@@ -7,3 +7,34 @@
 */
 
 "without_alco" = "без \nалкоголя";
+"login.continue_with_apple" = "Войти через Apple";
+"login.continue_with_email" = "войду с e-mail";
+"login.or" = "или";
+"main.drank" = "я выпил";
+"friends" = "друзья";
+"friends.requests" = "запросы";
+"friends.add" = "добавить друга";
+"settings.last" = "последний раз пил";
+"settings.exit" = "выход";
+"settings.title" = "настройки";
+
+"friend.reaction" = "подбодрить друга";
+"friend.placeholderName" = "никнейм друга";
+"friend.remove" = "удалить друга";
+"friend.add" = "принять";
+"friend.reject" = "отклонить";
+"friend.sendRequests" = "отправить запрос";
+"friends.outputRequests" = "исходящие запросы в друзья";
+"friends.reactionSended" = "Мы отправили лучи поддержки твоему другу";
+
+"push.reactionSended" = "Мы отправили лучи поддержки твоему другу";
+"push.reaction.title" = " шлет тебе";
+"push.reaction.desc" = "лучи поддержки!";
+
+"email.placeholder" = "введи e-mail";
+"shared.continue" = "продолжить";
+"shared.signin" = "войти";
+"email.password" = "пароль";
+"email.passwordTitle" = "придумай пароль";
+"nickname.placeholder" = "никнейм";
+

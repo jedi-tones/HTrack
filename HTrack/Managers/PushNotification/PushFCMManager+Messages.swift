@@ -15,10 +15,10 @@ extension PushFCMManager {
     ///   - sender: отправитель пуша
     func sendReactionToFriend(token: String, sender: MUser) {
         guard let senderName = sender.name else { return }
-        let title = "Твой друг \(senderName) шлет тебе"
+        let title = senderName + LocDic.pushReactionTitle
         let notification = MGradusNotification(deeplinkType: .friends,
                                                title: title,
-                                               message: "лучи поддержки!",
+                                               message: LocDic.pushReactionDesc,
                                                authorID: sender.userID,
                                                authorName: senderName,
                                                category: .systemMessage)

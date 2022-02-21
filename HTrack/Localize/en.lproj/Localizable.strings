@@ -7,3 +7,34 @@
 */
 
 "without_alco" = "without \nalco";
+"login.continue_with_apple" = "Continue with Apple";
+"login.continue_with_email" = "sign in with e-mail";
+"login.or" = "or";
+"main.drank" = "i drank";
+"friends" = "friends";
+"friends.requests" = "requests";
+"friends.add" = "add a friend";
+"settings.last" = "the last time I drank";
+"settings.exit" = "exit";
+"settings.title" = "settings";
+
+"friend.reaction" = "cheer up a friend";
+"friend.placeholderName" = "friend's nickname";
+"friend.remove" = "delete a friend";
+"friend.add" = "add";
+"friend.reject" = "reject";
+"friend.sendRequests" = "send a request";
+"friends.outputRequests" = "outgoing friend requests";
+
+"push.reactionSended" = "We sent beams of support to your friend";
+"push.reaction.title" = " sends you";
+"push.reaction.desc" = "support beams";
+
+"email.placeholder" = "enter e-mail";
+"shared.continue" = "continue";
+
+"email.password" = "password";
+"shared.register" = "register";
+"shared.signin" = "sign in";
+"email.passwordTitle" = "create a password";
+"nickname.placeholder" = "nickname";

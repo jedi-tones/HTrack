@@ -17,26 +17,27 @@ class WelcomeView: UIView {
         imageView.image = Styles.Images.mainLogo
         return imageView
     }()
-    lazy var signInWithApple: BaseTextButtonWithArrow = {
-        let bt = BaseTextButtonWithArrow()
-        bt.setTitle(title: "Войти с AppleID")
-            .setTitleFont(font: Styles.Fonts.bold2)
+    lazy var signInWithApple: BaseTextButtonWithImage = {
+        let bt = BaseTextButtonWithImage()
+        bt.setTitle(title: LocDic.signInWithApple)
+            .setTitleFont(font: Styles.Fonts.semiboldApple)
             .setButtonColor(color: self.appleButtonColor)
             .setTextColor(color: self.appleButtonLabelColor)
             .setBorderColor(color: self.appleButtonLabelColor)
-        
+            .setWithImage(image: Styles.Images.buttonApple,
+                          imagePosition: .left)
         return bt
     }()
     
     lazy var appleButton: ASAuthorizationAppleIDButton = {
         let bt = ASAuthorizationAppleIDButton(type: .signIn, style: .whiteOutline)
-        bt.cornerRadius = Styles.Sizes.baseCornerRadius
+//        bt.cornerRadius = Styles.Sizes.baseCornerRadius
         return bt
     }()
     
     lazy var signInWithEmail: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
-        bt.setTitle(title: "войду с e-mail")
+        bt.setTitle(title: LocDic.signInWithEmail)
             .setTitleFont(font: Styles.Fonts.soyuz1)
             .setButtonColor(color: self.emailButtonColor)
             .setTextColor(color: self.emailButtonLabelColor)
@@ -46,7 +47,7 @@ class WelcomeView: UIView {
     
     lazy var orLabel: UILabel = {
         let lb = UILabel()
-        lb.text = "ИЛИ"
+        lb.text = LocDic.signInOr
         lb.font = Styles.Fonts.normal1
         lb.textColor = Styles.Colors.mySecondaryLabelColor()
         return lb
@@ -149,11 +150,11 @@ extension WelcomeView {
     }
     
     var appleButtonColor: UIColor {
-        Styles.Colors.base1
+        Styles.Colors.base2
     }
     
     var appleButtonLabelColor: UIColor {
-        Styles.Colors.base3
+        Styles.Colors.base1
     }
     
     var emailButtonColor: UIColor {

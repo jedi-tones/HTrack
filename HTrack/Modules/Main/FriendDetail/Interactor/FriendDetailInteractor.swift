@@ -121,6 +121,6 @@ extension FriendDetailInteractor: FriendDetailInteractorInput {
         else { return }
        
         pushFCMManager.sendReactionToFriend(token: friendToken, sender: currentUser)
-        popUpManager.showInfo(text: "Мы отправили лучи поддержки твоему другу")
+        popUpManager.showInfo(text: LocDic.pushReactionSended)
     }
 }

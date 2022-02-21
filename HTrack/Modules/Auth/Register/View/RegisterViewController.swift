@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController {
     lazy var nextButton: BaseTextButtonWithArrow = {
         let bt = BaseTextButtonWithArrow()
         bt.setButtonColor(color: nextButtonCollor)
-            .setTitle(title: "продолжить")
+            .setTitle(title: LocDic.sharedContinue)
             .setTextColor(color: nextButtonTitleCollor)
         
         bt.action = { [weak self] in

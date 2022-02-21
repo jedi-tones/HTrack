@@ -16,6 +16,10 @@ extension Styles.Fonts  {
         return UIFont.systemFont(ofSize: size, weight: .bold)
     }
     
+    static func baseSemiBoldFont(size: CGFloat) -> UIFont {
+        return UIFont.systemFont(ofSize: size, weight: .semibold)
+    }
+    
     static func soyuzFont(size: CGFloat) -> UIFont {
         return Styles.Fonts.SoyuzGrotesk.soyuz(size: size).font
     }
@@ -43,6 +47,10 @@ extension Styles.Fonts  {
     }
     static var bold4: UIFont {
         baseBoldFont(size: 144)
+    }
+    
+    static var semiboldApple: UIFont {
+        baseSemiBoldFont(size: 17)
     }
     
     static var soyuz1: UIFont {
