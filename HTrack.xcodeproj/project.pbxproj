@@ -2875,7 +2875,7 @@
 				CODE_SIGN_ENTITLEMENTS = HTrack/HTrack.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2904,7 +2904,7 @@
 				CODE_SIGN_ENTITLEMENTS = HTrack/HTrack.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				INFOPLIST_FILE = HTrack/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2930,7 +2930,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/NotificationServiceExt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
@@ -2960,7 +2960,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/NotificationServiceExt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
@@ -2993,7 +2993,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayCountWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DayCountWidget/Info.plist;
@@ -3025,7 +3025,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayCountWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = W69L42NMK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DayCountWidget/Info.plist;
